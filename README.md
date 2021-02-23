@@ -1,3 +1,0 @@
-# Baazar
-Powered by OnePack 
-
