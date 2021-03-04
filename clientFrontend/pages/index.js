@@ -9,7 +9,7 @@ import Blog from '../components/common/Blog/blog1';
 import Instagram from '../components/common/instagram/instagram1';
 import LogoBlock from '../components/common/logo-block';
 import FooterOne from '../components/footers/footer-one';
-import HeaderOne from '../components/headers/header-one';
+import Headerthree from '../components/headers/header-three';
 import { withApollo } from '../helpers/apollo/apollo';
 import { Product4 } from '../services/script';
 import Paragraph from '../components/common/Paragraph';
@@ -24,8 +24,7 @@ const Fashion = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/x-icon" href={favicon?favicon:''} />
       </Helmet>
-      <ModalComponent />
-      <HeaderOne logoName={'logo.png'} topClass="top-header" />
+      <Headerthree logoName={'logo.png'} topClass="top-header" />
       <Banner /> 
       <CollectionBanner />
       <Paragraph title="title1 section-t-space" inner="title-inner1" hrClass={false} />

@@ -8,6 +8,9 @@ import { Media, Container, Row, Col, Form, Input, Button, FormGroup } from 'reac
 import search from '../../public/assets/images/icon/search.png';
 import settings from '../../public/assets/images/icon/setting.png';
 import cart from '../../public/assets/images/icon/cart.png';
+import SideBar from "./common/sidebar";
+
+
 
 const HeaderThree = (props) => {
 
@@ -80,10 +83,22 @@ const HeaderThree = (props) => {
                     <Row>
                         <Col>
                             <div className="main-menu border-section border-top-0">
-                                <div className="brand-logo layout2-logo">
+                            <div className="menu-left">
+									<div className="navbar">
+										<a href={null} onClick={openNav}>
+											<div className="bar-style"> <i className="fa fa-bars sidebar-bar" aria-hidden="true"></i></div>
+										</a>
+										{/*SideBar Navigation Component*/}
+										<SideBar />
+									</div>
+									<div className="brand-logo layout2-logo">
                                     <LogoImage logo={props.logoName} />
                                 </div>
+									
+								</div>
+                                
                                 <div>
+                                
                                     <form className="form_search" role="textbox">
                                      {/* eslint-disable-next-line */}
                                         <Input id="query search-autocomplete" type="search"
@@ -108,6 +123,7 @@ const HeaderThree = (props) => {
                                             </ul>
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </Col>
