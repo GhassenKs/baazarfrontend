@@ -30,7 +30,7 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                                 <div className="subscribe">
                                     <div>
                                         <h4>KNOW IT ALL FIRST!</h4>
-                                        <p>Never Miss Anything From Multikart By Signing Up To Our Newsletter. </p>
+                                        <p>Never miss anything from Bazaar by signing up to our Newsletter. </p>
                                     </div>
                                 </div>
                             </Col>
@@ -89,18 +89,16 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                                 <div className="footer-contant">
                                     <ul>
                                         <li>
-                                            <Link href={`/shop/left_sidebar`} >
-                                                <a>womens</a>
+                                            <Link href={`/page/account/dashboard`} >
+                                                <a>Profile</a>
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href={`/shop/left_sidebar`} ><a> clothing </a></Link>
+                                            <Link href={`/shop/left_sidebar`} ><a>Orders</a></Link>
                                         </li>
+                                    
                                         <li>
-                                            <Link href={`/shop/left_sidebar`} ><a>accessories</a></Link>
-                                        </li>
-                                        <li>
-                                            <Link href={`/shop/left_sidebar`} ><a> featured </a></Link>
+                                            <Link href={`/shop/left_sidebar`} ><a>Wishlist</a></Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -109,15 +107,14 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                         <Col>
                             <div className="sub-title">
                                 <div className="footer-title">
-                                    <h4>why we choose</h4>
+                                    <h4>Our company</h4>
                                 </div>
                                 <div className="footer-contant">
                                     <ul>
-                                        <li><a href="#">shipping & return</a></li>
-                                        <li><a href="#">secure shopping</a></li>
-                                        <li><a href="#">gallary</a></li>
-                                        <li><a href="#">affiliates</a></li>
-                                        <li><a href="#">contacts</a></li>
+                                        <li><a href="#">About us</a></li>
+                                        <li><a href="#">Contact us</a></li>
+                                        <li><a href="#">FAQ</a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -144,7 +141,7 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                 </Container>
             </section>
 
-            <CopyRight layout={layoutClass} fluid={fluid}  />
+            
         </footer>
     )
 }

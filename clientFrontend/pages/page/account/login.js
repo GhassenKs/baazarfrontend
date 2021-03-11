@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {setState, Component} from 'react';
 import CommonLayout from '../../../components/shop/common-layout';
 import { Container, Row, Form, Label, Input ,Col} from 'reactstrap';
 
 const Login = () => {
+    const router = useRouter();
+    const [email, setEmail] = useState("test@gmail.com");
+    const [password, setPassword] = useState("test@123");
+    
     return (
         <CommonLayout parent="home" title="login">
             <section className="login-page section-b-space">
@@ -14,19 +18,20 @@ const Login = () => {
                                 <Form className="theme-form">
                                     <div className="form-group">
                                         <Label for="email">Email</Label>
-                                        <Input type="text" className="form-control" id="email" placeholder="Email" required="" />
+                                        <Input type="text" className="form-control"  onChange={e => setEmail(e.target.value)} placeholder="Email" required="" />
                                     </div>
                                     <div className="form-group">
                                         <Label for="review">Password</Label>
-                                        <Input type="password" className="form-control" id="review"
+                                        <Input type="password" className="form-control"  onChange={e => setPassword(e.target.value)} 
                                             placeholder="Enter your password" required="" />
-                                    </div><a href="#" className="btn btn-solid">Login</a>
+                                    </div><a href={this.state.url} onClick={() => loginAuth(email,password)} className="btn btn-solid">Login</a>
                                 </Form>
                                 <hr></hr>
                             <div className="theme-card authentication-right">
                                 <h6 className="title-font">Create an Account</h6>
                                 <p>Sign up for a free account at our store. Registration is quick and easy. It allows you to be
-                            able to order from our shop. To start shopping click register.</p><a href="#"
+                            able to order from our shop. To start shopping click register.</p>
+                            <a href="#"
                                     className="btn btn-solid">Create an Account</a>
                             </div>
                             </div>

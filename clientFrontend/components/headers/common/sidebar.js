@@ -107,7 +107,7 @@ const SideBar = () => {
                                                     <a href="#">skirts</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">westarn wear</a>
+                                                    <a href="#">western wear</a>
                                                 </li>
                                                 <li>
                                                     <a href="#">ethic wear</a>
@@ -138,17 +138,16 @@ const SideBar = () => {
                                                     <a href="#">fashion jewellery</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">caps and hats</a>
-                                                </li>
-                                                <li>
                                                     <a href="#">precious jewellery</a>
                                                 </li>
                                                 <li>
+                                                    <a href="#">caps and hats</a>
+                                                </li>
+                                                
+                                                <li>
                                                     <a href="#">necklaces</a>
                                                 </li>
-                                                <li>
-                                                    <a href="#">earrings</a>
-                                                </li>
+                                                
                                                 <li>
                                                     <a href="#">wrist wear</a>
                                                 </li>
@@ -165,20 +164,9 @@ const SideBar = () => {
                                         </div>
                                     </Col>
                                     <Col xl="4">
-                                        <a href="#" className="mega-menu-banner">
-                                            <Media src={fashion} alt="" className="img-fluid" />
-                                        </a>
-                                    </Col>
-                                </Row>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" onClick={(e) => handleSubmenu(e)}>
-                            bags
-                                <span className="sub-arrow"></span>
-                        </a>
-                        <ul>
+                                        <div className="link-section">
+                                            <h5>Bags</h5>
+                                            <ul>
                             <li>
                                 <a href="#">shopper bags</a>
                             </li>
@@ -189,133 +177,31 @@ const SideBar = () => {
                                 <a href="#">clutches</a>
                             </li>
                             <li>
-                                <a href="#" onClick={(e) => handleSubTwoMenu(e)} >
-                                    purses
-                                        <span className="sub-arrow"></span>
-                                </a>
+                                <a href="#" >purses</a>
+                               </li> 
+                            <li>
+                                <a href="#">wallets</a>
+                            </li>
+                             </ul>
+                                        </div>
+                                     
+                            <div className="link-section">
                                 <ul>
-                                    <li>
-                                        <a href="#">purses</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">wallets</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">leathers</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">satchels</a>
-                                    </li>
-                                </ul>
+                                    <li>  <a href=""><h5>Watches</h5> </a></li>
+                                    <li><a href="#"><h5>Footwear</h5></a> </li>
+                                    <li><a href="#"><h5>Kids</h5></a> </li>
+                            </ul>
+                            </div>
+                                  
+                                    </Col>
+                              
+                                </Row>
                             </li>
                         </ul>
                     </li>
+                   
                     <li>
-                        <a href="#" onClick={(e) => handleSubmenu(e)}>
-                            footwear
-                                <span className="sub-arrow"></span>
-                        </a>
-                        <ul>
-                            <li>
-                                <a href="#">sport shoes</a>
-                            </li>
-                            <li>
-                                <a href="#">formal shoes</a>
-                            </li>
-                            <li>
-                                <a href="#">casual shoes</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" >
-                            watches
-                            </a>
-                    </li>
-                    <li>
-                        <a href="#" onClick={(e) => handleSubmenu(e)}>
-                            Accessories
-                                <span className="sub-arrow"></span>
-                        </a>
-                        <ul>
-                            <li>
-                                <a href="#">fashion jewellery</a>
-                            </li>
-                            <li>
-                                <a href="#">caps and hats</a>
-                            </li>
-                            <li>
-                                <a href="#">precious jewellery</a>
-                            </li>
-                            <li>
-                                <a href="#" onClick={(e) => handleSubTwoMenu(e)} >
-                                    more..
-                                        <span className="sub-arrow"></span>
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a href="#">necklaces</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">earrings</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">wrist wear</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick={(e) => handleSubThreeMenu(e)} >
-                                            accessories
-                                                <span className="sub-arrow"></span>
-                                        </a>
-                                        <ul>
-                                            <li>
-                                                <a href="#">ties</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">cufflinks</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">pockets squares</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">helmets</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">scarves</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" onClick={(e) => handleSubFourMenu(e)} >
-                                                    more...
-                                                        <span className="sub-arrow"></span>
-                                                </a>
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">accessory gift sets</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">travel accessories</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">phone cases</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">belts & more</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">wearable</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" >house of design</a>
-                    </li>
-                    <li>
+                        
                         <a href="#" onClick={(e) => handleSubmenu(e)}>
                             beauty & personal care
                                 <span className="sub-arrow"></span>
@@ -327,37 +213,44 @@ const SideBar = () => {
                             <li>
                                 <a href="#">skincare</a>
                             </li>
+                        
                             <li>
-                                <a href="#">premium beaty</a>
+                                <a href="#">fragrances</a>
+                            </li>
+                            
+                            <li>
+                                <a href="#">hair care</a>
                             </li>
                             <li>
-                                <a href="#" onClick={(e) => handleSubTwoMenu(e)}>
-                                    more
-                                        <span className="sub-arrow"></span>
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a href="#">fragrances</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">luxury beauty</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">hair care</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">tools & brushes</a>
-                                    </li>
-                                </ul>
+                                <a href="#">tools & brushes</a>
                             </li>
+                        
+                            
                         </ul>
                     </li>
                     <li>
                         <a href="#" >home & decor</a>
                     </li>
                     <li>
-                        <a href="#" >kitchen</a>
+                        <a href="#" >Electronics</a>
                     </li>
+                    <li>
+                        <a href="#" >Tools</a>
+                    </li>
+                    <li>
+                        <a href="#" >Vegetables</a>
+                    </li>
+                    <li>
+                        <a href="#" >Nursery</a>
+                    </li>
+                    <li>
+                        <a href="#" >Pet Supplies</a>
+                    </li>
+                    <li>
+                        <a href="#" >Fitness Equipement</a>
+                    </li>
+                    
+                   
                 </ul>
             </nav>
         </div>

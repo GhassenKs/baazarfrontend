@@ -9,7 +9,9 @@ const ForgetPwd = () => {
                 <Container>
                     <Row>
                         <Col lg="6" className="m-auto">
-                            <h2>Forget Your Password</h2>
+                            
+                            <h2>Mot de pass oublié</h2>
+                            <div>Veuillez entrer votre adresse email ci-dessous pour recevoir le lien de réinitialisation du mot de passe.</div>
                             <Form className="theme-form">
                                 <Row>
                                     <Col md="12">
@@ -17,6 +19,8 @@ const ForgetPwd = () => {
                                             required="" />
                                     </Col>
                                     <a href="#" className="btn btn-solid">Submit</a>
+                                    
+                                    
                                 </Row>
                             </Form>
                         </Col>

@@ -25,15 +25,7 @@ export const MENUITEMS = [
                { path: '/layouts/Kids', title: 'Kids', type: 'link' },
             ]
          },
-         {
-            title: 'Basics', type: 'sub', children: [
-               { path: '/layouts/Basics/Lookbook', title: 'Lookbook', type: 'link' },
-               { path: '/layouts/Basics/Instagram', title: 'Instagram', type: 'link' },
-               { path: '/layouts/Basics/Video', title: 'Video', type: 'link' },
-               { path: '/layouts/Basics/Parallax', title: 'Parallax', type: 'link' },
-               { path: '/layouts/Basics/Fullpage', title: 'Full Page', type: 'link' }
-            ]
-         },
+        
          { path: '/layouts/Beauty', title: 'Beauty', type: 'link' },
          {
             title: 'electronic', type: 'sub', children: [
@@ -201,12 +193,7 @@ export const MENUITEMS = [
       ]
    },
    {
-      title: 'Blogs', type: 'sub', children: [
-         { path: '/blogs/blog_left_sidebar', title: 'blog left sidebar', type: 'link' },
-         { path: '/blogs/blog_right_sidebar', title: 'blog right sidebar', type: 'link' },
-         { path: '/blogs/no_sidebar', title: 'no sidebar', type: 'link' },
-         { path: '/blogs/blog_detail', title: 'blog detail', type: 'link' },
-      ]
+      title: 'Contact us', type: 'Link', path:'/page/account/contact' 
    },
 ]
 
