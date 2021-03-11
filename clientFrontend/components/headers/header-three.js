@@ -73,6 +73,7 @@ const HeaderThree = (props) => {
 
 
     return (
+        /*header*/
         <div>
             <header id="sticky" className="sticky header-2 header-6">
                 <div className="mobile-fix-option"></div>
@@ -129,7 +130,9 @@ const HeaderThree = (props) => {
                         </Col>
                     </Row>
                 </Container>
+            {/*end header*/}
                 <Container>
+                    
                     <Row>
                         <Col lg="12">
                             <div className="main-nav-center">

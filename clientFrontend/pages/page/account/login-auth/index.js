@@ -19,18 +19,10 @@ const Login = () => {
     }, [name]);
 
     const loginAuth = async (email,password) => {
-        try {
-            await firebase.auth().signInWithEmailAndPassword(email, password).then(function () {                
-                setName("Emay Walter");
+      setName("Emay Walter");
                 setTimeout(() => {
                     router.push(`/page/account/checkout`);
                 }, 200);
-                })
-        } catch (error) {
-            setTimeout(() => {
-                toast.error("error", error);
-            }, 200);
-        }
     }
     
     const googleAuth = async () => {
@@ -79,7 +71,7 @@ const Login = () => {
                                     </div>
                                     <div className="form-group">
                                         <Label for="review">Password</Label>
-                                        <Input type="password" defaultValue={password} onChange={e => setPassword(e.target.value)} className="form-control" id="review"
+                                        <Input type="password" defaultValue={password} onChange={ccc} className="form-control" id="review"
                                             placeholder="Enter your password" required="" />
                                     </div>
                                     <a href="#" className="btn btn-solid" onClick={() => loginAuth(email,password)}>Login</a>
