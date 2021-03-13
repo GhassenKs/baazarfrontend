@@ -1,3 +1,7 @@
+//---------------old packages------------
+
+
+
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
@@ -26,9 +30,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "http://localhost:3000", 
-    credentials: true,
-  })
+    origin: "*" })
 );
 app.use(
   session({

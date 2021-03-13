@@ -1,11 +1,29 @@
-import React, {setState, Component} from 'react';
+import React,{useState} from 'react';
 import CommonLayout from '../../../components/shop/common-layout';
 import { Container, Row, Form, Label, Input ,Col} from 'reactstrap';
+import { toast } from 'react-toastify';
+import Axios from 'axios';
+
 
 const Login = () => {
-    const router = useRouter();
-    const [email, setEmail] = useState("test@gmail.com");
-    const [password, setPassword] = useState("test@123");
+
+  const [loginUsername, setLoginUsername] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [data, setData] = useState(null);
+
+  const login = () => {
+    Axios({
+      method: "POST",
+      data: {
+        username: loginUsername,
+        password: loginPassword,
+      },
+      withCredentials: true,
+      url: "http://localhost:4000/login",
+    }).then((res) => console.log(res));
+  };
+
+  
     
     return (
         <CommonLayout parent="home" title="login">
@@ -18,13 +36,13 @@ const Login = () => {
                                 <Form className="theme-form">
                                     <div className="form-group">
                                         <Label for="email">Email</Label>
-                                        <Input type="text" className="form-control"  onChange={e => setEmail(e.target.value)} placeholder="Email" required="" />
+                                        <Input type="text" className="form-control" id="mail"  onChange={e => setLoginUsername(e.target.value)} placeholder="Email" required="" />
                                     </div>
                                     <div className="form-group">
                                         <Label for="review">Password</Label>
-                                        <Input type="password" className="form-control"  onChange={e => setPassword(e.target.value)} 
+                                        <Input type="password" className="form-control" id="pass" onChange={e => setLoginPassword(e.target.value)} 
                                             placeholder="Enter your password" required="" />
-                                    </div><a href={this.state.url} onClick={() => loginAuth(email,password)} className="btn btn-solid">Login</a>
+                                    </div><a href="#" onClick={login} className="btn btn-solid">Login</a>
                                 </Form>
                                 <hr></hr>
                             <div className="theme-card authentication-right">

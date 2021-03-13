@@ -104,7 +104,7 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientFrontend\\components\\common\\widgets\\Tap-Top.js";
+var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientfrontend\\components\\common\\widgets\\Tap-Top.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -207,7 +207,7 @@ __webpack_require__.r(__webpack_exports__);
 var _config_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./config.json */ "./components/customizer/config.json", 1);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reactstrap */ "reactstrap");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_5__);
-var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientFrontend\\components\\customizer\\theme-settings.js";
+var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientfrontend\\components\\customizer\\theme-settings.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -730,7 +730,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CompareContextProvider", function() { return _CompareContext__WEBPACK_IMPORTED_MODULE_2__["Provider"]; });
 
-var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientFrontend\\helpers\\Compare\\CompareContext.js";
+var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientfrontend\\helpers\\Compare\\CompareContext.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -820,7 +820,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CurrencyContextProvider", function() { return _CurrencyContext__WEBPACK_IMPORTED_MODULE_1__["Provider"]; });
 
-var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientFrontend\\helpers\\Currency\\CurrencyContext.js";
+var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientfrontend\\helpers\\Currency\\CurrencyContext.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const Context = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])({});
@@ -874,7 +874,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index */ "./helpers/cart/index.js");
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "react-toastify");
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientFrontend\\helpers\\cart\\CartContext.js";
+var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientfrontend\\helpers\\cart\\CartContext.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -1069,7 +1069,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _FilterContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FilterContext */ "./helpers/filter/FilterContext.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ "next/router");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientFrontend\\helpers\\filter\\FilterProvider.js";
+var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientfrontend\\helpers\\filter\\FilterProvider.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -1214,7 +1214,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuContextProvider", function() { return _MenuContext__WEBPACK_IMPORTED_MODULE_1__["Provider"]; });
 
-var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientFrontend\\helpers\\menu\\MenuContext.js";
+var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientfrontend\\helpers\\menu\\MenuContext.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const Context = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])({
@@ -1277,7 +1277,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SettingContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SettingContext */ "./helpers/theme-setting/SettingContext.js");
 /* harmony import */ var _components_customizer_config_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/customizer/config.json */ "./components/customizer/config.json");
 var _components_customizer_config_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../components/customizer/config.json */ "./components/customizer/config.json", 1);
-var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientFrontend\\helpers\\theme-setting\\SettingProvider.js";
+var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientfrontend\\helpers\\theme-setting\\SettingProvider.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -1358,7 +1358,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WishlistContextProvider", function() { return _WishlistContext__WEBPACK_IMPORTED_MODULE_2__["Provider"]; });
 
-var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientFrontend\\helpers\\wishlist\\WishlistContext.js";
+var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientfrontend\\helpers\\wishlist\\WishlistContext.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1458,7 +1458,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_Currency_CurrencyContext__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../helpers/Currency/CurrencyContext */ "./helpers/Currency/CurrencyContext.js");
 /* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-helmet */ "react-helmet");
 /* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(react_helmet__WEBPACK_IMPORTED_MODULE_13__);
-var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientFrontend\\pages\\_app.js";
+var _jsxFileName = "C:\\Users\\fhaij\\Desktop\\pfe\\pfe-project\\clientfrontend\\pages\\_app.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
