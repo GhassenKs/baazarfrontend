@@ -1,8 +1,14 @@
+
 const { ApolloServer } = require('apollo-server')
 const typeDefs = require('./src/product/schema')
 const resolvers = require('./src/product/resolver')
 
 //------------------------------------------------------------------------------------------
+
+//---------------old packages------------
+
+
+
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
@@ -29,6 +35,12 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.ihnhs.mongodb.net/TESTG?ret
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
+
+  cors({
+    origin: "*" })
+);
+app.use(
+
   session({
     secret: "secretcode",
     resave: true,
