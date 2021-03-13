@@ -1,7 +1,8 @@
-//---------------old packages------------
+const { ApolloServer } = require('apollo-server')
+const typeDefs = require('./src/product/schema')
+const resolvers = require('./src/product/resolver')
 
-
-
+//------------------------------------------------------------------------------------------
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
@@ -13,25 +14,20 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const app = express();
 const User = require("./models/user");
-//----------------------------------------- END OF IMPORTS---------------------------------------------------
-mongoose.connect(
-  "mongodb+srv://ghassen:ghassen@cluster0.csfj6.mongodb.net/BAZAAR",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  () => {
-    console.log("Mongoose Is Connected");
-  }
-);
 
-// Middleware
+
+app.use(cors({
+  origin:'*'
+}));
+
+mongoose.connect('mongodb+srv://admin:admin@cluster0.ihnhs.mongodb.net/TESTG?retryWrites=true&w=majority', 
+{useNewUrlParser: true, useUnifiedTopology: true});
+
+
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: "*" })
-);
 app.use(
   session({
     secret: "secretcode",
@@ -45,8 +41,6 @@ app.use(passport.session());
 require("./passportConfig")(passport);
 
 
-
-// Routes
 app.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
@@ -77,10 +71,24 @@ app.post("/register", (req, res) => {
   });
 });
 app.get("/user", (req, res) => {
-  res.send(req.user); 
+  res.send("hello"); 
 });
 
-//Start Server
-app.listen(4000, () => {
-  console.log("Server Has Started");
-});
+
+
+
+
+//----------------------------------------------------------------------------
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  introspection: true,
+  playground: true,
+})
+
+server.listen({ port: process.env.PORT || 4000 })
+  .then(({ url }) => console.log('Server is running on localhost:4000', url))
+  //express server
+  app.listen(4001, () => {
+    console.log(`Example app listening at http://localhost:4001`)
+  })
