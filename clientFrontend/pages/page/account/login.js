@@ -18,7 +18,7 @@ const Login = () => {
         username: loginUsername,
         password: loginPassword,
       },
-      withCredentials: true,
+      withCredentials: false,
       url: "http://localhost:4000/login",
     }).then((res) => console.log(res));
   };

@@ -72,6 +72,7 @@ var CategorySchema = new GraphQLSchema({
         },  
         resolve: (_,args) =>{
           console.log("args product",args.product);
+          
           addProducts.push(args.product)
           return args.product;
         }
