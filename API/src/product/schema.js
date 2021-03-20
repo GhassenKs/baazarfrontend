@@ -1,4 +1,3 @@
-
 const typeDefs = `
     type Product {
         id: Int!
@@ -114,8 +113,25 @@ const typeDefs = `
       shortDesc:String,
       longDesc:String
     }
-    
-    
+    type User{
+      id:ID!
+      firstName:String!
+      lastName:String!
+      email:String!
+      password:String!
+      token:String!
+    }
+    input RegisterInput{
+      firstName:String!
+      lastName:String!
+      email:String!
+      password:String!
+
+    }
+
+
+
+
      type Query {
         product(id: Int!): Product
         products(indexFrom:Int , limit:Int ,type:_CategoryType ,text :String ,brand: [String!],size:[String!] , color:String ,sortBy:_SortBy ,priceMin:Int ,priceMax:Int ): ProductResponse
@@ -129,6 +145,10 @@ const typeDefs = `
         newProducts(type:String):[Product]
         getProducts(limit:Int):[Product]
         getCurrency:[Currency]
+        getUsers: [User]
+        
+        
+        
       }
   
     # type Mutation {
@@ -139,7 +159,12 @@ const typeDefs = `
     #       ingredients: String
     #       direction: String
     #     ): Recipe
+
     # }
+    type Mutation {
+      register(registerInput:RegisterInput):User!
+      login(email:String!,password:String!): User!
+    }
 `;
 
 

@@ -11,10 +11,23 @@ import FilterProvider from '../helpers/filter/FilterProvider';
 import SettingProvider from '../helpers/theme-setting/SettingProvider';
 import { CompareContextProvider } from '../helpers/Compare/CompareContext';
 import { CurrencyContextProvider } from '../helpers/Currency/CurrencyContext';
-import Helmet from 'react-helmet';
 
+import Helmet from 'react-helmet';
+import {
+  BrowserRouter as Router,
+  Switch,
+  useLocation
+} from "react-router-dom";
+
+//-------------------------------------
+
+
+
+
+//----------------------------------------
 
 export default function MyApp({ Component, pageProps }) {
+
   const [isLoading, setIsLoading] = useState(true);
   const [url, setUrl] = useState();
 
@@ -30,6 +43,7 @@ export default function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <>
+    
       {
         isLoading ?
 
@@ -54,7 +68,9 @@ export default function MyApp({ Component, pageProps }) {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <title>Multikart - Multi-purpopse E-commerce React Template</title>
           </Helmet>
+          <Router>
             <div>
+            
               <SettingProvider>
                 <CompareContextProvider>
                   <CurrencyContextProvider>
@@ -71,9 +87,11 @@ export default function MyApp({ Component, pageProps }) {
                   <ThemeSettings />
                 </CompareContextProvider>
               </SettingProvider>
+              
               <ToastContainer />
               <TapTop />
             </div>
+            </Router>
           </>
       }
 

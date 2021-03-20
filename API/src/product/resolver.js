@@ -13,7 +13,7 @@ const resolvers = {
   Query: {
     products: (root, args, context, info) => {
 
-
+      
       const fuse = new Fuse(products, {
         threshold: 0.6,
         minMatchCharLength: 2,
@@ -171,7 +171,16 @@ const resolvers = {
     },
     getCurrency: () => {
       return loadCurrency;
-    }
+    },
+
+    //------------------------new edit
+    
+
+
+
+
+
+    //------------------------------end of new edit
   },
 
   Product: {

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Banner from './layouts/Fashion/Components/Banner'
 import CollectionBanner from './layouts/Marketplace/components/Collections';
 import TopCollection from '../components/common/Collections/Collection3';
@@ -15,12 +16,20 @@ import { Product4 } from '../services/script';
 import Paragraph from '../components/common/Paragraph';
 import ModalComponent from '../components/common/Modal';
 import Helmet from 'react-helmet';
-import favicon from '../public/assets/images/favicon/logo.png'
+import favicon from '../public/assets/images/favicon/logo.png';
+
+//-----------------------------setting up apollo client
+
+
+
+//-----------------end of setup
 
 const Fashion = () => {
   return (
     <>
+    
       <Helmet>
+
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/x-icon" href={favicon?favicon:''} />
       </Helmet>
