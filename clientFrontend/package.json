@@ -31,6 +31,8 @@
     "i18next-browser-languagedetector": "^6.0.1",
     "isomorphic-unfetch": "^3.0.0",
     "js-cookie": "^2.2.1",
+    "jwt-decode": "^3.1.2",
+    "localstorage-memory": "^1.0.3",
     "next": "^9.4.4",
     "next-apollo": "^4.0.1",
     "next-compose-plugins": "^2.2.0",

@@ -11,7 +11,7 @@ import FilterProvider from '../helpers/filter/FilterProvider';
 import SettingProvider from '../helpers/theme-setting/SettingProvider';
 import { CompareContextProvider } from '../helpers/Compare/CompareContext';
 import { CurrencyContextProvider } from '../helpers/Currency/CurrencyContext';
-
+import {AuthProvider} from '../context/auth';
 import Helmet from 'react-helmet';
 import {
   BrowserRouter as Router,
@@ -68,6 +68,7 @@ export default function MyApp({ Component, pageProps }) {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <title>Multikart - Multi-purpopse E-commerce React Template</title>
           </Helmet>
+          <AuthProvider>
           <Router>
             <div>
             
@@ -92,6 +93,7 @@ export default function MyApp({ Component, pageProps }) {
               <TapTop />
             </div>
             </Router>
+            </AuthProvider>
           </>
       }
 

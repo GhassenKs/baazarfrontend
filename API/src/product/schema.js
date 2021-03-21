@@ -67,7 +67,6 @@ const typeDefs = `
       AscOrder,
       DescOrder,
     }
-
     enum _CategoryType {
       electronics,
       vegetables,

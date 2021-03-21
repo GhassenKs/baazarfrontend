@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React , {useState,useContext} from 'react';
 import CommonLayout from '../../../components/shop/common-layout';
 import { Input, Container, Row, Form, Label ,Col} from 'reactstrap';
 //-------------------------------
@@ -8,12 +8,13 @@ import { useForm } from '../../../util/hooks';
 import { withApollo } from '../../../helpers/apollo/apollo';
 import { onError } from "@apollo/client/link/error";
 import { useRouter } from 'next/router';
-
+import {AuthContext} from '../../../context/auth';
 //-------------------------------
 
 function Register() {
 
     //---------------------
+    const context = useContext(AuthContext)
     const router = useRouter()
     const [errors, setErrors] = useState({});
 
@@ -26,8 +27,9 @@ function Register() {
     });
   
     const [addUser, { loading }] = useMutation(REGISTER_USER, {
-      update(_, result) {
-        console.log(result.data.Register);
+      update(_, {data:{register:userData}}) {
+        console.log(userData);
+        context.login(userData)
         router.push('../../');
         
         
