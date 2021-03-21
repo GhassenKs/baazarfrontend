@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import CommonLayout from '../../../components/shop/common-layout';
 import { Container, Row, Form, Label, Input ,Col} from 'reactstrap';
 import { toast } from 'react-toastify';
@@ -7,11 +7,11 @@ import gql from 'graphql-tag';
 import { useForm } from '../../../util/hooks';
 import {useRouter} from 'next/router';
 import { withApollo } from '../../../helpers/apollo/apollo';
-
+import {AuthContext} from '../../../context/auth';
 
 
 function Login (props)  {
-
+    const context = useContext(AuthContext)
     const router = useRouter()
     const [errors, setErrors] = useState({});
     const { onChange, onSubmit, values } = useForm(loginUserCallback, {
@@ -19,8 +19,9 @@ function Login (props)  {
         password: ''
       });
       const [loginUser, { loading }] = useMutation(LOGIN_USER, {
-        update(_, result) {
-            console.log(result.data.login);
+        update(_, {data:{login:userData}}) {
+            console.log(userData);
+            context.login(userData)
             router.push('../../');
         },
         onError(err) {

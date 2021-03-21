@@ -44,7 +44,6 @@ module.exports ={
                   id:user._id,
                   token
               }
-          
           },
          async register(_,{registerInput:{firstName,lastName,email,password}},context,info){
               //TODO validate infos
