@@ -1,7 +1,6 @@
 import React,{useState,useContext} from 'react';
 import CommonLayout from '../../../components/shop/common-layout';
 import { Container, Row, Form, Label, Input ,Col} from 'reactstrap';
-import { toast } from 'react-toastify';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { useForm } from '../../../util/hooks';

@@ -1,55 +1,24 @@
 import React, {useReducer,createContext,useEffect} from 'react';
-
 import jwtDecode from 'jwt-decode';
 
 const initialState = {
     user: null
   };
-
-
-
-
-/*
-  useEffect(() => {
-
-    if (localStorage.getItem('jwtToken')) {
-        const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
-      
-        if (decodedToken.exp * 1000 < Date.now()) {
-          localStorage.removeItem('jwtToken');
-        } else {
-          initialState.user = decodedToken;
-        }
-      }
-
-      useEffect(function persistForm() {
-        localStorage.setItem('formData', name);
-      });
-
-    
-
- }, []);*/
   
- /* if (localStorage.getItem('jwtToken')) {
-    const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
-  
-    if (decodedToken.exp * 1000 < Date.now()) {
-      localStorage.removeItem('jwtToken');
-    } else {
-      initialState.user = decodedToken;
-    }
-  }*/
-  
+
+ 
 
 const AuthContext = createContext({
     user:null,
     login:(userData) =>{},
-    logout:() =>{}
+    logout:() =>{},
 })
+
 
 function authReducer(state,action){
     switch(action.type){
         case'LOGIN':
+        
             return{
                 ...state,
                 user:action.payload
@@ -59,6 +28,8 @@ function authReducer(state,action){
                 ...state,
                 user:null
             }
+            
+            
         default:
             return state;
     }
@@ -69,17 +40,25 @@ function AuthProvider(props){
     const [state,dispatch] = useReducer(authReducer,initialState);
 
     function login(userData){
-        localStorage.setItem("jwtToken",userData.token)
-        localStorage.setItem("username",userData.firstName);
+        sessionStorage.setItem("jwtToken",userData.token);
+        sessionStorage.setItem("username",userData.firstName);
+
+        
         dispatch({
 
+         
+
             type:'LOGIN',
-            payload:userData
+            payload:userData,
+            
         })
     }
+   
+   
     function logout(){
-        localStorage.removeItem("jwtToken")
-        localStorage.removeItem("username")
+        sessionStorage.removeItem("jwtToken")
+        sessionStorage.removeItem("username")
+        window.location.reload(true)
         dispatch({type:'LOGOUT'});
     }
     return(

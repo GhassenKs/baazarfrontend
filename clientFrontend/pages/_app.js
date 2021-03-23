@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import ThemeSettings from '../components/customizer/theme-settings';
 import '../public/assets/scss/app.scss';
 import { ToastContainer } from 'react-toastify';
@@ -11,8 +11,10 @@ import FilterProvider from '../helpers/filter/FilterProvider';
 import SettingProvider from '../helpers/theme-setting/SettingProvider';
 import { CompareContextProvider } from '../helpers/Compare/CompareContext';
 import { CurrencyContextProvider } from '../helpers/Currency/CurrencyContext';
-import {AuthProvider} from '../context/auth';
+import {AuthProvider, AuthContext} from '../context/auth';
 import Helmet from 'react-helmet';
+
+import jwtDecode from 'jwt-decode'
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,7 +26,6 @@ import {
 
 
 
-//----------------------------------------
 
 export default function MyApp({ Component, pageProps }) {
 
@@ -41,6 +42,13 @@ export default function MyApp({ Component, pageProps }) {
     }, 1000);
 
   }, []);
+
+ 
+  
+
+  
+
+  
   return (
     <>
     
@@ -66,7 +74,7 @@ export default function MyApp({ Component, pageProps }) {
             />
           <Helmet>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <title>Multikart - Multi-purpopse E-commerce React Template</title>
+            <title>Bazaar.tn</title>
           </Helmet>
           <AuthProvider>
           <Router>
