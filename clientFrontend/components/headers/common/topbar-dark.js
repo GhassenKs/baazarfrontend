@@ -1,7 +1,6 @@
-import React, {useContext,useState} from 'react';
+import React, {useContext,useState, useEffect} from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import Link from 'next/link';
-import firebase from '../../../config/base'
 import { useRouter } from 'next/router';
 import {AuthContext} from '../../../context/auth';
 import jwtDecode from 'jwt-decode';
@@ -35,8 +34,8 @@ const TopBarDark = ({ topClass, fluid }) => {
                     <Col lg="6">
                         <div className="header-contact">
                             <ul>
-                                <li>Welcome to Our store Multikart</li>
-                                <li><i className="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
+                                <li>Welcome to Bazaar.tn</li>
+                                <li><i className="fa fa-phone" aria-hidden="true"></i>Call Us: +(216) 52 588 8220</li>
                             </ul>
                         </div>
                     </Col>
@@ -44,13 +43,15 @@ const TopBarDark = ({ topClass, fluid }) => {
                         <ul className="header-dropdown">
                             <li className="mobile-wishlist">
                                 <Link href="/page/account/wishlist">
-                                    <a><i className="fa fa-heart" aria-hidden="true"></i> wishlist</a>
+                                    <a><i className="fa fa-heart" aria-hidden="true"></i> Wishlist</a>
                                 </Link>
                             </li>
                             <li className="onhover-dropdown mobile-account">
                                 <i className="fa fa-user" aria-hidden="true"></i> {initialState.user.firstName}
                                     <ul className="onhover-show-div">
-                                    
+                                    <li>
+                                        <a href="page/account/dashboard">Profile</a>
+                                    </li>
                                     <li onClick={logout}>
                                         <a>Logout</a>
                                     </li>
@@ -68,7 +69,7 @@ const TopBarDark = ({ topClass, fluid }) => {
                     <Col lg="6">
                         <div className="header-contact">
                             <ul>
-                                <li>Welcome to Our store Multikart</li>
+                                <li>Welcome to Bazaar.tn</li>
                                 <li><i className="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
                             </ul>
                         </div>
