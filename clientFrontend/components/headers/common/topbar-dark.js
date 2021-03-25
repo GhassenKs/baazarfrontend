@@ -4,12 +4,31 @@ import Link from 'next/link';
 import firebase from '../../../config/base'
 import { useRouter } from 'next/router';
 import {AuthContext} from '../../../context/auth';
+import jwtDecode from 'jwt-decode';
 
 const TopBarDark = ({ topClass, fluid }) => {
     const {user,logout}=useContext(AuthContext);
     const router = useRouter();
+    //-----------------------
+
+    const initialState = {
+        user: null
+      };
+      if (localStorage.getItem('jwtToken')) {
+        const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+      
+        if (decodedToken.exp * 1000 < Date.now()) {
+          localStorage.removeItem('jwtToken');
+        } else {
+          initialState.user = decodedToken;
+        }
+      }
+      
+
+    //--------------------------
     
-    const menuBar = user ?(
+    
+    const menuBar = initialState.user ?(
         <div className={topClass}>
             <Container fluid={fluid}>
                 <Row>
@@ -29,7 +48,7 @@ const TopBarDark = ({ topClass, fluid }) => {
                                 </Link>
                             </li>
                             <li className="onhover-dropdown mobile-account">
-                                <i className="fa fa-user" aria-hidden="true"></i> {user.firstName}
+                                <i className="fa fa-user" aria-hidden="true"></i> {initialState.user.firstName}
                                     <ul className="onhover-show-div">
                                     
                                     <li onClick={logout}>
