@@ -3,6 +3,19 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {validateRegisterInput,validateLoginInput}= require('../util/validators')
 const {UserInputError} = require ('apollo-server');
+function generateToken(user) {
+  return jwt.sign(
+    {
+      id: user.id,
+      email: user.email,
+      firstName: user.firstName,
+      lastName:user.lastName
+    },
+    'SECRET_KEY',
+    { expiresIn: '1h' }
+  );
+}
+
 module.exports ={
   Query: {
     async getUsers() {
@@ -38,7 +51,7 @@ module.exports ={
               throw new UserInputError('Wrong crendetials', { errors });
             }
       
-            const token = jwt.sign({},'secret key',{expiresIn: '1h'});
+            const token = generateToken(user);
               return {
                   ...user._doc,
                   id:user._id,
@@ -61,6 +74,7 @@ module.exports ={
                     }
                 })
               }
+              
               //TODO hashed password and creeate auth token 
               password = await bcrypt.hash(password,12);
               const newUser = new User({
@@ -71,7 +85,7 @@ module.exports ={
               });
 
               const res = await newUser.save();
-              const token = jwt.sign({},'secret key',{expiresIn: '1h'});
+              const token = generateToken(res);
               return {
                   ...res._doc,
                   id:res._id,

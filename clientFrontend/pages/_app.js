@@ -13,8 +13,7 @@ import { CompareContextProvider } from '../helpers/Compare/CompareContext';
 import { CurrencyContextProvider } from '../helpers/Currency/CurrencyContext';
 import {AuthProvider, AuthContext} from '../context/auth';
 import Helmet from 'react-helmet';
-
-import jwtDecode from 'jwt-decode'
+import jwtDecode from 'jwt-decode';
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,18 +24,33 @@ import {
 
 
 
-
+//----------------------------------------
 
 export default function MyApp({ Component, pageProps }) {
 
   const [isLoading, setIsLoading] = useState(true);
   const [url, setUrl] = useState();
+  const initialState = {
+    user: null
+  };
 
   useEffect(() => {
     const path = window.location.pathname.split('/');
     const url = path[path.length - 1];
     setUrl(url);
     document.body.classList.add('dark');
+
+    if (localStorage.getItem('jwtToken')) {
+      const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+    
+      if (decodedToken.exp * 1000 < Date.now()) {
+        localStorage.removeItem('jwtToken');
+      } else {
+        initialState.user = decodedToken;
+      }
+    }
+    console.log(initialState.user);
+
     setTimeout(function () {
       setIsLoading(false)
     }, 1000);

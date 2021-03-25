@@ -3,19 +3,31 @@ import { Container, Row, Col } from 'reactstrap';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import {AuthContext} from '../../../context/auth';
-import jwtDecode from 'jwt-decode'
-
-  
+import jwtDecode from 'jwt-decode';
 
 const TopBarDark = ({ topClass, fluid }) => {
-    
+    const {user,logout}=useContext(AuthContext);
+    const router = useRouter();
+    //-----------------------
 
-    const [user,setUser]= useState(sessionStorage.getItem('username'))
-    const {logout}=useContext(AuthContext);
+    const initialState = {
+        user: null
+      };
+      if (localStorage.getItem('jwtToken')) {
+        const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+      
+        if (decodedToken.exp * 1000 < Date.now()) {
+          localStorage.removeItem('jwtToken');
+        } else {
+          initialState.user = decodedToken;
+        }
+      }
+      
 
-const router = useRouter();
+    //--------------------------
     
-    const menuBar = user ?(
+    
+    const menuBar = initialState.user ?(
         <div className={topClass}>
             <Container fluid={fluid}>
                 <Row>
@@ -35,7 +47,7 @@ const router = useRouter();
                                 </Link>
                             </li>
                             <li className="onhover-dropdown mobile-account">
-                                <i className="fa fa-user" aria-hidden="true"></i> {user}
+                                <i className="fa fa-user" aria-hidden="true"></i> {initialState.user.firstName}
                                     <ul className="onhover-show-div">
                                     <li>
                                     <Link href={`/page/account/dashboard`}>

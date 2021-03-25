@@ -109,7 +109,10 @@ const LOGIN_USER = gql`
       email
       firstName
       lastName
+<<<<<<< HEAD
       password
+=======
+>>>>>>> faac03e0807d909c435edc56d91c99969d08e351
       token
     }
   }

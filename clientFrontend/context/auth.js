@@ -1,10 +1,43 @@
 import React, {useReducer,createContext,useEffect} from 'react';
 import jwtDecode from 'jwt-decode';
 
+
+
+
 const initialState = {
     user: null
   };
+
+  //const checkout =  localStorage.setItem('testing',"test worked");
+
+
+/*
+  useEffect(() => {
+    if (localStorage.getItem('jwtToken')) {
+        const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+      
+        if (decodedToken.exp * 1000 < Date.now()) {
+          localStorage.removeItem('jwtToken');
+        } else {
+          initialState.user = decodedToken;
+        }
+      }
+
+      useEffect(function persistForm() {
+        localStorage.setItem('formData', name);
+      });
+ }, []);*/
+
+ /* if (localStorage.getItem('jwtToken')) {
+    const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
   
+    if (decodedToken.exp * 1000 < Date.now()) {
+      localStorage.removeItem('jwtToken');
+    } else {
+      initialState.user = decodedToken;
+    }
+  }*/
+ 
 
  
 
@@ -38,16 +71,15 @@ function authReducer(state,action){
 
 function AuthProvider(props){
     const [state,dispatch] = useReducer(authReducer,initialState);
+//-------------
+
+
+    
+//-----------------
 
     function login(userData){
-        sessionStorage.setItem("jwtToken",userData.token);
-        sessionStorage.setItem("username",userData.firstName);
-
-        
+        localStorage.setItem("jwtToken",userData.token)
         dispatch({
-
-         
-
             type:'LOGIN',
             payload:userData,
             
@@ -56,9 +88,7 @@ function AuthProvider(props){
    
    
     function logout(){
-        sessionStorage.removeItem("jwtToken")
-        sessionStorage.removeItem("username")
-        window.location.reload(true)
+        localStorage.removeItem("jwtToken")
         dispatch({type:'LOGOUT'});
     }
     return(
@@ -66,7 +96,6 @@ function AuthProvider(props){
         <AuthContext.Provider 
         value={{user:state.user,login,logout}}
         {...props}
-        
         />
     )
 }

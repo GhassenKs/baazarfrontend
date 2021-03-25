@@ -1,10 +1,7 @@
-
-
 const products = require('./data');
 const loadCurrency = require('../currency/data')
 const InstagramData = require('../instagram/data')
 const BlogData = require('../Blogs/data');
-
 const _ = require('lodash')
 const ProductResponse = require('./schema')
 const Fuse = require('fuse.js');
