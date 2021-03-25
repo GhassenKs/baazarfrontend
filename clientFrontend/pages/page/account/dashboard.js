@@ -1,10 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import CommonLayout from '../../../components/shop/common-layout';
 import { Container, Row ,Col} from 'reactstrap';
+import { AuthContext } from '../../../context/auth';
+import Link from 'next/link';
+import {useRouter} from 'next/router';
+
+
 
 const Dashboard = () => {
-    const [accountInfo,setAccountInfo] = useState(false)
-    return (
+
+const [accountInfo,setAccountInfo] = useState(false)
+const {user,logout} = useContext(AuthContext)
+const [username,setUser] = useState(sessionStorage.getItem('firstName'))
+const router = useRouter()
+
+
+
+const dash= user? 
+(
         <CommonLayout parent="home" title="dashboard">
             <section className="section-b-space">
                 <Container>
@@ -22,13 +35,14 @@ const Dashboard = () => {
                                 <div className="block-content">
                                     <ul>
                                         <li className="active"><a href="#">Account Info</a></li>
-                                        <li><a href="#">Address Book</a></li>
                                         <li><a href="#">My Orders</a></li>
-                                        <li><a href="#">My Wishlist</a></li>
-                                        <li><a href="#">Newsletter</a></li>
-                                        <li><a href="#">My Account</a></li>
-                                        <li><a href="#">Change Password</a></li>
-                                        <li className="last"><a href="#">Log Out</a></li>
+                                        <Link href="/page/account/wishlist">
+                                  <li><a href="#">My wishlist</a></li>
+                                </Link>
+                                <Link href="/page/account/changepwd">
+                                  <li><a href="#">Change password</a></li>
+                                </Link>
+                                        <li className="last" onClick={logout}><a href="#">Log Out</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -37,10 +51,10 @@ const Dashboard = () => {
                             <div className="dashboard-right">
                                 <div className="dashboard">
                                     <div className="page-title">
-                                        <h2>My Dashboard</h2>
+                                        <h2>Hello {username}</h2>
+                                        <Link href={'page/account/dashboard'}>Edit</Link>
                                     </div>
                                     <div className="welcome-msg">
-                                        <p>Hello, MARK JECNO !</p>
                                         <p>From your My Account Dashboard you have the ability to view a snapshot of your recent
                                         account activity and update your account information. Select a link below to view or
                                     edit information.</p>
@@ -56,22 +70,13 @@ const Dashboard = () => {
                                                         <h3>Contact Information</h3><a href="#">Edit</a>
                                                     </div>
                                                     <div className="box-content">
-                                                        <h6>MARK JECNO</h6>
-                                                        <h6>MARk-JECNO@gmail.com</h6>
+                                                        <h6></h6>
+                                                        <h6>{user}</h6>
                                                         <h6><a href="#">Change Password</a></h6>
                                                     </div>
                                                 </div>
                                             </Col>
-                                            <Col sm="6">
-                                                <div className="box">
-                                                    <div className="box-title">
-                                                        <h3>Newsletters</h3><a href="#">Edit</a>
-                                                    </div>
-                                                    <div className="box-content">
-                                                        <p>You are currently not subscribed to any newsletter.</p>
-                                                    </div>
-                                                </div>
-                                            </Col>
+                                            
                                         </Row>
                                         <div>
                                             <div className="box">
@@ -101,6 +106,11 @@ const Dashboard = () => {
             </section>
         </CommonLayout>
     )
+    : (
+        router.push('/')
+    )
+    return(dash)
 }
+
 
 export default Dashboard

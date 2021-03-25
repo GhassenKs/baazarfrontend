@@ -8,10 +8,11 @@ import jwtDecode from 'jwt-decode'
   
 
 const TopBarDark = ({ topClass, fluid }) => {
+    
+
+    const [user,setUser]= useState(sessionStorage.getItem('username'))
     const {logout}=useContext(AuthContext);
 
-   
-const [user,setUser]= useState(sessionStorage.getItem('username'))
 const router = useRouter();
     
     const menuBar = user ?(
@@ -37,7 +38,9 @@ const router = useRouter();
                                 <i className="fa fa-user" aria-hidden="true"></i> {user}
                                     <ul className="onhover-show-div">
                                     <li>
-                                        <a href="page/account/dashboard">Profile</a>
+                                    <Link href={`/page/account/dashboard`}>
+                                            <a>Profile</a>
+                                        </Link>
                                     </li>
                                     <li onClick={logout}>
                                         <a>Logout</a>
@@ -57,7 +60,7 @@ const router = useRouter();
                         <div className="header-contact">
                             <ul>
                                 <li>Welcome to Bazaar.tn</li>
-                                <li><i className="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
+                                <li><i className="fa fa-phone" aria-hidden="true"></i>Call Us: +(216) 52 588 8220</li>
                             </ul>
                         </div>
                     </Col>

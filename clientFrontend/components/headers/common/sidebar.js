@@ -90,166 +90,26 @@ const SideBar = () => {
                 <ul id="sub-menu" className="sidebar-menu">
                     <li>
                         <a href="#" onClick={(e) => handleMegaSubmenu(e)}>
-                            clothing
-                                <span className="sub-arrow"></span>
+                            New products
+                                
                         </a>
-                        <ul className="mega-menu clothing-menu">
-                            <li>
-                                <Row m='0'>
-                                    <Col xl="4">
-                                        <div className="link-section">
-                                            <h5>women's fashion</h5>
-                                            <ul>
-                                                <li>
-                                                    <a href="#">dresses</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">skirts</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">western wear</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">ethic wear</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">sport wear</a>
-                                                </li>
-                                            </ul>
-                                            <h5>men's fashion</h5>
-                                            <ul>
-                                                <li>
-                                                    <a href="#">sports wear</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">western wear</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">ethic wear</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </Col>
-                                    <Col xl="4">
-                                        <div className="link-section">
-                                            <h5>accessories</h5>
-                                            <ul>
-                                                <li>
-                                                    <a href="#">fashion jewellery</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">precious jewellery</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">caps and hats</a>
-                                                </li>
-                                                
-                                                <li>
-                                                    <a href="#">necklaces</a>
-                                                </li>
-                                                
-                                                <li>
-                                                    <a href="#">wrist wear</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">ties</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">cufflinks</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">pockets squares</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </Col>
-                                    <Col xl="4">
-                                        <div className="link-section">
-                                            <h5>Bags</h5>
-                                            <ul>
-                            <li>
-                                <a href="#">shopper bags</a>
-                            </li>
-                            <li>
-                                <a href="#">laptop bags</a>
-                            </li>
-                            <li>
-                                <a href="#">clutches</a>
-                            </li>
-                            <li>
-                                <a href="#" >purses</a>
-                               </li> 
-                            <li>
-                                <a href="#">wallets</a>
-                            </li>
-                             </ul>
-                                        </div>
-                                     
-                            <div className="link-section">
-                                <ul>
-                                    <li>  <a href=""><h5>Watches</h5> </a></li>
-                                    <li><a href="#"><h5>Footwear</h5></a> </li>
-                                    <li><a href="#"><h5>Kids</h5></a> </li>
-                            </ul>
-                            </div>
-                                  
-                                    </Col>
-                              
-                                </Row>
-                            </li>
-                        </ul>
+                       
+                    </li>
+                    <li>
+                        <a href="#" onClick={(e) => handleSubmenu(e)}>
+                            Sell on Bazaar
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="page/account/contact" onClick={(e) => handleSubmenu(e)}>
+                            Customer Service 
+                        </a>
+                        
                     </li>
                    
-                    <li>
-                        
-                        <a href="#" onClick={(e) => handleSubmenu(e)}>
-                            beauty & personal care
-                                <span className="sub-arrow"></span>
-                        </a>
-                        <ul>
-                            <li>
-                                <a href="#">makeup</a>
-                            </li>
-                            <li>
-                                <a href="#">skincare</a>
-                            </li>
-                        
-                            <li>
-                                <a href="#">fragrances</a>
-                            </li>
-                            
-                            <li>
-                                <a href="#">hair care</a>
-                            </li>
-                            <li>
-                                <a href="#">tools & brushes</a>
-                            </li>
-                        
-                            
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" >home & decor</a>
-                    </li>
-                    <li>
-                        <a href="#" >Electronics</a>
-                    </li>
-                    <li>
-                        <a href="#" >Tools</a>
-                    </li>
-                    <li>
-                        <a href="#" >Vegetables</a>
-                    </li>
-                    <li>
-                        <a href="#" >Nursery</a>
-                    </li>
-                    <li>
-                        <a href="#" >Pet Supplies</a>
-                    </li>
-                    <li>
-                        <a href="#" >Fitness Equipement</a>
-                    </li>
                     
+                   
                    
                 </ul>
             </nav>
