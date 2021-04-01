@@ -5,14 +5,13 @@ import Cart from '../containers/Cart';
 import CartContainer from '../containers/CartContainer';
 import TopBarDark from "./common/topbar-dark";
 import { Media, Container, Row, Col, Input, Button, Form } from 'reactstrap';
-import LogoImage from './common/logo'
 import search from '../../public/assets/images/icon/search.png';
 import settings from '../../public/assets/images/icon/setting.png';
 import cart from '../../public/assets/images/icon/cart.png';
 import Currency from './common/currency';
 import { useRouter } from 'next/router';
 
-const HeaderOne = ({ logoName, headerClass, topClass, noTopBar ,direction }) => {
+const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	// eslint-disable-next-line
 	const [open, setOpen] = useState(false);
@@ -78,7 +77,7 @@ const HeaderOne = ({ logoName, headerClass, topClass, noTopBar ,direction }) => 
 				{/*Top Header Component*/}
 				{noTopBar ?
 					'' :
-					<TopBarDark topClass={topClass} />
+					<TopBarDark topClass={topClass} logoName={'logo.png'} />
 				}
 
 				<Container>
@@ -86,16 +85,8 @@ const HeaderOne = ({ logoName, headerClass, topClass, noTopBar ,direction }) => 
 						<Col>
 							<div className="main-menu">
 								<div className="menu-left">
-									<div className="navbar">
-										<a href={null} onClick={openNav}>
-											<div className="bar-style"> <i className="fa fa-bars sidebar-bar" aria-hidden="true"></i></div>
-										</a>
-										{/*SideBar Navigation Component*/}
-										<SideBar />
-									</div>
-									<div className="brand-logo">
-										<LogoImage logo={logoName} />
-									</div>
+									
+									
 								</div>
 								<div className="menu-right pull-right">
 									{/*Top Navigation Bar Component*/}

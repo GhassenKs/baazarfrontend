@@ -95,7 +95,7 @@ export default function MyApp({ Component, pageProps }) {
             <div>
             
               <SettingProvider>
-                <CompareContextProvider>
+                <CompareContextProvider >
                   <CurrencyContextProvider>
                     <CartContextProvider>
                       <WishlistContextProvider>

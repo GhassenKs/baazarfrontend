@@ -15,7 +15,7 @@ const Banner = () => {
                   <Col>
                     <div className="slider-contain">
                       <div>
-                        <h4>welcome to fashion</h4>
+                        <h4>welcome to Baazar.tn</h4>
                         <h1>men fashion</h1>
                         <Link href={`/left-sidebar/collection`}> 
                           <a className="btn btn-solid">shop now </a>
@@ -34,7 +34,7 @@ const Banner = () => {
                   <Col>
                     <div className="slider-contain">
                       <div>
-                        <h4>welcome to fashion</h4>
+                        <h4>welcome to Baazar.tn</h4>
                         <h1>women fashion</h1>
                         <Link href={`/left-sidebar/collection`}> 
                         <a className="btn btn-solid">shop now </a>

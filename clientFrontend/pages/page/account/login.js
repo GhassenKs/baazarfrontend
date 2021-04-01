@@ -9,38 +9,35 @@ import { withApollo } from '../../../helpers/apollo/apollo';
 import {AuthContext} from '../../../context/auth';
 import Link from 'next/link';
 
-
 function Login (props)  {
-    const context = useContext(AuthContext)
-    const router = useRouter()
-    const [errors, setErrors] = useState({});
-    const [user,setUser] = useState(sessionStorage.getItem('username'))
-    const { onChange, onSubmit, values } = useForm(loginUserCallback, {
-        email: '',
-        password: ''
-      });
-      const [loginUser, { loading }] = useMutation(LOGIN_USER, {
-        update(_, {data:{login:userData}}) {
-            context.login(userData)
-            router.push('../../');
-        },
-        onError(err) {
-          setErrors(err.graphQLErrors);
-          console.log("there is an error");
-         
-        },
-        variables: values
-      });
-    
-      function loginUserCallback() {
-        loginUser();
-      }
-    
-    const log = user ?
-    (
-        router.push('/')
-    ) :
-    (
+ 
+  const context = useContext(AuthContext)
+  const router = useRouter()
+  const [errors, setErrors] = useState({});
+
+  const { onChange, onSubmit, values } = useForm(loginUserCallback, {
+      email: '',
+      password: ''
+    });
+
+    const [loginUser, { loading }] = useMutation(LOGIN_USER, {
+      update(_, {data:{login:userData}}) {
+          context.login(userData)
+          router.push('../../');
+      },
+      onError(err) {
+        setErrors(err.graphQLErrors);
+        console.log("there is an error");
+       
+      },
+      variables: values
+    });
+  
+    function loginUserCallback() {
+      loginUser();
+    }
+
+   return(
       <CommonLayout parent="home" title="login">
             <section className="login-page section-b-space">
                 <Container className="login-box">
@@ -99,7 +96,7 @@ function Login (props)  {
         </CommonLayout>
     )
 
-    return(log)
+  
 }
 
 const LOGIN_USER = gql`
@@ -109,10 +106,7 @@ const LOGIN_USER = gql`
       email
       firstName
       lastName
-<<<<<<< HEAD
       password
-=======
->>>>>>> faac03e0807d909c435edc56d91c99969d08e351
       token
     }
   }

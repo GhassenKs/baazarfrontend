@@ -95,12 +95,7 @@ const SideBar = () => {
                         </a>
                        
                     </li>
-                    <li>
-                        <a href="#" onClick={(e) => handleSubmenu(e)}>
-                            Sell on Bazaar
-                        </a>
-                        
-                    </li>
+                   
                     <li>
                         <a href="page/account/contact" onClick={(e) => handleSubmenu(e)}>
                             Customer Service 

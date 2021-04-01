@@ -103,7 +103,7 @@ const HeaderThree = (props) => {
                                     <form className="form_search" role="textbox">
                                      {/* eslint-disable-next-line */}
                                         <Input id="query search-autocomplete" type="search"
-                                            placeholder="Find the best for your pet..."
+                                            placeholder="Search..."
                                             className="nav-search nav-search-field" aria-expanded="true" />
                                         <button type="submit" name="nav-submit-button" className="btn-search">
                                             <i className="fa fa-search"></i>

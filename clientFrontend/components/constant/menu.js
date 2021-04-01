@@ -3,22 +3,22 @@ export const MENUITEMS = [
       title: 'Clothing', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
          {
             title: 'Women fashion', type: 'sub', children: [
-               { path: '/portfolio/grid-2', title: 'Dresses', type: 'link', icon: 'alert' },
-               { path: '/portfolio/grid-3', title: 'Skirts', type: 'link', icon: 'layout-accordion-merged' },
-               { path: '/portfolio/grid-4', title: 'Western wear', type: 'link', icon: 'layers' },
-               { path: '/portfolio/masonry-grid-2', title: 'Ethic wear', type: 'link', icon: 'write' },
-               { path: '/portfolio/masonry-grid-3', title: 'Sports wear', type: 'link', icon: 'map-alt' },
+               { path: '/shop/left_sidebar?&category=Dresses&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Dresses', type: 'link', icon: 'alert' },
+               { path: '/shop/left_sidebar?&category=Skirts&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Skirts', type: 'link', icon: 'layout-accordion-merged' },
+               { path: '/shop/left_sidebar?&category=Western&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Western wear', type: 'link', icon: 'layers' },
+               { path: '/shop/left_sidebar?&category=Ethic&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Ethic wear', type: 'link', icon: 'write' },
+               { path: '/shop/left_sidebar?&category=Sports&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Sports wear', type: 'link', icon: 'map-alt' },
               
             ]
           
          },
          {
             title: 'Men fashion ', type: 'sub', children: [
-               { path: '/portfolio/grid-2', title: 'Western wear', type: 'link', icon: 'alert' },
-               { path: '/portfolio/grid-3', title: 'Ethnic wear', type: 'link', icon: 'layout-accordion-merged' },
-               { path: '/portfolio/grid-4', title: 'Sport wear', type: 'link', icon: 'layers' },
-               { path: '/portfolio/masonry-grid-2', title: 'Belt', type: 'link', icon: 'write' },
-               { path: '/portfolio/masonry-grid-3', title: 'Watch', type: 'link', icon: 'map-alt' },
+               { path: '/shop/left_sidebar?&category=Sweater&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Sweater', type: 'link', icon: 'alert' },
+               { path: '/shop/left_sidebar?&category=Shirt&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Shirt', type: 'link', icon: 'layout-accordion-merged' },
+               { path: '/shop/left_sidebar?&category=Jeans&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Jeans', type: 'link', icon: 'layers' },
+               { path: '/shop/left_sidebar?&category=Blazers&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Blazers', type: 'link', icon: 'write' },
+               { path: '/shop/left_sidebar?&category=Sweater&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'More', type: 'link', icon: 'map-alt' },
               
             ]
          },
@@ -210,7 +210,7 @@ export const MENUITEMS = [
       ]
    },
    {
-      title: 'Fitness supplements', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
+      title: 'Fitness ', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
          {
             title: '', type: 'sub', children: [
                { path: '/portfolio/grid-2', title: 'Protein & bars', type: 'link', icon: 'alert' },
