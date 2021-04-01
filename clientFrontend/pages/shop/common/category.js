@@ -27,9 +27,9 @@ const Category = () => {
    const querylink = window.location.search;
    const urlParams = new URLSearchParams(querylink)
    const catg = urlParams.get('category')
-   console.log(catg)
 
-   const type = (catg === 'Skirts') ? 
+
+   const type = ((catg === 'Dresses') || (catg === 'Skirts')|| (catg === 'Ftshirts') || (catg === 'Fjeans')|| (catg === 'Fsports')|| (catg === 'Fall')) ?
    (
     <div className="collection-collapse-block open">
     <h3 className="collapse-block-title" onClick={toggleCategory}>Category</h3>
@@ -41,22 +41,23 @@ const Category = () => {
                    <li><p className="font-weight-bold">Women Fashion</p></li>
                     <li><a href={null} onClick={() => updateCategory("Dresses")}>Dresses</a></li>
                     <li><a href={null} onClick={() => updateCategory("Skirts")}>Skirts</a></li>
-                    <li><a href={null} onClick={() => updateCategory("T-Shirts")}>Sweater</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Jackets")}>Jackets</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Jeans")}>Jeans </a></li>
-                    <li><a href={null} onClick={() => updateCategory("Gym")}>Gym wear</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Shoes")}>Shoes</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Ftshirts")}>T-shirts</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fjackets")}>Jackets</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fjeans")}>Jeans </a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fsports")}>Sports wear</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fshoes")}>Shoes</a></li>
                     <li><p className="font-weight-bold">Women Accessories</p></li>
-                    <li><a href={null} onClick={() => updateCategory("Hats")}>Hats</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Handbags")}>Handbags</a></li>
-                    <li><a href={null} onClick={() => updateCategory("tools")}>tools</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fnecklaces")}>Necklaces</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fbracelets&rings")}>Bracelets & Rings</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fcaps&hats")}>Caps & Hats</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fpurses&bags")}>Purses & bags</a></li>
                     
                 </ul>
             </div>
         </div>
     </Collapse>
 </div>
-     ) :  catg === 'Sweater ' ?
+     ) : (( catg === 'Sweater') || (catg === 'Mshirts')|| (catg === 'MBlazers')|| (catg === 'MJeans')|| (catg === 'Mall')) ?
    ( <div className="collection-collapse-block open">
     <h3 className="collapse-block-title" onClick={toggleCategory}>Category</h3>
     <Collapse isOpen={isCategoryOpen}>
@@ -65,17 +66,18 @@ const Category = () => {
                 <ul className="category-list">
                     <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
                    <li><p className="font-weight-bold">Men Fashion</p></li>
-                    <li><a href={null} onClick={() => updateCategory("Dresses")}>Dresses</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Skirts")}>Skirts</a></li>
-                    <li><a href={null} onClick={() => updateCategory("T-Shirts")}>Sweater</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Jackets")}>Jackets</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Jeans")}>Jeans </a></li>
-                    <li><a href={null} onClick={() => updateCategory("Gym")}>Gym wear</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Shoes")}>Shoes</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mshirts")}>Shirts</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Msweater")}>Sweater</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mjeans")}>Jeans</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mjackets")}>Jackets</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mblazers")}>Blazers </a></li>
+                    <li><a href={null} onClick={() => updateCategory("Msports")}>Gym wear</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mshoes")}>Shoes</a></li>
                     <li><p className="font-weight-bold">Men Accessories</p></li>
-                    <li><a href={null} onClick={() => updateCategory("Hats")}>Hats</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Handbags")}>Handbags</a></li>
-                    <li><a href={null} onClick={() => updateCategory("tools")}>tools</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mnecklaces")}>Necklaces</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mbracelets&rings")}>Bracelets & Rings</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mcaps&hats")}>Caps & Hats</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mbags")}>Bags</a></li>
                     
                 </ul>
             </div>

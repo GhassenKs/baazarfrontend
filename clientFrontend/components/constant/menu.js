@@ -5,9 +5,10 @@ export const MENUITEMS = [
             title: 'Women fashion', type: 'sub', children: [
                { path: '/shop/left_sidebar?&category=Dresses&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Dresses', type: 'link', icon: 'alert' },
                { path: '/shop/left_sidebar?&category=Skirts&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Skirts', type: 'link', icon: 'layout-accordion-merged' },
-               { path: '/shop/left_sidebar?&category=Western&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Western wear', type: 'link', icon: 'layers' },
-               { path: '/shop/left_sidebar?&category=Ethic&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Ethic wear', type: 'link', icon: 'write' },
-               { path: '/shop/left_sidebar?&category=Sports&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Sports wear', type: 'link', icon: 'map-alt' },
+               { path: '/shop/left_sidebar?&category=Ftshirts&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'T-shirts', type: 'link', icon: 'layers' },
+               { path: '/shop/left_sidebar?&category=Fjeans&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Jeans', type: 'link', icon: 'write' },
+               { path: '/shop/left_sidebar?&category=FSports&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Sports wear', type: 'link', icon: 'map-alt' },
+               { path: '/shop/left_sidebar?&category=Fall&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'More', type: 'link', icon: 'map-alt' },
               
             ]
           
@@ -15,20 +16,29 @@ export const MENUITEMS = [
          {
             title: 'Men fashion ', type: 'sub', children: [
                { path: '/shop/left_sidebar?&category=Sweater&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Sweater', type: 'link', icon: 'alert' },
-               { path: '/shop/left_sidebar?&category=Shirt&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Shirt', type: 'link', icon: 'layout-accordion-merged' },
-               { path: '/shop/left_sidebar?&category=Jeans&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Jeans', type: 'link', icon: 'layers' },
-               { path: '/shop/left_sidebar?&category=Blazers&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Blazers', type: 'link', icon: 'write' },
-               { path: '/shop/left_sidebar?&category=Sweater&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'More', type: 'link', icon: 'map-alt' },
+               { path: '/shop/left_sidebar?&category=Mshirt&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Shirts', type: 'link', icon: 'layout-accordion-merged' },
+               { path: '/shop/left_sidebar?&category=MJeans&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Jeans', type: 'link', icon: 'layers' },
+               { path: '/shop/left_sidebar?&category=MBlazers&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Blazers', type: 'link', icon: 'write' },
+               { path: '/shop/left_sidebar?&category=Mall&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'More', type: 'link', icon: 'map-alt' },
               
             ]
          },
          {
-            title: 'Accessories', type: 'sub', children: [
-               { path: '/portfolio/title', title: 'Fashion jewelery', type: 'link', icon: 'bar-chart' },
-               { path: '/portfolio/collection-banner', title: 'Precious jewelery ', type: 'link', icon: 'thought' },
-               { path: '/portfolio/home-slider', title: 'Caps and hats', type: 'link', icon: 'video-camera' },
-               { path: '/portfolio/category', title: 'Necklaces', type: 'link', icon: 'headphone' },
-               { path: '/portfolio/service', title: 'wrists', type: 'link', icon: 'headphone' }
+            title: 'Women Accessories', type: 'sub', children: [
+               { path: '/shop/left_sidebar?&category=Fnecklaces&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Necklaces', type: 'link', icon: 'bar-chart' },
+               { path: '/shop/left_sidebar?&category=Fbracelets&rings&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Bracelets & Rings ', type: 'link', icon: 'thought' },
+               { path: '/shop/left_sidebar?&category=Fcaps&hats&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Caps and hats', type: 'link', icon: 'video-camera' },
+               { path: '/shop/left_sidebar?&category=Fpurses&bags&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Purses & Bags', type: 'link', icon: 'headphone' },
+               
+            ]
+         },
+         {
+            title: 'Men Accessories', type: 'sub', children: [
+               { path: '/shop/left_sidebar?&category=Mnecklaces&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Necklaces', type: 'link', icon: 'bar-chart' },
+               { path: '/shop/left_sidebar?&category=Mbracelets&rings&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Bracelets & Rings ', type: 'link', icon: 'thought' },
+               { path: '/shop/left_sidebar?&category=Mcaps&hats&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Caps and hats', type: 'link', icon: 'video-camera' },
+               { path: '/shop/left_sidebar?&category=Mpurses&bags&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Purses & Bags', type: 'link', icon: 'headphone' },
+               
             ]
          },
          {
