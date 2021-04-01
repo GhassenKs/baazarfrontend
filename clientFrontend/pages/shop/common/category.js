@@ -29,7 +29,8 @@ const Category = () => {
    const catg = urlParams.get('category')
 
 
-   const type = ((catg === 'Dresses') || (catg === 'Skirts')|| (catg === 'Ftshirts') || (catg === 'Fjeans')|| (catg === 'Fsports')|| (catg === 'Fall')) ?
+   const type = ((catg === 'Dresses') || (catg === 'Skirts')|| (catg === 'Ftshirts') || (catg === 'Fjeans')|| (catg === 'Fsports')|| (catg === 'Fall')
+   || (catg === 'Fall')|| (catg === 'Fnecklaces')|| (catg === 'Fbracelets&rings')|| (catg === 'Fcaps&hats')|| (catg === 'Fpurses&bags')) ?
    (
     <div className="collection-collapse-block open">
     <h3 className="collapse-block-title" onClick={toggleCategory}>Category</h3>
@@ -57,7 +58,8 @@ const Category = () => {
         </div>
     </Collapse>
 </div>
-     ) : (( catg === 'Sweater') || (catg === 'Mshirts')|| (catg === 'MBlazers')|| (catg === 'MJeans')|| (catg === 'Mall')) ?
+     ) : (( catg === 'Sweater') || (catg === 'Mshirts')|| (catg === 'MBlazers')|| (catg === 'MJeans')|| (catg === 'Mall')
+     || (catg === 'Mnecklaces')|| (catg === 'Mbracelets&rings')|| (catg === 'Mcaps&hats')|| (catg === 'Mbags')) ?
    ( <div className="collection-collapse-block open">
     <h3 className="collapse-block-title" onClick={toggleCategory}>Category</h3>
     <Collapse isOpen={isCategoryOpen}>
@@ -85,7 +87,36 @@ const Category = () => {
     </Collapse>
 </div>
 
-) : '' 
+) :  (( catg === 'tables') || (catg === 'chairs')|| (catg === 'desks')|| (catg === 'bedrooms')|| (catg === 'Mall')
+|| (catg === 'televisions')|| (catg === 'projectors')|| (catg === 'tvreceivers')|| (catg === 'Soundspeakers')  ) ? 
+( <div className="collection-collapse-block open">
+<h3 className="collapse-block-title" onClick={toggleCategory}>Category</h3>
+<Collapse isOpen={isCategoryOpen}>
+    <div className="collection-collapse-block-content">
+        <div className="collection-brand-filter">
+            <ul className="category-list">
+                <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
+               <li><p className="font-weight-bold">Home Furniture</p></li>
+                <li><a href={null} onClick={() => updateCategory("chairs")}>Chairs</a></li>
+                <li><a href={null} onClick={() => updateCategory("Tables")}>Tables</a></li>
+                <li><a href={null} onClick={() => updateCategory("bedrooms")}>Bedrooms</a></li>
+                <li><a href={null} onClick={() => updateCategory("desks")}>Desks</a></li>
+                <li><a href={null} onClick={() => updateCategory("mattresses")}>Mattresses</a></li>
+                <li><a href={null} onClick={() => updateCategory("dressers")}>Dressers</a></li>
+                <li><p className="font-weight-bold">Home Entertainment</p></li>
+                <li><a href={null} onClick={() => updateCategory("televisions")}>Televisions</a></li>
+                <li><a href={null} onClick={() => updateCategory("TVreceivers")}>TV receivers</a></li>
+                <li><a href={null} onClick={() => updateCategory("projectors")}>Projectors</a></li>
+                <li><a href={null} onClick={() => updateCategory("Soundspeakers")}>Soundbar Speakers</a></li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</Collapse>
+</div>
+
+): ''
     
 return(type)
 
