@@ -160,9 +160,9 @@ const ProductSlider = ({ type }) => {
                                 </TabPanel>
                             </div>
                         </Tabs>
-                        <div className="banner-tools">
+                       {/*  <div className="banner-tools">
                             <Media src={banner1} alt="" className="img-fluid" />
-                        </div>
+                        </div> */}
                     </Col>
                 </Row>
             </Container>

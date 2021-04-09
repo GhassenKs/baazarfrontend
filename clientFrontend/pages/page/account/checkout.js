@@ -5,13 +5,11 @@ import CheckoutPage from './common/checkout-page';
 import Login from '../../page/account/login-auth'
 
 const Checkout = () => {
-    const [currentUser, setCurrentUser] = useState(false);
-    useEffect(() => {
-        firebase.auth().onAuthStateChanged(setCurrentUser);
-    })
+    const [user,setUser] = useState(sessionStorage.getItem('username'))
+
     return (
         <>
-        {currentUser !== null ?
+        {user ?
             <CommonLayout parent="home" title="checkout">
                 <CheckoutPage />
             </CommonLayout>

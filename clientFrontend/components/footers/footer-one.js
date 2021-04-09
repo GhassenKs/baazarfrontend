@@ -68,15 +68,11 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                                         <li>
                                             <a href="https://plus.google.com" target="_blank"> <i className="fa fa-google-plus" aria-hidden="true"></i></a>
                                         </li>
-                                        <li>
-                                            <a href="https://twitter.com" target="_blank"> <i className="fa fa-twitter" aria-hidden="true"></i></a>
-                                        </li>
+                                       
                                         <li>
                                             <a href="https://www.instagram.com" target="_blank"><i className="fa fa-instagram" aria-hidden="true"></i></a>
                                         </li>
-                                        <li>
-                                            <a href="https://rss.com" target="_blank"><i className="fa fa-rss" aria-hidden="true"></i></a>
-                                        </li>
+                                       
                                     </ul>
                                 </div>
                             </div>
@@ -126,13 +122,12 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                                 </div>
                                 <div className="footer-contant">
                                     <ul className="contact-list">
-                                        <li><i className="fa fa-map-marker"></i>Multikart Demo Store, Demo store
-                                                India 345-659
+                                        <li><i className="fa fa-map-marker"></i>Immeuble le montplaisir -
+                                         A64, Avenue Kheireddine Pacha, Tunis 1067
                                             </li>
-                                        <li><i className="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                        <li><i className="fa fa-envelope-o"></i>Email Us: <a
-                                            href="#">Support@Fiot.com</a></li>
-                                        <li><i className="fa fa-fax"></i>Fax: 123456</li>
+                                        <li><i className="fa fa-phone"></i>Call: 00 216 52 588 822</li>
+                                        <li><i className="fa fa-envelope-o"></i>Email: <a
+                                            href="#">contact@onepack.tech</a></li>
                                     </ul>
                                 </div>
                             </div>

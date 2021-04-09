@@ -72,10 +72,10 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
     useEffect(() => {
         const pathname = window.location.pathname;
         setUrl(pathname);
-        router.push(`${pathname}?${filterContext.state}&brand=${selectedBrands}&color=${selectedColor}&size=${selectedSize}&minPrice=${selectedPrice.min}&maxPrice=${selectedPrice.max}`)
+        router.push(`${pathname}?&category=${selectedCategory}&brand=${selectedBrands}&color=${selectedColor}&size=${selectedSize}&minPrice=${selectedPrice.min}&maxPrice=${selectedPrice.max}`)
         
-    }, [selectedBrands, selectedColor, selectedSize, selectedPrice]);
-
+    }, [selectedBrands, selectedColor, selectedSize, selectedPrice, selectedCategory]);
+ 
     var { loading, data, fetchMore } = useQuery(GET_PRODUCTS, {
         variables: {
             type: selectedCategory,
@@ -118,7 +118,7 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
         temp.splice(selectedBrands.indexOf(val), 1);
         filterContext.setSelectedBrands(temp)
 
-        router.push(`${url}?${filterContext.state}&brand=${temp}&color=${selectedColor}&size=${selectedSize}&minPrice=${selectedPrice.min}&maxPrice=${selectedPrice.max}`)
+        router.push(`${url}?&category=${filterContext.state}&brand=${temp}&color=${selectedColor}&size=${selectedSize}&minPrice=${selectedPrice.min}&maxPrice=${selectedPrice.max}`)
 
     }
 
@@ -142,15 +142,15 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
                 <Row>
                     <Col sm="12">
                         <div className="top-banner-wrapper">
-                            <a href={null}><Media src={Menu2} className="img-fluid blur-up lazyload" alt="" /></a>
-                            <div className="top-banner-content small-section">
+                          {/*   <a href={null}><Media src={Menu2} className="img-fluid blur-up lazyload" alt="" /></a> */}
+                            {/* <div className="top-banner-content small-section">
                                 <h4>fashion</h4>
                                 <h5>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                             </h5>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
                                 it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
                             of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div>
+                            </div> */}
                         </div>
                         <Row>
                                     <Col xs="12">
