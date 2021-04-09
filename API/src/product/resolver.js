@@ -1,4 +1,4 @@
-const products = require('./data');
+const products = require('../../models/produit');
 const loadCurrency = require('../currency/data')
 const InstagramData = require('../instagram/data')
 const BlogData = require('../Blogs/data');
@@ -6,11 +6,11 @@ const _ = require('lodash')
 const ProductResponse = require('./schema')
 const Fuse = require('fuse.js');
 
+console.log("woooooooooooooooo")
 const resolvers = {
   Query: {
-    products: (root, args, context, info) => {
 
-      
+    products: (root, args, context, info) => {
       const fuse = new Fuse(products, {
         threshold: 0.6,
         minMatchCharLength: 2,
@@ -124,9 +124,11 @@ const resolvers = {
       const brands = [...new Set(data.map(item => item.brand))]
       return { brand: brands };
     },
-    getColors: (root, args, context, info) => {
+    getColors:async  (root, args, context, info) => {
+      const produits = await products.find()
+      console.log(produits)
       const color = []
-      const data = products.filter(item => item.type === 'fashion' || item.type === args.type)
+      const data = produits.filter(item => item.type === 'fashion' || item.type === args.type)
       data.filter((product) => {
         product.variants.filter((variant) => {
           if (variant.color) {
@@ -137,9 +139,11 @@ const resolvers = {
       })
       return { colors: color };
     },
-    getSize: (root, args, context, info) => {
+    getSize: async (root, args, context, info) => {
+      const produits = await products.find()
+      console.log(produits)
       const sizes = []
-      const data = products.filter(item => item.type === 'fashion' || item.type === args.type)
+      const data = produits.filter(item => item.type === 'fashion' || item.type === args.type)
       data.filter((product) => {
         product.variants.filter((variant) => {
           if (variant.size) {
@@ -150,8 +154,11 @@ const resolvers = {
       })
       return { size: sizes };
     },
-    newProducts: (root, args, context, info) => {
-      return products.filter(item => {
+    newProducts: async (root, args, context, info) => {
+      const produits = await products.find();
+      console.log(produits);
+      console.log(typeof produits);
+      return produits.filter(item => {
         var cond = Boolean;
         if (args.type)
           cond = (item.type === args.type && item.new === true)
@@ -161,10 +168,35 @@ const resolvers = {
         return cond;
       })
     },
-    getProducts: (root, args, context, info) => {
+    async produits() {
+      try {
+        const produits = await products.find()
+        return produits;
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
+    /*
+     produits :async ()=> {
+      try {
+        //const produits =  products.find()
+       await products.find({}, function (err, docs) {
+          if(err) console.log(err)
+          console.log(docs);
+          console.log("---------------------------------------------------tt-------------------------");
+          return docs;
+        });
+       
+      } catch (err) {
+        throw new Error(err);
+      }
+    },*/
+    getProducts: async (root, args, context, info) => {
       const indexFrom = 0;
-      return products.splice(indexFrom, indexFrom + args.limit);
-
+      const produits = await products.find();
+      console.log(produits);
+      console.log(typeof produits)
+      return produits.splice(indexFrom, indexFrom + args.limit);
     },
     getCurrency: () => {
       return loadCurrency;
