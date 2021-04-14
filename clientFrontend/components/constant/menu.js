@@ -73,7 +73,7 @@ export const MENUITEMS = [
                { path:'/shop/left_sidebar?&category=televisions&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Televisions', type: 'link', icon: 'bar-chart' },
                { path:'/shop/left_sidebar?&category=tvreceivers&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'TV receivers', type: 'link', icon: 'bar-chart' },
                { path: '/shop/left_sidebar?&category=projectors&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Projectors', type: 'link' },
-               { path: '/shop/left_sidebar?&category=speakers&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Soundbar speakers ', type: 'link' },
+               { path: '/shop/left_sidebar?&category=Sspeakers&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Soundbar speakers ', type: 'link' },
                
     
             ]
@@ -83,7 +83,7 @@ export const MENUITEMS = [
                { path: '/shop/left_sidebar?&category=microwaves&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Microwave', type: 'link', icon: 'bar-chart' },
                { path: '/shop/left_sidebar?&category=lights&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Indoor & Outdoor lights ', type: 'link', icon: 'thought' },
                { path: '/shop/left_sidebar?&category=frigs&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Refrigerator & freezers', type: 'link', icon: 'video-camera' },
-               { path: '/shop/left_sidebar?&category=allhomeA&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'More', icon: 'headphone' },
+               
                
             ]
          },
@@ -97,7 +97,7 @@ export const MENUITEMS = [
             title: 'Cameras & photography', type: 'sub', children: [
                { path: '/shop/left_sidebar?&category=digitalcameras&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Digital cameras', type: 'link', icon: 'alert' },
                { path:'/shop/left_sidebar?&category=securitycameras&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Security cameras', type: 'link', icon: 'layout-accordion-merged' },
-               { path: '/shop/left_sidebar?&category=allcameras&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'More', icon: 'headphone' },
+               { path: '/shop/left_sidebar?&category=Caccessories&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Camera Accessories', icon: 'headphone' },
 
             
               
@@ -110,7 +110,7 @@ export const MENUITEMS = [
                { path: '/shop/left_sidebar?&category=Headphonesnearphones&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Headphones & Earphones', type: 'link', icon: 'bar-chart' },
                { path: '/shop/left_sidebar?&category=speakers&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Speakers', type: 'link' },
                { path: '/shop/left_sidebar?&category=radios&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Radio', type: 'link' },
-               { path: '/shop/left_sidebar?&category=Allaudios&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'More', type: 'link' },
+              
     
             ]
          },
@@ -144,30 +144,25 @@ export const MENUITEMS = [
          },
          {
             title: 'Vegetables', type: 'sub', children: [
-               { path: '/shop/left_sidebar?&category=desktopC&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Tomatoes', type: 'link', icon: 'list' },
-               { path: '/layouts/Vegetables', title: 'Potatoes', type: 'link', icon: 'gallery' },
-               { path: '/layouts/Bags', title: 'Carrots', type: 'link', icon: 'money' },
-               { path: '/layouts/Shoes', title: 'Onions', type: 'link', icon: 'time' },
-               { path: '/layouts/Watch', title: 'Lettuce', type: 'link', icon: 'alarm-clock' },
-               { path: '/layouts/Tools', title: 'More', type: 'link', icon: 'alarm-clock' }
+               { path: '/shop/left_sidebar?&category=tomatoes&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Tomatoes', type: 'link', icon: 'list' },
+               { path: '/shop/left_sidebar?&category=potatoes&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Potatoes', type: 'link', icon: 'gallery' },
+               { path: '/shop/left_sidebar?&category=carrots&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Carrots', type: 'link', icon: 'money' },
+               { path: '/shop/left_sidebar?&category=onions&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Onions', type: 'link', icon: 'time' },
+               { path: '/shop/left_sidebar?&category=lettuce&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Lettuce', type: 'link', icon: 'alarm-clock' },
+               { path: '/shop/left_sidebar?&category=allveg&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'More', type: 'link', icon: 'alarm-clock' }
             ]
          },
          {
             title: 'Beverages', type: 'sub', children: [
-               { path: '/portfolio/title', title: 'Water', type: 'link', icon: 'bar-chart' },
-               { path: '/portfolio/collection-banner', title: 'Milk', type: 'link', icon: 'thought' },
-               { path: '/portfolio/home-slider', title: 'Soft drinks', type: 'link', icon: 'video-camera' },
-               { path: '/portfolio/category', title: 'Category', type: 'link', icon: 'headphone' },
-               { path: '/portfolio/service', title: 'Service', type: 'link', icon: 'headphone' }
+               { path: '/shop/left_sidebar?&category=Water&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Water', type: 'link', icon: 'bar-chart' },
+               { path: '/shop/left_sidebar?&category=Milk&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Milk', type: 'link', icon: 'thought' },
+               { path: '/shop/left_sidebar?&category=softdrinks&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Soft drinks', type: 'link', icon: 'video-camera' },
             ]
          },
          {
-            title: 'Domestic cleaning', type: 'sub', children: [
-               { path: '/portfolio/product-box', title: 'Product Box', type: 'link', icon: 'bar-chart' },
-               { path: '/portfolio/product-slider', title: 'Product Slider', type: 'link', icon: 'thought' },
-               { path: '/portfolio/no-slider', title: 'No Slider', type: 'link', icon: 'video-camera' },
-               { path: '/portfolio/multi-slider', title: 'Multi Slider', type: 'link', icon: 'headphone' },
-               { path: '/portfolio/tab', title: 'Tab', type: 'link', icon: 'headphone' }
+            title: '', type: 'sub', children: [
+               { path:  '/shop/left_sidebar?&category=Water&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Domestic Cleaning', type: 'link', icon: 'bar-chart' },
+              
             ]
          },
          
@@ -177,17 +172,17 @@ export const MENUITEMS = [
       title: 'Pet supplies', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
          {
             title: '', type: 'sub', children: [
-               { path: '/portfolio/grid-2', title: 'Treats', type: 'link', icon: 'alert' },
-               { path: '/portfolio/grid-3', title: 'Health supplies', type: 'link', icon: 'layout-accordion-merged' },
-               { path: '/portfolio/grid-4', title: 'Bed & Furnitures', type: 'link', icon: 'layers' },
-               { path: '/portfolio/masonry-grid-2', title: 'Toys', type: 'link', icon: 'write' },
+               { path:  '/shop/left_sidebar?&category=treats&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Treats', type: 'link', icon: 'alert' },
+               { path:  '/shop/left_sidebar?&category=psupplies&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Health supplies', type: 'link', icon: 'layout-accordion-merged' },
+               { path:  '/shop/left_sidebar?&category=pfurniture&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Bed & Furnitures', type: 'link', icon: 'layers' },
+               { path:  '/shop/left_sidebar?&category=ptoys&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Toys', type: 'link', icon: 'write' },
                
             ]
          },
          {
             title: '', type: 'Link', children: [
-               { path: '/layouts/Nursery', title: 'Grooming', type: 'link', icon: 'list' },
-               { path: '/layouts/Vegetables', title: 'Waste & clean', type: 'link', icon: 'gallery' },
+               { path:  '/shop/left_sidebar?&category=pgrooming&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Grooming', type: 'link', icon: 'list' },
+               { path:  '/shop/left_sidebar?&category=pcleaning&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Waste & clean', type: 'link', icon: 'gallery' },
     
             ]
          },
@@ -199,18 +194,18 @@ export const MENUITEMS = [
       title: 'Tools', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
          {
             title: '', type: 'sub', children: [
-               { path: '/portfolio/grid-2', title: 'Building supplies', type: 'link', icon: 'alert' },
-               { path: '/portfolio/grid-3', title: 'Electrical', type: 'link', icon: 'layout-accordion-merged' },
-               { path: '/portfolio/grid-4', title: 'Hardware', type: 'link', icon: 'layers' },
-               { path: '/portfolio/masonry-grid-2', title: 'Kitchen & bath fixtures', type: 'link', icon: 'write' },
-               { path: '/portfolio/masonry-grid-3', title: 'Light bulbs ', type: 'link', icon: 'map-alt' },
+               { path:  '/shop/left_sidebar?&category=bsupplies&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Building supplies', type: 'link', icon: 'alert' },
+               { path:  '/shop/left_sidebar?&category=electrical&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Electrical', type: 'link', icon: 'layout-accordion-merged' },
+               { path:  '/shop/left_sidebar?&category=hardware&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Hardware', type: 'link', icon: 'layers' },
+               { path:  '/shop/left_sidebar?&category=fixtures&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Kitchen & bath fixtures', type: 'link', icon: 'write' },
+               { path:  '/shop/left_sidebar?&category=bulbs&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Light bulbs ', type: 'link', icon: 'map-alt' },
             ]
          },
          {
             title: '', type: 'sub', children: [
-               { path: '/layouts/Nursery', title: 'Painting supplies & wall treatment', type: 'link', icon: 'list' },
-               { path: '/layouts/Vegetables', title: 'Power & hand tools', type: 'link', icon: 'gallery' },
-               { path: '/layouts/Bags', title: 'Rough plumbing ', type: 'link', icon: 'money' },
+               { path:  '/shop/left_sidebar?&category=wallsupplies&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Painting supplies & wall treatment', type: 'link', icon: 'list' },
+               { path:  '/shop/left_sidebar?&category=pnhandtools&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Power & hand tools', type: 'link', icon: 'gallery' },
+               { path:  '/shop/left_sidebar?&category=plumbing&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Rough plumbing ', type: 'link', icon: 'money' },
               
             ]
          },
@@ -223,20 +218,14 @@ export const MENUITEMS = [
       title: 'Fitness ', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
          {
             title: '', type: 'sub', children: [
-               { path: '/portfolio/grid-2', title: 'Protein & bars', type: 'link', icon: 'alert' },
-               { path: '/portfolio/grid-3', title: 'Pre-workout & post workout' , type: 'link', icon: 'layout-accordion-merged' },
-               { path: '/portfolio/grid-4', title: 'multivitamins', type: 'link', icon: 'layers' },
-               { path: '/portfolio/masonry-grid-2', title: 'Immune support', type: 'link', icon: 'write' },
+               { path:  '/shop/left_sidebar?&category=proteinbars&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Protein & bars', type: 'link', icon: 'alert' },
+               { path:  '/shop/left_sidebar?&category=wsupplies&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Pre-workout & post workout' , type: 'link', icon: 'layout-accordion-merged' },
+               { path:  '/shop/left_sidebar?&category=multivitamins&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'multivitamins', type: 'link', icon: 'layers' },
+               { path:  '/shop/left_sidebar?&category=immunesupport&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Immune support', type: 'link', icon: 'write' },
               
             ]
          },
-         {
-            title: '', type: 'sub', children: [
-               { path: '/layouts/Nursery', title: 'Clothing', type: 'link', icon: 'list' },
-               
-              
-            ]
-         },
+        
          
         
          
