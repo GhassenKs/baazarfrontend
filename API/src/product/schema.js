@@ -152,7 +152,7 @@ const typeDefs = `
 
      type Query {
         product(id: Int!): Product
-        products(indexFrom:Int , limit:Int ,type:_CategoryType ,text :String ,brand: [String!],size:[String!] , color:String ,sortBy:_SortBy ,priceMin:Int ,priceMax:Int ): ProductResponse
+        products(indexFrom:Int , limit:Int ,type:_CategoryType ,text :String ,brand: [String!],size:[String!] , color:String ,sortBy:_SortBy ,priceMin:Int ,priceMax:Int ): [ProductResponse]
         productByType(type:String):[Product]
         productByCategory(category:String):[Product]
         instagram(type:String):[Instagram]

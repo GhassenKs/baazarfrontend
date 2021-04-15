@@ -6,13 +6,16 @@ const _ = require('lodash')
 const ProductResponse = require('./schema')
 const Fuse = require('fuse.js');
 
-console.log("woooooooooooooooo")
+console.log(" Database connected ")
 const resolvers = {
   Query: {
     
-    products: (root, args, context, info) => {
-      console.log("working yet 0")
-      const fuse = new Fuse(products, {
+    products: async (root, args, context, info) => {
+      var produits =await products.find({});
+      console.log( produits)
+      console.log(typeof produits)
+      console.log("working yet")
+      const fuse = new Fuse(produits, {
         threshold: 0.6,
         minMatchCharLength: 2,
         keys: ['title', 'brand', 'category', 'type'],
@@ -21,11 +24,11 @@ const resolvers = {
 
       if (args.text && args.text !== '') {
         
-        Products = fuse.search(args.text);
+        produits = fuse.search(args.text);
       }
       const getVisibleproducts = () => {
         
-        return products.filter(product => {
+        return produits.filter(product => {
 
           let typeMatch;
           if (args.type && product.type)
@@ -117,7 +120,7 @@ const resolvers = {
 
     product: async (root, args, context, info) => {
       
-      const result = await products.findOne({id:args.id})
+      const result = await products.findOne({id:args.id}) 
       console.log(typeof result)
       console.log(result)
       return result
@@ -125,7 +128,12 @@ const resolvers = {
     
     
     },
-    productByType: (root, args, context, info) => products.find({type : args.type}),
+    productByType: (root, args, context, info) => {
+      const prods = products.find({type : args.type})
+      console.log(typeof prods)
+      return prods
+
+  },
     productByCategory: (root, args, context, info) => {
       console.log("args", args);
       return products.find({category : args.category})
