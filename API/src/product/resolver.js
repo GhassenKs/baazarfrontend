@@ -181,7 +181,8 @@ const resolvers = {
       try {
         //const produits =  products.find()
        await products.find({}, function (err, docs) {
-          if(err) console.log(err)
+          if(er
+            r) console.log(err)
           console.log(docs);
           console.log("---------------------------------------------------tt-------------------------");
           return docs;
