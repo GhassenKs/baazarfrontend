@@ -6,14 +6,13 @@ const _ = require('lodash')
 const ProductResponse = require('./schema')
 const Fuse = require('fuse.js');
 
-console.log(" Database connected ")
+console.log("Database connected")
 const resolvers = {
   Query: {
     
     products: async (root, args, context, info) => {
       var produits =await products.find({});
-      console.log( produits)
-      console.log(typeof produits)
+      //console.log( produits)
       console.log("working yet")
       const fuse = new Fuse(produits, {
         threshold: 0.6,
@@ -23,7 +22,7 @@ const resolvers = {
       
 
       if (args.text && args.text !== '') {
-        
+       // console.log(args.text)
         produits = fuse.search(args.text);
       }
       const getVisibleproducts = () => {
@@ -50,7 +49,7 @@ const resolvers = {
               brandMatch = args.brand.includes(product.brand)}
           else
             {
-              console.log("I call else");
+              //console.log("I call else");
               brandMatch = true;}
 
           let colorMatch;
@@ -89,24 +88,25 @@ const resolvers = {
         });
       }
       
-      const items = products
+      const items = produits
       const types = args.type !== 'all' ? args.type : items
       const brands = args.brand !== [] ? args.brand : items
       const colors = args.color !== "" ? args.color : items
       const sortBy = args.sortBy !== [] ? args.sortBy : items
       const sizes = args.size !== [] ? args.size : items
-      console.log("brands",brands);
+      //console.log("brands",brands);
       console.log("items..........",items.length);
 
       const filterData = getVisibleproducts(items, types, brands, colors, sortBy, sizes);
       const total = filterData.length;
-      console.log("filter data", filterData);
+     // console.log("filter data", filterData);
 
       if (args.type === 'all') {
+        console.log(produits.slice(args.indexFrom, args.indexFrom + args.limit))
         return {
-          items: products.slice(args.indexFrom, args.indexFrom + args.limit),
-          total : products.length,
-          hasMore: products.length > args.indexFrom + args.limit 
+          items: produits.slice(args.indexFrom, args.indexFrom + args.limit),
+          total : produits.length,
+          hasMore: produits.length > args.indexFrom + args.limit 
         }
       }  else {
         return {
@@ -121,8 +121,8 @@ const resolvers = {
     product: async (root, args, context, info) => {
       
       const result = await products.findOne({id:args.id}) 
-      console.log(typeof result)
-      console.log(result)
+      //console.log(typeof result)
+      //console.log(result)
       return result
       
     
@@ -130,12 +130,12 @@ const resolvers = {
     },
     productByType: (root, args, context, info) => {
       const prods = products.find({type : args.type})
-      console.log(typeof prods)
+     //console.log(typeof prods)
       return prods
 
   },
     productByCategory: (root, args, context, info) => {
-      console.log("args", args);
+      //console.log("args", args);
       return products.find({category : args.category})
     },
     
@@ -144,13 +144,13 @@ const resolvers = {
 
     getBrands:async (root, args, context, info) => {
       const data = await products.find( {type :args.type} );
-      console.log(data)
+      //console.log(data)
       const brands = [...new Set(data.map(item => item.brand))]
       return { brand: brands };
     },
     getColors:async  (root, args, context, info) => {
       const produits = await products.find()
-      console.log(produits)
+      //console.log(produits)
       const color = []
       const data = produits.filter(item => item.type === 'fashion' || item.type === args.type)
       data.filter((product) => {
@@ -168,7 +168,7 @@ const resolvers = {
       const sizes = []
       //const data = products.filter(item => item.type === 'fashion' || item.type === args.type)
       const data = products.find({$or: [{ type: "fashion" }, { type: args.type }]})
-      console.log(data.variants)
+     // console.log(data.variants)
       
       data.find((product) => {
         product.variants.find((variant) => {
@@ -211,7 +211,6 @@ const resolvers = {
     getProducts: async (root, args, context, info) => {
       const indexFrom = 0;
       const produits = await products.find();
-      console.log( produits);
       return produits.splice(indexFrom, indexFrom + args.limit);
     },  
     getCurrency: () => {
