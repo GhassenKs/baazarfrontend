@@ -105,6 +105,7 @@ const resolvers = {
           hasMore: total > args.indexFrom + args.limit,
           total,
         }
+        
       }
 
     },

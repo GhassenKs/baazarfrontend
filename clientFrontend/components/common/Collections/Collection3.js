@@ -59,6 +59,7 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
             limit: 8
         }
     });
+    console.log(data)
     
     useEffect(() => {
         if (data === undefined) {
@@ -127,7 +128,6 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
                                             </div>
                                             )}
 
-                                      
                                 </Slider>
                                 }
                             </Col>

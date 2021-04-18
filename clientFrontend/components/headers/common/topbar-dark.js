@@ -7,7 +7,7 @@ import jwtDecode from 'jwt-decode';
 import LogoImage from './logo'
 
 const TopBarDark = ({logoName, topClass, fluid }) => {
-    const {user,logout}=useContext(AuthContext);
+    const {logout}=useContext(AuthContext);
     const router = useRouter();
     //-----------------------user verification
 

@@ -59,7 +59,7 @@ export const MENUITEMS = [
             title: 'Home Furniture', type: 'sub', children: [
                { path:'/shop/left_sidebar?&category=chairs&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Chairs', type: 'link', icon: 'alert' },
                { path: '/shop/left_sidebar?&category=tables&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Tables', type: 'link', icon: 'layout-accordion-merged' },
-               { path: '/shop/left_sidebar?&category=bedrooms&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Bedrooms', type: 'link', icon: 'layers' },
+               { path: '/shop/left_sidebar?&category=beds&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Beds', type: 'link', icon: 'layers' },
                { path: '/shop/left_sidebar?&category=desks&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Desks', icon: 'headphone' },
                { path: '/shop/left_sidebar?&category=allhomeF&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'More', icon: 'headphone' },
             
@@ -135,33 +135,33 @@ export const MENUITEMS = [
       title: 'Grocery', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
          {
             title: 'Fruits', type: 'sub', children: [
-               { path: '/shop/left_sidebar?&category=strawberry&minPrice=0&maxPrice=500', title: 'Strawberry', type: 'link', icon: 'alert' },
-               { path: '/shop/left_sidebar?&category=bananas&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Bananas', type: 'link', icon: 'layout-accordion-merged' },
-               { path: '/shop/left_sidebar?&category=apples&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Apples', type: 'link', icon: 'layers' },
-               { path: '/shop/left_sidebar?&category=watermelonsdesktopC&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Watermelons', type: 'link', icon: 'map-alt' },
-               { path: '/shop/left_sidebar?&category=allfruits&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'More', type: 'link', icon: 'map-alt' },
+               { path: '/shop/left_sidebar?&category=fruits&minPrice=0&maxPrice=500', title: 'Strawberry', type: 'link', icon: 'alert' },
+               { path: '/shop/left_sidebar?&category=fruits&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Bananas', type: 'link', icon: 'layout-accordion-merged' },
+               { path: '/shop/left_sidebar?&category=fruits&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Apples', type: 'link', icon: 'layers' },
+               { path: '/shop/left_sidebar?&category=fruits&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Watermelons', type: 'link', icon: 'map-alt' },
+               { path: '/shop/left_sidebar?&category=fruits&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'More', type: 'link', icon: 'map-alt' },
             ]
          },
          {
             title: 'Vegetables', type: 'sub', children: [
-               { path: '/shop/left_sidebar?&category=tomatoes&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Tomatoes', type: 'link', icon: 'list' },
-               { path: '/shop/left_sidebar?&category=potatoes&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Potatoes', type: 'link', icon: 'gallery' },
-               { path: '/shop/left_sidebar?&category=carrots&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Carrots', type: 'link', icon: 'money' },
-               { path: '/shop/left_sidebar?&category=onions&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Onions', type: 'link', icon: 'time' },
-               { path: '/shop/left_sidebar?&category=lettuce&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Lettuce', type: 'link', icon: 'alarm-clock' },
+               { path: '/shop/left_sidebar?&category=vegetables&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Tomatoes', type: 'link', icon: 'list' },
+               { path: '/shop/left_sidebar?&category=vegetables&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Potatoes', type: 'link', icon: 'gallery' },
+               { path: '/shop/left_sidebar?&category=vegetables&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Carrots', type: 'link', icon: 'money' },
+               { path: '/shop/left_sidebar?&category=vegetables&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Onions', type: 'link', icon: 'time' },
+               { path: '/shop/left_sidebar?&category=vegetables&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Lettuce', type: 'link', icon: 'alarm-clock' },
                { path: '/shop/left_sidebar?&category=allveg&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'More', type: 'link', icon: 'alarm-clock' }
             ]
          },
          {
             title: 'Beverages', type: 'sub', children: [
-               { path: '/shop/left_sidebar?&category=Water&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Water', type: 'link', icon: 'bar-chart' },
-               { path: '/shop/left_sidebar?&category=Milk&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Milk', type: 'link', icon: 'thought' },
-               { path: '/shop/left_sidebar?&category=softdrinks&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Soft drinks', type: 'link', icon: 'video-camera' },
+               { path: '/shop/left_sidebar?&category=beverages&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Water', type: 'link', icon: 'bar-chart' },
+               { path: '/shop/left_sidebar?&category=beverages&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Milk', type: 'link', icon: 'thought' },
+               { path: '/shop/left_sidebar?&category=beverages&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Soft drinks', type: 'link', icon: 'video-camera' },
             ]
          },
          {
             title: '', type: 'sub', children: [
-               { path:  '/shop/left_sidebar?&category=Water&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Domestic Cleaning', type: 'link', icon: 'bar-chart' },
+               { path:  '/shop/left_sidebar?&category=domesticC&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Cleaning product', type: 'link', icon: 'bar-chart' },
               
             ]
          },
@@ -182,7 +182,6 @@ export const MENUITEMS = [
          {
             title: '', type: 'Link', children: [
                { path:  '/shop/left_sidebar?&category=pgrooming&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Grooming', type: 'link', icon: 'list' },
-               { path:  '/shop/left_sidebar?&category=pcleaning&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Waste & clean', type: 'link', icon: 'gallery' },
     
             ]
          },

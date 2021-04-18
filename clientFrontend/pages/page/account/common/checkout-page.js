@@ -6,6 +6,8 @@ import paypal from '../../../../public/assets/images/paypal.png';
 import { useForm } from 'react-hook-form';
 import {useRouter} from 'next/router';
 import { CurrencyContext } from '../../../../helpers/Currency/CurrencyContext';
+import jwtDecode from 'jwt-decode';
+
 
 
 const CheckoutPage = () => {
@@ -62,8 +64,10 @@ const CheckoutPage = () => {
         sandbox: 'AZ4S98zFa01vym7NVeo_qthZyOnBhtNvQDsjhaZSMH-2_Y9IAJFbSD3HPueErYqN8Sa8WYRbjP7wWtd_',
         production: 'AZ4S98zFa01vym7NVeo_qthZyOnBhtNvQDsjhaZSMH-2_Y9IAJFbSD3HPueErYqN8Sa8WYRbjP7wWtd_',
     }
-
+    
+ 
     return (
+
         <section className="section-b-space">
             <Container>
                 <div className="checkout-page">
@@ -76,9 +80,15 @@ const CheckoutPage = () => {
                                     </div>
                                     <div className="row check-out">
                                         <div className="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <div className="field-label">First Name</div>
+                                             
+                                        <div className="field-label">First Name</div>
                                             <input type="text" className={`${errors.firstName?'error_border':''}`} name="first_name" ref={register({ required: true })} />
                                             <span className="error-message">{errors.firstName && 'First name is required'}</span>
+                                            
+                                            
+                                            
+                                            
+                                            
                                            
                                         </div>
                                         <div className="form-group col-md-6 col-sm-6 col-xs-12">
@@ -87,7 +97,7 @@ const CheckoutPage = () => {
                                             <span className="error-message">{errors.last_name && 'Last name is required'}</span>
                                         </div>
                                         <div className="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <div className="field-label">Phone</div>
+                                            <div className="field-label">Phone Number</div>
                                             <input type="text" name="phone" className={`${errors.phone?'error_border':''}`} ref={register({ pattern: /\d+/ })} />
                                             <span className="error-message">{errors.phone && 'Please enter number for phone.'}</span>
                                         </div>
@@ -97,12 +107,34 @@ const CheckoutPage = () => {
                                             <span className="error-message">{errors.email && 'Please enter proper email address .'}</span>
                                         </div>
                                         <div className="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <div className="field-label">Country</div>
+                                            <div className="field-label">Governate</div>
                                             <select name="country" ref={register({ required: true })}>
-                                                <option>India</option>
-                                                <option>South Africa</option>
-                                                <option>United State</option>
-                                                <option>Australia</option>
+                                                <option>Ariana</option>
+                                                <option>Béja</option>
+                                                <option>Sousse</option>
+                                                <option>Bizerte</option>
+                                                <option>Gabès</option>
+                                                <option>Nabeul</option>
+                                                <option>Jendouba</option>
+                                                <option>Kairouan</option>
+                                                <option>Zaghouan</option>
+                                                <option>Kebili</option>
+                                                <option>Kef</option>
+                                                <option>Mahdia</option>
+                                                <option>Manouba</option>
+                                                <option>Medenine</option>
+                                                <option>Monastir</option>
+                                                <option>Gafsa</option>
+                                                <option>Sfax</option>
+                                                <option>Sidi Bouzid</option>
+                                                <option>Siliana</option>
+                                                <option>Ben Arous</option>
+                                                <option>Tataouine</option>
+                                                <option>Tozeur</option>
+                                                <option>Tunis</option>
+                                                <option>Kasserine</option>
+                                                
+                            
                                             </select>
                                         </div>
                                         <div className="form-group col-md-12 col-sm-12 col-xs-12">
@@ -110,16 +142,8 @@ const CheckoutPage = () => {
                                             <input className="form-control" className={`${errors.address?'error_border':''}`} type="text" name="address" ref={register({ required: true, min: 20, max: 120 })} placeholder="Street address" />
                                             <span className="error-message">{errors.address && 'Please right your address .'}</span>
                                         </div>
-                                        <div className="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <div className="field-label">Town/City</div>
-                                            <input className="form-control" type="text" className={`${errors.city?'error_border':''}`} name="city" ref={register({ required: true })} onChange={setStateFromInput} />
-                                            <span className="error-message">{errors.city && 'select one city'}</span>
-                                        </div>
-                                        <div className="form-group col-md-12 col-sm-6 col-xs-12">
-                                            <div className="field-label">State / County</div>
-                                            <input className="form-control" type="text" className={`${errors.state?'error_border':''}`} name="state" ref={register({ required: true })} onChange={setStateFromInput} />
-                                            <span className="error-message">{errors.state && 'select one state'}</span>
-                                        </div>
+                                        
+                                        
                                         <div className="form-group col-md-12 col-sm-6 col-xs-12">
                                             <div className="field-label">Postal Code</div>
                                             <input className="form-control" type="text" name="pincode" className={`${errors.pincode?'error_border':''}`} ref={register({ pattern: /\d+/ })} />
@@ -132,7 +156,7 @@ const CheckoutPage = () => {
                                     </div>
                                 </Col>
                                 <Col lg="6" sm="12" xs="12">
-                                    {cartItems && cartItems.length > 0 > 0 ?
+                                    {cartItems && cartItems.length > 0 ?
                                         <div className="checkout-details">
                                             <div className="order-box">
                                                 <div className="title-box">
@@ -200,6 +224,7 @@ const CheckoutPage = () => {
             </Container>
         </section>
     )
+    
 }
 
 export default CheckoutPage;

@@ -24,12 +24,6 @@ import FurnitureBanner from '../pages/layouts/Marketplace/components/Collections
 
 
 
-//-----------------------------setting up apollo client
-
-
-
-//-----------------end of setup
-
 const Fashion = () => {
   return (
     <>
@@ -39,16 +33,14 @@ const Fashion = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/x-icon" href={favicon?favicon:''} />
       </Helmet>
-      <Headerone  topClass="top-header" />
+      <Headerone logoName={'logo.png'} topClass="top-header" />
       <Banner /> 
-      <FurnitureBanner />
-      <TabProducts type="watch" />
-      <ProductSlider type="marketplace" />
-
-      <SpecialProducts type="fashion" backImage={true} productSlider={Product4} line={true} title="title1 section-t-space" inner="title-inner1"  designClass="section-b-space p-t-0 ratio_asos" noSlider="true" cartClass="cart-info cart-wrap" /> 
-
+      <CollectionBanner />
+      <Paragraph title="title1 section-t-space" inner="title-inner1" hrClass={false} />
+      <TopCollection noTitle="null" backImage={true} type="electronics" title="top collection" subtitle="special offer"  productSlider={Product4} designClass="section-b-space p-t-0 ratio_asos" noSlider="false" cartClass="cart-info cart-wrap" />
+      <SpecialProducts type="electronics" backImage={true} productSlider={Product4} line={true} title="title1 section-t-space" inner="title-inner1"  designClass="section-b-space p-t-0 ratio_asos" noSlider="true" cartClass="cart-info cart-wrap" /> 
       <ServiceLayout sectionClass="border-section small-section" />
-
+     
       <FooterOne logoName={'logo.png'} />
     </>
   )

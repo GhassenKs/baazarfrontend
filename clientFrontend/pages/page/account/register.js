@@ -9,14 +9,13 @@ import { withApollo } from '../../../helpers/apollo/apollo';
 import { onError } from "@apollo/client/link/error";
 import { useRouter } from 'next/router';
 import {AuthContext} from '../../../context/auth';
+import { Redirect } from 'react-router-dom';
 //-------------------------------
 
 function Register() {
 
     //---------------------
     const context = useContext(AuthContext)
-    const [user,setUser] = useState(sessionStorage.getItem('username'))
-
     const router = useRouter()
     const [errors, setErrors] = useState({});
 
@@ -48,9 +47,9 @@ function Register() {
     }
     //--------------------------
 
-    const reg = user ? (
+    const reg = !initialState.user ? (
     
-      router.push('/')
+     <Redirect to="/" />
     ) : (
     <CommonLayout parent="home" title="register">
     <section className="register-page section-b-space">
@@ -105,9 +104,8 @@ function Register() {
   error={errors}
   onChange={onChange} className="form-control" id="review"
                                         placeholder="Enter your password" required="" />
-                                <button type="submit" className="form-control" >
-  Register
-</button>
+                                        
+                                <button type="submit" className="btn btn-solid" >Register</button>
 
                                 </Col>
                             </Row>

@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import { Collapse } from 'reactstrap';
 import FilterContext from '../../../helpers/filter/FilterContext';
 
+
 const GET_COLOR = gql`
     query getColors($type:String)  {
         getColors(type: $type){
@@ -21,8 +22,8 @@ const Color = () => {
             type: context.state
         }
     })
-
-    return (
+return(
+    
         <div className="collection-collapse-block open">
             <h3 className="collapse-block-title" onClick={toggle}>colors</h3>
             <Collapse isOpen={isOpen}>
