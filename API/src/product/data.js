@@ -7524,22 +7524,20 @@ const products = [
     },
     {
         "id": 108,
-        "title": "Lady Charmers",
+        "title": "Hammer",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "flower",
+        "type": "bsupplies",
         "brand": "rose",
         "collection": ["on sale"],
-        "category": "flower",
+        "category": "bsupplies",
         "price": 35,
         "sale": false,
         "discount": "40",
         "stock": 11,
         "new": true,
         "tags": [
-            "new",
-            "deeppink",
-            "coral",
-            "rose"
+            "new"
+            
         ],
         "variants": [
             {
@@ -7548,13 +7546,6 @@ const products = [
                 "sku": "flow9",
                 "color": "deeppink",
                 "image_id": 1081
-            },
-            {
-                "variant_id": 1082,
-                "id": 108.2,
-                "sku": "sku92",
-                "color": "coral",
-                "image_id": 1082
             }
         ],
         "images": [
@@ -7566,26 +7557,17 @@ const products = [
                 "variant_id": [
                     1081
                 ]
-            },
-            {
-                "image_id": 1082,
-                "id": 108.2,
-                "alt": "coral",
-                "src": "/assets/images/flower/product/9.jpg",
-                "variant_id": [
-                    1082
-                ]
             }
         ]
     },
     {
         "id": 109,
-        "title": "Joyful Flowers",
+        "title": "Multimeter",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "flower",
+        "type": "electrical",
         "brand": "orchids",
         "collection": ["on sale"],
-        "category": "flower",
+        "category": "electrical",
         "price": 25,
         "sale": false,
         "discount": "50",
@@ -7593,8 +7575,7 @@ const products = [
         "new": true,
         "tags": [
             "new",
-            "white",
-            "yellow",
+           
             "orchids"
         ],
         "variants": [
@@ -7604,13 +7585,6 @@ const products = [
                 "sku": "flow9",
                 "color": "white",
                 "image_id": 1091
-            },
-            {
-                "variant_id": 1092,
-                "id": 109.2,
-                "sku": "sku92",
-                "color": "yellow",
-                "image_id": 1092
             }
         ],
         "images": [
@@ -7622,35 +7596,25 @@ const products = [
                 "variant_id": [
                     1091
                 ]
-            },
-            {
-                "image_id": 1092,
-                "id": 109.2,
-                "alt": "yellow",
-                "src": "/assets/images/flower/product/11.jpg",
-                "variant_id": [
-                    1092
-                ]
             }
         ]
     },
     {
         "id": 110,
-        "title": "Joyful Flowers",
+        "title": "Torch",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "flower",
-        "brand": "lilies",
+        "type": "electrical",
+        "brand": "elect",
         "collection": ["on sale", "featured products"],
-        "category": "flower",
+        "category": "electrical",
         "price": 85,
         "sale": true,
         "discount": "12",
         "stock": 1,
         "new": true,
         "tags": [
-            "darkorange",
-            "mediumpurple",
-            "lilies"
+            
+            "torch"
         ],
         "variants": [
             {
@@ -7659,13 +7623,6 @@ const products = [
                 "sku": "flow9",
                 "color": "darkorange",
                 "image_id": 1101
-            },
-            {
-                "variant_id": 1102,
-                "id": 110.1,
-                "sku": "sku92",
-                "color": "mediumpurple",
-                "image_id": 1102
             }
         ],
         "images": [
@@ -7677,26 +7634,17 @@ const products = [
                 "variant_id": [
                     1101
                 ]
-            },
-            {
-                "image_id": 1102,
-                "id": 110.2,
-                "alt": "mediumpurple",
-                "src": "/assets/images/flower/product/6.jpg",
-                "variant_id": [
-                    1102
-                ]
             }
         ]
     },
     {
         "id": 111,
-        "title": "Steel Bowl Puppy",
+        "title": "Lights 1",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "pets",
+        "type": "bulbs",
         "brand": "beneful",
         "collection": ["on sale"],
-        "category": "pets",
+        "category": "bulbs",
         "price": 120,
         "sale": false,
         "discount": "5",
@@ -7728,12 +7676,12 @@ const products = [
     },
     {
         "id": 112,
-        "title": "Calcium Milk Bone",
+        "title": "light 2",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "pets",
+        "type": "bulbs",
         "brand": "hello-pet",
         "collection": ["on sale"],
-        "category": "pets",
+        "category": "bulbs",
         "price": 140,
         "sale": true,
         "discount": "5",
@@ -7764,12 +7712,12 @@ const products = [
     },
     {
         "id": 113,
-        "title": "Dog Sleep Mat",
+        "title": "Painter's tape",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "pets",
-        "brand": "beneful",
+        "type": "wallsupplies",
+        "brand": "Scotch",
         "collection": ["best sellers"],
-        "category": "pets",
+        "category": "wallsupplies",
         "price": 136,
         "sale": false,
         "discount": "10",
@@ -7777,8 +7725,7 @@ const products = [
         "new": false,
         "tags": [
             "new",
-            "beneful",
-            "pink"
+            
         ],
         "variants": [
             {
@@ -7802,12 +7749,12 @@ const products = [
     },
     {
         "id": 114,
-        "title": "Dog Super Bone toy",
+        "title": "Paint Roller",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "pets",
-        "brand": "buddy",
+        "type": "wallsupplies",
+        "brand": "rollers",
         "collection": ["best sellers"],
-        "category": "pets",
+        "category": "wallsupplies",
         "price": 149,
         "sale": true,
         "discount": "14",
@@ -11622,10 +11569,10 @@ const products = [
         "id": 206,
         "title": "whey protein",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "gym",
+        "type": "wsupplies",
         "brand": "whey protein",
         "collection": ["on sale"],
-        "category": "gym",
+        "category": "wsupplies",
         "price": 150,
         "sale": true,
         "discount": "10",
@@ -11658,10 +11605,10 @@ const products = [
         "id": 207,
         "title": "Micellar Casein",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "gym",
+        "type": "immunesupport",
         "brand": "whey protein",
         "collection": ["on sale"],
-        "category": "gym",
+        "category": "immunesupport",
         "price": 220,
         "sale": false,
         "discount": "30",
@@ -11730,10 +11677,10 @@ const products = [
         "id": 209,
         "title": "diet whey",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "gym",
+        "type": "wsupplies",
         "brand": "whey protein",
         "collection": ["on sale"],
-        "category": "gym",
+        "category": "wsupplies",
         "price": 260,
         "sale": true,
         "discount": "10",
@@ -11766,10 +11713,10 @@ const products = [
         "id": 210,
         "title": "Peanut Butter",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "gym",
+        "type": "proteinbars",
         "brand": "whey protein",
         "collection": ["on sale"],
-        "category": "gym",
+        "category": "proteinbars",
         "price": 195,
         "sale": false,
         "discount": "15",
@@ -11802,10 +11749,10 @@ const products = [
         "id": 211,
         "title": "Impact Diet Whey",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "gym",
+        "type": "proteinbars",
         "brand": "Vegan protein",
         "collection": ["on sale"],
-        "category": "gym",
+        "category": "proteinbars",
         "price": 90,
         "sale": false,
         "discount": "3",
@@ -11838,10 +11785,10 @@ const products = [
         "id": 212,
         "title": "MuscleBlaze gainer",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "gym",
+        "type": "multivitamins",
         "brand": "whey protein",
         "collection": ["on sale"],
-        "category": "gym",
+        "category": "multivitamins",
         "price": 160,
         "sale": true,
         "discount": "5",
@@ -11946,10 +11893,10 @@ const products = [
         "id": 215,
         "title": "Isolate Vegan powder",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "gym",
+        "type": "wsupplies",
         "brand": "Vegan protein",
         "collection": ["on sale", "best sellers"],
-        "category": "gym",
+        "category": "wsupplies",
         "price": 180,
         "sale": false,
         "discount": "50",

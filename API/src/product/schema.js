@@ -128,11 +128,13 @@ const typeDefs = `
       pgrooming,
       bsupplies,
       electrical,
-      hardware,
-      fixtures,
       bulbs,
       wallsupplies,
       plumbing,
+      proteinbars,
+      wsupplies,
+      multivitamins,
+      immunesupport,
       all
       
     }

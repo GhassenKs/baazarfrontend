@@ -250,8 +250,6 @@ const Category = () => {
                 <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
                 <li><a href={null} onClick={() => updateCategory("bsupplies")}>Building supplies</a></li>
                 <li><a href={null} onClick={() => updateCategory("electrical")}>Electrical tools</a></li>
-                <li><a href={null} onClick={() => updateCategory("hardware")}>Hardware tools</a></li>
-                <li><a href={null} onClick={() => updateCategory("fixtures")}>Kitchen & bath fixtures</a></li>
                 <li><a href={null} onClick={() => updateCategory("bulbs")}>Light bulbs</a></li>
                 <li><a href={null} onClick={() => updateCategory("wallsupplies")}>Painting tools & wall supplies</a></li>
                 <li><a href={null} onClick={() => updateCategory("plumbing")}>Plumbing</a></li>
