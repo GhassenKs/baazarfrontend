@@ -58,8 +58,8 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                                 <div className="footer-logo">
                                     <LogoImage logo={logoName} />
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
+                                <p>Say hello to your favorite new online shopping! At <span className="font-weight-bold"> Baazar.tn </span>,it is our main goal to provide our amazing customers with all they need at affordable prices.
+                                      </p>
                                 <div className="footer-social">
                                     <ul>
                                         <li>

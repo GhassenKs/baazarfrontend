@@ -5,7 +5,7 @@ const typeDefs = `
         description: String
         type: _CategoryType
         brand: String
-        PCollection: [String]
+        collection: [String]
         category: String
         price: String
         sale: String
@@ -18,26 +18,6 @@ const typeDefs = `
         images:[Images]
         sortBy: _SortBy
       }
-      type Produit {
-        id:Int!
-        title: String
-        description: String
-        type: _CategoryType
-        brand: String
-        PCollection: [String]
-        category: String
-        price: String
-        sale: String
-        discount: String
-        picture:Int
-        stock: Int
-        new: String
-        tags: [String]
-        variants: [Variants]
-        images:[Images]
-        sortBy: _SortBy
-      }
-  
 
  
       type Images {
@@ -193,6 +173,7 @@ const typeDefs = `
     
 
 
+
      type Query {
         product(id: Int!): Product
         products(indexFrom:Int , limit:Int ,type:_CategoryType ,text :String ,brand: [String!],size:[String!] , color:String ,sortBy:_SortBy ,priceMin:Int ,priceMax:Int ): ProductResponse
@@ -207,9 +188,8 @@ const typeDefs = `
         getProducts(limit:Int):[Product]
         getCurrency:[Currency]
         getUsers: [User]
-        produits:[Product] ! 
-        getProduits(id:Int!):Product
-        allProducts:[Produit]
+        
+        
         
       }
   
@@ -226,7 +206,6 @@ const typeDefs = `
     type Mutation {
       register(registerInput:RegisterInput):User!
       login(email:String!,password:String!): User!
-      createproduit(title:String,price:String):Produit!
     }
 `;
 
