@@ -1,4 +1,4 @@
-const products = [
+const products =[
     {   
         "id": 1,
         "title": "bohemian dress",
@@ -6,11 +6,7 @@ const products = [
         "type": "Dresses",
         "brand": "nike",
         "collection": ["new products"],
-<<<<<<< HEAD
-        "category": "Women",
-=======
         "category": "Dresses",
->>>>>>> 02f262f25d4f79626f20aa40dd78d34e5051eba3
         "price": 145,
         "sale": true,
         "discount": "40",
@@ -19427,5 +19423,4 @@ const products = [
     }
 
 ]
-
 module.exports = products;
