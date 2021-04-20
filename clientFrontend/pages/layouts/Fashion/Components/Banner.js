@@ -17,7 +17,7 @@ const Banner = () => {
                       <div>
                         <h4>welcome to Baazar.tn</h4>
                         <h1>men fashion</h1>
-                        <Link href={`/left-sidebar/collection`}> 
+                        <Link href={`/shop/left_sidebar?&category=Dresses&brand=&color=&size=&minPrice=0&maxPrice=500`}> 
                           <a className="btn btn-solid">shop now </a>
                         </Link>
                       </div>
@@ -36,7 +36,7 @@ const Banner = () => {
                       <div>
                         <h4>welcome to Baazar.tn</h4>
                         <h1>women fashion</h1>
-                        <Link href={`/left-sidebar/collection`}> 
+                        <Link href={`/shop/left_sidebar?&category=Msweater&brand=&color=&size=&minPrice=0&maxPrice=500`}> 
                         <a className="btn btn-solid">shop now </a>
                         </Link>
                       </div>

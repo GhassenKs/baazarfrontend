@@ -1,6 +1,5 @@
 import { pathToArray } from 'graphql/jsutils/Path';
 import React, { useState, useContext } from 'react';
-import {useParams} from 'react-router-dom'
 import { Collapse } from 'reactstrap';
 import FilterContext from '../../../helpers/filter/FilterContext';
 
@@ -29,8 +28,8 @@ const Category = () => {
    const catg = urlParams.get('category')
 
 
-   const type = ((catg === 'Dresses') || (catg === 'Skirts')|| (catg === 'Ftshirts') || (catg === 'Fjeans')|| (catg === 'Fsports')|| (catg === 'Fall')
-   || (catg === 'Fall')|| (catg === 'Fnecklaces')|| (catg === 'Fbracelets&rings')|| (catg === 'Fcaps&hats')|| (catg === 'Fpurses&bags')) ?
+    const type = ((catg === 'Dresses') || (catg === 'Skirts')|| (catg === 'Ftshirts') || (catg === 'Fjeans')|| (catg === 'Fsports')|| (catg === 'Fshoes')|| (catg === 'Fjackets')
+   || (catg === 'Fall')|| (catg === 'Fnecklaces')|| (catg === 'Fbraceletsrings')|| (catg === 'Fcapshats')|| (catg === 'Fpursesbags')|| (catg === 'Ffragrances')) ?
    (
     <div className="collection-collapse-block open">
     <h3 className="collapse-block-title" onClick={toggleCategory}>Category</h3>
@@ -49,17 +48,48 @@ const Category = () => {
                     <li><a href={null} onClick={() => updateCategory("Fshoes")}>Shoes</a></li>
                     <li><p className="font-weight-bold">Women Accessories</p></li>
                     <li><a href={null} onClick={() => updateCategory("Fnecklaces")}>Necklaces</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fbracelets&rings")}>Bracelets & Rings</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fcaps&hats")}>Caps & Hats</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fpurses&bags")}>Purses & bags</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fbraceletsrings")}>Bracelets & Rings</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fcapshats")}>Caps & Hats</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fpursesbags")}>Purses & bags</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Ffragrances")}>Frangrances</a></li>
+                   
                     
                 </ul>
             </div>
         </div>
     </Collapse>
 </div>
-     ) : (( catg === 'Sweater') || (catg === 'Mshirts')|| (catg === 'MBlazers')|| (catg === 'MJeans')|| (catg === 'Mall')
-     || (catg === 'Mnecklaces')|| (catg === 'Mbracelets&rings')|| (catg === 'Mcaps&hats')|| (catg === 'Mbags')) ?
+     ) :( (catg === 'Makeup') || (catg === 'Skincare')|| (catg === 'Haircare')) ?
+     (
+        <div className="collection-collapse-block open">
+        <h3 className="collapse-block-title" onClick={toggleCategory}>Category</h3>
+        <Collapse isOpen={isCategoryOpen}>
+            <div className="collection-collapse-block-content">
+                <div className="collection-brand-filter">
+                    <ul className="category-list">
+                       
+                        <li><p className="font-weight-bold">Self care</p></li>
+                        <li><a href={null} onClick={() => updateCategory("Makeup")}>Make up</a></li>
+                        <li><a href={null} onClick={() => updateCategory("Skincare")}>Skin care</a></li>
+                        <li><a href={null} onClick={() => updateCategory("Haircare")}>Hair care</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </Collapse>
+    </div>
+     )
+     
+     
+     
+     
+
+
+
+
+     :     (( catg === 'Msweater') || (catg === 'Mshirts')|| (catg === 'MBlazers')|| (catg === 'Mjeans')|| (catg === 'Mall')|| (catg === 'Mjackets')|| (catg === 'Mblazers')
+     || (catg === 'Mnecklaces')|| (catg === 'Mbraceletsrings')|| (catg === 'Mcapshats')|| (catg === 'Mbags')|| (catg === 'Mfragrances')|| (catg === 'Msports')|| (catg === 'Mshoes')) ?
    ( <div className="collection-collapse-block open">
     <h3 className="collapse-block-title" onClick={toggleCategory}>Category</h3>
     <Collapse isOpen={isCategoryOpen}>
@@ -77,9 +107,10 @@ const Category = () => {
                     <li><a href={null} onClick={() => updateCategory("Mshoes")}>Shoes</a></li>
                     <li><p className="font-weight-bold">Men Accessories</p></li>
                     <li><a href={null} onClick={() => updateCategory("Mnecklaces")}>Necklaces</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Mbracelets&rings")}>Bracelets & Rings</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Mcaps&hats")}>Caps & Hats</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mbraceletsrings")}>Bracelets & Rings</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mcapshats")}>Caps & Hats</a></li>
                     <li><a href={null} onClick={() => updateCategory("Mbags")}>Bags</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mfragrances")}>Fragrances</a></li>
                     
                 </ul>
             </div>
@@ -87,7 +118,7 @@ const Category = () => {
     </Collapse>
 </div>
 
-) :  (( catg === 'tables') || (catg === 'chairs')|| (catg === 'desks')|| (catg === 'bedrooms')|| (catg === 'Mall')
+) :  (( catg === 'tables') || (catg === 'chairs')|| (catg === 'desks')|| (catg === 'bedrooms')|| (catg === 'allF')
 || (catg === 'televisions')|| (catg === 'projectors')|| (catg === 'tvreceivers')|| (catg === 'Soundspeakers')|| (catg === 'microwaves')|| (catg === 'lights')|| (catg === 'refrigeratorsnfreezers')   ) ? 
 ( <div className="collection-collapse-block open">
 <h3 className="collapse-block-title" onClick={toggleCategory}>Category</h3>
@@ -99,7 +130,7 @@ const Category = () => {
                <li><p className="font-weight-bold">Home Furniture</p></li>
                 <li><a href={null} onClick={() => updateCategory("chairs")}>Chairs</a></li>
                 <li><a href={null} onClick={() => updateCategory("Tables")}>Tables</a></li>
-                <li><a href={null} onClick={() => updateCategory("bedrooms")}>Bedrooms</a></li>
+                <li><a href={null} onClick={() => updateCategory("beds")}>Beds</a></li>
                 <li><a href={null} onClick={() => updateCategory("desks")}>Desks</a></li>
                 <li><a href={null} onClick={() => updateCategory("mattresses")}>Mattresses</a></li>
                 <li><a href={null} onClick={() => updateCategory("dressers")}>Dressers</a></li>
@@ -159,9 +190,7 @@ const Category = () => {
 
 
 
-:  (( catg === 'strawberry') || (catg === 'bananas')|| (catg === 'apples')|| (catg === 'watermelons')|| (catg === 'allfruits')
-|| (catg === 'allveg')|| (catg === 'tomatoes')|| (catg === 'potatoes')|| (catg === 'carrots')|| (catg === 'onions')|| (catg === 'lettuce')|| (catg === 'water')
-|| (catg === 'milk')|| (catg === 'softdrinks')  ) ? 
+:  (( catg === 'fruits') || (catg === 'vegetables')|| (catg === 'beverages')|| (catg === 'domesticC')  ) ? 
 ( <div className="collection-collapse-block open">
 <h3 className="collapse-block-title" onClick={toggleCategory}>Category</h3>
 <Collapse isOpen={isCategoryOpen}>
@@ -169,26 +198,12 @@ const Category = () => {
         <div className="collection-brand-filter">
             <ul className="category-list">
                 <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
-               <li><p className="font-weight-bold">Fruits</p></li>
-                <li><a href={null} onClick={() => updateCategory("strawberry")}>Strawberry</a></li>
-                <li><a href={null} onClick={() => updateCategory("bananas")}>Bananas</a></li>
-                <li><a href={null} onClick={() => updateCategory("apples")}>Apples</a></li>
-                <li><a href={null} onClick={() => updateCategory("watermelons")}>Watermelons</a></li>
-                <li><a href={null} onClick={() => updateCategory("pears")}>Pears</a></li>
-                <li><a href={null} onClick={() => updateCategory("mangoes")}>Mangoes</a></li>
-                <li><a href={null} onClick={() => updateCategory("peaches")}>Peaches</a></li>
-
-                <li><p className="font-weight-bold">Vegetables</p></li>
-                <li><a href={null} onClick={() => updateCategory("tomatoes")}>Tomatoes</a></li>
-                <li><a href={null} onClick={() => updateCategory("potatoes")}>Potatoes</a></li>
-                <li><a href={null} onClick={() => updateCategory("carrots")}>Carrots</a></li>
-                <li><a href={null} onClick={() => updateCategory("onions")}>Onions</a></li>
-                <li><a href={null} onClick={() => updateCategory("lettuce")}>Lettuce</a></li>
-                <li><p className="font-weight-bold">Beverages</p></li>
-                <li><a href={null} onClick={() => updateCategory("water")}>Water</a></li>
-                <li><a href={null} onClick={() => updateCategory("milk")}>Milk</a></li>
-                <li><a href={null} onClick={() => updateCategory("softdrinks")}>Soft Drinks</a></li>
-                <li><p className="font-weight-bold">Domestic Cleaning</p></li>
+               <li><p className="font-weight-bold">Grocery</p></li>
+               <li><a href={null} onClick={() => updateCategory("fruits")}>Fruits</a></li>
+                <li><a href={null} onClick={() => updateCategory("vegetables")}>Vegetables</a></li>
+                <li><a href={null} onClick={() => updateCategory("domesticC")}>Cleaning products</a></li>
+                <li><a href={null} onClick={() => updateCategory("beverages")}>Beverages</a></li>
+                
                
                 
                 
@@ -212,7 +227,7 @@ const Category = () => {
                 <li><a href={null} onClick={() => updateCategory("pfurniture")}>Bed & Furniture</a></li>
                 <li><a href={null} onClick={() => updateCategory("ptoys")}>Toys</a></li>
                 <li><a href={null} onClick={() => updateCategory("pgrooming")}>Grooming</a></li>
-                <li><a href={null} onClick={() => updateCategory("pcleaning")}>Waste & Clean</a></li>
+                
                 
 
                
@@ -235,8 +250,6 @@ const Category = () => {
                 <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
                 <li><a href={null} onClick={() => updateCategory("bsupplies")}>Building supplies</a></li>
                 <li><a href={null} onClick={() => updateCategory("electrical")}>Electrical tools</a></li>
-                <li><a href={null} onClick={() => updateCategory("hardware")}>Hardware tools</a></li>
-                <li><a href={null} onClick={() => updateCategory("fixtures")}>Kitchen & bath fixtures</a></li>
                 <li><a href={null} onClick={() => updateCategory("bulbs")}>Light bulbs</a></li>
                 <li><a href={null} onClick={() => updateCategory("wallsupplies")}>Painting tools & wall supplies</a></li>
                 <li><a href={null} onClick={() => updateCategory("plumbing")}>Plumbing</a></li>

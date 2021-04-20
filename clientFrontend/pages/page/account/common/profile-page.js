@@ -1,9 +1,28 @@
 import React from 'react';
 import { Container, Row, Form, Input, Label, Col } from 'reactstrap';
+import jwtDecode from 'jwt-decode';
+import { Redirect } from 'react-router-dom';
+
+
 
 const ProfilePage = () => {
-    return (
+
+    const initialState = {
+        user: null
+      };
+      if (localStorage.getItem('jwtToken')) {
+        const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+      
+        if (decodedToken.exp * 1000 < Date.now()) {
+          localStorage.removeItem('jwtToken');
+        } else {
+          initialState.user = decodedToken;
+        }
+      }
+      const profile = initialState.user ? 
+    ( 
         <>
+        
             <section className="contact-page register-page">
                 <Container>
                     <Row>
@@ -89,8 +108,13 @@ const ProfilePage = () => {
                     </Row>
                 </Container>
             </section>
-        </>
-    )
+            </>
+            ) : 
+            (
+                <Redirect to="/" />
+            )
+
+            return(profile)
 }
 
 export default ProfilePage;

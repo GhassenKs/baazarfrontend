@@ -11,7 +11,7 @@ const Collections = () => (
         <Container fluid={true}>
             <Row className="partition4">
                 <Col lg="3" md="6">
-                    <a href="#">
+                    <a href="/shop/left_sidebar?&category=Fall&brand=&color=&size=&minPrice=0&maxPrice=500">
                         <div className="collection-banner p-right text-right">
                             <div className="img-part">
                                 <Media src={banner5}
@@ -27,7 +27,7 @@ const Collections = () => (
                     </a>
                 </Col>
                 <Col lg="3" md="6">
-                    <a href="#">
+                    <a href="/shop/left_sidebar?&category=headphonesnearphones&brand=&color=&size=&minPrice=0&maxPrice=500">
                         <div className="collection-banner p-right text-right">
                             <div className="img-part">
                                 <Media src={banner10} className="img-fluid blur-up lazyload bg-img" />
@@ -42,7 +42,7 @@ const Collections = () => (
                     </a>
                 </Col>
                 <Col lg="3" md="6">
-                    <a href="#">
+                    <a href="/shop/left_sidebar?&category=treats&brand=&color=&size=&minPrice=0&maxPrice=500">
                         <div className="collection-banner p-right">
                             <div className="img-part">
                                 <Media src={banner8}
@@ -51,14 +51,14 @@ const Collections = () => (
                             <div className="contain-banner banner-4">
                                 <div>
                                     <h4>save 60%</h4>
-                                    <h2>women</h2>
+                                    <h2>Protein bars</h2>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </Col>
                 <Col lg="3" md="6">
-                    <a href="#">
+                    <a href="/shop/left_sidebar?&category=treats&brand=&color=&size=&minPrice=0&maxPrice=500">
                         <div className="collection-banner p-left">
                             <div className="img-part">
                                 <Media src={banner9}
@@ -67,7 +67,7 @@ const Collections = () => (
                             <div className="contain-banner banner-4">
                                 <div>
                                     <h4>save 60%</h4>
-                                    <h2>jewellery</h2>
+                                    <h2>Pet supplies</h2>
                                 </div>
                             </div>
                         </div>

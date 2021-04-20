@@ -88,6 +88,8 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
             limit: limit
         }
     });
+
+    
     
     const handlePagination = () => {
         setIsLoading(true);
@@ -112,6 +114,7 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
 
             }), 1000)
     }
+   
 
     const removeBrand = (val) => {
         const temp = [...selectedBrands];
@@ -151,6 +154,7 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
                                 it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
                             of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                             </div> */}
+                            <p>{selectedCategory}</p>
                         </div>
                         <Row>
                                     <Col xs="12">
@@ -283,8 +287,8 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
                                                 <div>
                                                     <div className="col-sm-12 empty-cart-cls text-center">
                                                         <img src={`/assets/images/empty-search.jpg`} className="img-fluid mb-4 mx-auto" alt="" />
-                                                        <h3><strong>Your Cart is Empty</strong></h3>
-                                                        <h4>Explore more shortlist some items.</h4>
+                                                        <h3><strong>The item might not exist or is no longer available</strong></h3>
+                                                        <h4>Contact the costumer service for more information.</h4>
                                                     </div>
                                                 </div>
                                             </Col>
