@@ -78,7 +78,7 @@ const ProductSection = () => {
 
     var { loading, data } = useQuery(GET_PRODUCTS, {
         variables: {
-            type: "fashion",
+            type: "Dresses",
             indexFrom:0,
             limit:8
         }

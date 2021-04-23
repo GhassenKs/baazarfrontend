@@ -1,4 +1,4 @@
-const products = [
+const products =[
     {   
         "id": 1,
         "title": "bohemian dress",
@@ -19423,5 +19423,4 @@ const products = [
     }
 
 ]
-
 module.exports = products;

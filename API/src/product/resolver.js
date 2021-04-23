@@ -1,4 +1,5 @@
-const products = require('../../models/produit');
+const produits = require('../../models/produit');
+const products = require('./data');
 const loadCurrency = require('../currency/data')
 const InstagramData = require('../instagram/data')
 const BlogData = require('../Blogs/data');
@@ -6,15 +7,13 @@ const _ = require('lodash')
 const ProductResponse = require('./schema')
 const Fuse = require('fuse.js');
 
-console.log("Database connected")
 const resolvers = {
   Query: {
-    
     products: async (root, args, context, info) => {
-      var produits =await products.find({});
+      var produit =await produits.find({});
       //console.log( produits)
       console.log("working yet")
-      const fuse = new Fuse(produits, {
+      const fuse = new Fuse(produit, {
         threshold: 0.6,
         minMatchCharLength: 2,
         keys: ['title', 'brand', 'category', 'type'],
@@ -23,11 +22,11 @@ const resolvers = {
 
       if (args.text && args.text !== '') {
        // console.log(args.text)
-        produits = fuse.search(args.text);
+        produit = fuse.search(args.text);
       }
       const getVisibleproducts = () => {
         
-        return produits.filter(product => {
+        return produit.filter(product => {
 
           let typeMatch;
           if (args.type && product.type)
@@ -88,7 +87,7 @@ const resolvers = {
         });
       }
       
-      const items = produits
+      const items = produit
       const types = args.type !== 'all' ? args.type : items
       const brands = args.brand !== [] ? args.brand : items
       const colors = args.color !== "" ? args.color : items
@@ -102,11 +101,11 @@ const resolvers = {
      // console.log("filter data", filterData);
 
       if (args.type === 'all') {
-        console.log(produits.slice(args.indexFrom, args.indexFrom + args.limit))
+        console.log(produit.slice(args.indexFrom, args.indexFrom + args.limit))
         return {
-          items: produits.slice(args.indexFrom, args.indexFrom + args.limit),
-          total : produits.length,
-          hasMore: produits.length > args.indexFrom + args.limit 
+          items: produit.slice(args.indexFrom, args.indexFrom + args.limit),
+          total : produit.length,
+          hasMore: produit.length > args.indexFrom + args.limit 
         }
       }  else {
         return {
@@ -114,46 +113,44 @@ const resolvers = {
           hasMore: total > args.indexFrom + args.limit,
           total,
         }
-        
       }
       
     },
 
     product: async (root, args, context, info) => {
       
-      const result = await products.findOne({id:args.id}) 
-      //console.log(typeof result)
-      //console.log(result)
+      const result = await produits.findOne({id:args.id}) 
+      console.log(typeof result)
+      console.log(result)
       return result
       
     
     
     },
     productByType: (root, args, context, info) => {
-      const prods = products.find({type : args.type})
-     //console.log(typeof prods)
+      const prods = produits.find({type : args.type})
+      console.log(typeof prods)
       return prods
 
   },
     productByCategory: (root, args, context, info) => {
-      //console.log("args", args);
-      return products.find({category : args.category})
+      console.log("args", args);
+      return produits.find({category : args.category})
     },
-    
+
     instagram: (root, args, context, info) => InstagramData.filter(e => e.type === args.type),
     blog: (root, args, context, info) => BlogData.filter(e => e.type === args.type),
 
-    getBrands:async (root, args, context, info) => {
-      const data = await products.find( {type :args.type} );
-      //console.log(data)
+    getBrands: async (root, args, context, info) => {
+      const data = await produits.find( {type :args.type} );
+      
+      
       const brands = [...new Set(data.map(item => item.brand))]
       return { brand: brands };
     },
-    getColors:async  (root, args, context, info) => {
-      const produits = await products.find()
-      //console.log(produits)
+    getColors: (root, args, context, info) => {
       const color = []
-      const data = produits.filter(item => item.type === 'fashion' || item.type === args.type)
+      const data = products.filter(item => item.type === 'fashion' || item.type === args.type)
       data.filter((product) => {
         product.variants.filter((variant) => {
           if (variant.color) {
@@ -164,56 +161,46 @@ const resolvers = {
       })
       return { colors: color };
     },
-    getSize: async (root, args, context, info) => {
-      
+    getSize: (root, args, context, info) => {
       const sizes = []
-      //const data = products.filter(item => item.type === 'fashion' || item.type === args.type)
-      const data = products.find({$or: [{ type: "fashion" }, { type: args.type }]})
-     // console.log(data.variants)
-      
-      data.find((product) => {
-        product.variants.find((variant) => {
+      const data = products.filter(item => item.type === 'fashion' || item.type === args.type)
+      data.filter((product) => {
+        product.variants.filter((variant) => {
           if (variant.size) {
-            const index =  sizes.indexOf(variant.size)
+            const index = sizes.indexOf(variant.size)
             if (index === -1) sizes.push(variant.size)
           }
         })
       })
       return { size: sizes };
     },
-    newProducts: async (root, args, context, info) => {
-      
-      return products.find({type:args.type, new:"true"})
-      
+    newProducts: (root, args, context, info) => {
+
+      return products.filter(item => {
+
+        var cond = Boolean;
+
+        if (args.type)
+
+          cond = (item.type === args.type && item.new === true)
+
+        else
+
+          cond = (item.new === true)
+
+
+
+        return cond;
+
+      })
+
     },
-    /*async produits() {
-      try {
-        const produits = await products.find()
-        return produits;
-      } catch (err) {
-        throw new Error(err);
-      }
-    },*/
-    /*
-     produits :async ()=> {
-      try {
-        //const produits =  products.find()
-       await products.find({}, function (err, docs) {
-          if(err) console.log(err)
-          console.log(docs);
-          console.log("---------------------------------------------------tt-------------------------");
-          return docs;
-        });
-       
-      } catch (err) {
-        throw new Error(err);
-      }
-    },*/
     getProducts: async (root, args, context, info) => {
       const indexFrom = 0;
-      const produits = await products.find();
-      return produits.splice(indexFrom, indexFrom + args.limit);
-    },  
+      const produit = await produits.find();
+      
+      return produit.splice(indexFrom, indexFrom + args.limit);
+    },
     getCurrency: () => {
       return loadCurrency;
     },

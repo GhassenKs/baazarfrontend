@@ -61,7 +61,7 @@ const SpecialProducts = ({ type, fluid, designClass, cartClass, heading, noTitle
             limit: 8
         }
     });
-
+console.log(data)
     return (
         <div>
             <section className={designClass}>
@@ -87,7 +87,7 @@ const SpecialProducts = ({ type, fluid, designClass, cartClass, heading, noTitle
 
                     <Tabs className="theme-tab">
                         <TabList className="tabs tab-title">
-                            <Tab className={activeTab == type ? 'active' : ''} onClick={() => setActiveTab(type)}>NEW ARRIVAL</Tab>
+                        <Tab className={activeTab == type ? 'active' : ''} onClick={() => news ? setActiveTab(type):'electronics'}>NEW ARRIVAL</Tab>
                             <Tab className={activeTab == 'furniture' ? 'active' : ''} onClick={() => setActiveTab('furniture')}>FEATURED </Tab>
                             <Tab className={activeTab == 'furniture' ? 'active' : ''} onClick={() => setActiveTab('furniture')}>SPECIAL</Tab>
                         </TabList>

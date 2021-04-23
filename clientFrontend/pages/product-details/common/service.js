@@ -41,7 +41,7 @@ const Service = () => {
                     </svg>
                     <div className="media-body">
                         <h4>24 X 7 service</h4>
-                        <p>online service for new customer</p>
+                        <p>online service for customer</p>
                     </div>
                 </div>
                 <div className="media">
@@ -67,7 +67,7 @@ const Service = () => {
                     </svg>
                     <div className="media-body">
                         <h4>festival offer</h4>
-                        <p>new online special festival offer</p>
+                        <p>online special festival offer</p>
                     </div>
                 </div>
                 <div className="media border-0 m-0">

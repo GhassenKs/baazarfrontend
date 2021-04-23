@@ -73,10 +73,9 @@ const DetailsWithPrice = ({item,stickyClass,changeColorVar}) => {
 
                 <div className="product-description border-product">
                     {product.variants ?
+                    
                         <div>
-                            <h6 className="product-title size-text">select size
-                                    <span><a href={null} data-toggle="modal"
-                                    data-target="#sizemodal" onClick={toggle} >size chart</a></span></h6>
+                            <h6 className="product-title size-text">select size</h6>
                             <Modal isOpen={modal} toggle={toggle} centered>
                                 <ModalHeader toggle={toggle}>Sheer Straight Kurta
                                     </ModalHeader>
@@ -112,7 +111,6 @@ const DetailsWithPrice = ({item,stickyClass,changeColorVar}) => {
                 </div>
                 <div className="product-buttons" >
                     <a href={null} className="btn btn-solid" onClick={() => context.addToCart(product, quantity)}>add to cart</a>
-                    <Link href={`/page/account/checkout`}  ><a className="btn btn-solid" >buy now</a></Link>
                 </div>
                 <div className="border-product">
                     <h6 className="product-title">product details</h6>

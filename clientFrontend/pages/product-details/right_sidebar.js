@@ -8,7 +8,7 @@ const LeftSidebar = () => {
 
   return (
     <CommonLayout parent="home" title="product">
-        <RightSidebarPage />
+       <RightSidebarPage />
       <ProductSection />
     </CommonLayout>
   );

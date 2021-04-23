@@ -18,7 +18,26 @@ const typeDefs = `
         images:[Images]
         sortBy: _SortBy
       }
-
+      type Produit {
+        id:Int!
+        title: String
+        description: String
+        type: _CategoryType
+        brand: String
+        PCollection: [String]
+        category: String
+        price: String
+        sale: String
+        discount: String
+        picture:Int
+        stock: Int
+        new: String
+        tags: [String]
+        variants: [Variants]
+        images:[Images]
+        sortBy: _SortBy
+      }
+  
  
       type Images {
         image_id: Int
@@ -26,7 +45,6 @@ const typeDefs = `
         alt: String
         src: String
     }
-
     type Variants {
       variant_id:String
       id:String
@@ -35,7 +53,6 @@ const typeDefs = `
       color:String
       image_id:Int
      }
-
      type Currency {
       currency : String
       name : String
@@ -47,19 +64,15 @@ const typeDefs = `
       type:String
       img:String
     }
-
     type Brand {
       brand:[String]
     }
-
     type Color {
       colors:[String]
     }
-
     type Size {
       size : [String]
     }
-
     enum _SortBy {
       HighToLow,
       LowToHigh,
@@ -138,13 +151,11 @@ const typeDefs = `
       all
       
     }
-
     type ProductResponse {
       items:[Product],
       total:Int,
       hasMore:Boolean
     }
-
     type Blog {
       type:String,
       img:String,
@@ -168,12 +179,8 @@ const typeDefs = `
       lastName:String!
       email:String!
       password:String!
-
     }
     
-
-
-
      type Query {
         product(id: Int!): Product
         products(indexFrom:Int , limit:Int ,type:_CategoryType ,text :String ,brand: [String!],size:[String!] , color:String ,sortBy:_SortBy ,priceMin:Int ,priceMax:Int ): ProductResponse
@@ -201,7 +208,6 @@ const typeDefs = `
     #       ingredients: String
     #       direction: String
     #     ): Recipe
-
     # }
     type Mutation {
       register(registerInput:RegisterInput):User!
