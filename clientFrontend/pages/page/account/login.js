@@ -26,6 +26,7 @@ function Login (props)  {
     const [loginUser, { loading }] = useMutation(LOGIN_USER, {
       update(_, {data:{login:userData}}) {
           context.login(userData)
+          console.log(userData);
           router.push('../../');
       },
       onError(err) {
@@ -39,7 +40,7 @@ function Login (props)  {
     function loginUserCallback() {
       loginUser();
     }
-
+    
     const initialState = {
       user: null
     };
@@ -132,6 +133,10 @@ const LOGIN_USER = gql`
       lastName
       password
       token
+      phone
+      city
+      address
+      zip
     }
   }
 `;
