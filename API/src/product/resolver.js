@@ -174,10 +174,16 @@ const resolvers = {
       })
       return { size: sizes };
     },
-    newProducts: async (root, args, context, info) => {
-      
-      return produits.find({type:args.type, new:"true"})
-      
+    newProducts: (root, args, context, info) => {
+      return products.filter(item => {
+        var cond = Boolean;
+        if (args.type)
+          cond = (item.type === args.type && item.new === true)
+        else
+          cond = (item.new === true)
+
+        return cond;
+      })
     },
     getProducts: async (root, args, context, info) => {
       const indexFrom = 0;

@@ -104,6 +104,7 @@ const typeDefs = `
       Mbraceletsrings,
       Mcapshats,
       Mbags,
+      fashion,
       Mfragrances,
       Ffragrances,
       Makeup,
@@ -172,6 +173,10 @@ const typeDefs = `
       lastName:String!
       email:String!
       password:String!
+      phone:String
+      address:String
+      zip:Int
+      city:String
       token:String!
     }
     input RegisterInput{
@@ -179,6 +184,10 @@ const typeDefs = `
       lastName:String!
       email:String!
       password:String!
+      phone:String
+      address:String
+      zip:Int
+      city:String
     }
     
      type Query {

@@ -9,7 +9,11 @@ function generateToken(user) {
       id: user.id,
       email: user.email,
       firstName: user.firstName,
-      lastName:user.lastName
+      lastName:user.lastName,
+      city:user.city,
+      zip:user.zip,
+      address:user.address,
+      phone:user.phone
     },
     'SECRET_KEY',
     { expiresIn: '1h' }
@@ -58,7 +62,7 @@ module.exports ={
                   token
               }
           },
-         async register(_,{registerInput:{firstName,lastName,email,password}},context,info){
+         async register(_,{registerInput:{firstName,lastName,email,password,phone,city,address,zip}},context,info){
               //TODO validate infos
               const {valid,errors}=validateRegisterInput(firstName,lastName,email,password);
               if(!valid){
@@ -81,7 +85,11 @@ module.exports ={
                   firstName,
                   lastName,
                   email,
-                  password
+                  password,
+                  phone,
+                  city,
+                  address,
+                  zip
               });
 
               const res = await newUser.save();

@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
-
 const userSchema = new Schema({
+    zip:{type:Number},
     firstName:{
         type:String,
         required:true
@@ -18,7 +17,12 @@ const userSchema = new Schema({
     password:{
         type:String,
         required:true
-    }
+    },
+    phone:{type:String},
+    
+    address:{type:String},
+    city:{type:String},
+
     
 
 });
