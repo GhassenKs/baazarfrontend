@@ -175,27 +175,6 @@ const resolvers = {
       return { size: sizes };
     },
     newProducts: (root, args, context, info) => {
-<<<<<<< HEAD
-
-      return products.filter(item => {
-
-        var cond = Boolean;
-
-        if (args.type)
-
-          cond = (item.type === args.type && item.new === true)
-
-        else
-
-          cond = (item.new === true)
-
-
-
-        return cond;
-
-      })
-
-=======
       return products.filter(item => {
         var cond = Boolean;
         if (args.type)
@@ -205,7 +184,6 @@ const resolvers = {
 
         return cond;
       })
->>>>>>> e508f4011cba8cf33a632b2dba0ed6d419739127
     },
     getProducts: async (root, args, context, info) => {
       const indexFrom = 0;
