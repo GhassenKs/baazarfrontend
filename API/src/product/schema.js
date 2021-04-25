@@ -6,7 +6,7 @@ const typeDefs = `
         description: String
         type: _CategoryType
         brand: String
-        PCollection: [String]
+        collection: [String]
         category: String
         price: String
         sale: String

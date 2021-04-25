@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { Media } from 'reactstrap';
@@ -20,7 +20,7 @@ const GET_PRODUCTS = gql`
 
 
 
-const NewProduct = () => {
+const NewProduct = (props) => {
     const CurContect = useContext(CurrencyContext);
     const symbol = CurContect.state.symbol;
     var { loading, data } = useQuery(GET_PRODUCTS, {
@@ -29,9 +29,7 @@ const NewProduct = () => {
         }
     });
 
-    console.log(data)
-
-    return (
+      return (
         // <!-- side-bar single product slider start --> 
         <div className="theme-card">
             <h5 className="title-border">new product</h5>

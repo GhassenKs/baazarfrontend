@@ -15,6 +15,19 @@ import { Redirect } from 'react-router-dom';
 function Register() {
 
     //---------------------
+    const initialState = {
+      user: null
+    };
+
+    if (localStorage.getItem('jwtToken')) {
+      const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+    
+      if (decodedToken.exp * 1000 < Date.now()) {
+        localStorage.removeItem('jwtToken');
+      } else {
+        initialState.user = decodedToken;
+      }
+    }
     const context = useContext(AuthContext)
     const router = useRouter()
     const [errors, setErrors] = useState({});
@@ -51,7 +64,7 @@ function Register() {
     }
     //--------------------------
 
-    const reg = !initialState.user ? (
+    const reg = initialState.user ? (
     
      <Redirect to="/" />
     ) : (

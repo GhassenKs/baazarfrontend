@@ -11,7 +11,7 @@ const OrderSuccess = () => {
     const cartTotal = cartContext.cartTotal;
     const curContext = useContext(CurrencyContext);
     const symbol = curContext.state.symbol;
-    const random= Math.Random();
+    //const random= Math.Random();
 
     return (
         <CommonLayout parent="home" title="order success">
@@ -22,7 +22,7 @@ const OrderSuccess = () => {
                             <div className="success-text"><i className="fa fa-check-circle" aria-hidden="true"></i>
                                 <h2>thank you</h2>
                                 <p>Payment is successfully processsed and your order is on the way</p>
-                                <p>Transaction ID: {random}</p>
+                                <p>Transaction ID: 452145214521</p>
                             </div>
                         </Col>
                     </Row>
