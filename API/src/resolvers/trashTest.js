@@ -262,6 +262,24 @@ type Mutation {
       login(email:String!,password:String!): User!
       createproduit(title:String,price:String):Produit!
     }
-
+type Produit {
+        id:Int!
+        title: String
+        description: String
+        type: _CategoryType
+        brand: String
+        PCollection: [String]
+        category: String
+        price: String
+        sale: String
+        discount: String
+        picture:Int
+        stock: Int
+        new: String
+        tags: [String]
+        variants: [Variants]
+        images:[Images]
+        sortBy: _SortBy
+      }
 
 */

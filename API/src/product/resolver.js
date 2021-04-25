@@ -120,8 +120,6 @@ const resolvers = {
     product: async (root, args, context, info) => {
       
       const result = await produits.findOne({id:args.id}) 
-      console.log(typeof result)
-      console.log(result)
       return result
       
     

@@ -1,5 +1,6 @@
 const typeDefs = `
     type Product {
+        _id:ID!
         id: Int!
         title: String
         description: String
@@ -18,26 +19,7 @@ const typeDefs = `
         images:[Images]
         sortBy: _SortBy
       }
-      type Produit {
-        id:Int!
-        title: String
-        description: String
-        type: _CategoryType
-        brand: String
-        PCollection: [String]
-        category: String
-        price: String
-        sale: String
-        discount: String
-        picture:Int
-        stock: Int
-        new: String
-        tags: [String]
-        variants: [Variants]
-        images:[Images]
-        sortBy: _SortBy
-      }
-  
+      
  
       type Images {
         image_id: Int
@@ -179,6 +161,25 @@ const typeDefs = `
       city:String
       token:String!
     }
+    ##-----------------adding orders typeDefinitions
+    type Order{
+      id:ID!
+      number: Int 
+      price:String
+      items:[Product]
+      user:User
+
+    }
+    input OrderInput{
+      number: Int 
+      items: [ID]
+      price:String
+      user:ID
+    }
+
+
+
+    ##------------------end of edits
     input RegisterInput{
       firstName:String!
       lastName:String!
@@ -206,7 +207,10 @@ const typeDefs = `
         getUsers: [User]
         produits:[Product] ! 
         getProduits(id:Int!):Product
-        allProducts:[Produit]
+        #allProducts:[Produit]
+        getOrders:[Order]
+
+        
         
       }
   
@@ -222,7 +226,12 @@ const typeDefs = `
     type Mutation {
       register(registerInput:RegisterInput):User!
       login(email:String!,password:String!): User!
-      createproduit(title:String,price:String):Produit!
+      #createproduit(title:String,price:String):Produit!
+      createOrder(orderInput:OrderInput):Order!
+      deleteOrder(orderID:ID!):Order
+      createItem(productId: String, orderId: ID): Order
+      deleteItem(productId: String, orderId: ID): Order
+      
     }
 `;
 

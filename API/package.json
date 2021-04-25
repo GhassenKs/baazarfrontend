@@ -30,6 +30,8 @@
     "express-session": "^1.17.1",
     "fuse.js": "^3.4.3",
     "graphql": "^14.6.0",
+    "graphql-compose": "^7.25.1",
+    "graphql-compose-mongoose": "^9.2.2",
     "graphql-tools": "^6.0.10",
     "graphql-yoga": "^1.18.3",
     "jsonwebtoken": "^8.5.1",
