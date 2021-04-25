@@ -23,7 +23,11 @@ function Register() {
       firstName: '',
       lastName:'',
       email: '',
-      password: ''
+      password: '',
+      phone:'',
+      city:'',
+      address:'',
+      zip
       
     });
   
@@ -125,6 +129,10 @@ const REGISTER_USER = gql`
     $lastName:String!
     $email: String!
     $password: String!
+    $phone:String
+    $city:String
+    $address:String
+    $zip:Int
     
   ) {
     register(
@@ -133,7 +141,10 @@ const REGISTER_USER = gql`
         lastName: $lastName
         email: $email
         password: $password
-        
+        phone:$phone
+        city:$city
+        address:$address
+        zip:$zip
       }
     ) {
       id
@@ -141,6 +152,10 @@ const REGISTER_USER = gql`
       lastName
       email
       password
+      phone
+      city
+      address
+      zip
       token
       
 
