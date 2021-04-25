@@ -17,7 +17,7 @@ module.exports={
             try{
                 const orders = await Order.find().populate("items").populate("user").exec()
                 
-               console.log(orders)
+               console.log("u are up and running ")
                return orders
                 
             }
