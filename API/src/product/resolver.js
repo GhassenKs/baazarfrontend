@@ -192,6 +192,11 @@ const resolvers = {
     getCurrency: () => {
       return loadCurrency;
     },
+    productSearch: async (root,args,context,info)=>{
+      console.log(args.title)
+      return produits.find({ $text: { $search: args.title } }).limit(5)
+    }
+
 
     //------------------------new edit
     

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const produitSchema=new Schema({
         
         id:Number,
-        title: String,
+        title: { type: String, index: true },
         description: String,
         type:{
             type :String,
@@ -61,5 +61,5 @@ const produitSchema=new Schema({
 
 
 });
-
+produitSchema.index({'$**': 'text'});
 module.exports=mongoose.model('produits',produitSchema);

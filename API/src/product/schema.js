@@ -209,6 +209,7 @@ const typeDefs = `
         getProduits(id:Int!):Product
         #allProducts:[Produit]
         getOrders:[Order]
+        productSearch(title:String): [Product]
 
         
         
