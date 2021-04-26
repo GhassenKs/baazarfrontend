@@ -161,7 +161,7 @@ const typeDefs = `
       city:String
       token:String!
     }
-    ##-----------------adding orders typeDefinitions
+    ##-----------------adding orders typeDefinitions 
     type Order{
       id:ID!
       number: Int 
@@ -174,7 +174,7 @@ const typeDefs = `
       number: Int 
       items: [ID]
       price:String
-      user:ID
+      user:ID!
     }
 
 
@@ -210,6 +210,7 @@ const typeDefs = `
         #allProducts:[Produit]
         getOrders:[Order]
         productSearch(title:String): [Product]
+        findOrder(id:String):Order
 
         
         

@@ -141,8 +141,6 @@ const resolvers = {
 
     getBrands: async (root, args, context, info) => {
       const data = await produits.find( {type :args.type} );
-      
-      
       const brands = [...new Set(data.map(item => item.brand))]
       return { brand: brands };
     },
@@ -194,7 +192,7 @@ const resolvers = {
     },
     productSearch: async (root,args,context,info)=>{
       console.log(args.title)
-      return produits.find({ $text: { $search: args.title } }).limit(5)
+      return produits.find({ $text: { $search: args.title } })
     }
 
 

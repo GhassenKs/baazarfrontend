@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Context from './index';
-import { toast } from 'react-toastify'
+import gql from 'graphql-tag';
+import { useQuery,useMutation } from '@apollo/react-hooks';
+import { withApollo } from '../../helpers/apollo/apollo';
+import jwtDecode from 'jwt-decode';
+import { toast } from 'react-toastify';
+//tracing Log
+const skull= String.fromCodePoint(0x1F480);
+//--------------------graphql DATA fetching
+
+//------------------------------------
 
 const getLocalCartItems = () => {
   try {
@@ -14,23 +23,78 @@ const getLocalCartItems = () => {
     return [];
   }
 };
+/*const getLocalUser = () =>{
+  const initialState = {
+    user: null
+  };
+  if (localStorage.getItem('jwtToken')) {
+    const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+  
+    if (decodedToken.exp * 1000 < Date.now()) {
+      localStorage.removeItem('jwtToken');
+    } else {
+      initialState.user = decodedToken;
+    }
+  }
 
+};*/
 const CartProvider = (props) => {
   const [cartItems, setCartItems] = useState(getLocalCartItems())
   const [cartTotal, setCartTotal] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [stock, setStock] = useState('InStock');
+  //const [activeUser,setactiveUser] = useState(getLocalUser());
+/*
 
+  //-----------------------------------
+  var {  Itemdata } =  useMutation(ADD_ITEM, {
+    variables: {
+      productId:'',
+      orderId:''
+        
+    }
+});
+
+//-------------------------------
+  var { loading, data } =  useQuery(GET_ORDERS, {
+    variables: {
+        
+        indexFrom: 0,
+        limit: 10
+    }
+});
+
+*/
+
+  
+  var decodedToken = null
+  if (localStorage.getItem('jwtToken')) {
+ decodedToken = jwtDecode(localStorage.getItem('jwtToken'));}
+  const initialState = {
+    user: decodedToken
+  };
+console.log()
+  var { loading,error,  data } =  useQuery(FIND_ORDER, {
+    variables: {
+        
+        id:initialState.user.id
+    }
+});
+  console.log('%c Tracing Here '+ skull, ' color: #000000;font-weight: bold;font-size:15px');
+  const ids = 3;
+  if (error) {console.log(error)}
+  console.log(data)
+
+//----------------------------------------
   useEffect(() => {
     const Total = cartItems.reduce((a, b) => +a + +b.total, 0)
     setCartTotal(Total);
-
     localStorage.setItem('cartList', JSON.stringify(cartItems))
   }, [cartItems])
 
   // Add Product To Cart
   const addToCart = (item ,quantity) => {
-    toast.success("Product Added Successfully !");
+    toast.success("Function Worked Succesfully !");
     const index = cartItems.findIndex(itm => itm.id === item.id)
     if (index !== -1) {
       const product = cartItems[index];
@@ -44,7 +108,10 @@ const CartProvider = (props) => {
 
   const removeFromCart = (item) => {
     toast.error("Product Removed Successfully !");
+  
+    console.log(item._id)
     setCartItems(cartItems.filter((e) => (e.id !== item.id)))
+    
   }
 
   const minusQty = () => {
@@ -100,4 +167,18 @@ const CartProvider = (props) => {
   );
 }
 
-export default CartProvider;
+const GET_ORDERS = gql`
+    query  getOrders {getOrders{id,items{_id,title},user{id,firstName}}}
+`;
+const ADD_ITEM= gql`
+  mutation createItem($productId: String!, $orderId: String!) {
+   createItem(productId:$productId,orderId:$orderId){items{title}}
+    
+  }
+`; 
+
+const FIND_ORDER = gql`
+    query  findOrder($id:String) {findOrder(id:$id){id,user{firstName}}}
+`;
+
+export default withApollo(CartProvider);
