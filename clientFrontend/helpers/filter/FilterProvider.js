@@ -14,7 +14,7 @@ const FilterProvider = (props) => {
     const max = router.query.max;
     let sizeParam = size ? size.split(","):null;
     let param = brand ? brand.split(","):[] 
-    const [selectedSearch, setSelectedSearch] = useState(search?search:"dress");
+    const [selectedSearch, setSelectedSearch] = useState(search?search:"");
     const [selectedCategory, setSelectedCategory] = useState(category?category:"");
     const [selectedBrands, setSelectedBrands] = useState(param?param:[]);
     const [selectedColor, setSelectedColor] = useState(color?color:"");

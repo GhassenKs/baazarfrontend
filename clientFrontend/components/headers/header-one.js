@@ -194,9 +194,8 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 										
 
 											
-											<div className="d-flex justify-content-center container mt-5 ">
-											{ selectedSearch  && data ? 
-											data.productSearch.map((product,i) =>
+											{/* <div className="d-flex justify-content-center container mt-5 ">
+											
 											
 											<div className="card p-3 bg-white">
 												<div className="about-product text-center mt-2"><img src={product.images[0].src} width="200"/>
@@ -208,10 +207,11 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 												
 												<div className="d-flex justify-content-between total font-weight-bold mt-4"><span>Total</span><span>{product.price}</span></div>
 											</div>
+										 */}
 										
-										
-											
-												/* <ul class="list-group shadow">
+										{ selectedSearch  && data ? 
+											data.productSearch.map((product,i) =>
+												 <ul class="list-group shadow">
 													<li class="list-group-item">			
                    
 													<div class="media align-items-lg-center flex-column flex-lg-row p-3">
@@ -226,7 +226,7 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 														</div>
                  
 													</li>
-													</ul> */
+													</ul> 
 												/* 	<div>
                                                 <ProductItem des={true} product={product} symbol={symbol} cartClass="cart-info cart-wrap"
                                                     addCompare={() => compareContext.addToCompare(product)}
@@ -237,7 +237,6 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 			  // "https://i.imgur.com/KFojDGa.jpg"
 											) : ''
 										}
-										</div>
 										
 									</Form>
 								</Col>

@@ -43,6 +43,8 @@ function Register() {
       zip:''
       
     });
+
+    
   
     const [addUser, { loading }] = useMutation(REGISTER_USER, {
       update(_, {data:{register:userData}}) {

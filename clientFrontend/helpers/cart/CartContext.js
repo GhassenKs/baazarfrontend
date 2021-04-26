@@ -77,13 +77,13 @@ console.log()
   var { loading,error,  data } =  useQuery(FIND_ORDER, {
     variables: {
         
-        id:initialState.user.id
+        id:null
     }
 });
   console.log('%c Tracing Here '+ skull, ' color: #000000;font-weight: bold;font-size:15px');
   const ids = 3;
   if (error) {console.log(error)}
-  console.log(data)
+  if (data){console.log(data.findOrder.id)}
 
 //----------------------------------------
   useEffect(() => {
@@ -168,7 +168,7 @@ console.log()
 }
 
 const GET_ORDERS = gql`
-    query  getOrders {getOrders{id,items{_id,title},user{id,firstName}}}
+    query getOrders {getOrders{id,items{_id,title},user{id,firstName}}}
 `;
 const ADD_ITEM= gql`
   mutation createItem($productId: String!, $orderId: String!) {
@@ -178,7 +178,7 @@ const ADD_ITEM= gql`
 `; 
 
 const FIND_ORDER = gql`
-    query  findOrder($id:String) {findOrder(id:$id){id,user{firstName}}}
+    query findOrder($id:String) {findOrder(id:$id){id,user{firstName}}}
 `;
 
 export default withApollo(CartProvider);

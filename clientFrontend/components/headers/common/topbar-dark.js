@@ -1,5 +1,5 @@
 import React, {useContext,useState, useEffect} from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Form, Input, Button, FormGroup  } from 'reactstrap';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import {AuthContext} from '../../../context/auth';
@@ -25,7 +25,6 @@ const TopBarDark = ({logoName, topClass, fluid }) => {
       }
       
 
-    //--------------------------
     
     
     const menuBar = initialState.user ?(
@@ -33,12 +32,24 @@ const TopBarDark = ({logoName, topClass, fluid }) => {
             <Container fluid={fluid}>
                 <Row>
                     <Col lg="6">
-                        <div className="header-contact">
-                            <ul>
+                        <div className="d-inline header-contact">
+                            <ul className="inline-block">
                             
 									<li><LogoImage logo={logoName} /></li>	
 									
-                                <li><i className="fa fa-phone" aria-hidden="true"></i>Call Us: +(216) 52 588 8220</li>
+                                <li>
+                                
+                               {/*  <form className="form_search" role="textbox">
+                                 
+                                    <Input id="query search-autocomplete" type="search"
+                                        placeholder="Search..."
+                                        className="nav-search nav-search-field" aria-expanded="true" />
+                                    <button type="submit" name="nav-submit-button" className="btn-search">
+                                        <i className="fa fa-search"></i>
+                                    </button>
+                                </form> */}
+                            
+                            </li>
                             </ul>
                         </div>
                     </Col>
