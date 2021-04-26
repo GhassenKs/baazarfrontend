@@ -4,6 +4,8 @@ import { Container, Row, Col, Media } from 'reactstrap';
 import one from '../../public/assets/images/pro3/1.jpg';
 import CartContext from '../../helpers/cart';
 import { CurrencyContext } from '../../helpers/Currency/CurrencyContext';
+import jwtDecode from 'jwt-decode';
+
 
 const OrderSuccess = () => {
     const cartContext = useContext(CartContext);
@@ -13,6 +15,19 @@ const OrderSuccess = () => {
     const symbol = curContext.state.symbol;
     //const random= Math.Random();
 
+    const initialState = {
+        user: null
+      };
+      if (localStorage.getItem('jwtToken')) {
+        const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+      
+        if (decodedToken.exp * 1000 < Date.now()) {
+          localStorage.removeItem('jwtToken');
+        } else {
+          initialState.user = decodedToken;
+        }
+      }
+console.log(initialState.user)
     return (
         <CommonLayout parent="home" title="order success">
             <section className="section-b-space light-layout">
@@ -22,12 +37,14 @@ const OrderSuccess = () => {
                             <div className="success-text"><i className="fa fa-check-circle" aria-hidden="true"></i>
                                 <h2>thank you</h2>
                                 <p>Payment is successfully processsed and your order is on the way</p>
-                                <p>Transaction ID: 452145214521</p>
+                                <p>Transaction ID: {initialState.user.order.id}</p>
                             </div>
                         </Col>
                     </Row>
                 </Container>
             </section>
+
+
 
             <section className="section-b-space">
                 <Container>
@@ -77,7 +94,7 @@ const OrderSuccess = () => {
                                 <Col sm="6">
                                     <h4>summery</h4>
                                     <ul className="order-detail">
-                                        <li>order ID: 5563853658932</li>
+                                        <li>order ID:</li>
                                         <li>Order Date: October 22, 2021</li>
                                         <li>Order Total: {symbol}{cartTotal}</li>
                                     </ul>
@@ -85,10 +102,9 @@ const OrderSuccess = () => {
                                 <Col sm="6">
                                     <h4>shipping address</h4>
                                     <ul className="order-detail">
-                                        <li>gerg harvell</li>
-                                        <li>568, suite ave.</li>
-                                        <li>Austrlia, 235153</li>
-                                        <li>Contact No. 987456321</li>
+                                        <li></li>
+                                        
+                                        <li>Contact No. {initialState.user.phone}</li>
                                     </ul>
                                 </Col>
                                 <Col sm="12" className="payment-mode">
