@@ -86,7 +86,7 @@ const Dashboard = () => {
                                                 </div>
                                             </div>
                                         </Col>
-                                        <Col sm="6">
+                                        {/* <Col sm="6">
                                             <div className="box">
                                                 <div className="box-title">
                                                     <h3>Newsletters</h3><Link href={'/page/account/profile'}>Edit</Link>
@@ -95,7 +95,7 @@ const Dashboard = () => {
                                                     <p>You are currently not subscribed to any newsletter.</p>
                                                 </div>
                                             </div>
-                                        </Col>
+                                        </Col> */}
                                     </Row>
                                     <div>
                                         <div className="box">
