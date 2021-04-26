@@ -1,4 +1,5 @@
 const User = require('../../models/user')
+const Order = require ('../../models/order')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {validateRegisterInput,validateLoginInput}= require('../util/validators')
@@ -16,7 +17,7 @@ function generateToken(user) {
       phone:user.phone
     },
     'SECRET_KEY',
-    { expiresIn: '1h' }
+    { expiresIn: '5h' }
   );
 }
 
@@ -93,7 +94,20 @@ module.exports ={
               });
 
               const res = await newUser.save();
+              console.log("workiiiiing")
+              console.log(newUser)
+//-------------
+const newOrder = new Order({
+  user:newUser._id
+});
+
+ newOrder.save();
+
+//---------------
+
+
               const token = generateToken(res);
+              
               return {
                   ...res._doc,
                   id:res._id,

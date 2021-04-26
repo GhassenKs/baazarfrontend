@@ -20,11 +20,7 @@ import {
   useLocation
 } from "react-router-dom";
 
-//-------------------------------------
 
-
-
-//----------------------------------------
 
 export default function MyApp({ Component, pageProps }) {
 
@@ -49,7 +45,7 @@ export default function MyApp({ Component, pageProps }) {
         initialState.user = decodedToken;
       }
     }
-    console.log(initialState.user);
+    //console.log(initialState.user);
 
     setTimeout(function () {
       setIsLoading(false)

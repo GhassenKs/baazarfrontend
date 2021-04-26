@@ -1,4 +1,4 @@
-const Order = require ('../../models/order')
+ const Order = require ('../../models/order')
 
 
 module.exports={
@@ -16,10 +16,18 @@ module.exports={
         {
             try{
                 const orders = await Order.find().populate("items").populate("user").exec()
-                
-               console.log("u are up and running ")
-               return orders
-                
+               return orders  
+            }
+            catch (err) {
+                throw new Error(err);
+            }
+        },
+         findOrder : async (root, args, context, info) =>
+        {
+          
+            try{
+                const order = await Order.findOne({user:args.id}).populate("items").populate("user").exec()
+               return order  
             }
             catch (err) {
                 throw new Error(err);

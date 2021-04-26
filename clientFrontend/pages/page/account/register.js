@@ -10,6 +10,7 @@ import { onError } from "@apollo/client/link/error";
 import { useRouter } from 'next/router';
 import {AuthContext} from '../../../context/auth';
 import { Redirect } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 //-------------------------------
 
 function Register() {
@@ -40,7 +41,7 @@ function Register() {
       phone:'',
       city:'',
       address:'',
-      zip
+      zip:''
       
     });
   
@@ -142,10 +143,7 @@ const REGISTER_USER = gql`
     $lastName:String!
     $email: String!
     $password: String!
-    $phone:String
-    $city:String
-    $address:String
-    $zip:Int
+    
     
   ) {
     register(
@@ -154,10 +152,7 @@ const REGISTER_USER = gql`
         lastName: $lastName
         email: $email
         password: $password
-        phone:$phone
-        city:$city
-        address:$address
-        zip:$zip
+        
       }
     ) {
       id

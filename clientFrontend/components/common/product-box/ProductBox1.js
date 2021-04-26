@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { Row, Col, Media, Modal, ModalBody } from 'reactstrap';
 import CartContext from '../../../helpers/cart';
 import { CurrencyContext } from '../../../helpers/Currency/CurrencyContext';
+import { DEFAULT_DEPRECATION_REASON } from 'graphql';
 
 const ProductItem = ({ product, addCart, backImage, des, addWishlist, cartClass, productDetail, addCompare, title }) => {
     // eslint-disable-next-line
@@ -41,6 +42,7 @@ const ProductItem = ({ product, addCart, backImage, des, addWishlist, cartClass,
         product_images.map((data) => {
             if (data.image_id == imgId) {
                 setImage(data.src);
+                
             }
         })
     }
@@ -50,9 +52,10 @@ const ProductItem = ({ product, addCart, backImage, des, addWishlist, cartClass,
     for (var i = 0; i < rating; i++) {
         RatingStars.push(<i className="fa fa-star" key={i}></i>)
     }
-
+    
     return (
         <div className="product-box product-wrap">
+            
             <div className="img-wrapper">
                 <div className="lable-block">
                     {(product.new === true) ? <span className="lable3">new</span> : ''}

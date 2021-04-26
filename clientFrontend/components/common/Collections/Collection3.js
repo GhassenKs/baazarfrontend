@@ -15,6 +15,7 @@ const GET_PRODUCTS = gql`
     query  products($type:_CategoryType!,$indexFrom:Int! ,$limit:Int!) {
         products (type: $type,indexFrom:$indexFrom ,limit:$limit){
             items {
+                _id
                 id
                 title
                 description
@@ -56,10 +57,10 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
         variables: {
             type: type,
             indexFrom: 0,
-            limit: 8
+            limit: 10
         }
     });
-    console.log(data)
+    
     
     useEffect(() => {
         if (data === undefined) {
@@ -79,6 +80,7 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
                 {noSlider ?
                     <Container>
                         <Row>
+                        
                             <Col>
                                 {
                                     noTitle === "null" ?
@@ -125,8 +127,10 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
                                                     addCart={() => context.addToCart(product, quantity)}
                                                     addCompare={() => comapreList.addToCompare(product)}
                                                     cartClass={cartClass} backImage={backImage} />
+                                                    
                                             </div>
-                                            )}
+                                            )
+                                            }
 
                                 </Slider>
                                 }
@@ -137,6 +141,7 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
                     <>
                         {title ? <div className="title1 title-gradient  section-t-space">
                             <h4>{subtitle}</h4>
+                            
                             <h2 className="title-inner1">{title}</h2>
                             <hr role="tournament6" />
                         </div> : ''}
