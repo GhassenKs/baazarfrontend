@@ -178,7 +178,7 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
 }
 
 const GET_ORDERS = gql`
-    query  getOrders {getOrders{id,items{_id,title},user{id,firstName}}}
+    query getOrders {getOrders{id,items{_id,title},user{id,firstName}}}
 `;
 const ADD_ITEM= gql`
   mutation createItem($productId: String!, $orderId: String!) {
@@ -194,7 +194,7 @@ const DELETE_ITEM= gql`
 `;    
 
 const FIND_ORDER = gql`
-    query  findOrder($id:String) {findOrder(id:$id){id,user{firstName}}}
+    query findOrder($id:String) {findOrder(id:$id){id,user{firstName}}}
 `;
 
 export default withApollo(CartProvider);

@@ -36,7 +36,7 @@ const CheckoutPage = () => {
     const onSubmit = data => {
 
         if (data !== '') {
-            alert('You submitted the form and stuff!');
+            
             router.push({
                 pathname: '/page/order-success',
                 state: { items: cartItems, orderTotal: cartTotal, symbol: symbol }
@@ -85,11 +85,6 @@ const CheckoutPage = () => {
                                             <input type="text" className={`${errors.firstName?'error_border':''}`} name="first_name" ref={register({ required: true })} />
                                             <span className="error-message">{errors.firstName && 'First name is required'}</span>
                                             
-                                            
-                                            
-                                            
-                                            
-                                           
                                         </div>
                                         <div className="form-group col-md-6 col-sm-6 col-xs-12">
                                             <div className="field-label">Last Name</div>
@@ -106,7 +101,7 @@ const CheckoutPage = () => {
                                             <input className="form-control" className={`${errors.email?'error_border':''}`} type="text" name="email" ref={register({ required: true, pattern: /^\S+@\S+$/i })} />
                                             <span className="error-message">{errors.email && 'Please enter proper email address .'}</span>
                                         </div>
-                                        <div className="form-group col-md-12 col-sm-12 col-xs-12">
+                                        {/* <div className="form-group col-md-12 col-sm-12 col-xs-12">
                                             <div className="field-label">Governate</div>
                                             <select name="country" ref={register({ required: true })}>
                                                 <option>Ariana</option>
@@ -136,7 +131,7 @@ const CheckoutPage = () => {
                                                 
                             
                                             </select>
-                                        </div>
+                                                */}
                                         <div className="form-group col-md-12 col-sm-12 col-xs-12">
                                             <div className="field-label">Address</div>
                                             <input className="form-control" className={`${errors.address?'error_border':''}`} type="text" name="address" ref={register({ required: true, min: 20, max: 120 })} placeholder="Street address" />

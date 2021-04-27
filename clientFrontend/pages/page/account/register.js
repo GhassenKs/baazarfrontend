@@ -15,7 +15,6 @@ import jwtDecode from 'jwt-decode';
 
 function Register() {
 
-    //---------------------
     const initialState = {
       user: null
     };
@@ -44,6 +43,8 @@ function Register() {
       zip:''
       
     });
+
+    
   
     const [addUser, { loading }] = useMutation(REGISTER_USER, {
       update(_, {data:{register:userData}}) {
@@ -65,6 +66,8 @@ function Register() {
     }
     //--------------------------
 
+   
+
     const reg = initialState.user ? (
     
      <Redirect to="/" />
@@ -81,47 +84,78 @@ function Register() {
                                 <Col md="12">
                                     <Label for="email">First Name</Label>
                                     <Input type="text" className="form-control" id="fname" label="Username"
-  placeholder="firstName.."
-  name="firstName"
-  type="text"
-  value={values.firstName}
-  error={errors}
-  onChange={onChange}
+                                      placeholder="firstName.."
+                                      name="firstName"
+                                      value={values.firstName}
+                                      error={errors}
+                                      onChange={onChange}
                                         required="" />
                                 </Col>
                                 <Col md="12">
                                     <Label for="review">Last Name</Label>
                                     <Input type="text" label="lastName"
-  placeholder="lastName.."
-  name="lastName"
-  type="text"
-  value={values.lastName}
-  error={errors}
-  onChange={onChange} className="form-control" id="lname" placeholder="Last Name"
+                                    placeholder="lastName.."
+                                    name="lastName"
+                                    value={values.lastName}
+                                    error={errors}
+                                    onChange={onChange} className="form-control" id="lname" placeholder="Last Name"
                                         required="" />
                                 </Col>
                             </Row>
+
                             <Row>
                                 <Col md="12">
                                     <Label for="email">email</Label>
                                     <Input type="text" 
   
-  name="email"
-  type="email"
-  value={values.email}
-  error={errors}
-  onChange={onChange} className="form-control" id="email" placeholder="Email" required="" />
+                                  name="email"
+                                  type="email"
+                                  value={values.email}
+                                  error={errors}
+                                  onChange={onChange} className="form-control" id="email" placeholder="Email" required="" />
                                 </Col>
                                 <Col md="12">
                                     <Label for="review">Password</Label>
                                     <Input type="password" label="Password"
-  
-  name="password"
-  
-  value={values.password}
-  error={errors}
-  onChange={onChange} className="form-control" id="review"
-                                        placeholder="Enter your password" required="" />
+                                    name="password"
+                                    value={values.password}
+                                    error={errors}
+                                    onChange={onChange} className="form-control" id="password"
+                                    placeholder="Enter your password" required="" />
+                                        
+                                        <Label for="email">Phone number</Label>
+                                        <Input type="text" label="phone"
+                                          name="phone"
+                                          value={values.phone}
+                                          error={errors}
+                                          onChange={onChange} className="form-control" 
+                                          placeholder="Enter your number" required="" />
+
+                                          
+
+                                        <Label for="city">city</Label>
+                                        <Input type="text" label="city"
+                                          name="city"
+                                          value={values.city}
+                                          error={errors}
+                                          onChange={onChange} className="form-control" id="city"
+                                          placeholder="Enter your city" required="" />
+
+                                          <Label for="address">Address</Label>
+                                          <Input type="text" label="address"
+                                          name="address"
+                                          value={values.address}
+                                          error={errors}
+                                          onChange={onChange} className="form-control" id="address"
+                                          placeholder="Enter your address" required="" />
+
+                                          <Label for="address">Postal Code</Label>
+                                          <Input type="text" label="address"
+                                          name="zip"
+                                          value={values.zip}
+                                          error={errors}
+                                          onChange={onChange} className="form-control" id="zip"
+                                          placeholder="Enter your postal code" required="" />
                                         
                                 <button type="submit" className="btn btn-solid" >Register</button>
 

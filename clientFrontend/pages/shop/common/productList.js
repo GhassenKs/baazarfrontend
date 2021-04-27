@@ -48,6 +48,7 @@ const GET_PRODUCTS = gql`
 `;
 
 
+
 const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
     const cartContext = useContext(CartContext);
     const quantity = cartContext.quantity;
@@ -68,13 +69,14 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [layout, setLayout] = useState(layoutList);
     const [url, setUrl] = useState();
+    const selectedsearch = filterContext.selectedsearch;
 
     useEffect(() => {
         const pathname = window.location.pathname;
         setUrl(pathname);
-        router.push(`${pathname}?&category=${selectedCategory}&brand=${selectedBrands}&color=${selectedColor}&size=${selectedSize}&minPrice=${selectedPrice.min}&maxPrice=${selectedPrice.max}`)
+        router.push(`${pathname}?&category=${selectedCategory}&brand=${selectedBrands}&color=${selectedColor}&size=${selectedSize}&minPrice=${selectedPrice.min}&maxPrice=${selectedPrice.max}&search=${selectedsearch}`)
         
-    }, [selectedBrands, selectedColor, selectedSize, selectedPrice, selectedCategory]);
+    }, [selectedBrands, selectedColor, selectedSize, selectedPrice, selectedCategory, selectedsearch]);
  
     var { loading, data, fetchMore } = useQuery(GET_PRODUCTS, {
         variables: {
@@ -89,7 +91,12 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
         }
     });
 
-    
+    var { loading, data } = useQuery(SEARCHQUERY, {
+        variables: {
+            title: selectedsearch
+        }
+    });
+
     
     const handlePagination = () => {
         setIsLoading(true);

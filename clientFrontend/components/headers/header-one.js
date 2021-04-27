@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useContext} from 'react';
 import NavBar from "./common/navbar";
 import SideBar from "./common/sidebar";
 import Cart from '../containers/Cart';
@@ -10,16 +10,50 @@ import settings from '../../public/assets/images/icon/setting.png';
 import cart from '../../public/assets/images/icon/cart.png';
 import Currency from './common/currency';
 import { useRouter } from 'next/router';
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
+import { createContext } from 'react';
+import FilterContext from '../../helpers/filter/FilterContext'
+import ProductItem from '../../components/common/product-box/ProductBox1';
+import CartContext from '../../helpers/cart';
+import {WishlistContext} from '../../helpers/wishlist/WishlistContext';
+import { CompareContext } from '../../helpers/Compare/CompareContext';
+import {withApollo} from '../../helpers/apollo/apollo'
+
+
+
+
+const SEARCHQUERY = gql`
+    query productSearch($title: String!) {
+        productSearch (title: $title ) {
+			id
+            title
+            price
+            images {
+                alt
+                src
+            }
+        }
+    }
+`;
+
 
 const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
+
 	const [isLoading, setIsLoading] = useState(false);
 	// eslint-disable-next-line
 	const [open, setOpen] = useState(false);
-	const router = useRouter();
+	
+	const [url, setUrl] = useState();
+	const cartContext = useContext(CartContext);
+	const searchcontext = useContext(FilterContext)
+    const wishlistContext = useContext(WishlistContext);
+    const compareContext = useContext(CompareContext);
+	const selectedSearch = searchcontext.selectedSearch;
+	const setSelectedSearch = searchcontext.setSelectedSearch;
+    const router = useRouter();
 
-	/*=====================
-		 Pre loader
-		 ==========================*/
+	
 	useEffect(() => {
 		setTimeout(function () {
 			document.querySelectorAll(".loader-wrapper").style = 'display:none';
@@ -34,6 +68,14 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 		}
 
 	}, []);
+	
+	var { loading, data } = useQuery(SEARCHQUERY, {
+        variables: {
+            title: selectedSearch,
+        }
+    });
+
+	console.log(data)
 
 	const handleScroll = () => {
 		let number = window.pageXOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -55,6 +97,7 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 	}
 	const openSearch = () => {
 		document.getElementById("search-overlay").style.display = "block";
+		
 	}
 
 	const closeSearch = () => {
@@ -69,6 +112,22 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 			setIsLoading(false)
 		})
 	};
+	const updateSearch = (search) => {
+		setSelectedSearch(search)
+	
+	}
+
+	const clickProductDetail = () => {
+		const pathname = window.location.pathname;
+        setUrl(pathname);
+		const searchprops = selectedSearch.split(' ').join('+');
+        router.push(`/shop/left_sidebar?&category=&brand=&color=&size=&minPrice=&maxPrice=&search=${searchprops}`)
+    }
+
+
+
+
+	
 
 	return (
 		<div>
@@ -124,11 +183,61 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 						<Container>
 							<Row>
 								<Col>
-									<Form>
+									<Form onClick={e => e.preventDefault()}>
 										<div className="form-group">
-											<Input type="text" className="form-control" id="exampleInputPassword1" placeholder="Search a Product" />
+											<Input type="text" className="form-control" id="exampleInputPassword1" 
+											onChange={(e) => updateSearch(e.target.value)}
+											 placeholder="Search a Product" />
+											<Button className="btn btn-primary" onClick={clickProductDetail}><i className="fa fa-search"></i></Button>
+
 										</div>
-										<Button type="submit" className="btn btn-primary"><i className="fa fa-search"></i></Button>
+										
+
+											
+											{/* <div className="d-flex justify-content-center container mt-5 ">
+											
+											
+											<div className="card p-3 bg-white">
+												<div className="about-product text-center mt-2"><img src={product.images[0].src} width="200"/>
+													<div>
+														<h4>{product.price}</h4>
+														<h6 className="mt-0 text-black-50">{product.title}</h6>
+													</div>
+												</div>
+												
+												<div className="d-flex justify-content-between total font-weight-bold mt-4"><span>Total</span><span>{product.price}</span></div>
+											</div>
+										 */}
+										
+										{ selectedSearch  && data ? 
+											data.productSearch.map((product,i) =>
+												 <ul class="list-group shadow">
+													<li class="list-group-item">			
+                   
+													<div class="media align-items-lg-center flex-column flex-lg-row p-3">
+													<img src={product.images[0].src} alt={product.images.alt} width="100" class="ml-lg-5 order-1 order-lg-2"/>
+														<div class="media-body order-2 order-lg-1">
+															<h5 class="mt-0 font-weight-bold mb-2">{product.title}</h5>
+															<div class="d-flex align-items-center justify-content-between mt-1">
+																<h4 class="font-weight-bold my-2 text-danger">{product.price}</h4>
+															</div>
+															</div>
+															
+														</div>
+                 
+													</li>
+													</ul> 
+												/* 	<div>
+                                                <ProductItem des={true} product={product} symbol={symbol} cartClass="cart-info cart-wrap"
+                                                    addCompare={() => compareContext.addToCompare(product)}
+                                                    addWishlist={() => wishlistContext.addToWish(product)}
+                                                    addCart={() => cartContext.addToCart(product,quantity)} />
+                                            </div> */
+			   
+			  // "https://i.imgur.com/KFojDGa.jpg"
+											) : ''
+										}
+										
 									</Form>
 								</Col>
 							</Row>
@@ -142,4 +251,4 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 	)
 }
 
-export default HeaderOne;
+export default withApollo(HeaderOne);
