@@ -44,27 +44,6 @@ const CartProvider = (props) => {
   const [quantity, setQuantity] = useState(1);
   const [stock, setStock] = useState('InStock');
   //const [activeUser,setactiveUser] = useState(getLocalUser());
-/*
-
-  //-----------------------------------
-  var {  Itemdata } =  useMutation(ADD_ITEM, {
-    variables: {
-      productId:'',
-      orderId:''
-        
-    }
-});
-
-//-------------------------------
-  var { loading, data } =  useQuery(GET_ORDERS, {
-    variables: {
-        
-        indexFrom: 0,
-        limit: 10
-    }
-});
-
-*/
 
   
   var decodedToken = null
@@ -73,19 +52,29 @@ const CartProvider = (props) => {
   const initialState = {
     user: decodedToken
   };
-console.log()
-  var { loading,error,  data } =  useQuery(FIND_ORDER, {
+  var userID= null;
+  if(initialState.user){userID=initialState.user.id}
+
+  const { loading,error,  data:orders } =  useQuery(FIND_ORDER, {
     variables: {
         
-        id:initialState.user.id
+        id:userID
     }
 });
-  console.log('%c Tracing Here '+ skull, ' color: #000000;font-weight: bold;font-size:15px');
+
+console.log('%c Tracing Here 1 '+ String.fromCodePoint(0x1F480), ' color: #000000;font-weight: bold;font-size:15px');
+    
   const ids = 3;
   if (error) {console.log(error)}
-  console.log(data)
+  if(orders){console.log(orders.findOrder.id)}
 
 //----------------------------------------
+
+const [addItem, { data:itemsss }] = useMutation(ADD_ITEM);
+const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
+
+
+
   useEffect(() => {
     const Total = cartItems.reduce((a, b) => +a + +b.total, 0)
     setCartTotal(Total);
@@ -95,6 +84,18 @@ console.log()
   // Add Product To Cart
   const addToCart = (item ,quantity) => {
     toast.success("Function Worked Succesfully !");
+    console.log('%c Item added successfully  '+ String.fromCodePoint(0x1F480), ' color: #32CD32;font-weight: bold;font-size:15px');
+    
+      
+
+      addItem({
+
+        variables: {
+           productId: item._id,
+           orderId: orders.findOrder.id
+          
+         }
+        });
     const index = cartItems.findIndex(itm => itm.id === item.id)
     if (index !== -1) {
       const product = cartItems[index];
@@ -107,11 +108,20 @@ console.log()
   }
 
   const removeFromCart = (item) => {
-    toast.error("Product Removed Successfully !");
-  
-    console.log(item._id)
-    setCartItems(cartItems.filter((e) => (e.id !== item.id)))
-    
+    toast.error("Product Removed Successfully !"); 
+      console.log('%c Item deleted successfully  '+ String.fromCodePoint(0x1F480), ' color: #FF0000;font-weight: bold;font-size:15px');
+      console.log(item._id)
+      deleteItem({
+
+        variables: {
+           productId: item._id,
+           orderId: orders.findOrder.id
+          
+         }
+        });
+      
+      setCartItems(cartItems.filter((e) => (e.id !== item.id)))
+      
   }
 
   const minusQty = () => {
@@ -164,7 +174,7 @@ console.log()
     >
       {props.children}
     </Context.Provider>
-  );
+  ); 
 }
 
 const GET_ORDERS = gql`
@@ -175,7 +185,13 @@ const ADD_ITEM= gql`
    createItem(productId:$productId,orderId:$orderId){items{title}}
     
   }
-`; 
+`;  
+const DELETE_ITEM= gql`
+  mutation createItem($productId: String!, $orderId: String!) {
+   deleteItem(productId:$productId,orderId:$orderId){items{title}}
+    
+  }
+`;    
 
 const FIND_ORDER = gql`
     query  findOrder($id:String) {findOrder(id:$id){id,user{firstName}}}

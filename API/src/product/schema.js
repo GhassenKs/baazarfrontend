@@ -193,7 +193,7 @@ const typeDefs = `
     
      type Query {
         product(id: Int!): Product
-        products(indexFrom:Int , limit:Int ,type:_CategoryType ,text :String ,brand: [String!],size:[String!] , color:String ,sortBy:_SortBy ,priceMin:Int ,priceMax:Int ): ProductResponse
+        products(indexFrom:Int , limit:Int ,type:_CategoryType ,text:String ,brand: [String!],size:[String!] , color:String ,sortBy:_SortBy ,priceMin:Int ,priceMax:Int ): ProductResponse
         productByType(type:String):[Product]
         productByCategory(category:String):[Product]
         instagram(type:String):[Instagram]
@@ -231,8 +231,8 @@ const typeDefs = `
       #createproduit(title:String,price:String):Produit!
       createOrder(orderInput:OrderInput):Order!
       deleteOrder(orderID:ID!):Order
-      createItem(productId: String, orderId: ID): Order
-      deleteItem(productId: String, orderId: ID): Order
+      createItem(productId: String, orderId: String): Order
+      deleteItem(productId: String, orderId: String): Order
       
     }
 `;
