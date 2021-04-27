@@ -84,7 +84,7 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
   // Add Product To Cart
   const addToCart = (item ,quantity) => {
     toast.success("Function Worked Succesfully !");
-    console.log('%c Item added successfully  '+ String.fromCodePoint(0x1F480), ' color: #32CD32;font-weight: bold;font-size:15px');
+    console.log('%c Item added successsfully  '+ String.fromCodePoint(0x1F480), ' color: #32CD32;font-weight: bold;font-size:15px');
     
       
 
