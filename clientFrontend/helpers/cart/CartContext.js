@@ -66,7 +66,7 @@ console.log('%c Tracing Here 1 '+ String.fromCodePoint(0x1F480), ' color: #00000
     
   const ids = 3;
   if (error) {console.log(error)}
-  if(orders){console.log(orders.findOrder.id)}
+  if(orders){console.log(orders.findOrder.id )}
 
 //----------------------------------------
 
@@ -83,7 +83,7 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
 
   // Add Product To Cart
   const addToCart = (item ,quantity) => {
-    toast.success("Function Worked Succesfully !");
+    toast.success("Functionnnnn Worked Succesfully !");
     console.log('%c Item added successsfully  '+ String.fromCodePoint(0x1F480), ' color: #32CD32;font-weight: bold;font-size:15px');
     
       

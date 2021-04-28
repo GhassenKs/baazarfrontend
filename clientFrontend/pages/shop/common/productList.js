@@ -91,12 +91,14 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
         }
     });
 
+   /*
     var { loading, data } = useQuery(SEARCHQUERY, {
         variables: {
             title: selectedsearch
         }
     });
 
+   */
     
     const handlePagination = () => {
         setIsLoading(true);
