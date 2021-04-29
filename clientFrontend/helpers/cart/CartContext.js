@@ -5,11 +5,6 @@ import { useQuery,useMutation } from '@apollo/react-hooks';
 import { withApollo } from '../../helpers/apollo/apollo';
 import jwtDecode from 'jwt-decode';
 import { toast } from 'react-toastify';
-//tracing Log
-const skull= String.fromCodePoint(0x1F480);
-//--------------------graphql DATA fetching
-
-//------------------------------------
 
 const getLocalCartItems = () => {
   try {
@@ -23,37 +18,32 @@ const getLocalCartItems = () => {
     return [];
   }
 };
-/*const getLocalUser = () =>{
-  const initialState = {
-    user: null
-  };
-  if (localStorage.getItem('jwtToken')) {
-    const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
-  
-    if (decodedToken.exp * 1000 < Date.now()) {
-      localStorage.removeItem('jwtToken');
-    } else {
-      initialState.user = decodedToken;
-    }
-  }
 
-};*/
+
+/**/
 const CartProvider = (props) => {
   const [cartItems, setCartItems] = useState(getLocalCartItems())
   const [cartTotal, setCartTotal] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [stock, setStock] = useState('InStock');
-  //const [activeUser,setactiveUser] = useState(getLocalUser());
-
   
-  var decodedToken = null
-  if (localStorage.getItem('jwtToken')) {
- decodedToken = jwtDecode(localStorage.getItem('jwtToken'));}
-  const initialState = {
-    user: decodedToken
-  };
+    const initialState = {
+      user: null
+    };
+    if (localStorage.getItem('jwtToken')) {
+      const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+    
+      if (decodedToken.exp * 1000 < Date.now()) {
+        localStorage.removeItem('jwtToken');
+      } else {
+        initialState.user = decodedToken;
+      }
+    } 
+  
   var userID= null;
   if(initialState.user){userID=initialState.user.id}
+
+  
 
   const { loading,error,  data:orders } =  useQuery(FIND_ORDER, {
     variables: {
@@ -62,18 +52,15 @@ const CartProvider = (props) => {
     }
 });
 
-console.log('%c Tracing Here 1 '+ String.fromCodePoint(0x1F480), ' color: #000000;font-weight: bold;font-size:15px');
-    
-  const ids = 3;
   if (error) {console.log(error)}
-  if(orders){console.log(orders.findOrder.id )}
+  if(orders){console.log(orders.findOrder)}
 
 //----------------------------------------
 
 const [addItem, { data:itemsss }] = useMutation(ADD_ITEM);
 const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
 
-
+ 
 
   useEffect(() => {
     const Total = cartItems.reduce((a, b) => +a + +b.total, 0)
@@ -81,12 +68,18 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
     localStorage.setItem('cartList', JSON.stringify(cartItems))
   }, [cartItems])
 
+  //console.log('%c res :' + + String.fromCodePoint(0x1F480), ' color: #000000;font-weight: bold;font-size:15px');
+  var i;
+for (i = 0; i < cartItems.length; i++) {
+  console.log(cartItems[i]._id)
+}
+
+  
   // Add Product To Cart
   const addToCart = (item ,quantity) => {
-    toast.success("Functionnnnn Worked Succesfully !");
-    console.log('%c Item added successsfully  '+ String.fromCodePoint(0x1F480), ' color: #32CD32;font-weight: bold;font-size:15px');
-    
-      
+    console.log(item)
+    if (userID){
+      toast.success("added with user !");
 
       addItem({
 
@@ -96,6 +89,7 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
           
          }
         });
+        
     const index = cartItems.findIndex(itm => itm.id === item.id)
     if (index !== -1) {
       const product = cartItems[index];
@@ -105,12 +99,27 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
       const product = { ...item, qty: quantity, total: (item.price - (item.price * item.discount / 100)) }
       setCartItems([...cartItems, product])
     }
+    }else{
+      toast.success("Added without user");
+
+      
+        
+    const index = cartItems.findIndex(itm => itm.id === item.id)
+    if (index !== -1) {
+      const product = cartItems[index];
+      cartItems[index] = { ...item, ...item, qty: quantity, total:(item.price - (item.price * item.discount / 100)) * quantity };
+      setCartItems([...cartItems])
+    } else {
+      const product = { ...item, qty: quantity, total: (item.price - (item.price * item.discount / 100)) }
+      setCartItems([...cartItems, product])
+    }
+    }
+    
   }
 
   const removeFromCart = (item) => {
-    toast.error("Product Removed Successfully !"); 
-      console.log('%c Item deleted successfully  '+ String.fromCodePoint(0x1F480), ' color: #FF0000;font-weight: bold;font-size:15px');
-      console.log(item._id)
+    if(userID){
+      toast.error("Product Removed with User"); 
       deleteItem({
 
         variables: {
@@ -121,6 +130,10 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
         });
       
       setCartItems(cartItems.filter((e) => (e.id !== item.id)))
+    }else{
+      toast.error("Product Removed without user!"); 
+      setCartItems(cartItems.filter((e) => (e.id !== item.id)))
+    }
       
   }
 

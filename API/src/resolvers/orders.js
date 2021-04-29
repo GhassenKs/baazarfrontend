@@ -27,10 +27,13 @@ module.exports={
           
             try{
                 const order = await Order.findOne({user:args.id}).populate("items").populate("user").exec()
+                
+                console.log(order)
+            
                return order  
             }
             catch (err) {
-                throw new Error(err);
+                throw new Error(err); 
             }
         }
 
