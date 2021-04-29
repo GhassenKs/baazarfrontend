@@ -15,7 +15,7 @@ const FilterProvider = (props) => {
     let sizeParam = size ? size.split(","):null;
     let param = brand ? brand.split(","):[] 
     const [selectedSearch, setSelectedSearch] = useState(search?search:"");
-    const [selectedCategory, setSelectedCategory] = useState(category?category:"");
+    const [selectedCategory, setSelectedCategory] = useState(category?category:"all");
     const [selectedBrands, setSelectedBrands] = useState(param?param:[]);
     const [selectedColor, setSelectedColor] = useState(color?color:"");
     const [selectedSize, setSelectedSize] = useState(sizeParam?sizeParam:[]);
@@ -38,6 +38,8 @@ const FilterProvider = (props) => {
         }
 
     }
+console.log("here is filter provider ")
+    console.log(selectedSearch)
 
     const handleSizes = (size, checked) => {
 

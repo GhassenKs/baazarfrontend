@@ -207,7 +207,7 @@ const typeDefs = `
         getUsers: [User]
         produits:[Product] ! 
         getProduits(id:Int!):Product
-        #allProducts:[Produit]
+        #allProducts:[Product]
         getOrders:[Order]
         productSearch(title:String): [Product]
         findOrder(id:String):Order

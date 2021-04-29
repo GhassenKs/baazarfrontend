@@ -1346,7 +1346,7 @@ header {
 
 .search-overlay {
   height: 100%;
-  width: 100%;
+  width:100%;
   display: none;
   position: fixed;
   z-index: 999;
@@ -1423,6 +1423,16 @@ header {
     }
   }
 }
+
+.liste-group{
+        background-color: white;
+        border: 1px;
+        border-bottom: 2px solid lighten($black, 46.5%);
+        border-radius: 10px;
+        padding: 20px 0;
+        display: none;
+}
+
 
 .top-header {
   background-color: $top-header;

@@ -19,11 +19,45 @@ import CartContext from '../../helpers/cart';
 import {WishlistContext} from '../../helpers/wishlist/WishlistContext';
 import { CompareContext } from '../../helpers/Compare/CompareContext';
 import {withApollo} from '../../helpers/apollo/apollo'
+import { useHistory } from "react-router-dom"
+import { Image, Item } from 'semantic-ui-react'
 
 
-
-
-const SEARCHQUERY = gql`
+const GET_PRODUCTS = gql`
+    query  products($text:String!,$indexFrom:Int! ,$limit:Int!) {
+        products (text:$text,indexFrom:$indexFrom ,limit:$limit){
+            items {
+                _id
+                id
+                title
+                description
+                type
+                brand
+                category 
+                price
+                new
+                stock
+                sale
+                discount
+                variants{
+                    id
+                    sku
+                    size
+                    color
+                    image_id
+                }
+                images{
+                    image_id
+                    id
+                    alt
+                    src
+                }
+            }
+        }
+    }
+`; 
+ 
+/* const SEARCHQUERY = gql`
     query productSearch($title: String!) {
         productSearch (title: $title ) {
 			id
@@ -34,9 +68,7 @@ const SEARCHQUERY = gql`
                 src
             }
         }
-    }
-`;
-
+    }` */
 
 const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 
@@ -49,9 +81,15 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 	const searchcontext = useContext(FilterContext)
     const wishlistContext = useContext(WishlistContext);
     const compareContext = useContext(CompareContext);
-	const selectedSearch = searchcontext.selectedSearch;
 	const setSelectedSearch = searchcontext.setSelectedSearch;
+	const selectedBrands = searchcontext.selectedBrands;
+    const selectedColor = searchcontext.selectedColor;
+    const selectedPrice = searchcontext.selectedPrice;
+    const selectedCategory = searchcontext.state;
+	const selectedSearch = searchcontext.selectedSearch;
+    const selectedSize = searchcontext.selectedSize;
     const router = useRouter();
+	let history = useHistory();
 
 	
 	useEffect(() => {
@@ -67,15 +105,22 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 			window.removeEventListener('scroll', handleScroll);
 		}
 
+
 	}, []);
 	
-	var { loading, data } = useQuery(SEARCHQUERY, {
+	/* var { loading, data } = useQuery(SEARCHQUERY, {
         variables: {
             title: selectedSearch,
         }
+    }); */
+	var { loading, data } =  useQuery(GET_PRODUCTS, {
+        variables: {
+            text: selectedSearch,
+            indexFrom: 0,
+            limit: 10
+        }
     });
-
-	console.log(data)
+  
 
 	const handleScroll = () => {
 		let number = window.pageXOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -112,22 +157,15 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 			setIsLoading(false)
 		})
 	};
-	const updateSearch = (search) => {
-		setSelectedSearch(search)
-	
-	}
+const updateSearch = (search) => {
+	setSelectedSearch(search)
+
+}
 
 	const clickProductDetail = () => {
-		const pathname = window.location.pathname;
-        setUrl(pathname);
-		const searchprops = selectedSearch.split(' ').join('+');
-        router.push(`/shop/left_sidebar?&category=&brand=&color=&size=&minPrice=&maxPrice=&search=${searchprops}`)
+		
+        router.push(`/shop/left_sidebar?&category=${selectedCategory}&brand=${selectedBrands}&color=${selectedColor}&size=${selectedSize}&minPrice=${selectedPrice.min}&maxPrice=${selectedPrice.max}&search=${selectedSearch}`)
     }
-
-
-
-
-	
 
 	return (
 		<div>
@@ -183,60 +221,43 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 						<Container>
 							<Row>
 								<Col>
-									<Form onClick={e => e.preventDefault()}>
+									<Form onClick={clickProductDetail}>
 										<div className="form-group">
 											<Input type="text" className="form-control" id="exampleInputPassword1" 
 											onChange={(e) => updateSearch(e.target.value)}
 											 placeholder="Search a Product" />
-											<Button className="btn btn-primary" onClick={clickProductDetail}><i className="fa fa-search"></i></Button>
-
-										</div>
-										
+											<Button className="btn btn-primary" ><i className="fa fa-search"></i></Button>
 
 											
-											{/* <div className="d-flex justify-content-center container mt-5 ">
-											
-											
-											<div className="card p-3 bg-white">
-												<div className="about-product text-center mt-2"><img src={product.images[0].src} width="200"/>
-													<div>
-														<h4>{product.price}</h4>
-														<h6 className="mt-0 text-black-50">{product.title}</h6>
-													</div>
-												</div>
-												
-												<div className="d-flex justify-content-between total font-weight-bold mt-4"><span>Total</span><span>{product.price}</span></div>
-											</div>
-										 */}
-										
-										{ selectedSearch  && data ? 
-											data.productSearch.map((product,i) =>
-												 <ul class="list-group shadow">
-													<li class="list-group-item">			
+											{ selectedSearch && data ? 
+											data.products.items.map((product,i) =>
+											 <div className="list-group">
+											<ul className="list-group shadow">
+
+												 
+													<li className="list-group-item">			
                    
-													<div class="media align-items-lg-center flex-column flex-lg-row p-3">
-													<img src={product.images[0].src} alt={product.images.alt} width="100" class="ml-lg-5 order-1 order-lg-2"/>
-														<div class="media-body order-2 order-lg-1">
-															<h5 class="mt-0 font-weight-bold mb-2">{product.title}</h5>
-															<div class="d-flex align-items-center justify-content-between mt-1">
-																<h4 class="font-weight-bold my-2 text-danger">{product.price}</h4>
-															</div>
-															</div>
+													<div className="media align-items-lg-center flex-column flex-lg-row p-3">
+													<img src={product.images[0].src} alt={product.images.alt} width="100" className="ml-lg-5 order-1 order-lg-2"/>
+														<div className="media-body order-2 order-lg-1">
+														<h5 className="mt-0 font-weight-bold mb-2">{product.title}</h5>
+														<div className="d-flex align-items-center justify-content-between mt-1">
+															<h4 className="font-weight-bold my-2 text-danger">{product.price}</h4>
+														</div>
+														</div>
 															
 														</div>
                  
 													</li>
 													</ul> 
-												/* 	<div>
-                                                <ProductItem des={true} product={product} symbol={symbol} cartClass="cart-info cart-wrap"
-                                                    addCompare={() => compareContext.addToCompare(product)}
-                                                    addWishlist={() => wishlistContext.addToWish(product)}
-                                                    addCart={() => cartContext.addToCart(product,quantity)} />
-                                            </div> */
-			   
-			  // "https://i.imgur.com/KFojDGa.jpg"
+													</div> 
+
 											) : ''
 										}
+										</div>
+										
+										
+										
 										
 									</Form>
 								</Col>

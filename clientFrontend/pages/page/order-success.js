@@ -29,7 +29,7 @@ const OrderSuccess = () => {
                             <div className="success-text"><i className="fa fa-check-circle" aria-hidden="true"></i>
                                 <h2>thank you</h2>
                                 <p>Payment is successfully processsed and your order is on the way</p>
-                                <p>Transaction ID: {data.findOrder.id}</p>
+                                <p>Transaction ID: </p>
                             </div>
                         </Col>
                     </Row>
@@ -86,7 +86,7 @@ const OrderSuccess = () => {
                                 <Col sm="6">
                                     <h4>summery</h4>
                                     <ul className="order-detail">
-                                        <li>order ID:{data.findOrder.id} </li>
+                                        <li>order ID: </li>
                                         <li>Order Date: October 22, 2021</li>
                                         <li>Order Total:<span className="text-danger"> {symbol}{cartTotal}</span></li>
                                     </ul>

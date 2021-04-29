@@ -14,8 +14,14 @@ import { CurrencyContextProvider } from '../helpers/Currency/CurrencyContext';
 import {AuthProvider, AuthContext} from '../context/auth';
 import Helmet from 'react-helmet';
 import jwtDecode from 'jwt-decode';
+import Protectedroutes from '../context/protectedroutes'
+import Login from '../pages/page/account/login'
+import Landingpage from '/'
+import Dashboard from '../pages/page/account/dashboard'
 import {
   BrowserRouter as Router,
+  Redirect,
+  Route,
   Switch,
   useLocation
 } from "react-router-dom";
@@ -26,6 +32,7 @@ export default function MyApp({ Component, pageProps }) {
 
   const [isLoading, setIsLoading] = useState(true);
   const [url, setUrl] = useState();
+  const [authorize, setAuthorize] = useState(false)
   const initialState = {
     user: null
   };
@@ -53,7 +60,7 @@ export default function MyApp({ Component, pageProps }) {
 
   }, []);
 
- 
+
   
 
   
@@ -89,7 +96,8 @@ export default function MyApp({ Component, pageProps }) {
           <AuthProvider>
           <Router>
             <div>
-            
+             
+             
               <SettingProvider>
                 <CompareContextProvider >
                   <CurrencyContextProvider>

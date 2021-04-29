@@ -11,10 +11,11 @@ import PostLoader from '../../../components/common/PostLoader';
 import CartContext from '../../../helpers/cart';
 import {WishlistContext} from '../../../helpers/wishlist/WishlistContext';
 import { CompareContext } from '../../../helpers/Compare/CompareContext';
+import { printIntrospectionSchema } from 'graphql';
 
 const GET_PRODUCTS = gql`
-    query  products($type:_CategoryType!,$indexFrom:Int! ,$limit:Int!,$color:String!,$brand:[String!]!,$sortBy:_SortBy!,$priceMax:Int!,$priceMin:Int!) {
-        products (type: $type ,indexFrom:$indexFrom ,limit:$limit ,color:$color ,brand:$brand ,sortBy:$sortBy ,priceMax:$priceMax,priceMin:$priceMin){
+    query  products($text:String!,$type:_CategoryType!,$indexFrom:Int! ,$limit:Int!,$color:String!,$brand:[String!]!,$sortBy:_SortBy!,$priceMax:Int!,$priceMin:Int!) {
+        products (text:$text,type: $type ,indexFrom:$indexFrom ,limit:$limit ,color:$color ,brand:$brand ,sortBy:$sortBy ,priceMax:$priceMax,priceMin:$priceMin){
             total
             hasMore
             items {
@@ -69,17 +70,18 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [layout, setLayout] = useState(layoutList);
     const [url, setUrl] = useState();
-    const selectedsearch = filterContext.selectedsearch;
+    const selectedsearch = filterContext.selectedSearch;
 
     useEffect(() => {
         const pathname = window.location.pathname;
         setUrl(pathname);
         router.push(`${pathname}?&category=${selectedCategory}&brand=${selectedBrands}&color=${selectedColor}&size=${selectedSize}&minPrice=${selectedPrice.min}&maxPrice=${selectedPrice.max}&search=${selectedsearch}`)
         
-    }, [selectedBrands, selectedColor, selectedSize, selectedPrice, selectedCategory, selectedsearch]);
+    }, [selectedBrands, selectedColor, selectedSize, selectedPrice, selectedCategory,selectedsearch]);
  
     var { loading, data, fetchMore } = useQuery(GET_PRODUCTS, {
         variables: {
+            text: selectedsearch,
             type: selectedCategory,
             priceMax: selectedPrice.max,
             priceMin: selectedPrice.min,
@@ -91,11 +93,10 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
         }
     });
 
-    var { loading, data } = useQuery(SEARCHQUERY, {
-        variables: {
-            title: selectedsearch
-        }
-    });
+    console.log(data)
+    console.log(selectedsearch)
+ 
+    
 
     
     const handlePagination = () => {
@@ -121,6 +122,8 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
 
             }), 1000)
     }
+
+    console.log(selectedsearch)
    
 
     const removeBrand = (val) => {

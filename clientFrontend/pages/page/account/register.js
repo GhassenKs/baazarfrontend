@@ -57,6 +57,7 @@ function Register() {
       onError(err) {
         setErrors(err.graphQLErrors);
           console.log("there is an error");
+          console.log(err)
       },
       variables: values
     });
@@ -177,6 +178,11 @@ const REGISTER_USER = gql`
     $lastName:String!
     $email: String!
     $password: String!
+    $phone:String
+    $address:String
+    $zip:Int!
+    $city:String
+    $token:String!
     
     
   ) {
@@ -186,6 +192,11 @@ const REGISTER_USER = gql`
         lastName: $lastName
         email: $email
         password: $password
+        phone:$phone
+        address:$address
+        zip:$zip
+        city:$city
+        
         
       }
     ) {

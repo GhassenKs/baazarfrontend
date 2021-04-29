@@ -83,7 +83,6 @@ console.log()
   console.log('%c Tracing Here '+ skull, ' color: #000000;font-weight: bold;font-size:15px');
   const ids = 3;
   if (error) {console.log(error)}
-  if (data){console.log(data.findOrder.id)}
 
 //----------------------------------------
   useEffect(() => {
