@@ -5,11 +5,6 @@ import { useQuery,useMutation } from '@apollo/react-hooks';
 import { withApollo } from '../../helpers/apollo/apollo';
 import jwtDecode from 'jwt-decode';
 import { toast } from 'react-toastify';
-//tracing Log
-const skull= String.fromCodePoint(0x1F480);
-//--------------------graphql DATA fetching
-
-//------------------------------------
 
 const getLocalCartItems = () => {
   try {
@@ -23,77 +18,78 @@ const getLocalCartItems = () => {
     return [];
   }
 };
-/*const getLocalUser = () =>{
-  const initialState = {
-    user: null
-  };
-  if (localStorage.getItem('jwtToken')) {
-    const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
-  
-    if (decodedToken.exp * 1000 < Date.now()) {
-      localStorage.removeItem('jwtToken');
-    } else {
-      initialState.user = decodedToken;
-    }
-  }
 
-};*/
+
+/**/
 const CartProvider = (props) => {
   const [cartItems, setCartItems] = useState(getLocalCartItems())
   const [cartTotal, setCartTotal] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [stock, setStock] = useState('InStock');
-  //const [activeUser,setactiveUser] = useState(getLocalUser());
-/*
-
-  //-----------------------------------
-  var {  Itemdata } =  useMutation(ADD_ITEM, {
-    variables: {
-      productId:'',
-      orderId:''
-        
-    }
-});
-
-//-------------------------------
-  var { loading, data } =  useQuery(GET_ORDERS, {
-    variables: {
-        
-        indexFrom: 0,
-        limit: 10
-    }
-});
-
-*/
+  
+    const initialState = {
+      user: null
+    };
+    if (localStorage.getItem('jwtToken')) {
+      const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+    
+      if (decodedToken.exp * 1000 < Date.now()) {
+        localStorage.removeItem('jwtToken');
+      } else {
+        initialState.user = decodedToken;
+      }
+    } 
+  
+  var userID= null;
+  if(initialState.user){userID=initialState.user.id}
 
   
-  var decodedToken = null
-  if (localStorage.getItem('jwtToken')) {
- decodedToken = jwtDecode(localStorage.getItem('jwtToken'));}
-  const initialState = {
-    user: decodedToken
-  };
-console.log()
-  var { loading,error,  data } =  useQuery(FIND_ORDER, {
+
+  const { loading,error,  data:orders } =  useQuery(FIND_ORDER, {
     variables: {
         
-        id:null
+        id:userID
     }
 });
-  console.log('%c Tracing Here '+ skull, ' color: #000000;font-weight: bold;font-size:15px');
-  const ids = 3;
+
   if (error) {console.log(error)}
+  if(orders){console.log(orders.findOrder)}
 
 //----------------------------------------
+
+const [addItem, { data:itemsss }] = useMutation(ADD_ITEM);
+const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
+
+ 
+
   useEffect(() => {
     const Total = cartItems.reduce((a, b) => +a + +b.total, 0)
     setCartTotal(Total);
     localStorage.setItem('cartList', JSON.stringify(cartItems))
   }, [cartItems])
 
+  //console.log('%c res :' + + String.fromCodePoint(0x1F480), ' color: #000000;font-weight: bold;font-size:15px');
+  var i;
+for (i = 0; i < cartItems.length; i++) {
+  console.log(cartItems[i]._id)
+}
+
+  
   // Add Product To Cart
   const addToCart = (item ,quantity) => {
-    toast.success("Function Worked Succesfully !");
+    console.log(item)
+    if (userID){
+      toast.success("added with user !");
+
+      addItem({
+
+        variables: {
+           productId: item._id,
+           orderId: orders.findOrder.id
+          
+         }
+        });
+        
     const index = cartItems.findIndex(itm => itm.id === item.id)
     if (index !== -1) {
       const product = cartItems[index];
@@ -103,14 +99,42 @@ console.log()
       const product = { ...item, qty: quantity, total: (item.price - (item.price * item.discount / 100)) }
       setCartItems([...cartItems, product])
     }
+    }else{
+      toast.success("Added without user");
+
+      
+        
+    const index = cartItems.findIndex(itm => itm.id === item.id)
+    if (index !== -1) {
+      const product = cartItems[index];
+      cartItems[index] = { ...item, ...item, qty: quantity, total:(item.price - (item.price * item.discount / 100)) * quantity };
+      setCartItems([...cartItems])
+    } else {
+      const product = { ...item, qty: quantity, total: (item.price - (item.price * item.discount / 100)) }
+      setCartItems([...cartItems, product])
+    }
+    }
+    
   }
 
   const removeFromCart = (item) => {
-    toast.error("Product Removed Successfully !");
-  
-    console.log(item._id)
-    setCartItems(cartItems.filter((e) => (e.id !== item.id)))
-    
+    if(userID){
+      toast.error("Product Removed with User"); 
+      deleteItem({
+
+        variables: {
+           productId: item._id,
+           orderId: orders.findOrder.id
+          
+         }
+        });
+      
+      setCartItems(cartItems.filter((e) => (e.id !== item.id)))
+    }else{
+      toast.error("Product Removed without user!"); 
+      setCartItems(cartItems.filter((e) => (e.id !== item.id)))
+    }
+      
   }
 
   const minusQty = () => {
@@ -163,7 +187,7 @@ console.log()
     >
       {props.children}
     </Context.Provider>
-  );
+  ); 
 }
 
 const GET_ORDERS = gql`
@@ -174,7 +198,13 @@ const ADD_ITEM= gql`
    createItem(productId:$productId,orderId:$orderId){items{title}}
     
   }
-`; 
+`;  
+const DELETE_ITEM= gql`
+  mutation createItem($productId: String!, $orderId: String!) {
+   deleteItem(productId:$productId,orderId:$orderId){items{title}}
+    
+  }
+`;    
 
 const FIND_ORDER = gql`
     query findOrder($id:String) {findOrder(id:$id){id,user{firstName}}}

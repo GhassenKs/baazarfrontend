@@ -93,11 +93,14 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
         }
     });
 
-    console.log(data)
-    console.log(selectedsearch)
- 
-    
+   /*
+    var { loading, data } = useQuery(SEARCHQUERY, {
+        variables: {
+            title: selectedsearch
+        }
+    });
 
+   */
     
     const handlePagination = () => {
         setIsLoading(true);

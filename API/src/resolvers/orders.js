@@ -27,10 +27,13 @@ module.exports={
           
             try{
                 const order = await Order.findOne({user:args.id}).populate("items").populate("user").exec()
+                
+                console.log(order)
+            
                return order  
             }
             catch (err) {
-                throw new Error(err);
+                throw new Error(err); 
             }
         }
 
@@ -54,7 +57,7 @@ module.exports={
             createItem: async (_, { productId, orderId }) => {
                 try{
                 console.log(orderId)
-                  const order = await Order.findOne({_id:orderId});
+                  const order = await Order.findOne({_id:orderId}).populate("items").populate("user").exec();
                   console.log(order)
                   await order.items.push(productId);
                   const savedorder = await order.save();

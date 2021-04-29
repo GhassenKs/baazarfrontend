@@ -36,9 +36,9 @@ const startServer = async () =>{
   
   server.applyMiddleware({app});
   await mongoose.connect('mongodb+srv://ghassen:ghassen@cluster0.csfj6.mongodb.net/BAZAAR?retryWrites=true&w=majority', 
-  {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{console.log("Database connected")});
+  {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{console.log(String.fromCodePoint(0x1F480) +' DATABASE CONNECTED  ');});
   app.listen({ port: 4000 }, () =>
-    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+    console.log(String.fromCodePoint(0x1F480) +` SERVERS ARE UP AND RUNNING  at http://localhost:4000${server.graphqlPath}`)
   );
   
   

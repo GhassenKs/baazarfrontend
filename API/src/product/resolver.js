@@ -99,7 +99,8 @@ const resolvers = {
       const filterData = getVisibleproducts(items, types, brands, colors, sortBy, sizes);
       const total = filterData.length;
      // console.log("filter data", filterData);
-
+      //--------------------------------------------------------------------------------------------------
+      
       if (args.type === 'all') {
         console.log(produit.slice(args.indexFrom, args.indexFrom + args.limit))
         return {

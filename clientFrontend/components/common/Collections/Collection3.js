@@ -62,6 +62,7 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
     });
     
     
+    
     useEffect(() => {
         if (data === undefined) {
             noSlider === false;
