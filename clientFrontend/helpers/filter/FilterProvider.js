@@ -52,7 +52,8 @@ const FilterProvider = (props) => {
             setSelectedSize([...selectedSize, size])
         }
     }
-
+    console.log(' %c tracing here for search ' + String.fromCodePoint(0x1F480), ' color: #000000;font-weight: bold;font-size:15px');
+            console.log(selectedCategory)
     return (
         <FilterContext.Provider
             value={{

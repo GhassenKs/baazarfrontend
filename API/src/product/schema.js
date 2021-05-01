@@ -175,7 +175,6 @@ const typeDefs = `
     input OrderInput{
       number: Int 
       items: [ID]
-
       price:String
       user:ID!
     }

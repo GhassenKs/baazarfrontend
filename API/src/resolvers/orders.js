@@ -90,9 +90,6 @@ module.exports={
                     await order.placedItems.push(id);
                     ids[i]=id
                     
-                    
-                    
-
                   }
                   console.log(ids)
                   for(i=0;i<x;i++){

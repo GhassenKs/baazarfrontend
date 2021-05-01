@@ -59,8 +59,7 @@ const CheckoutPage = () => {
 
         if (data !== '') {
             var list = []
-            console.log(' %c tracing here ' + String.fromCodePoint(0x1F480), ' color: #000000;font-weight: bold;font-size:15px');
-            console.log(userID)
+            
             placeOrder({
 
                 variables: {

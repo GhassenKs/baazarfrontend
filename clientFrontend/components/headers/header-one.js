@@ -23,19 +23,6 @@ import {withApollo} from '../../helpers/apollo/apollo'
 
 
 
-const SEARCHQUERY = gql`
-    query productSearch($title: String!) {
-        productSearch (title: $title ) {
-			id
-            title
-            price
-            images {
-                alt
-                src
-            }
-        }
-    }
-`;
 
 
 const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
@@ -69,13 +56,7 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 
 	}, []);
 	
-	var { loading, data } = useQuery(SEARCHQUERY, {
-        variables: {
-            title: selectedSearch,
-        }
-    });
-
-	console.log(data)
+	
 
 	const handleScroll = () => {
 		let number = window.pageXOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -102,7 +83,7 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 
 	const closeSearch = () => {
 		document.getElementById("search-overlay").style.display = "none";
-	}
+	} 
 
 	// eslint-disable-next-line
 	const load = () => {
@@ -118,12 +99,19 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 	}
 
 	const clickProductDetail = () => {
+		console.log(' %c tracing  Text' + String.fromCodePoint(0x1F480), ' color: #000000;font-weight: bold;font-size:15px');
+		const queryString = window.location.search;
+		//console.log(queryString);
 		const pathname = window.location.pathname;
         setUrl(pathname);
 		const searchprops = selectedSearch.split(' ').join('+');
-        router.push(`/shop/left_sidebar?&category=&brand=&color=&size=&minPrice=&maxPrice=&search=${searchprops}`)
+		console.log(selectedSearch)
+		localStorage.setItem("SearchQuery",selectedSearch)
+		router.push(`/shop/no_sidebar?&category=all&brand=&color=&size=&minPrice=100&maxPrice=500&search=${searchprops}`)
+		
     }
 
+	
 
 
 
@@ -187,7 +175,7 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 										<div className="form-group">
 											<Input type="text" className="form-control" id="exampleInputPassword1" 
 											onChange={(e) => updateSearch(e.target.value)}
-											 placeholder="Search a Product" />
+											 placeholder="make a wish" />
 											<Button className="btn btn-primary" onClick={clickProductDetail}><i className="fa fa-search"></i></Button>
 
 										</div>
@@ -209,34 +197,7 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 											</div>
 										 */}
 										
-										{ selectedSearch  && data ? 
-											data.productSearch.map((product,i) =>
-												 <ul class="list-group shadow">
-													<li class="list-group-item">			
-                   
-													<div class="media align-items-lg-center flex-column flex-lg-row p-3">
-													<img src={product.images[0].src} alt={product.images.alt} width="100" class="ml-lg-5 order-1 order-lg-2"/>
-														<div class="media-body order-2 order-lg-1">
-															<h5 class="mt-0 font-weight-bold mb-2">{product.title}</h5>
-															<div class="d-flex align-items-center justify-content-between mt-1">
-																<h4 class="font-weight-bold my-2 text-danger">{product.price}</h4>
-															</div>
-															</div>
-															
-														</div>
-                 
-													</li>
-													</ul> 
-												/* 	<div>
-                                                <ProductItem des={true} product={product} symbol={symbol} cartClass="cart-info cart-wrap"
-                                                    addCompare={() => compareContext.addToCompare(product)}
-                                                    addWishlist={() => wishlistContext.addToWish(product)}
-                                                    addCart={() => cartContext.addToCart(product,quantity)} />
-                                            </div> */
-			   
-			  // "https://i.imgur.com/KFojDGa.jpg"
-											) : ''
-										}
+										
 										
 									</Form>
 								</Col>

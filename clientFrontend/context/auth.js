@@ -58,8 +58,10 @@ function AuthProvider(props){
    
     function logout(){
         localStorage.removeItem("jwtToken")
-        localStorage.removeItem("cartList")
+        var list = []
+        localStorage.setItem("cartList",JSON.stringify(list))
         dispatch({type:'LOGOUT'});
+
     }
     return(
         
