@@ -26,9 +26,9 @@ module.exports={
         {
           
             try{
-                const order = await Order.findOne({user:args.id}).populate("items").populate("user").exec()
+                const order = await Order.findOne({user:args.id}).populate("items").populate("placedItems").populate("user").exec()
                 
-                console.log(order)
+                
             
                return order  
             }
@@ -46,6 +46,7 @@ module.exports={
                     number,
                     price,
                     items,
+                    placedItems,
                     user
                 });
                 const res = await newOrder.save();
@@ -77,6 +78,44 @@ module.exports={
                 }catch(error){
                   console.error(error.message)
                 }    
+              },
+              placeOrder: async (root, args, context, info) => {
+                try{
+                  const order = await Order.findOne({user:args.id}).populate("items").populate("placedItems").populate("user").exec()
+                  x=order.items.length
+                  var id=null
+                  var ids=[]
+                  for(i=0;i<x;i++){
+                    id=order.items[i]._id
+                    await order.placedItems.push(id);
+                    ids[i]=id
+                    
+                    
+                    
+
+                  }
+                  console.log(ids)
+                  for(i=0;i<x;i++){
+                    id=ids[i]
+                    await order.items.pull(id);
+                    
+                    
+                    
+                    
+
+                  }
+                  
+
+                  
+                  const savedorder = await order.save();
+                  
+                  return savedorder;
+              
+                  
+              }
+              catch (err) {
+                  throw new Error(err); 
+              } 
               },
 
 

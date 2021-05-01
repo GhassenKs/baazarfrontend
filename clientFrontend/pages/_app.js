@@ -45,7 +45,7 @@ export default function MyApp({ Component, pageProps }) {
         initialState.user = decodedToken;
       }
     }
-    //console.log(initialState.user);
+    
 
     setTimeout(function () {
       setIsLoading(false)

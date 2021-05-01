@@ -50,7 +50,7 @@ const Dashboard = () => {
                             <div className="block-content">
                                 <ul>
                                     <li className="active"><a href="#">Account Info</a></li>
-                                    <li><a href="#">My Orders</a></li>
+                                    <li><a href={'/page/account/cart'}>My Orders</a></li>
                                     <li><Link href={'/page/account/wishlist'}>My Wishlist</Link></li>
                                     <li><a href="#">Change Password</a></li>
                                     <li className="last"><a href="#">Log Out</a></li>

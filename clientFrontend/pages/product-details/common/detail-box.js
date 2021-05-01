@@ -11,6 +11,7 @@ import gql from 'graphql-tag';
 const GET_SINGLE_PRODUCTS = gql`
     query product ($id:Int!) {
         product (id:$id) {
+            _id
             id
             title
             description

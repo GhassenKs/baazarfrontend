@@ -62,7 +62,7 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
     });
     
     
-    
+ 
     useEffect(() => {
         if (data === undefined) {
             noSlider === false;
@@ -77,7 +77,7 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
     }, [delayProduct])
     return (
         <>
-            <section className={designClass}>
+            <section className={designClass}  >
                 {noSlider ?
                     <Container>
                         <Row>

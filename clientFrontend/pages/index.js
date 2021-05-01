@@ -9,7 +9,6 @@ import ServiceLayout from '../components/common/Service/service1';
 import Blog from '../components/common/Blog/blog1';
 import Instagram from '../components/common/instagram/instagram1';
 import LogoBlock from '../components/common/logo-block';
-
 import FooterOne from '../components/footers/footer-one';
 import Headerone from '../components/headers/header-one';
 import { withApollo } from '../helpers/apollo/apollo';
@@ -38,12 +37,12 @@ const Fashion = () => {
       <Banner /> 
       <CollectionBanner />
       <Paragraph title="title1 section-t-space" inner="title-inner1" hrClass={false} />
-      <TopCollection noTitle="null" backImage={true} type="electronics" title="top collection" subtitle="special offer"  productSlider={Product4} designClass="section-b-space p-t-0 ratio_asos" noSlider="false" cartClass="cart-info cart-wrap" />
+      <TopCollection noTitle="null" backImage={true} type="all"  title="top collection" subtitle="special offer"  productSlider={Product4} designClass="section-b-space p-t-0 ratio_asos" noSlider="false" cartClass="cart-info cart-wrap" />
       <Parallax />
-      <SpecialProducts type="electronics" backImage={true} productSlider={Product4} line={true} title="title1 section-t-space" inner="title-inner1"  designClass="section-b-space p-t-0 ratio_asos" noSlider="true" cartClass="cart-info cart-wrap" /> 
+      <SpecialProducts type="all" backImage={true} productSlider={Product4} line={true} title="title1 section-t-space" inner="title-inner1"  designClass="section-b-space p-t-0 ratio_asos" noSlider="true" cartClass="cart-info cart-wrap" /> 
       <ServiceLayout sectionClass="border-section small-section" />
      
-      <FooterOne logoName={'logo.png'} />
+      <FooterOne logoName= {'logo.png'} />
     </>
   )
 }

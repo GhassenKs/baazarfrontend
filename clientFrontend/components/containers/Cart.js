@@ -3,7 +3,7 @@ import Link from 'next/link';
 import CartContext from '../../helpers/cart';
 import { Media } from 'reactstrap';
 import { CurrencyContext } from '../../helpers/Currency/CurrencyContext';
-
+ 
 const CartComponent = ({ icon ,layout}) => {
     const context = useContext(CartContext);
     const currContext = useContext(CurrencyContext);

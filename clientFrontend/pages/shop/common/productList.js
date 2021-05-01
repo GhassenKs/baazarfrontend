@@ -18,6 +18,7 @@ const GET_PRODUCTS = gql`
             total
             hasMore
             items {
+                _id
                 id
                 title
                 description

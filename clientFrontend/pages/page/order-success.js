@@ -5,9 +5,7 @@ import one from '../../public/assets/images/pro3/1.jpg';
 import CartContext from '../../helpers/cart';
 import { CurrencyContext } from '../../helpers/Currency/CurrencyContext';
 import jwtDecode from 'jwt-decode';
-import { withApollo } from '../../helpers/apollo/apollo'
-import gql from 'graphql-tag';
-import { useQuery,useMutation } from '@apollo/react-hooks';
+
 
 const OrderSuccess = () => {
     const cartContext = useContext(CartContext);
@@ -17,9 +15,19 @@ const OrderSuccess = () => {
     const symbol = curContext.state.symbol;
     //const random= Math.Random();
 
-    
-
-
+    const initialState = {
+        user: null
+      };
+      if (localStorage.getItem('jwtToken')) {
+        const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+      
+        if (decodedToken.exp * 1000 < Date.now()) {
+          localStorage.removeItem('jwtToken');
+        } else {
+          initialState.user = decodedToken;
+        }
+      }
+console.log(initialState.user)
     return (
         <CommonLayout parent="home" title="order success">
             <section className="section-b-space light-layout">
@@ -29,7 +37,7 @@ const OrderSuccess = () => {
                             <div className="success-text"><i className="fa fa-check-circle" aria-hidden="true"></i>
                                 <h2>thank you</h2>
                                 <p>Payment is successfully processsed and your order is on the way</p>
-                                <p>Transaction ID: {data.findOrder.id}</p>
+                                <p>Transaction ID: </p>
                             </div>
                         </Col>
                     </Row>
@@ -86,9 +94,9 @@ const OrderSuccess = () => {
                                 <Col sm="6">
                                     <h4>summery</h4>
                                     <ul className="order-detail">
-                                        <li>order ID:{data.findOrder.id} </li>
+                                        <li>order ID:</li>
                                         <li>Order Date: October 22, 2021</li>
-                                        <li>Order Total:<span className="text-danger"> {symbol}{cartTotal}</span></li>
+                                        <li>Order Total: {symbol}{cartTotal}</li>
                                     </ul>
                                 </Col>
                                 <Col sm="6">
@@ -96,7 +104,7 @@ const OrderSuccess = () => {
                                     <ul className="order-detail">
                                         <li></li>
                                         
-                                        <li>Contact No. {initialState.user.firstName}</li>
+                                        <li>Contact No. {initialState.user.phone}</li>
                                     </ul>
                                 </Col>
                                 <Col sm="12" className="payment-mode">
@@ -118,9 +126,5 @@ const OrderSuccess = () => {
         </CommonLayout>
     )
 }
-const FIND_ORDER = gql`
-    query findOrder($id:String) {findOrder(id:$id){id,user{firstName}}}
-`;
 
-
-export default withApollo(OrderSuccess);
+export default OrderSuccess;

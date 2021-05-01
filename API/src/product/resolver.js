@@ -155,6 +155,7 @@ const resolvers = {
             if (index === -1) color.push(variant.color)
           }
         })
+        
       })
       return { colors: color };
     },

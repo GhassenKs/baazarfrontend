@@ -14,6 +14,7 @@ import CartContext from '../../../helpers/cart';
 const GET_SINGLE_PRODUCTS = gql`
     query product ($id:Int!) {
         product (id:$id) {
+            _id
             id
             title
             description
