@@ -40,12 +40,10 @@ function Register() {
       phone:'',
       city:'',
       address:'',
-      zip:''
+      zip: ''
       
     });
-
     
-  
     const [addUser, { loading }] = useMutation(REGISTER_USER, {
       update(_, {data:{register:userData}}) {
         console.log(userData);
@@ -56,7 +54,8 @@ function Register() {
       },
       onError(err) {
         setErrors(err.graphQLErrors);
-          console.log("there is an error");
+          console.log(err);
+          console.log(values)
       },
       variables: values
     });
@@ -150,7 +149,7 @@ function Register() {
                                           placeholder="Enter your address" required="" />
 
                                           <Label for="address">Postal Code</Label>
-                                          <Input type="text" label="address"
+                                          <Input type="number" label="address"
                                           name="zip"
                                           value={values.zip}
                                           error={errors}
@@ -177,7 +176,10 @@ const REGISTER_USER = gql`
     $lastName:String!
     $email: String!
     $password: String!
-    
+    $phone:String
+    $city:String
+    $address:String
+    $zip:String
     
   ) {
     register(
@@ -186,7 +188,10 @@ const REGISTER_USER = gql`
         lastName: $lastName
         email: $email
         password: $password
-        
+        phone:$phone
+        city:$city
+        address:$address
+        zip:$zip
       }
     ) {
       id

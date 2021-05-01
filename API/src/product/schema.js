@@ -158,7 +158,7 @@ const typeDefs = `
       password:String!
       phone:String
       address:String
-      zip:Int
+      zip:String
       city:String
       token:String!
     }
@@ -190,7 +190,7 @@ const typeDefs = `
       password:String!
       phone:String
       address:String
-      zip:Int
+      zip:String
       city:String
     }
     

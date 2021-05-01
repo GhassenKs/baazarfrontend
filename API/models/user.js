@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const userSchema = new Schema({
-    zip:{type:Number},
+    zip:{type:String},
     firstName:{
         type:String,
         required:true
