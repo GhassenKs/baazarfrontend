@@ -5,9 +5,7 @@ import one from '../../public/assets/images/pro3/1.jpg';
 import CartContext from '../../helpers/cart';
 import { CurrencyContext } from '../../helpers/Currency/CurrencyContext';
 import jwtDecode from 'jwt-decode';
-import { withApollo } from '../../helpers/apollo/apollo'
-import gql from 'graphql-tag';
-import { useQuery,useMutation } from '@apollo/react-hooks';
+
 
 
 
@@ -22,7 +20,6 @@ const OrderSuccess = () => {
     const curContext = useContext(CurrencyContext);
     const symbol = curContext.state.symbol;
 
-
     const initialState = {
         user: null
       };
@@ -35,15 +32,7 @@ const OrderSuccess = () => {
           initialState.user = decodedToken;
         }
       }
-
-      var { loading, data } =  useQuery(FIND_ORDER, {
-        variables: {
-           id: initialState.user.id
-        }
-    });
-    
-console.log(data)
-
+console.log(initialState.user)
     return (
         <CommonLayout parent="home" title="order success">
             <section className="section-b-space light-layout">
@@ -53,7 +42,7 @@ console.log(data)
                             <div className="success-text"><i className="fa fa-check-circle" aria-hidden="true"></i>
                                 <h2>thank you</h2>
                                 <p>Payment is successfully processsed and your order is on the way</p>
-                                <p>Transaction ID: {data.findOrder.id}</p>
+                                <p>Transaction ID: </p>
                             </div>
                         </Col>
                     </Row>
@@ -110,9 +99,9 @@ console.log(data)
                                 <Col sm="6">
                                     <h4>summery</h4>
                                     <ul className="order-detail">
-                                        <li>order ID: </li>
+                                        <li>order ID:</li>
                                         <li>Order Date: October 22, 2021</li>
-                                        <li>Order Total:<span className="text-danger"> {symbol}{cartTotal}</span></li>
+                                        <li>Order Total: {symbol}{cartTotal}</li>
                                     </ul>
                                 </Col>
                                 <Col sm="6">
@@ -120,7 +109,7 @@ console.log(data)
                                     <ul className="order-detail">
                                         <li></li>
                                         
-                                        <li>Contact No. {initialState.user.firstName}</li>
+                                        <li>Contact No. {initialState.user.phone}</li>
                                     </ul>
                                 </Col>
                                 <Col sm="12" className="payment-mode">
@@ -143,5 +132,4 @@ console.log(data)
     )
 }
 
-
-export default withApollo(OrderSuccess);
+export default OrderSuccess;

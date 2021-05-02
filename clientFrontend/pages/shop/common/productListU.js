@@ -11,11 +11,10 @@ import PostLoader from '../../../components/common/PostLoader';
 import CartContext from '../../../helpers/cart';
 import {WishlistContext} from '../../../helpers/wishlist/WishlistContext';
 import { CompareContext } from '../../../helpers/Compare/CompareContext';
-import { printIntrospectionSchema } from 'graphql';
-
+ 
 const GET_PRODUCTS = gql`
-    query  products($text:String!,$type:_CategoryType!,$indexFrom:Int! ,$limit:Int!,$color:String!,$brand:[String!]!,$sortBy:_SortBy!,$priceMax:Int!,$priceMin:Int!) {
-        products (text:$text,type: $type ,indexFrom:$indexFrom ,limit:$limit ,color:$color ,brand:$brand ,sortBy:$sortBy ,priceMax:$priceMax,priceMin:$priceMin){
+    query  products($type:_CategoryType!,$indexFrom:Int! ,$limit:Int!,$sortBy:_SortBy!,$priceMax:Int!,$priceMin:Int!,$text:String) {
+        products (type: $type ,indexFrom:$indexFrom ,limit:$limit  ,sortBy:$sortBy ,priceMax:$priceMax,priceMin:$priceMin,text:$text){
             total
             hasMore
             items {
@@ -51,7 +50,7 @@ const GET_PRODUCTS = gql`
 
 
 
-const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
+const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
     const cartContext = useContext(CartContext);
     const quantity = cartContext.quantity;
     const wishlistContext = useContext(WishlistContext);
@@ -71,32 +70,39 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [layout, setLayout] = useState(layoutList);
     const [url, setUrl] = useState();
-    const selectedsearch = filterContext.selectedSearch;
-
+    const selectedsearch = filterContext.selectedsearch;
+    const searchLocal=localStorage.getItem('SearchQuery')
     useEffect(() => {
         const pathname = window.location.pathname;
         setUrl(pathname);
-        router.push(`${pathname}?&category=${selectedCategory}&brand=${selectedBrands}&color=${selectedColor}&size=${selectedSize}&minPrice=${selectedPrice.min}&maxPrice=${selectedPrice.max}`)
+        router.push(`${pathname}?&category=all&brand=${selectedBrands}&color=${selectedColor}&size=${selectedSize}&minPrice=${selectedPrice.min}&maxPrice=${selectedPrice.max}`)
         
-    }, [selectedBrands, selectedColor, selectedSize, selectedPrice, selectedCategory,selectedsearch]);
- 
+    }, [selectedBrands, selectedColor, selectedSize, selectedPrice, selectedCategory, selectedsearch]);
+    
+    if (localStorage.getItem('SearchQuery') !== null) {
+
+        console.log(`search Query exists`);
+         
+        console.log(searchLocal)
+    } else {
+        console.log(` not found`);
+    }
     var { loading, data, fetchMore } = useQuery(GET_PRODUCTS, {
         variables: {
-            text: selectedsearch,
-            type: selectedCategory,
-            priceMax: selectedPrice.max,
-            priceMin: selectedPrice.min,
-            color: selectedColor,
-            brand: selectedBrands,
-            sortBy: sortBy,
+            type: "all",
+            priceMax: 0,
+            priceMin: 500,
+            sortBy: "HighToLow",
             indexFrom: 0,
-            limit: limit
+            limit:limit,
+            text:searchLocal
+
         }
     });
-    console
+    
     if (data){
 
-        console.log(' %c tracing here for productList ' + String.fromCodePoint(0x1F480), ' color: #000000;font-weight: bold;font-size:15px');
+        //console.log(' %c tracing here for productList ' + String.fromCodePoint(0x1F480), ' color: #000000;font-weight: bold;font-size:15px');
             console.log(data.products.items)
     }
     
@@ -133,8 +139,6 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
 
             }), 1000)
     }
-
-    console.log(selectedsearch)
    
 
     const removeBrand = (val) => {
@@ -364,4 +368,4 @@ const ProductList = ({ colClass, layoutList,openSidebar,noSidebar }) => {
     )
 }
 
-export default ProductList;
+export default ProductListU;

@@ -106,6 +106,7 @@ const typeDefs = `
       lights,
       frigs,
       digitalcameras,
+      metro,
       securitycameras,
       Caccessories,
       Headphonesnearphones,
@@ -157,7 +158,7 @@ const typeDefs = `
       password:String!
       phone:String
       address:String
-      zip:Int
+      zip:String
       city:String
       token:String!
     }
@@ -167,6 +168,7 @@ const typeDefs = `
       number: Int 
       price:String
       items:[Product]
+      placedItems:[Product]
       user:User
 
     }
@@ -187,7 +189,7 @@ const typeDefs = `
       password:String!
       phone:String
       address:String
-      zip:Int
+      zip:String
       city:String
     }
     
@@ -233,6 +235,7 @@ const typeDefs = `
       deleteOrder(orderID:ID!):Order
       createItem(productId: String, orderId: String): Order
       deleteItem(productId: String, orderId: String): Order
+      placeOrder(id:String):Order
       
     }
 `;

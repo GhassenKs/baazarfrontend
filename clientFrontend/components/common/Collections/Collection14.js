@@ -10,7 +10,7 @@ import { CompareContext } from '../../../helpers/Compare/CompareContext';
 const GET_PRODUCTS = gql`
     query  products($type:_CategoryType!,$indexFrom:Int! ,$limit:Int!) {
         products (type: $type,indexFrom:$indexFrom ,limit:$limit){
-            items {
+            items { _id 
                 id
                 title
                 description

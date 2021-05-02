@@ -6,7 +6,7 @@ import { withApollo } from '../../helpers/apollo/apollo';
 import jwtDecode from 'jwt-decode';
 import { toast } from 'react-toastify';
 
-const getLocalCartItems = () => {
+const getLocalCartItems = () => { 
   try {
     const list = localStorage.getItem('cartList');
     if (list === null) {
@@ -26,6 +26,9 @@ const CartProvider = (props) => {
   const [cartTotal, setCartTotal] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [stock, setStock] = useState('InStock');
+
+  
+  
   
     const initialState = {
       user: null
@@ -45,6 +48,8 @@ const CartProvider = (props) => {
 
   
 
+  
+
   const { loading,error,  data:orders } =  useQuery(FIND_ORDER, {
     variables: {
         
@@ -53,7 +58,33 @@ const CartProvider = (props) => {
 });
 
   if (error) {console.log(error)}
-  if(orders){console.log(orders.findOrder)}
+  const test = localStorage.getItem('cartList');
+  if(test){
+    if (JSON.parse(test).length==0) {
+      
+      if(userID){
+        if(orders){
+          
+          console.log(orders.findOrder.items)
+         
+          //
+          var i = 0
+          var cartOrders= []
+          var orderTest= null
+          for(i=0;i<orders.findOrder.items.length;i++){
+             orderTest = orders.findOrder.items[i]
+            cartOrders[i]=  { ...orderTest, qty: 1, total: 200 }
+            
+          }
+          //
+          console.log(cartOrders)
+          localStorage.setItem("cartList",JSON.stringify(cartOrders))
+
+        }
+
+      }
+
+    }}
 
 //----------------------------------------
 
@@ -66,18 +97,16 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
     const Total = cartItems.reduce((a, b) => +a + +b.total, 0)
     setCartTotal(Total);
     localStorage.setItem('cartList', JSON.stringify(cartItems))
+   
   }, [cartItems])
 
   //console.log('%c res :' + + String.fromCodePoint(0x1F480), ' color: #000000;font-weight: bold;font-size:15px');
-  var i;
-for (i = 0; i < cartItems.length; i++) {
-  console.log(cartItems[i]._id)
-}
+
 
   
   // Add Product To Cart
   const addToCart = (item ,quantity) => {
-    console.log(item)
+    
     if (userID){
       toast.success("added with user !");
 
@@ -97,22 +126,15 @@ for (i = 0; i < cartItems.length; i++) {
       setCartItems([...cartItems])
     } else {
       const product = { ...item, qty: quantity, total: (item.price - (item.price * item.discount / 100)) }
+      
+      console.log(product)
       setCartItems([...cartItems, product])
     }
     }else{
-      toast.success("Added without user");
+      toast.error("please login or register");
 
       
-        
-    const index = cartItems.findIndex(itm => itm.id === item.id)
-    if (index !== -1) {
-      const product = cartItems[index];
-      cartItems[index] = { ...item, ...item, qty: quantity, total:(item.price - (item.price * item.discount / 100)) * quantity };
-      setCartItems([...cartItems])
-    } else {
-      const product = { ...item, qty: quantity, total: (item.price - (item.price * item.discount / 100)) }
-      setCartItems([...cartItems, product])
-    }
+     
     }
     
   }
@@ -131,8 +153,8 @@ for (i = 0; i < cartItems.length; i++) {
       
       setCartItems(cartItems.filter((e) => (e.id !== item.id)))
     }else{
-      toast.error("Product Removed without user!"); 
-      setCartItems(cartItems.filter((e) => (e.id !== item.id)))
+      toast.error("Please login or register"); 
+      
     }
       
   }
@@ -207,7 +229,33 @@ const DELETE_ITEM= gql`
 `;    
 
 const FIND_ORDER = gql`
-    query findOrder($id:String) {findOrder(id:$id){id,user{firstName}}}
+    query findOrder($id:String) {findOrder(id:$id){id,user{firstName},items {
+                _id
+                id
+                title
+                description
+                type
+                brand
+                category 
+                price
+                new
+                stock
+                sale
+                discount
+                variants{
+                    id
+                    sku
+                    size
+                    color
+                    image_id
+                }
+                images{
+                    image_id
+                    id
+                    alt
+                    src
+                }
+            }}}
 `;
 
 export default withApollo(CartProvider);

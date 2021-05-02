@@ -11,6 +11,7 @@ const GET_PRODUCTS = gql`
     query  products($type:_CategoryType!,$indexFrom:Int! ,$limit:Int!) {
         products (type: $type,indexFrom:$indexFrom ,limit:$limit){
             items {
+                _id
                 id
                 title
                 description

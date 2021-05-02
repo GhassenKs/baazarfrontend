@@ -18,7 +18,7 @@ const GET_PRODUCTS = gql`
         products (type: $type ,indexFrom:$indexFrom ,limit:$limit ,color:$color ,brand:$brand ,sortBy:$sortBy ,priceMax:$priceMax,priceMin:$priceMin){
             total
             hasMore
-            items {
+            items { _id 
                 id
                 title
                 description

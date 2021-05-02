@@ -18,7 +18,8 @@ const resolvers = {
         minMatchCharLength: 2,
         keys: ['title', 'brand', 'category', 'type'],
       })
-      
+      console.log(args.text)
+      console.log("---------------------------------------------------------------------------------------------------------------------------")
 
       if (args.text && args.text !== '') {
        // console.log(args.text)
@@ -155,6 +156,7 @@ const resolvers = {
             if (index === -1) color.push(variant.color)
           }
         })
+        
       })
       return { colors: color };
     },
@@ -192,7 +194,9 @@ const resolvers = {
       return loadCurrency;
     },
     productSearch: async (root,args,context,info)=>{
+      console.log("searching")
       console.log(args.title)
+
       return produits.find({ $text: { $search: args.title } })
     }
 

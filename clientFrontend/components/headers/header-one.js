@@ -23,52 +23,9 @@ import { useHistory } from "react-router-dom"
 import { Image, Item } from 'semantic-ui-react'
 
 
-const GET_PRODUCTS = gql`
-    query  products($text:String!,$indexFrom:Int! ,$limit:Int!) {
-        products (text:$text,indexFrom:$indexFrom ,limit:$limit){
-            items {
-                _id
-                id
-                title
-                description
-                type
-                brand
-                category 
-                price
-                new
-                stock
-                sale
-                discount
-                variants{
-                    id
-                    sku
-                    size
-                    color
-                    image_id
-                }
-                images{
-                    image_id
-                    id
-                    alt
-                    src
-                }
-            }
-        }
-    }
-`; 
- 
-/* const SEARCHQUERY = gql`
-    query productSearch($title: String!) {
-        productSearch (title: $title ) {
-			id
-            title
-            price
-            images {
-                alt
-                src
-            }
-        }
-    }` */
+
+
+
 
 const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 
@@ -108,19 +65,7 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 
 	}, []);
 	
-	/* var { loading, data } = useQuery(SEARCHQUERY, {
-        variables: {
-            title: selectedSearch,
-        }
-    }); */
-	var { loading, data } =  useQuery(GET_PRODUCTS, {
-        variables: {
-            text: selectedSearch,
-            indexFrom: 0,
-            limit: 10
-        }
-    });
-  
+	
 
 	const handleScroll = () => {
 		let number = window.pageXOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -147,7 +92,7 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
 
 	const closeSearch = () => {
 		document.getElementById("search-overlay").style.display = "none";
-	}
+	} 
 
 	// eslint-disable-next-line
 	const load = () => {
@@ -163,9 +108,23 @@ const updateSearch = (search) => {
 }
 
 	const clickProductDetail = () => {
+		console.log(' %c tracing  Text' + String.fromCodePoint(0x1F480), ' color: #000000;font-weight: bold;font-size:15px');
+		const queryString = window.location.search;
+		//console.log(queryString);
+		const pathname = window.location.pathname;
+        setUrl(pathname);
+		const searchprops = selectedSearch.split(' ').join('+');
+		console.log(selectedSearch)
+		localStorage.setItem("SearchQuery",selectedSearch)
+		router.push(`/shop/no_sidebar?&category=all&brand=&color=&size=&minPrice=100&maxPrice=500&search=${searchprops}`)
 		
-        router.push(`/shop/left_sidebar?&category=${selectedCategory}&brand=${selectedBrands}&color=${selectedColor}&size=${selectedSize}&minPrice=${selectedPrice.min}&maxPrice=${selectedPrice.max}&search=${selectedSearch}`)
     }
+
+	
+
+
+
+	
 
 	return (
 		<div>
@@ -213,6 +172,7 @@ const updateSearch = (search) => {
 					</Row>
 				</Container>
 			</header>
+			
 
 			<div id="search-overlay" className="search-overlay">
 				<div>
@@ -225,40 +185,24 @@ const updateSearch = (search) => {
 										<div className="form-group">
 											<Input type="text" className="form-control" id="exampleInputPassword1" 
 											onChange={(e) => updateSearch(e.target.value)}
-											 placeholder="Search a Product" />
-											<Button className="btn btn-primary" ><i className="fa fa-search"></i></Button>
+											 placeholder="make a wish" />
+											<Button className="btn btn-primary" onClick={clickProductDetail}><i className="fa fa-search"></i></Button>
 
 											
-											{ selectedSearch && data ? 
-											data.products.items.map((product,i) =>
-											 <div className="list-group">
-											<ul className="list-group shadow">
-
-												 
-													<li className="list-group-item">			
-                   
-													<div className="media align-items-lg-center flex-column flex-lg-row p-3">
-													<img src={product.images[0].src} alt={product.images.alt} width="100" className="ml-lg-5 order-1 order-lg-2"/>
-														<div className="media-body order-2 order-lg-1">
-														<h5 className="mt-0 font-weight-bold mb-2">{product.title}</h5>
-														<div className="d-flex align-items-center justify-content-between mt-1">
-															<h4 className="font-weight-bold my-2 text-danger">{product.price}</h4>
-														</div>
-														</div>
-															
-														</div>
-                 
-													</li>
-													</ul> 
-													</div> 
-
-											) : ''
-										}
+											<div className="card p-3 bg-white">
+												<div className="about-product text-center mt-2"><img src={product.images[0].src} width="200"/>
+													<div>
+														<h4>{product.price}</h4>
+														<h6 className="mt-0 text-black-50">{product.title}</h6>
+													</div>
+												</div>
+												
+												<div className="d-flex justify-content-between total font-weight-bold mt-4"><span>Total</span><span>{product.price}</span></div>
+											</div>
+										 
+										
+										
 										</div>
-										
-										
-										
-										
 									</Form>
 								</Col>
 							</Row>

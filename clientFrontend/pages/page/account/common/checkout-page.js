@@ -7,6 +7,8 @@ import { useForm } from 'react-hook-form';
 import {useRouter} from 'next/router';
 import { CurrencyContext } from '../../../../helpers/Currency/CurrencyContext';
 import jwtDecode from 'jwt-decode';
+import gql from 'graphql-tag';
+import { useMutation } from '@apollo/react-hooks';
 
 
 
@@ -20,7 +22,27 @@ const CheckoutPage = () => {
     const [payment, setPayment] = useState('stripe');
     const { register, handleSubmit, errors } = useForm(); // initialise the hook
     const router = useRouter();
+    //checking user
 
+    const initialState = {
+        user: null
+      };
+      if (localStorage.getItem('jwtToken')) {
+        const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+      
+        if (decodedToken.exp * 1000 < Date.now()) {
+          localStorage.removeItem('jwtToken');
+        } else {
+          initialState.user = decodedToken;
+        }
+      } 
+    
+    var userID= null;
+    if(initialState.user){userID=initialState.user.id}
+
+    const [placeOrder, { data:orderPlaced }] = useMutation(PLACE_ORDER);
+  
+      //end of this
     const checkhandle = (value) => {
         setPayment(value)
     }
@@ -35,7 +57,17 @@ const CheckoutPage = () => {
 
     const onSubmit = data => {
 
-        
+        if (data !== '') {
+            var list = []
+            
+            placeOrder({
+
+                variables: {
+                   id:userID
+                  
+                 }
+                });
+                localStorage.setItem("cartList",JSON.stringify(list))
             
             router.push({
                 pathname: '/portfolio/order-success-2',
@@ -175,6 +207,14 @@ const CheckoutPage = () => {
         </section>
     )
     
+}
+const PLACE_ORDER = gql`
+  mutation placeOrder($id:String) {
+
+    placeOrder(id:$id){id}
+}
+  
+`;
 }
 
 export default CheckoutPage;
