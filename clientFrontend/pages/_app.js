@@ -25,6 +25,7 @@ import {
   Switch,
   useLocation
 } from "react-router-dom";
+import ForgetPwd from './page/account/forget-pwd';
 
 
 
@@ -96,7 +97,10 @@ export default function MyApp({ Component, pageProps }) {
           <AuthProvider>
           <Router>
             <div>
-             
+             <Protectedroutes exact path='/forgetpwd' Component={ForgetPwd} >
+
+              <ForgetPwd />
+             </Protectedroutes>
              
               <SettingProvider>
                 <CompareContextProvider >

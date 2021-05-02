@@ -53,6 +53,7 @@ const TopBarDark = ({logoName, topClass, fluid }) => {
     const searchcontext = useContext(FilterContext)
     const setSelectedSearch = searchcontext.setSelectedSearch;
     const selectedSearch = searchcontext.selectedSearch;
+    const [show, setShow] = useState(false)
 
 
     //-----------------------user verification
@@ -108,23 +109,21 @@ const TopBarDark = ({logoName, topClass, fluid }) => {
                     <Col lg="10">
                         <div className="header-contact">
                             <ul>
-                            
-									
                                  <li>
                                 <Form className="form_search" role="textbox" >
                                  
                                  <Input id="query search-autocomplete" 
                                      placeholder="Search..."
                                      className="nav-search nav-search-field" 
+                                     onMouseEnter={() => setShow(true)}
                                      onChange={(e) => updateSearch(e.target.value)}
-                                     onClick={showlist}
                                      aria-expanded="true" />
                                  <Button type="submit" name="nav-submit-button" className="btn-search">
                                      <i className="fa fa-search"></i>
                                      </Button>
                                      <div className="liste-group" id="liste-group">
                                      
-                                        {  selectedSearch && data ?
+                                        { show && selectedSearch && data ?
                                         data.products.items.map((product,i) => 
                                      
                                         <a href="#" className="list-group-item list-group-item-action active" aria-current="true">

@@ -26,23 +26,25 @@ const CartContainer = ({icon}) => {
                     {cartList.map((item, index) => (
                         <CartHeader key={index} item={item} total={total} symbol={symbol} />
                     ))}
+                    
                     {(cartList.length > 0) ?
                         <div>
                             <li>
                                 <div className="total">
-                                    <h5>subtotal : <span>{symbol}{total}</span></h5>
+                                    <h5>subtotal : <span><strong>{total}{symbol}</strong></span></h5>
                                 </div>
                             </li>
                             <li>
                                 <div className="buttons view-cart">
                                     <Link href={`/page/account/cart`} >
-                                        <a>view cart</a>
+                                    <a type="button" className="btn btn-outline-primary cart">View Cart</a>
                                     </Link>
                                     <Link href={`/page/account/checkout`} >
-                                        <a className="checkout">checkout</a>
+                                    <a type="button" className="btn btn-primary checkout">Checkout</a>
                                     </Link>
                                 </div>
-                            </li></div>
+                            </li>
+                            </div>
                         :
                         <li><h5>Your cart is currently empty.</h5></li>}
                 </ul>

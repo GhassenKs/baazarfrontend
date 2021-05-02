@@ -1317,7 +1317,7 @@ header {
   }
 
   .show-div {
-    top: 103px;
+    top: 50px;
     position: absolute;
     z-index: 9;
     background-color: $white;
@@ -1326,13 +1326,13 @@ header {
     text-align: left;
     -webkit-box-shadow: 0 0 1px 0 #ebebeb;
     -moz-box-shadow: 0 0 1px 0 #ebebeb;
-    box-shadow: 0 0 1px 0 #ebebeb;
+    box-shadow: 0 0 1px 0 #ebebeba2;
     transform: translateY(30px);
     opacity: 0;
     visibility: hidden;
     right: 0;
     padding: 0;
-    border-radius: 0 !important;
+    border-radius:10px;
   }
 
   &:hover {
@@ -1726,17 +1726,21 @@ header {
       .onhover-div {
         .show-div {
           &.shopping-cart {
-            padding: 15px 15px;
-            min-width: 270px;
+            box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.199);
+            padding: 40px 40px;
+            min-width: 350px;
             left: unset;
             right: 0;
-            max-height: 250px;
+            max-height: 500px;
             overflow-y: auto;
 
             li {
               position: relative;
               padding-bottom: 10px;
               width: 100%;
+              padding-top: 10px;
+              border-top: 1px solid $border-grey;
+              
 
               &:last-child {
                 padding-bottom: 0;
@@ -1750,8 +1754,8 @@ header {
                 .media-body {
                   align-self: center;
 
-                  h4 {
-                    color: $font-color;
+                  h4,h5 {
+                    color: var(--theme-deafult);
 
                     span {
                       color: $grey;
@@ -1763,7 +1767,7 @@ header {
 
               .close-circle {
                 position: absolute;
-                top: 0;
+                top: 15px;
                 right: 0;
 
                 i {
@@ -1787,6 +1791,7 @@ header {
                   text-transform: capitalize;
                   margin-bottom: 0;
                   color: $header-font;
+                  
 
                   span {
                     float: right;
@@ -1797,9 +1802,12 @@ header {
               .buttons {
                 a {
                   font-size: 16px;
-                  color: $font-color;
+                  color: $white;
                   text-transform: capitalize;
                   font-weight: 700;
+                  border-radius: 20px;
+                  
+
 
                   &:hover {
                     color: var(--theme-deafult);
@@ -2504,6 +2512,7 @@ header {
   justify-content: center;
 
   .media {
+   
     padding-top: 23px;
     padding-bottom: 23px;
     align-items: center;
@@ -6572,6 +6581,7 @@ footer {
     }
   }
 }
+
 
 .blog {
   &.blog_box {

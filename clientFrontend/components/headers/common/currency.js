@@ -40,12 +40,12 @@ const Currency = ({icon}) => {
                         <li key={i} ><a href={null} onClick={() => { changeLanguage(item.val) }}>{item.lang}</a></li>
                     )}
                 </ul>
-                <h6>currency</h6>
+               {/*  <h6>currency</h6>
                 <ul className="list-inline">
                     {data && data.getCurrency.map((cur, i) =>
                         <li key={i}><div onClick={() => selectedCurrency(cur)}>{cur.symbol}  {cur.currency}</div></li>
                     )}
-                </ul>
+                </ul> */}
             </div>
         </li>
     )

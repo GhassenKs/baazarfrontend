@@ -90,26 +90,7 @@ const products =[
                     104
                 ]
             },
-            {
-                "image_id": 112,
-                "id": 1.2,
-                "alt": "white",
-                "src": "/assets/images/pro3/6.jpg",
-                "variant_id": [
-                    102,
-                    105
-                ]
-            },
-            {
-                "image_id": 113,
-                "id": 1.3,
-                "alt": "pink",
-                "src": "/assets/images/pro3/25.jpg",
-                "variant_id": [
-                    103,
-                    106
-                ]
-            }
+           
         ]
     },
     {
@@ -242,16 +223,7 @@ const products =[
                     209
                 ]
             },
-            {
-                "image_id": 214,
-                "id": 2.4,
-                "alt": "pink",
-                "src": "/assets/images/pro3/15.jpg",
-                "variant_id": [
-                    201,
-                    204
-                ]
-            }
+            
         ]
     },
     {
@@ -578,16 +550,7 @@ const products =[
                     605
                 ]
             },
-            {
-                "image_id": 613,
-                "id": 6.3,
-                "alt": "red",
-                "src": "/assets/images/pro3/22.jpg",
-                "variant_id": [
-                    603,
-                    606
-                ]
-            }
+            
         ]
     },
     {
@@ -682,16 +645,7 @@ const products =[
                     705
                 ]
             },
-            {
-                "image_id": 713,
-                "id": 7.3,
-                "alt": "black",
-                "src": "/assets/images/pro3/15.jpg",
-                "variant_id": [
-                    703,
-                    706
-                ]
-            }
+            
         ]
     },
     {
@@ -1123,17 +1077,7 @@ const products =[
                     1208
                 ]
             },
-            {
-                "image_id": 1213,
-                "id": 12.3,
-                "alt": "black",
-                "src": "/assets/images/pro3/38.jpg",
-                "variant_id": [
-                    1203,
-                    1206,
-                    1209
-                ]
-            }
+         
         ]
     },
     {
@@ -1255,17 +1199,7 @@ const products =[
                     1308
                 ]
             },
-            {
-                "image_id": 1313,
-                "id": 13.3,
-                "alt": "yellow",
-                "src": "/assets/images/pro3/39.jpg",
-                "variant_id": [
-                    1303,
-                    1306,
-                    1309
-                ]
-            }
+            
         ]
     },
     {
@@ -1360,16 +1294,7 @@ const products =[
                     1405
                 ]
             },
-            {
-                "image_id": 1413,
-                "id": 14.3,
-                "alt": "yellow",
-                "src": "/assets/images/pro3/14.jpg",
-                "variant_id": [
-                    1403,
-                    1406
-                ]
-            }
+           
         ]
     },
     {
@@ -1468,51 +1393,9 @@ const products =[
         "variants": [
             {
                 "variant_id": 1601,
-                "id": 16.1,
-                "sku": "sku16",
-                "size": "xs",
-                "color": "pink",
+                "id": 195,
+                "sku": "jewellery46",
                 "image_id": 1611
-            },
-            {
-                "variant_id": 1602,
-                "id": 16.2,
-                "sku": "skul16",
-                "size": "xs",
-                "color": "black",
-                "image_id": 1612
-            },
-            {
-                "variant_id": 1603,
-                "id": 16.3,
-                "sku": "sku16s",
-                "size": "xs",
-                "color": "blue",
-                "image_id": 1613
-            },
-            {
-                "variant_id": 1604,
-                "id": 16.4,
-                "sku": "sku16l",
-                "size": "m",
-                "color": "pink",
-                "image_id": 1611
-            },
-            {
-                "variant_id": 1605,
-                "id": 16.5,
-                "sku": "sku16l",
-                "size": "m",
-                "color": "black",
-                "image_id": 1612
-            },
-            {
-                "variant_id": 1606,
-                "id": 16.6,
-                "sku": "sku16l",
-                "size": "m",
-                "color": "blue",
-                "image_id": 1613
             }
         ],
         "images": [
@@ -1520,37 +1403,18 @@ const products =[
                 "image_id": 1611,
                 "id": 16.1,
                 "alt": "pink",
-                "src": "/assets/images/pro3/24.jpg",
+                "src": "/assets/images/pro3/30.jpg",
                 "variant_id": [
-                    1601,
-                    1604
-                ]
-            },
-            {
-                "image_id": 1612,
-                "id": 16.2,
-                "alt": "black",
-                "src": "/assets/images/pro3/35.jpg",
-                "variant_id": [
-                    1602,
-                    1605
-                ]
-            },
-            {
-                "image_id": 1613,
-                "id": 16.3,
-                "alt": "blue",
-                "src": "/assets/images/pro3/4.jpg",
-                "variant_id": [
-                    1603,
-                    1606
+                    1601
+                    
                 ]
             }
+            
         ]
     },
     {
         "id": 17,
-        "title": "Yellow gold bracelets",
+        "title": "silver bracelets",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
         "type": "Fbraceletsrings",
         "brand": "zara",
@@ -1570,33 +1434,16 @@ const products =[
                 "variant_id": 1701,
                 "id": 17.1,
                 "sku": "sku17",
-                "size": "m",
-                "color": "pink",
                 "image_id": 1711
             },
-            {
-                "variant_id": 1702,
-                "id": 17.2,
-                "sku": "skul17",
-                "size": "m",
-                "color": "maroon",
-                "image_id": 1712
-            },
-            {
-                "variant_id": 1703,
-                "id": 17.3,
-                "sku": "sku17s",
-                "size": "m",
-                "color": "red",
-                "image_id": 1713
-            }
+            
         ],
         "images": [
             {
                 "image_id": 1711,
                 "id": 17.1,
                 "alt": "pink",
-                "src": "/assets/images/pro3/25.jpg",
+                "src": "/assets/images/pro3/30.jpg",
                 "variant_id": [
                     1701
                 ]
@@ -1605,25 +1452,17 @@ const products =[
                 "image_id": 1712,
                 "id": 17.2,
                 "alt": "maroon",
-                "src": "/assets/images/pro3/17.jpg",
+                "src": "/assets/images/pro3/30.jpg",
                 "variant_id": [
                     1702
                 ]
             },
-            {
-                "image_id": 1713,
-                "id": 17.3,
-                "alt": "red",
-                "src": "/assets/images/pro3/5.jpg",
-                "variant_id": [
-                    1703
-                ]
-            }
+           
         ]
     },
     {
         "id": 18,
-        "title": "gold ring",
+        "title": "silver ring",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
         "type": "Fbraceletsrings",
         "brand": "zara",
@@ -1640,38 +1479,7 @@ const products =[
            
         ],
         "variants": [
-            {
-                "variant_id": 1801,
-                "id": 18.1,
-                "sku": "sku18",
-                "size": "xs",
-                "color": "black",
-                "image_id": 1811
-            },
-            {
-                "variant_id": 1802,
-                "id": 18.2,
-                "sku": "skul18",
-                "size": "xs",
-                "color": "orange",
-                "image_id": 1812
-            },
-            {
-                "variant_id": 1804,
-                "id": 18.3,
-                "sku": "sku18l",
-                "size": "m",
-                "color": "black",
-                "image_id": 1811
-            },
-            {
-                "variant_id": 1805,
-                "id": 18.4,
-                "sku": "sku18l",
-                "size": "m",
-                "color": "orange",
-                "image_id": 1812
-            }
+           
         ],
         "images": [
             {
@@ -1716,38 +1524,7 @@ const products =[
            
         ],
         "variants": [
-            {
-                "variant_id": 1901,
-                "id": 19.1,
-                "sku": "sku19",
-                "size": "s",
-                "color": "blue",
-                "image_id": 1911
-            },
-            {
-                "variant_id": 1902,
-                "id": 19.2,
-                "sku": "skul19",
-                "size": "s",
-                "color": "gray",
-                "image_id": 1912
-            },
-            {
-                "variant_id": 1904,
-                "id": 19.3,
-                "sku": "sku19l",
-                "size": "m",
-                "color": "blue",
-                "image_id": 1911
-            },
-            {
-                "variant_id": 1905,
-                "id": 19.4,
-                "sku": "sku19l",
-                "size": "m",
-                "color": "gray",
-                "image_id": 1912
-            }
+           
         ],
         "images": [
             {
@@ -1756,8 +1533,7 @@ const products =[
                 "alt": "blue",
                 "src": "/assets/images/pro3/40.jpg",
                 "variant_id": [
-                    1901,
-                    1903
+                    
                 ]
             },
             {
@@ -1766,8 +1542,7 @@ const products =[
                 "alt": "gray",
                 "src": "/assets/images/pro3/38.jpg",
                 "variant_id": [
-                    1902,
-                    1904
+                    
                 ]
             }
         ]
@@ -1947,14 +1722,7 @@ const products =[
             
         ],
         "variants": [
-            {
-                "variant_id": 2201,
-                "id": 22.1,
-                "sku": "sku22",
-                "size": "xs",
-                "color": "yellow",
-                "image_id": 2211
-            },
+           
             {
                 "variant_id": 2202,
                 "id": 22.2,
@@ -1962,69 +1730,18 @@ const products =[
                 "size": "xs",
                 "color": "black",
                 "image_id": 2212
-            },
-            {
-                "variant_id": 2203,
-                "id": 22.3,
-                "sku": "sku22s",
-                "size": "xs",
-                "color": "green",
-                "image_id": 2213
-            },
-            {
-                "variant_id": 2204,
-                "id": 22.4,
-                "sku": "sku22l",
-                "size": "m",
-                "color": "yellow",
-                "image_id": 2211
-            },
-            {
-                "variant_id": 2205,
-                "id": 22.5,
-                "sku": "sku22l",
-                "size": "m",
-                "color": "black",
-                "image_id": 2212
-            },
-            {
-                "variant_id": 2206,
-                "id": 22.6,
-                "sku": "sku22l",
-                "size": "m",
-                "color": "green",
-                "image_id": 2213
-            }
+            }           
         ],
         "images": [
-            {
-                "image_id": 2211,
-                "id": 22.1,
-                "alt": "yellow",
-                "src": "/assets/images/pro3/39.jpg",
-                "variant_id": [
-                    2201,
-                    2204
-                ]
-            },
+           
             {
                 "image_id": 2212,
-                "id": 22.2,
-                "alt": "black",
-                "src": "/assets/images/pro3/34.jpg",
-                "variant_id": [
-                    2202,
-                    2205
-                ]
-            },
-            {
-                "image_id": 2213,
                 "id": 22.3,
-                "alt": "green",
-                "src": "/assets/images/pro3/9.jpg",
+                "alt": "black",
+                "src": "/assets/images/pro3/46.jpg",
                 "variant_id": [
-                    2203,
-                    2206
+                    2202
+                    
                 ]
             }
         ]
@@ -3773,7 +3490,7 @@ const products =[
         "id": 45,
         "title": "table 1",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "Zara home",
+        "type": "Tables",
         "brand": "puma",
         "collection": ["best sellers"],
         "category": "shoes",
@@ -4071,7 +3788,7 @@ const products =[
         "id": 48,
         "title": "bed 2 ",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "shoes",
+        "type": "beds",
         "brand": "decathlon",
         "collection": ["best sellers", "new arrival"],
         "category": "furniture",
@@ -11162,7 +10879,7 @@ const products =[
                 "image_id": 19411,
                 "id": 194,
                 "alt": "jewellery",
-                "src": "/assets/images/jewellery/pro/14.jpg",
+                "src": "/assets/images/pro3/43.jpg",
                 "variant_id": [
                     19401
                 ]
@@ -11198,7 +10915,7 @@ const products =[
                 "image_id": 19511,
                 "id": 195,
                 "alt": "jewellery",
-                "src": "/assets/images/jewellery/pro/10.jpg",
+                "src": "/assets/images/pro3/44.jpg",
                 "variant_id": [
                     19501
                 ]
@@ -11234,7 +10951,7 @@ const products =[
                 "image_id": 19611,
                 "id": 196,
                 "alt": "jewellery",
-                "src": "/assets/images/jewellery/pro/6.jpg",
+                "src": "/assets/images/jewellery/pro3/42.jpg",
                 "variant_id": [
                     19601
                 ]
@@ -11245,7 +10962,7 @@ const products =[
         "id": 197,
         "title": "diamond brecelet",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "jewellery",
+        "type": "Fbraceletsrings",
         "brand": "Tanishq",
         "collection": ["on sale", "new arrival"],
         "category": "jewellery",
@@ -11270,7 +10987,7 @@ const products =[
                 "image_id": 19711,
                 "id": 197,
                 "alt": "jewellery",
-                "src": "/assets/images/jewellery/pro/8.jpg",
+                "src": "/assets/images/jewellery/pro3/30.jpg",
                 "variant_id": [
                     19701
                 ]
@@ -11281,7 +10998,7 @@ const products =[
         "id": 198,
         "title": "bangles set",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "jewellery",
+        "type": "Fbraceletsrings",
         "brand": "Malabar",
         "collection": ["on sale"],
         "category": "jewellery",
@@ -11317,7 +11034,7 @@ const products =[
         "id": 199,
         "title": "choker necklace",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "jewellery",
+        "type": "Fnecklaces",
         "brand": "Cartier",
         "collection": ["on sale"],
         "category": "jewellery",
@@ -11342,7 +11059,7 @@ const products =[
                 "image_id": 19911,
                 "id": 199,
                 "alt": "jewellery",
-                "src": "/assets/images/jewellery/pro/9.jpg",
+                "src": "/assets/images/jewellery/pro3/44.jpg",
                 "variant_id": [
                     19901
                 ]

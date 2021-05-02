@@ -35,15 +35,13 @@ const CheckoutPage = () => {
 
     const onSubmit = data => {
 
-        if (data !== '') {
+        
             
             router.push({
-                pathname: '/page/order-success',
+                pathname: '/portfolio/order-success-2',
                 state: { items: cartItems, orderTotal: cartTotal, symbol: symbol }
             })
-        } else {
-            errors.showMessages();
-        }
+       
     };                                                                                                                                                                                                                                                                                                                                                          
 
     const setStateFromInput = (event) => {
@@ -64,6 +62,18 @@ const CheckoutPage = () => {
         sandbox: 'AZ4S98zFa01vym7NVeo_qthZyOnBhtNvQDsjhaZSMH-2_Y9IAJFbSD3HPueErYqN8Sa8WYRbjP7wWtd_',
         production: 'AZ4S98zFa01vym7NVeo_qthZyOnBhtNvQDsjhaZSMH-2_Y9IAJFbSD3HPueErYqN8Sa8WYRbjP7wWtd_',
     }
+    const initialState = {
+        user: null
+      };
+      if (localStorage.getItem('jwtToken')) {
+        const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+      
+        if (decodedToken.exp * 1000 < Date.now()) {
+          localStorage.removeItem('jwtToken');
+        } else {
+          initialState.user = decodedToken;
+        }
+      } 
     
  
     return (
@@ -82,72 +92,37 @@ const CheckoutPage = () => {
                                         <div className="form-group col-md-6 col-sm-6 col-xs-12">
                                              
                                         <div className="field-label">First Name</div>
-                                            <input type="text" className={`${errors.firstName?'error_border':''}`} name="first_name" ref={register({ required: true })} />
-                                            <span className="error-message">{errors.firstName && 'First name is required'}</span>
-                                            
+                                            <h4>{initialState.user.firstName}</h4>
                                         </div>
                                         <div className="form-group col-md-6 col-sm-6 col-xs-12">
                                             <div className="field-label">Last Name</div>
-                                            <input type="text" className={`${errors.last_name?'error_border':''}`}  name="last_name" ref={register({ required: true })} />
-                                            <span className="error-message">{errors.last_name && 'Last name is required'}</span>
+                                            <h4>{initialState.user.lastName}</h4>
+
                                         </div>
                                         <div className="form-group col-md-6 col-sm-6 col-xs-12">
                                             <div className="field-label">Phone Number</div>
-                                            <input type="text" name="phone" className={`${errors.phone?'error_border':''}`} ref={register({ pattern: /\d+/ })} />
-                                            <span className="error-message">{errors.phone && 'Please enter number for phone.'}</span>
+                                            <h4>{initialState.user.phone}</h4>
+
                                         </div>
                                         <div className="form-group col-md-6 col-sm-6 col-xs-12">
                                             <div className="field-label">Email Address</div>
-                                            <input className="form-control" className={`${errors.email?'error_border':''}`} type="text" name="email" ref={register({ required: true, pattern: /^\S+@\S+$/i })} />
-                                            <span className="error-message">{errors.email && 'Please enter proper email address .'}</span>
+                                            <h4>{initialState.user.email}</h4>
+
                                         </div>
-                                        {/* <div className="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <div className="field-label">Governate</div>
-                                            <select name="country" ref={register({ required: true })}>
-                                                <option>Ariana</option>
-                                                <option>Béja</option>
-                                                <option>Sousse</option>
-                                                <option>Bizerte</option>
-                                                <option>Gabès</option>
-                                                <option>Nabeul</option>
-                                                <option>Jendouba</option>
-                                                <option>Kairouan</option>
-                                                <option>Zaghouan</option>
-                                                <option>Kebili</option>
-                                                <option>Kef</option>
-                                                <option>Mahdia</option>
-                                                <option>Manouba</option>
-                                                <option>Medenine</option>
-                                                <option>Monastir</option>
-                                                <option>Gafsa</option>
-                                                <option>Sfax</option>
-                                                <option>Sidi Bouzid</option>
-                                                <option>Siliana</option>
-                                                <option>Ben Arous</option>
-                                                <option>Tataouine</option>
-                                                <option>Tozeur</option>
-                                                <option>Tunis</option>
-                                                <option>Kasserine</option>
-                                                
-                            
-                                            </select>
-                                                */}
+                                        
                                         <div className="form-group col-md-12 col-sm-12 col-xs-12">
                                             <div className="field-label">Address</div>
-                                            <input className="form-control" className={`${errors.address?'error_border':''}`} type="text" name="address" ref={register({ required: true, min: 20, max: 120 })} placeholder="Street address" />
-                                            <span className="error-message">{errors.address && 'Please right your address .'}</span>
+                                            <h4>{initialState.user.address}</h4>
+
                                         </div>
                                         
                                         
                                         <div className="form-group col-md-12 col-sm-6 col-xs-12">
                                             <div className="field-label">Postal Code</div>
-                                            <input className="form-control" type="text" name="pincode" className={`${errors.pincode?'error_border':''}`} ref={register({ pattern: /\d+/ })} />
-                                            <span className="error-message">{errors.pincode && 'Required integer'}</span>
+                                            <h4>{initialState.user.zipcode}</h4>
+
                                         </div>
-                                        <div className="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <input type="checkbox" name="create_account" id="account-option" />
-                                                    &ensp; <label htmlFor="account-option">Create An Account?</label>
-                                        </div>
+                                       
                                     </div>
                                 </Col>
                                 <Col lg="6" sm="12" xs="12">
@@ -159,55 +134,35 @@ const CheckoutPage = () => {
                                                 </div>
                                                 <ul className="qty">
                                                     {cartItems.map((item, index) =>
-                                                        <li key={index}>{item.title} × {item.qty} <span>{symbol}{item.total}</span></li>
+                                                    <div>
+                                                       
+                                                        <li key={index}><td><h4>{item.title}</h4></td><span><td>{item.total} {symbol}</td></span></li>
+                                                        <li key={index}> Qty: {item.qty}</li> 
+                                                    </div>
                                                     )}
                                                 </ul>
                                                 <ul className="sub-total">
-                                                    <li>Subtotal <span className="count">{symbol}{cartTotal}</span></li>
+                                                    <li>Subtotal <span className="count"><strong>{cartTotal} {symbol}</strong></span></li>
                                                     <li>Shipping
                                                         <div className="shipping">
                                                             <div className="shopping-option">
                                                                 <input type="checkbox" name="free-shipping" id="free-shipping" />
                                                                 <label htmlFor="free-shipping">Free Shipping</label>
                                                             </div>
-                                                            <div className="shopping-option">
-                                                                <input type="checkbox" name="local-pickup" id="local-pickup" />
-                                                                <label htmlFor="local-pickup">Local Pickup</label>
-                                                            </div>
+                                                            
                                                         </div>
                                                     </li>
                                                 </ul>
                                                 <ul className="total">
-                                                    <li>Total <span className="count">{symbol}{cartTotal}</span></li>
+                                                    <li>Total <span className="count">{cartTotal} {symbol}</span></li>
                                                 </ul>
                                             </div>
-                                            <div className="payment-box">
-                                                <div className="upper-box">
-                                                    <div className="payment-options">
-                                                        <ul>
-                                                            <li>
-                                                                <div className="radio-option stripe">
-                                                                    <input type="radio" name="payment-group" id="payment-2" defaultChecked={true} onClick={() => checkhandle('stripe')} />
-                                                                    <label htmlFor="payment-2">Stripe</label>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div className="radio-option paypal">
-                                                                    <input type="radio" name="payment-group" id="payment-1" onClick={() => checkhandle('paypal')} />
-                                                                    <label htmlFor="payment-1">PayPal<span className="image">
-                                                                        <Media src={paypal} alt="" /></span></label>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                {(cartTotal !== 0) ?
+                                            {(cartTotal !== 0) ?
                                                     <div className="text-right">
-                                                        {(payment === 'stripe') ? <button type="submit" className="btn-solid btn" >Place Order</button> :
-                                                            <PaypalExpressBtn env={'sandbox'} client={client} currency={'USD'} total={cartTotal} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />}
+                                                         <button type="submit" className="btn-solid btn" >Place Order</button> 
+                                                            
                                                     </div>
                                                     : ''}
-                                            </div>
                                         </div>
                                         : ''}
 
