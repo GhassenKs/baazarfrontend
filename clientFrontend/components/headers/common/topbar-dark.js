@@ -91,6 +91,12 @@ const TopBarDark = ({logoName, topClass, fluid }) => {
         document.getElementById("liste-group").style.display = 'block';
     }
 
+    const clickProductdetail = () => {
+		localStorage.setItem("SearchQuery",selectedSearch)
+		router.push(`/shop/no_sidebar?&category=all&brand=&color=&size=&minPrice=100&maxPrice=500&search=${selectedSearch}`)
+		
+    }
+
     
     const menuBar = initialState.user ?(
         <div className={topClass}>
@@ -118,7 +124,7 @@ const TopBarDark = ({logoName, topClass, fluid }) => {
                                      onMouseEnter={() => setShow(true)}
                                      onChange={(e) => updateSearch(e.target.value)}
                                      aria-expanded="true" />
-                                 <Button type="submit" name="nav-submit-button" className="btn-search">
+                                 <Button name="nav-submit-button" className="btn-search" onClick={clickProductdetail}>
                                      <i className="fa fa-search"></i>
                                      </Button>
                                      <div className="liste-group" id="liste-group">
@@ -197,17 +203,51 @@ const TopBarDark = ({logoName, topClass, fluid }) => {
         <div className={topClass}>
             <Container fluid={fluid}>
                 <Row>
-                    <Col lg="6">
+                    <Col lg="2">
                         <div className="header-contact">
                             <ul>
                             <li><LogoImage logo={logoName} /></li>	
-                                <li><i className="fa fa-phone" aria-hidden="true"></i>Call Us: +(216) 52 588 8220</li>
                             </ul>
-                        </div>
-                    </Col>
-                    <Col lg="6" className="text-right">
-                        <ul className="header-dropdown">
-                            <li className="mobile-wishlist">
+                            </div>
+                            </Col>
+                            <Col lg="10">
+                                <div className="header-contact">
+                                    <ul>
+                                <li>
+                                <Form className="form_search" role="textbox" >
+                                 <Input id="query search-autocomplete" 
+                                     placeholder="Search..."
+                                     className="nav-search nav-search-field" 
+                                     onMouseEnter={() => setShow(true)}
+                                     onChange={(e) => updateSearch(e.target.value)}
+                                     aria-expanded="true" />
+
+                                 <Button name="nav-submit-button" className="btn-search" onClick={clickProductdetail}>
+                                     <i className="fa fa-search"></i>
+                                     </Button>
+
+                                     <div className="liste-group" id="liste-group">
+                                     
+                                        { show && selectedSearch && data ?
+                                        data.products.items.map((product,i) => 
+                                     
+                                        <a href="#" className="list-group-item list-group-item-action active" aria-current="true">
+                                            <div className="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">{product.title}</h5>
+                                            
+                                            </div>
+                                            <p className="mb-1">{product.price}</p>
+                                            
+                                        </a>
+                                      
+
+                                        ): 'no'
+                                        }
+                                        </div>
+                             </Form>
+
+                              </li>
+                              <li className="mobile-wishlist">
                                 <Link href="/page/account/wishlist">
                                     <a><i className="fa fa-heart" aria-hidden="true"></i> wishlist</a>
                                 </Link>
@@ -227,8 +267,10 @@ const TopBarDark = ({logoName, topClass, fluid }) => {
                                     </li>
                                 </ul>
                             </li>
-                        </ul>
+                            </ul>
+                        </div>
                     </Col>
+                    
                 </Row>
             </Container>
         </div>

@@ -84,7 +84,7 @@ const products =[
                 "image_id": 111,
                 "id": 1.1,
                 "alt": "yellow",
-                "src": "/assets/images/pro3/39.jpg",
+                "src": "/assets/images/pro3/52.jpg",
                 "variant_id": [
                     101,
                     104
@@ -372,7 +372,7 @@ const products =[
                 "image_id": 412,
                 "id": 4.2,
                 "alt": "skyblue",
-                "src": "/assets/images/pro3/7.jpg",
+                "src": "/assets/images/pro3/8.jpg",
                 "variant_id": [
                     403,
                     404
@@ -639,7 +639,7 @@ const products =[
                 "image_id": 712,
                 "id": 7.2,
                 "alt": "white",
-                "src": "/assets/images/pro3/8.jpg",
+                "src": "/assets/images/pro3/14.jpg",
                 "variant_id": [
                     702,
                     705
@@ -872,7 +872,7 @@ const products =[
                 "image_id": 1012,
                 "id": 10.2,
                 "alt": "pink",
-                "src": "/assets/images/pro3/20.jpg",
+                "src": "/assets/images/pro3/18.jpg",
                 "variant_id": [
                     1003,
                     1004
@@ -950,7 +950,7 @@ const products =[
                 "image_id": 1112,
                 "id": 11.2,
                 "alt": "black",
-                "src": "/assets/images/pro3/33.jpg",
+                "src": "/assets/images/pro3/5.jpg",
                 "variant_id": [
                     1103,
                     1104
@@ -1059,7 +1059,7 @@ const products =[
                 "image_id": 1211,
                 "id": 12.1,
                 "alt": "red",
-                "src": "/assets/images/pro3/22.jpg",
+                "src": "/assets/images/pro3/27.jpg",
                 "variant_id": [
                     1201,
                     1204,
@@ -1077,12 +1077,22 @@ const products =[
                     1208
                 ]
             },
-         
+            {
+                "image_id": 1213,
+                "id": 12.3,
+                "alt": "black",
+                "src": "/assets/images/pro3/27.jpg",
+                "variant_id": [
+                    1203,
+                    1206,
+                    1209
+                ]
+            }
         ]
     },
     {
         "id": 13,
-        "title": "Blue vans shoes",
+        "title": "black vans shoes",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
         "type": "Fshoes",
         "brand": "Vans",
@@ -1192,7 +1202,7 @@ const products =[
                 "image_id": 1312,
                 "id": 13.2,
                 "alt": "black",
-                "src": "/assets/images/pro3/34.jpg",
+                "src": "/assets/images/pro3/26.jpg",
                 "variant_id": [
                     1302,
                     1305,
@@ -1288,7 +1298,7 @@ const products =[
                 "image_id": 1412,
                 "id": 14.2,
                 "alt": "gray",
-                "src": "/assets/images/pro3/28.jpg",
+                "src": "/assets/images/pro3/36.jpg",
                 "variant_id": [
                     1402,
                     1405
@@ -1320,34 +1330,9 @@ const products =[
                 "variant_id": 1501,
                 "id": 15.1,
                 "sku": "sku15",
-                "size": "xs",
-                "color": "blue",
                 "image_id": 1511
             },
-            {
-                "variant_id": 1502,
-                "id": 15.2,
-                "sku": "skul15",
-                "size": "xs",
-                "color": "skyblue",
-                "image_id": 1512
-            },
-            {
-                "variant_id": 1503,
-                "id": 15.3,
-                "sku": "sku15s",
-                "size": "l",
-                "color": "blue",
-                "image_id": 1511
-            },
-            {
-                "variant_id": 1504,
-                "id": 15.4,
-                "sku": "sku15l",
-                "size": "l",
-                "color": "skyblue",
-                "image_id": 1512
-            }
+           
         ],
         "images": [
             {
@@ -1357,17 +1342,7 @@ const products =[
                 "src": "/assets/images/pro3/30.jpg",
                 "variant_id": [
                     1501,
-                    1503
-                ]
-            },
-            {
-                "image_id": 1512,
-                "id": 15.2,
-                "alt": "skyblue",
-                "src": "/assets/images/pro3/7.jpg",
-                "variant_id": [
-                    1502,
-                    1504
+                    
                 ]
             }
         ]
@@ -1392,24 +1367,22 @@ const products =[
         ],
         "variants": [
             {
-                "variant_id": 1601,
+                "variant_id": 19501,
                 "id": 195,
                 "sku": "jewellery46",
-                "image_id": 1611
+                "image_id": 19511
             }
         ],
         "images": [
             {
-                "image_id": 1611,
-                "id": 16.1,
-                "alt": "pink",
-                "src": "/assets/images/pro3/30.jpg",
+                "image_id": 19511,
+                "id": 195,
+                "alt": "jewellery",
+                "src": "/assets/images/pro3/44.jpg",
                 "variant_id": [
-                    1601
-                    
+                    19501
                 ]
             }
-            
         ]
     },
     {
@@ -1524,7 +1497,13 @@ const products =[
            
         ],
         "variants": [
-           
+            {
+                "variant_id": 1845,
+                "id": 20.1,
+                "sku": "sku20",
+                
+                "image_id": 1911
+            },
         ],
         "images": [
             {
@@ -1533,18 +1512,11 @@ const products =[
                 "alt": "blue",
                 "src": "/assets/images/pro3/40.jpg",
                 "variant_id": [
+                    1845
                     
                 ]
             },
-            {
-                "image_id": 1912,
-                "id": 19.2,
-                "alt": "gray",
-                "src": "/assets/images/pro3/38.jpg",
-                "variant_id": [
-                    
-                ]
-            }
+            
         ]
     },
     {
@@ -1573,55 +1545,23 @@ const products =[
                 "id": 20.1,
                 "sku": "sku20",
                 "size": "s",
-                "color": "yellow",
+                "color": "blue",
                 "image_id": 2011
             },
-            {
-                "variant_id": 2002,
-                "id": 20.2,
-                "sku": "skul20",
-                "size": "s",
-                "color": "pink",
-                "image_id": 2012
-            },
-            {
-                "variant_id": 2004,
-                "id": 20.3,
-                "sku": "sku20l",
-                "size": "m",
-                "color": "yellow",
-                "image_id": 2011
-            },
-            {
-                "variant_id": 2005,
-                "id": 20.4,
-                "sku": "sku20l",
-                "size": "m",
-                "color": "pink",
-                "image_id": 2012
-            }
+            
         ],
         "images": [
             {
                 "image_id": 2011,
                 "id": 20.1,
                 "alt": "yellow",
-                "src": "/assets/images/pro3/29.jpg",
+                "src": "/assets/images/pro3/47.jpg",
                 "variant_id": [
-                    2001,
-                    2003
+                    2001
+                    
                 ]
             },
-            {
-                "image_id": 2012,
-                "id": 20.2,
-                "alt": "pink",
-                "src": "/assets/images/pro3/37.jpg",
-                "variant_id": [
-                    2002,
-                    2004
-                ]
-            }
+            
         ]
     },
     {
@@ -1650,55 +1590,23 @@ const products =[
                 "id": 21.1,
                 "sku": "sku21",
                 "size": "s",
-                "color": "blue",
+                "color": "pnik",
                 "image_id": 2111
             },
-            {
-                "variant_id": 2102,
-                "id": 21.2,
-                "sku": "skul21",
-                "size": "s",
-                "color": "gray",
-                "image_id": 2112
-            },
-            {
-                "variant_id": 2103,
-                "id": 21.3,
-                "sku": "sku21l",
-                "size": "m",
-                "color": "blue",
-                "image_id": 2111
-            },
-            {
-                "variant_id": 2104,
-                "id": 21.4,
-                "sku": "sku21l",
-                "size": "m",
-                "color": "gray",
-                "image_id": 2112
-            }
+            
         ],
         "images": [
             {
                 "image_id": 2111,
                 "id": 21.1,
                 "alt": "blue",
-                "src": "/assets/images/pro3/4.jpg",
+                "src": "/assets/images/pro3/48.jpg",
                 "variant_id": [
-                    2101,
-                    2103
-                ]
-            },
-            {
-                "image_id": 2112,
-                "id": 21.2,
-                "alt": "gray",
-                "src": "/assets/images/pro3/6.jpg",
-                "variant_id": [
-                    2102,
-                    2104
+                    2101
+                    
                 ]
             }
+            
         ]
     },
     {
@@ -1738,7 +1646,7 @@ const products =[
                 "image_id": 2212,
                 "id": 22.3,
                 "alt": "black",
-                "src": "/assets/images/pro3/46.jpg",
+                "src": "/assets/images/pro3/49.jpg",
                 "variant_id": [
                     2202
                     
@@ -1748,9 +1656,9 @@ const products =[
     },
     {
         "id": 23,
-        "title": "Backbag",
+        "title": "Gym leggings ",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "Fpursesbags",
+        "type": "Fsports",
         "brand": "max",
         "collection": ["best sellers"],
         "category": "Women",
@@ -1774,52 +1682,20 @@ const products =[
                 "size": "m",
                 "color": "pink",
                 "image_id": 2311
-            },
-            {
-                "variant_id": 2302,
-                "id": 23.2,
-                "sku": "skul23",
-                "size": "m",
-                "color": "black",
-                "image_id": 2312
-            },
-            {
-                "variant_id": 2303,
-                "id": 23.3,
-                "sku": "sku23s",
-                "size": "m",
-                "color": "gray",
-                "image_id": 2313
             }
+            
         ],
         "images": [
             {
                 "image_id": 2311,
                 "id": 23.1,
                 "alt": "pink",
-                "src": "/assets/images/pro3/20.jpg",
+                "src": "/assets/images/pro3/27.jpg",
                 "variant_id": [
                     2301
                 ]
             },
-            {
-                "image_id": 2312,
-                "id": 23.2,
-                "alt": "black",
-                "src": "/assets/images/pro3/19.jpg",
-                "variant_id": [
-                    2302
-                ]
-            },
-            {
-                "image_id": 2313,
-                "id": 23.3,
-                "alt": "gray",
-                "src": "/assets/images/pro3/28.jpg",
-                "variant_id": [
-                    2303
-                ]
-            }
+            
         ]
     },
     {
@@ -1848,54 +1724,22 @@ const products =[
                 "id": 24.1,
                 "sku": "sku24",
                 "size": "s",
-                "color": "black",
+                "color": "blue",
                 "image_id": 2411
-            },
-            {
-                "variant_id": 2402,
-                "id": 24.2,
-                "sku": "skul24",
-                "size": "s",
-                "color": "white",
-                "image_id": 2412
-            },
-            {
-                "variant_id": 2403,
-                "id": 24.3,
-                "sku": "sku24s",
-                "size": "s",
-                "color": "pink",
-                "image_id": 2413
             }
+            
         ],
         "images": [
             {
                 "image_id": 2411,
                 "id": 24.1,
-                "alt": "black",
-                "src": "/assets/images/pro3/23.jpg",
+                "alt": "blue",
+                "src": "/assets/images/pro2/50.jpg",
                 "variant_id": [
                     2401
                 ]
             },
-            {
-                "image_id": 2412,
-                "id": 24.2,
-                "alt": "white",
-                "src": "/assets/images/pro3/8.jpg",
-                "variant_id": [
-                    2402
-                ]
-            },
-            {
-                "image_id": 2413,
-                "id": 24.3,
-                "alt": "pink",
-                "src": "/assets/images/pro3/36.jpg",
-                "variant_id": [
-                    2403
-                ]
-            }
+            
         ]
     },
     {
@@ -1957,7 +1801,7 @@ const products =[
                 "image_id": 2511,
                 "id": 25.1,
                 "alt": "pink",
-                "src": "/assets/images/pro3/37.jpg",
+                "src": "/assets/images/pro3/50.jpg",
                 "variant_id": [
                     2501,
                     2503
@@ -1967,7 +1811,7 @@ const products =[
                 "image_id": 2512,
                 "id": 25.2,
                 "alt": "blue",
-                "src": "/assets/images/pro3/32.jpg",
+                "src": "/assets/images/pro3/50.jpg",
                 "variant_id": [
                     2502,
                     2504
@@ -1978,7 +1822,7 @@ const products =[
     {
         "id": 26,
         "title": "Men sweater",
-        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
+        "description": "men sweater",
         "type": "Msweater",
         "brand": "zara",
         "collection": ["on sale"],
@@ -2035,7 +1879,7 @@ const products =[
                 "image_id": 2611,
                 "id": 26.1,
                 "alt": "black",
-                "src": "/assets/images/pro3/10.jpg",
+                "src": "/assets/images/pro3/51.jpg",
                 "variant_id": [
                     2601,
                     2603
@@ -2045,7 +1889,7 @@ const products =[
                 "image_id": 2612,
                 "id": 26.2,
                 "alt": "gray",
-                "src": "/assets/images/pro3/38.jpg",
+                "src": "/assets/images/pro3/51.jpg",
                 "variant_id": [
                     2602,
                     2604
@@ -2112,7 +1956,7 @@ const products =[
                 "image_id": 2711,
                 "id": 27.1,
                 "alt": "skyblue",
-                "src": "/assets/images/pro3/7.jpg",
+                "src": "/assets/images/pro3/52.jpg",
                 "variant_id": [
                     2701,
                     2703
@@ -2122,7 +1966,7 @@ const products =[
                 "image_id": 2712,
                 "id": 27.2,
                 "alt": "yellow",
-                "src": "/assets/images/pro3/14.jpg",
+                "src": "/assets/images/pro3/52.jpg",
                 "variant_id": [
                     2702,
                     2704
@@ -2289,7 +2133,7 @@ const products =[
                 "image_id": 3011,
                 "id": 30.1,
                 "alt": "pink",
-                "src": "/assets/images/pro3/27.jpg",
+                "src": "/assets/images/pro3/19.jpg",
                 "variant_id": [
                     3001
                 ]
@@ -2298,7 +2142,7 @@ const products =[
                 "image_id": 3012,
                 "id": 30.2,
                 "alt": "red",
-                "src": "/assets/images/pro3/22.jpg",
+                "src": "/assets/images/pro3/19.jpg",
                 "variant_id": [
                     3002
                 ]
@@ -2347,7 +2191,7 @@ const products =[
                 "image_id": 3111,
                 "id": 31.1,
                 "alt": "pink",
-                "src": "/assets/images/kids/product/14.jpg",
+                "src": "/assets/images/pro3/53.jpg",
                 "variant_id": [
                     3101
                 ]
@@ -2356,7 +2200,7 @@ const products =[
                 "image_id": 3112,
                 "id": 31.2,
                 "alt": "red",
-                "src": "/assets/images/kids/product/15.jpg",
+                "src": "/assets/images/pro3/53.jpg",
                 "variant_id": [
                     3102
                 ]
@@ -2419,7 +2263,7 @@ const products =[
                 "image_id": 3211,
                 "id": 32.1,
                 "alt": "lawngreen",
-                "src": "/assets/images/kids/product/4.jpg",
+                "src": "/assets/images/pro3/54.jpg",
                 "variant_id": [
                     3201
                 ]
@@ -2428,7 +2272,7 @@ const products =[
                 "image_id": 3212,
                 "id": 32.2,
                 "alt": "red",
-                "src": "/assets/images/kids/product/1.jpg",
+                "src": "/assets/images/pro3/54.jpg",
                 "variant_id": [
                     3202
                 ]
@@ -2510,7 +2354,7 @@ const products =[
                 "image_id": 3311,
                 "id": 33.1,
                 "alt": "yellow",
-                "src": "/assets/images/kids/product/12.jpg",
+                "src": "/assets/images/pro3/55.jpg",
                 "variant_id": [
                     3301,
                     3304
@@ -2520,7 +2364,7 @@ const products =[
                 "image_id": 3312,
                 "id": 33.2,
                 "alt": "green",
-                "src": "/assets/images/kids/product/8.jpg",
+                "src": "/assets/images/pro3/55.jpg",
                 "variant_id": [
                     3302,
                     3305
@@ -2530,7 +2374,7 @@ const products =[
                 "image_id": 3313,
                 "id": 33.3,
                 "alt": "skyblue",
-                "src": "/assets/images/kids/product/25.jpg",
+                "src": "/assets/images/pro3/55.jpg",
                 "variant_id": [
                     3303,
                     3306
@@ -2612,7 +2456,7 @@ const products =[
                 "image_id": 3411,
                 "id": 34.1,
                 "alt": "crimson",
-                "src": "/assets/images/kids/product/1.jpg",
+                "src": "/assets/images/pro3/56.jpg",
                 "variant_id": [
                     3401,
                     3404
@@ -2622,7 +2466,7 @@ const products =[
                 "image_id": 3412,
                 "id": 34.2,
                 "alt": "yellow",
-                "src": "/assets/images/kids/product/3.jpg",
+                "src": "/assets/images/pro3/56.jpg",
                 "variant_id": [
                     3402,
                     3405
@@ -2632,7 +2476,7 @@ const products =[
                 "image_id": 3413,
                 "id": 34.3,
                 "alt": "skyblue",
-                "src": "/assets/images/kids/product/23.jpg",
+                "src": "/assets/images/pro3/56.jpg",
                 "variant_id": [
                     3403,
                     3406
@@ -2698,7 +2542,7 @@ const products =[
                 "image_id": 3511,
                 "id": 35.1,
                 "alt": "blue",
-                "src": "/assets/images/kids/product/20.jpg",
+                "src": "/assets/images/pro3/36.jpg",
                 "variant_id": [
                     3501,
                     3503
@@ -2708,7 +2552,7 @@ const products =[
                 "image_id": 3512,
                 "id": 35.2,
                 "alt": "hotpink",
-                "src": "/assets/images/kids/product/11.jpg",
+                "src": "/assets/images/pro3/36.jpg",
                 "variant_id": [
                     3502,
                     3504
@@ -2758,7 +2602,7 @@ const products =[
                 "image_id": 3611,
                 "id": 36.1,
                 "alt": "green",
-                "src": "/assets/images/kids/product/18.jpg",
+                "src": "/assets/images/pro3/26.jpg",
                 "variant_id": [
                     3601,
                     3603
@@ -2768,7 +2612,7 @@ const products =[
                 "image_id": 3612,
                 "id": 36.2,
                 "alt": "purple",
-                "src": "/assets/images/kids/product/5.jpg",
+                "src": "/assets/images/pro3/26.jpg",
                 "variant_id": [
                     3602,
                     3604
@@ -6145,7 +5989,7 @@ const products =[
                 "image_id": 8511,
                 "id": 85.1,
                 "alt": "wheat",
-                "src": "/assets/images/pro2/13.jpg",
+                "src": "/assets/images/electronics/pro/1.jpg",
                 "variant_id": [
                     8501
                 ]
@@ -6154,7 +5998,7 @@ const products =[
                 "image_id": 8512,
                 "id": 85.2,
                 "alt": "silver",
-                "src": "/assets/images/pro2/18.jpg",
+                "src": "/assets/images/electronics/pro/1.jpg",
                 "variant_id": [
                     8502
                 ]
@@ -6199,7 +6043,7 @@ const products =[
                 "image_id": 8611,
                 "id": 86.1,
                 "alt": "dimgrey",
-                "src": "/assets/images/pro2/4.jpg",
+                "src": "/assets/images/vegetables/pro/5.jpg",
                 "variant_id": [
                     8601
                 ]
@@ -6208,7 +6052,7 @@ const products =[
                 "image_id": 8612,
                 "id": 86.2,
                 "alt": "sienna",
-                "src": "/assets/images/pro2/12.jpg",
+                "src": "/assets/images/vegetables/pro/5.jpg",
                 "variant_id": [
                     8602
                 ]
@@ -6254,7 +6098,7 @@ const products =[
                 "image_id": 8711,
                 "id": 87.1,
                 "alt": "black",
-                "src": "/assets/images/pro2/17.jpg",
+                "src": "/assets/images/vegetables/pro/13.jpg",
                 "variant_id": [
                     8701
                 ]
@@ -6263,7 +6107,7 @@ const products =[
                 "image_id": 8712,
                 "id": 87.2,
                 "alt": "sienna",
-                "src": "/assets/images/pro2/3.jpg",
+                "src": "/assets/images/vegetables/pro/13.jpg",
                 "variant_id": [
                     8702
                 ]
@@ -6309,7 +6153,7 @@ const products =[
                 "image_id": 8811,
                 "id": 88.1,
                 "alt": "silver",
-                "src": "/assets/images/pro2/19.jpg",
+                "src": "/assets/images/vegetables/pro/4.jpg",
                 "variant_id": [
                     8801
                 ]
@@ -6318,7 +6162,7 @@ const products =[
                 "image_id": 8812,
                 "id": 88.2,
                 "alt": "palegoldenrod",
-                "src": "/assets/images/pro2/14.jpg",
+                "src": "/assets/images/vegetables/pro/4.jpg",
                 "variant_id": [
                     8802
                 ]
@@ -6365,7 +6209,7 @@ const products =[
                 "image_id": 8911,
                 "id": 89.1,
                 "alt": "dimgray",
-                "src": "/assets/images/pro2/16.jpg",
+                "src": "/assets/images/vegetables/pro/11.jpg",
                 "variant_id": [
                     8901
                 ]
@@ -6374,7 +6218,7 @@ const products =[
                 "image_id": 8912,
                 "id": 89.2,
                 "alt": "chocolate",
-                "src": "/assets/images/pro2/12.jpg",
+                "src": "/assets/images/vegetables/pro/11.jpg",
                 "variant_id": [
                     8902
                 ]
@@ -6418,7 +6262,7 @@ const products =[
                 "image_id": 9011,
                 "id": 90.1,
                 "alt": "palegoldenrod",
-                "src": "/assets/images/pro2/14.jpg",
+                "src": "/assets/images/vegetables/pro/2.jpg",
                 "variant_id": [
                     9001
                 ]
@@ -6427,7 +6271,7 @@ const products =[
                 "image_id": 9012,
                 "id": 90.2,
                 "alt": "bisque",
-                "src": "/assets/images/pro2/15.jpg",
+                "src": "/assets/images/vegetables/pro/2.jpg",
                 "variant_id": [
                     9002
                 ]
@@ -6471,7 +6315,7 @@ const products =[
                 "image_id": 9111,
                 "id": 91,
                 "alt": "black",
-                "src": "/assets/images/pro2/10.jpg",
+                "src": "/assets/images/vegetables/pro/3.jpg",
                 "variant_id": [
                     9101
                 ]
@@ -6480,7 +6324,7 @@ const products =[
                 "image_id": 9112,
                 "id": 91,
                 "alt": "chocolate",
-                "src": "/assets/images/pro2/8.jpg",
+                "src": "/assets/images/vegetables/pro/3.jpg",
                 "variant_id": [
                     9102
                 ]
@@ -6524,7 +6368,7 @@ const products =[
                 "image_id": 9211,
                 "id": 92,
                 "alt": "steelblue",
-                "src": "/assets/images/pro2/9.jpg",
+                "src": "/assets/images/vegetables/pro/1.jpg",
                 "variant_id": [
                     9201
                 ]
@@ -6533,7 +6377,7 @@ const products =[
                 "image_id": 9212,
                 "id": 92,
                 "alt": "black",
-                "src": "/assets/images/pro2/17.jpg",
+                "src": "/assets/images/vegetables/pro/1.jpg",
                 "variant_id": [
                     9202
                 ]
@@ -6586,7 +6430,7 @@ const products =[
                 "image_id": 9212,
                 "id": 92,
                 "alt": "wheat",
-                "src": "/assets/images/pro2/13.jpg",
+                "src": "/assets/images/pro2/20.jpg",
                 "variant_id": [
                     9202
                 ]
@@ -6639,7 +6483,7 @@ const products =[
                 "image_id": 9312,
                 "id": 93,
                 "alt": "navy",
-                "src": "/assets/images/pro2/6.jpg",
+                "src": "/assets/images/pro2/3.jpg",
                 "variant_id": [
                     9302
                 ]
@@ -6699,7 +6543,7 @@ const products =[
                 "image_id": 9412,
                 "id": 94,
                 "alt": "palegoldenrod",
-                "src": "/assets/images/pro2/13.jpg",
+                "src": "/assets/images/pro2/15.jpg",
                 "variant_id": [
                     9402
                 ]
@@ -6761,7 +6605,7 @@ const products =[
                 "image_id": 952,
                 "id": 95.2,
                 "alt": "white",
-                "src": "/assets/images/flower/product/2.jpg",
+                "src": "/assets/images/flower/product/1.jpg",
                 "variant_id": [
                     952
                 ]
@@ -6814,7 +6658,7 @@ const products =[
                 "image_id": 962,
                 "id": 96.2,
                 "alt": "firebrick",
-                "src": "/assets/images/flower/product/4.jpg",
+                "src": "/assets/images/flower/product/3.jpg",
                 "variant_id": [
                     962
                 ]
@@ -8850,7 +8694,7 @@ const products =[
         "id": 148,
         "title": "apple",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "vegetables",
+        "type": "fruits",
         "brand": "fruits",
         "collection": ["on sale"],
         "category": "vegetables",
@@ -8887,10 +8731,10 @@ const products =[
         "id": 149,
         "title": "kiwi",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "vegetables",
+        "type": "fruits",
         "brand": "fruits",
         "collection": ["on sale"],
-        "category": "vegetables",
+        "category": "fruits",
         "price": 95,
         "sale": true,
         "discount": "10",
@@ -8923,7 +8767,7 @@ const products =[
         "id": 150,
         "title": "banana",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "vegetables",
+        "type": "fruits",
         "brand": "fruits",
         "collection": ["on sale"],
         "category": "vegetables",
@@ -10890,7 +10734,7 @@ const products =[
         "id": 195,
         "title": "diamond necklace",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "jewellery",
+        "type": "Fnecklaces",
         "brand": "Cartier",
         "collection": ["new arrival"],
         "category": "jewellery",
@@ -19091,7 +18935,7 @@ const products =[
         "id": 403,
         "title": "Light 10",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
-        "type": "light",
+        "type": "bulbs",
         "brand": "light",
         "collection": ["on sale"],
         "category": "light",

@@ -15,8 +15,8 @@ export const MENUITEMS = [
          },
          {
             title: 'Men fashion ', type: 'sub', children: [
-               { path: '/shop/left_sidebar?&category=Sweater&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Sweater', type: 'link', icon: 'alert' },
-               { path: '/shop/left_sidebar?&category=Mshirt&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Shirts', type: 'link', icon: 'layout-accordion-merged' },
+               { path: '/shop/left_sidebar?&category=Msweater&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Sweater', type: 'link', icon: 'alert' },
+               { path: '/shop/left_sidebar?&category=Mshirts&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Shirts', type: 'link', icon: 'layout-accordion-merged' },
                { path: '/shop/left_sidebar?&category=MJeans&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Jeans', type: 'link', icon: 'layers' },
                { path: '/shop/left_sidebar?&category=MBlazers&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Blazers', type: 'link', icon: 'write' },
                { path: '/shop/left_sidebar?&category=Mall&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'More', type: 'link', icon: 'map-alt' },

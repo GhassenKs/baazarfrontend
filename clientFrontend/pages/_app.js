@@ -97,11 +97,6 @@ export default function MyApp({ Component, pageProps }) {
           <AuthProvider>
           <Router>
             <div>
-             <Protectedroutes exact path='/forgetpwd' Component={ForgetPwd} >
-
-              <ForgetPwd />
-             </Protectedroutes>
-             
               <SettingProvider>
                 <CompareContextProvider >
                   <CurrencyContextProvider>

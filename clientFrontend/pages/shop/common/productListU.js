@@ -75,7 +75,7 @@ const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
     useEffect(() => {
         const pathname = window.location.pathname;
         setUrl(pathname);
-        router.push(`${pathname}?&category=all&brand=${selectedBrands}&color=${selectedColor}&size=${selectedSize}&minPrice=${selectedPrice.min}&maxPrice=${selectedPrice.max}`)
+        router.push(`${pathname}?&category=${selectedCategory}&brand=${selectedBrands}&color=${selectedColor}&size=${selectedSize}&minPrice=${selectedPrice.min}&maxPrice=${selectedPrice.max}&search=${searchLocal}`)
         
     }, [selectedBrands, selectedColor, selectedSize, selectedPrice, selectedCategory, selectedsearch]);
     
@@ -90,8 +90,8 @@ const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
     var { loading, data, fetchMore } = useQuery(GET_PRODUCTS, {
         variables: {
             type: "all",
-            priceMax: 0,
-            priceMin: 500,
+            priceMax: 500,
+            priceMin: 0,
             sortBy: "HighToLow",
             indexFrom: 0,
             limit:limit,

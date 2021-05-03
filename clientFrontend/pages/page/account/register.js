@@ -54,13 +54,8 @@ function Register() {
       },
       onError(err) {
         setErrors(err.graphQLErrors);
-<<<<<<< HEAD
-          console.log("there is an error");
-          console.log(err)
-=======
           console.log(err);
           console.log(values)
->>>>>>> 3c16668c2a71bb2d6c7fac94d1865b4d9fae460d
       },
       variables: values
     });
@@ -182,17 +177,9 @@ const REGISTER_USER = gql`
     $email: String!
     $password: String!
     $phone:String
-<<<<<<< HEAD
-    $address:String
-    $zip:Int!
-    $city:String
-    $token:String!
-    
-=======
     $city:String
     $address:String
     $zip:String
->>>>>>> 3c16668c2a71bb2d6c7fac94d1865b4d9fae460d
     
   ) {
     register(
@@ -201,34 +188,8 @@ const REGISTER_USER = gql`
         lastName: $lastName
         email: $email
         password: $password
-        phone:$phone
-<<<<<<< HEAD
-        address:$address
-        zip:$zip
-        city:$city
-        
-        
-=======
-        city:$city
-        address:$address
-        zip:$zip
->>>>>>> 3c16668c2a71bb2d6c7fac94d1865b4d9fae460d
+        phone: $phone
       }
-    ) {
-      id
-      firstName
-      lastName
-      email
-      password
-      phone
-      city
-      address
-      zip
-      token
-      
-
+    )
     }
-  }
-`;
-
-export default withApollo(Register)
+    `
