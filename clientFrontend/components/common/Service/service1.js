@@ -15,8 +15,8 @@ const ServiceLayout = ({sectionClass}) => {
                         <div className="media">
                             <div dangerouslySetInnerHTML={{ __html: svgFreeShipping }} />
                             <div className="media-body">
-                                <h4>free shipping</h4>
-                                <p>free shipping world wide</p>
+                                <h4>Livraison gratuite</h4>
+                                <p>Livraison gratuite a l'echelle regionale</p>
                             </div>
                         </div>
                     </Col>
@@ -24,8 +24,8 @@ const ServiceLayout = ({sectionClass}) => {
                         <div className="media">
                             <div dangerouslySetInnerHTML={{ __html: svgservice }} />
                             <div className="media-body">
-                                <h4>24 X 7 service</h4>
-                                <p>online service for new customer</p>
+                                <h4>service 24H/24</h4>
+                                <p>service en ligne pour nouveau client</p>
                             </div>
                         </div>
                     </Col>
@@ -33,8 +33,8 @@ const ServiceLayout = ({sectionClass}) => {
                         <div className="media">
                             <div dangerouslySetInnerHTML={{ __html: svgoffer }} />
                             <div className="media-body">
-                                <h4>festival offer</h4>
-                                <p>new online special festival offer</p>
+                                <h4>offre festival</h4>
+                                <p>offre festival pour les nouveau clients</p>
                             </div>
                         </div>
                     </Col>

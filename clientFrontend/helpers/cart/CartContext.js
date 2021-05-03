@@ -65,7 +65,7 @@ const CartProvider = (props) => {
       if(userID){
         if(orders){
           
-          console.log(orders.findOrder.items)
+         
          
           //
           var i = 0
@@ -131,7 +131,7 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
       setCartItems([...cartItems, product])
     }
     }else{
-      toast.error("please login or register");
+      toast.error("Vous devez vous connecter d'abord");
 
       
      
@@ -141,7 +141,7 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
 
   const removeFromCart = (item) => {
     if(userID){
-      toast.error("Product Removed with User"); 
+      toast.error("Produit supprimé"); 
       deleteItem({
 
         variables: {
@@ -153,7 +153,7 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
       
       setCartItems(cartItems.filter((e) => (e.id !== item.id)))
     }else{
-      toast.error("Please login or register"); 
+      toast.error("Vous devez vous connecter d'abord"); 
       
     }
       
@@ -162,7 +162,7 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
   const minusQty = () => {
     if (quantity > 1) {
         setQuantity(quantity - 1);
-        setStock('InStock')
+        setStock('En stock')
     }
 }
 
@@ -170,7 +170,7 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
     if (item.stock >= quantity) {
       setQuantity(quantity + 1)
     } else {
-      setStock("Out of Stock !")
+      setStock("En rupture de stock")
     }
   }
 
@@ -183,14 +183,14 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
         cartItems[index] = { ...product, ...item, qty: quantity, total: item.price * quantity  }; 
 
         setCartItems([...cartItems])
-        toast.info("Product Quantity Updated !");
+        toast.info("Quantité de produit ajouté");
       }else{
         const product = {...item, qty: quantity, total: (item.price - (item.price * item.discount / 100)) * quantity }
         setCartItems([...cartItems, product])
-        toast.success("Product Added Updated !");
+        toast.success("Produit ajouté");
       }
     }else{
-      toast.error("Enter Valid Quantity !");
+      toast.error("Entrez une quantité valide");
     }
   }
 

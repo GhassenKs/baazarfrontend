@@ -57,7 +57,7 @@ function Login (  )  {
     
     const log = initialState.user ?
 
-    <Redirect push to="/" />
+    <Redirect to="/" />
  
      
 
@@ -69,11 +69,11 @@ function Login (  )  {
                   <Container className="login-box">
                       <Row>
                           <Col lg="6">
-                              <h3>Login</h3>
+                              <h3>Se connecter</h3>
                               <div className="theme-card">
                                   <Form onSubmit={onSubmit} noValidate className="theme-form">
                                       <div className="form-group">
-                                          <Label for="email">Email</Label>
+                                          <Label for="email">E-mail</Label>
                                           <Input type="text" className="form-control" id="mail" 
                                           name="email"
                                           type="text"
@@ -82,17 +82,17 @@ function Login (  )  {
                                           onChange={onChange} placeholder="Email" required="" />
                                       </div>
                                       <div className="form-group">
-                                          <Label for="review">Password</Label>
+                                          <Label for="review">Mot de passe</Label>
                                           <Input type="password" className="form-control" id="pass" 
                                           name="password"
                                           type="password"
                                           value={values.password}
                                           error={errors.password}
                                           onChange={onChange} 
-                                              placeholder="Enter your password" required="" />
-                                              <Link href={'/page/account/forgot-pwd'}>Forgot password?</Link>
+                                              placeholder="Entrez votre mot de passe" required="" />
+                                              {/* <Link href={'/page/account/forgot-pwd'}>Forgot password?</Link> */}
                                       </div>
-                                      <button type="submit" className="btn btn-solid">Login</button>
+                                      <button type="submit" className="btn btn-solid">connexion</button>
                                       
                                      
                                       
@@ -106,12 +106,11 @@ function Login (  )  {
                           
   
                           <Col>
-                          <h3>New Customer</h3>
+                          <h3>Nouveau client</h3>
                           <div className="theme-card authentication-right">
-                                  <h6 className="title-font">Create an Account</h6>
-                                  <p>Sign up for a free account at our store. Registration is quick and easy. It allows you to be
-                              able to order from our shop. To start shopping click register.</p>
-                              <Link href={'/page/account/register'}>Create an account</Link> 
+                                  <h6 className="title-font">Creer un compte</h6>
+                                  <p>Inscrivez-vous pour un compte gratuit dans notre magasin. L'inscription est simple et rapide. Cela vous permet de pouvoir commander dans notre boutique. Pour commencer vos achats, cliquez sur S'inscrire.</p>
+                              <Link href={'/page/account/register'}>Créer un compte</Link> 
                              </div> 
                               </Col>
                           

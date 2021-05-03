@@ -74,7 +74,7 @@ const SpecialProducts = ({ type, fluid, designClass, cartClass, heading, noTitle
                             <div className={title}>
                                 <h4>{heading}</h4>
                                 {/* exclusive products */}
-                                <h2 className={inner}>special products</h2>
+                                <h2 className={inner}>Produit spéciaux</h2>
                                 {
                                     line ?
                                         <div className="line"></div>
@@ -88,9 +88,9 @@ const SpecialProducts = ({ type, fluid, designClass, cartClass, heading, noTitle
 
                     <Tabs className="theme-tab">
                         <TabList className="tabs tab-title">
-                            <Tab className={activeTab == type ? 'active' : ''} onClick={() => setActiveTab(type)}>NEW ARRIVAL</Tab>
-                            <Tab className={activeTab == 'furniture' ? 'active' : ''} onClick={() => setActiveTab('furniture')}>FEATURED </Tab>
-                            <Tab className={activeTab == 'furniture' ? 'active' : ''} onClick={() => setActiveTab('furniture')}>SPECIAL</Tab>
+                            <Tab className={activeTab == type ? 'active' : ''} onClick={() => setActiveTab(type)}>Nouvelle arrivée</Tab>
+                            <Tab className={activeTab == 'furniture' ? 'active' : ''} onClick={() => setActiveTab('furniture')}>En vedette </Tab>
+                            <Tab className={activeTab == 'furniture' ? 'active' : ''} onClick={() => setActiveTab('furniture')}>Special</Tab>
                         </TabList>
 
                         <TabPanel>
@@ -101,8 +101,8 @@ const SpecialProducts = ({ type, fluid, designClass, cartClass, heading, noTitle
                                             <div>
                                                 <div className="col-sm-12 empty-cart-cls text-center">
                                                     <Media src={emptySearch} className="img-fluid mb-4 mx-auto" alt="" />
-                                                    <h3><strong>Your Cart is Empty</strong></h3>
-                                                    <h4>Explore more shortlist some items.</h4>
+                                                    <h3><strong>Votre panier est vide</strong></h3>
+                                                    <h4>Explorez plus de présélection de certains éléments.</h4>
                                                 </div>
                                             </div>
                                         </Col>
@@ -141,8 +141,8 @@ const SpecialProducts = ({ type, fluid, designClass, cartClass, heading, noTitle
                                             <div>
                                                 <div className="col-sm-12 empty-cart-cls text-center">
                                                     <img src={`/static/images/empty-search.jpg`} className="img-fluid mb-4 mx-auto" alt="" />
-                                                    <h3><strong>Your Cart is Empty</strong></h3>
-                                                    <h4>Explore more shortlist some items.</h4>
+                                                    <h3><strong>Votre panier est vide.</strong></h3>
+                                                    <h4>Explorez plus de présélection de certains éléments.</h4>
                                                 </div>
                                             </div>
                                         </Col>
@@ -171,8 +171,8 @@ const SpecialProducts = ({ type, fluid, designClass, cartClass, heading, noTitle
                                             <div>
                                                 <div className="col-sm-12 empty-cart-cls text-center">
                                                     <img src={`/static/images/empty-search.jpg`} className="img-fluid mb-4 mx-auto" alt="" />
-                                                    <h3><strong>Your Cart is Empty</strong></h3>
-                                                    <h4>Explore more shortlist some items.</h4>
+                                                    <h3><strong>Votre panier est vide</strong></h3>
+                                                    <h4>Explorez plus de présélection de certains éléments.</h4>
                                                 </div>
                                             </div>
                                         </Col>

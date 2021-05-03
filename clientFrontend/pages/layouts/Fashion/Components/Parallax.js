@@ -11,8 +11,8 @@ const Parallax = () => {
                             <Col>
                                 <div className="banner-contain">
                                     <h2>2021</h2>
-                                    <h3>fashion trends</h3>
-                                    <h4>special offer</h4>
+                                    <h3>Tendances</h3>
+                                    <h4>Offres speciales</h4>
                                 </div>
                             </Col>
                         </Row>

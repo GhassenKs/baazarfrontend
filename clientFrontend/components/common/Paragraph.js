@@ -6,7 +6,7 @@ const Paragraph = ({title, inner, line ,hrClass}) => {
         <>
             <div className={title}>
                 <h4>special offer</h4>
-                <h2 className={inner}>top collection</h2>
+                <h2 className={inner}>Collection</h2>
                 {
                     line ?
                         <div className="line"></div> : 
@@ -19,7 +19,7 @@ const Paragraph = ({title, inner, line ,hrClass}) => {
                 <Row>
                     <Col lg="6" className="m-auto">
                         <div className="product-para">
-                            <p className="text-center">Save big on our special offers!</p>
+                            <p className="text-center">Economisez avec nos offres speciaux</p>
                         </div>
                     </Col>
                 </Row>

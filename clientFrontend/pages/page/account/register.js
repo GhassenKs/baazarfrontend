@@ -76,14 +76,14 @@ function Register() {
         <Container>
             <Row>
                 <Col lg="6">
-                    <h3>create account</h3>
+                    <h3>Creer un compte</h3>
                     <div className="theme-card">
                         <Form onSubmit={onSubmit} noValidate className="theme-form">
                             <Row>
                                 <Col md="12">
-                                    <Label for="email">First Name</Label>
+                                    <Label for="email">Prenom</Label>
                                     <Input type="text" className="form-control" id="fname" label="Username"
-                                      placeholder="firstName.."
+                                      placeholder="Prenom.."
                                       name="firstName"
                                       value={values.firstName}
                                       error={errors}
@@ -91,9 +91,9 @@ function Register() {
                                         required="" />
                                 </Col>
                                 <Col md="12">
-                                    <Label for="review">Last Name</Label>
+                                    <Label for="review">Nom</Label>
                                     <Input type="text" label="lastName"
-                                    placeholder="lastName.."
+                                    placeholder="Nom.."
                                     name="lastName"
                                     value={values.lastName}
                                     error={errors}
@@ -104,7 +104,7 @@ function Register() {
 
                             <Row>
                                 <Col md="12">
-                                    <Label for="email">email</Label>
+                                    <Label for="email">Email</Label>
                                     <Input type="text" 
   
                                   name="email"
@@ -114,49 +114,49 @@ function Register() {
                                   onChange={onChange} className="form-control" id="email" placeholder="Email" required="" />
                                 </Col>
                                 <Col md="12">
-                                    <Label for="review">Password</Label>
+                                    <Label for="review">Mot de passe</Label>
                                     <Input type="password" label="Password"
                                     name="password"
                                     value={values.password}
                                     error={errors}
                                     onChange={onChange} className="form-control" id="password"
-                                    placeholder="Enter your password" required="" />
+                                    placeholder="Entrez votre mot de passe" required="" />
                                         
-                                        <Label for="email">Phone number</Label>
+                                        <Label for="email">Numero de telephone</Label>
                                         <Input type="text" label="phone"
                                           name="phone"
                                           value={values.phone}
                                           error={errors}
                                           onChange={onChange} className="form-control" 
-                                          placeholder="Enter your number" required="" />
+                                          placeholder="Entrez votre numero" required="" />
 
                                           
 
-                                        <Label for="city">city</Label>
+                                        <Label for="city">Ville</Label>
                                         <Input type="text" label="city"
                                           name="city"
                                           value={values.city}
                                           error={errors}
                                           onChange={onChange} className="form-control" id="city"
-                                          placeholder="Enter your city" required="" />
+                                          placeholder="Entrez votre ville" required="" />
 
-                                          <Label for="address">Address</Label>
+                                          <Label for="address">Addresse</Label>
                                           <Input type="text" label="address"
                                           name="address"
                                           value={values.address}
                                           error={errors}
                                           onChange={onChange} className="form-control" id="address"
-                                          placeholder="Enter your address" required="" />
+                                          placeholder="Entrez votre addresse" required="" />
 
-                                          <Label for="address">Postal Code</Label>
+                                          <Label for="address">Code Postale</Label>
                                           <Input type="number" label="address"
                                           name="zip"
                                           value={values.zip}
                                           error={errors}
                                           onChange={onChange} className="form-control" id="zip"
-                                          placeholder="Enter your postal code" required="" />
+                                          placeholder="Entrez votre code postal" required="" />
                                         
-                                <button type="submit" className="btn btn-solid" >Register</button>
+                                <button type="submit" className="btn btn-solid" >Créez un compte</button>
 
                                 </Col>
                             </Row>

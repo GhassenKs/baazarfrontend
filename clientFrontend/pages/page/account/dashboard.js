@@ -1,40 +1,36 @@
-import React, {useContext,useState} from 'react';
+import React, {useContext,useEffect,useState} from 'react';
 import CommonLayout from '../../../components/shop/common-layout';
 import { Container, Row ,Col} from 'reactstrap';
 import { useRouter } from 'next/router';
 import {AuthContext} from '../../../context/auth';
 import jwtDecode from 'jwt-decode';
 import Link from 'next/link';
+import { Redirect } from 'react-router-dom';
+
 var test = null
 
-
-const Dashboard =async  () => {
+const Dashboard = async () => {
     const {user,logout}=useContext(AuthContext);
     const router = useRouter();
     const [accountInfo,setAccountInfo] = useState(false)
-   
     if(!test){
         await router.back()
-    }
-
-        //-----------------------
-
-        const initialState = {
-            user: null
-          };
-          if (localStorage.getItem('jwtToken')) {
-            const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
-          
-            if (decodedToken.exp * 1000 < Date.now()) {
-              localStorage.removeItem('jwtToken');
-            } else {
-              initialState.user = decodedToken;
-            }
-          }
-          
-    
-        //--------------------------
+    } 
+    const initialState = {
+        user: null
+        };
+        if (localStorage.getItem('jwtToken')) {
+        const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
         
+        if (decodedToken.exp * 1000 < Date.now()) {
+            localStorage.removeItem('jwtToken');
+        } else {
+            initialState.user = decodedToken;
+            
+        }
+        }
+
+
     const accountDash = initialState.user ?(
         <CommonLayout parent="home" title="dashboard">
         <section className="section-b-space">
@@ -52,11 +48,11 @@ const Dashboard =async  () => {
                             </div>
                             <div className="block-content">
                                 <ul>
-                                    <li className="active"><a href="#">Account Info</a></li>
-                                    <li><a href={'/page/account/cart'}>My Orders</a></li>
-                                    <li><Link href={'/page/account/wishlist'}>My Wishlist</Link></li>
-                                    <li><a href="#">Change Password</a></li>
-                                    <li className="last"><a href="#">Log Out</a></li>
+                                    <li className="active"><a href="#">Information</a></li>
+                                    <li><a href={'/page/account/cart'}>Mes commandes</a></li>
+                                    <li><Link href={'/page/account/wishlist'}>Liste de souhaits</Link></li>
+                                    <li><Link href={'/page/account/changepwd'}>Changer mot de passe</Link></li>
+                                    <li className="last"><a href="#" onClick={() => localStorage.removeItem('jwtToken')}>Deconnexion</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -69,31 +65,30 @@ const Dashboard =async  () => {
                                 </div>
                                 <div className="welcome-msg">
                                     
-                                    <p>From your Dashboard you have the ability to view a snapshot of your recent
-                                    account activity and update your account information.</p>
+                                    <p>À partir de votre tableau de bord, vous avez la possibilité d'afficher un instantané de l'activité récente de votre compte et de mettre à jour les informations de votre compte.</p>
                                 </div>
                                 <div className="box-account box-info">
                                     <div className="box-head">
-                                        <h2>Account Information</h2>
+                                        <h2>Information</h2>
                                     </div>
                                     <Row>
                                         <Col sm="6">
                                             <div className="box">
                                                 <div className="box-title">
-                                                    <h3>Contact Information</h3><Link href={'/page/account/profile'}>Edit all information</Link>
+                                                    <h3>Contacte</h3><Link href={'/page/account/profile'}>Modifier</Link>
                                                 </div>
                                                 <div className="box-content">
                                                     <h6>{initialState.user.firstName} {initialState.user.lastName}</h6>
                                                     <h6>{initialState.user.email}</h6>
                                                     <h6>{initialState.user.phone}</h6>
-                                                    <h6><a href="#">Change Password</a></h6>
+                                                    <h6><a href="#">Changer mot de passe</a></h6>
                                                 </div>
                                             </div>
                                         </Col>
                                          <Col sm="6">
                                             <div className="box">
                                                 <div className="box-title">
-                                                    <h3>Address Book</h3>
+                                                    <h3>Addresse</h3>
                                                 </div>
                                                 <div className="box-content">
                                                     <p>{initialState.user.city}</p>
@@ -106,7 +101,7 @@ const Dashboard =async  () => {
                                     <div>
                                         <div className="box">
                                             <div className="box-title">
-                                                <h3>Address Book</h3>
+                                                <h3>Addresse de livraison</h3>
                                             </div>
                                             <Row>
                                                 <Col sm="6">
@@ -128,10 +123,11 @@ const Dashboard =async  () => {
             </Container>
         </section>
     </CommonLayout>
-    ):(
+    ):
 
-        <Redirect to="/"/>
-    )
+       <Redirect to='/page/account/login'/>
+       
+    
     return (
         accountDash
     )

@@ -11,6 +11,13 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 
 
+const PLACE_ORDER = gql`
+  mutation placeOrder($id:String) {
+
+    placeOrder(id:$id){id}
+}
+  
+`;
 
 const CheckoutPage = () => {
     const cartContext = useContext(CartContext);
@@ -49,7 +56,7 @@ const CheckoutPage = () => {
 
     const onSuccess = (payment) => {
         router.push({
-            pathname: '/page/order-success',
+            pathname: '/portfolio/order-success-2',
             state: { payment: payment, items: cartItems, orderTotal: total, symbol: symbol }
         })
 
@@ -74,7 +81,8 @@ const CheckoutPage = () => {
                 state: { items: cartItems, orderTotal: cartTotal, symbol: symbol }
             })
        
-    };                                                                                                                                                                                                                                                                                                                                                          
+    };  
+}                                                                                                                                                                                                                                                                                                                                                        
 
     const setStateFromInput = (event) => {
         obj[event.target.name] = event.target.value;
@@ -94,9 +102,7 @@ const CheckoutPage = () => {
         sandbox: 'AZ4S98zFa01vym7NVeo_qthZyOnBhtNvQDsjhaZSMH-2_Y9IAJFbSD3HPueErYqN8Sa8WYRbjP7wWtd_',
         production: 'AZ4S98zFa01vym7NVeo_qthZyOnBhtNvQDsjhaZSMH-2_Y9IAJFbSD3HPueErYqN8Sa8WYRbjP7wWtd_',
     }
-    const initialState = {
-        user: null
-      };
+    
       if (localStorage.getItem('jwtToken')) {
         const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
       
@@ -123,34 +129,34 @@ const CheckoutPage = () => {
                                     <div className="row check-out">
                                         <div className="form-group col-md-6 col-sm-6 col-xs-12">
                                              
-                                        <div className="field-label">First Name</div>
+                                        <div className="field-label">Prenom</div>
                                             <h4>{initialState.user.firstName}</h4>
                                         </div>
                                         <div className="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <div className="field-label">Last Name</div>
+                                            <div className="field-label">Nom</div>
                                             <h4>{initialState.user.lastName}</h4>
 
                                         </div>
                                         <div className="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <div className="field-label">Phone Number</div>
+                                            <div className="field-label">Numero de telephone</div>
                                             <h4>{initialState.user.phone}</h4>
 
                                         </div>
                                         <div className="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <div className="field-label">Email Address</div>
+                                            <div className="field-label">email</div>
                                             <h4>{initialState.user.email}</h4>
 
                                         </div>
                                         
                                         <div className="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <div className="field-label">Address</div>
+                                            <div className="field-label">Addresse</div>
                                             <h4>{initialState.user.address}</h4>
 
                                         </div>
                                         
                                         
                                         <div className="form-group col-md-12 col-sm-6 col-xs-12">
-                                            <div className="field-label">Postal Code</div>
+                                            <div className="field-label">Code postal</div>
                                             <h4>{initialState.user.zipcode}</h4>
 
                                         </div>
@@ -162,24 +168,24 @@ const CheckoutPage = () => {
                                         <div className="checkout-details">
                                             <div className="order-box">
                                                 <div className="title-box">
-                                                    <div>Product <span>Total</span></div>
+                                                    <div>Produit <span>Total</span></div>
                                                 </div>
                                                 <ul className="qty">
                                                     {cartItems.map((item, index) =>
                                                     <div>
                                                        
                                                         <li key={index}><td><h4>{item.title}</h4></td><span><td>{item.total} {symbol}</td></span></li>
-                                                        <li key={index}> Qty: {item.qty}</li> 
+                                                        <li key={index}> Qté: {item.qty}</li> 
                                                     </div>
                                                     )}
                                                 </ul>
                                                 <ul className="sub-total">
-                                                    <li>Subtotal <span className="count"><strong>{cartTotal} {symbol}</strong></span></li>
-                                                    <li>Shipping
+                                                    <li>Total <span className="count"><strong>{cartTotal} {symbol}</strong></span></li>
+                                                    <li>Livraison
                                                         <div className="shipping">
                                                             <div className="shopping-option">
                                                                 <input type="checkbox" name="free-shipping" id="free-shipping" />
-                                                                <label htmlFor="free-shipping">Free Shipping</label>
+                                                                <label htmlFor="free-shipping">gratuite</label>
                                                             </div>
                                                             
                                                         </div>
@@ -191,7 +197,7 @@ const CheckoutPage = () => {
                                             </div>
                                             {(cartTotal !== 0) ?
                                                     <div className="text-right">
-                                                         <button type="submit" className="btn-solid btn" >Place Order</button> 
+                                                         <button type="submit" className="btn-solid btn" >passer la commande</button> 
                                                             
                                                     </div>
                                                     : ''}
@@ -207,14 +213,8 @@ const CheckoutPage = () => {
         </section>
     )
     
-}
-const PLACE_ORDER = gql`
-  mutation placeOrder($id:String) {
 
-    placeOrder(id:$id){id}
-}
-  
-`;
+
 }
 
 export default CheckoutPage;

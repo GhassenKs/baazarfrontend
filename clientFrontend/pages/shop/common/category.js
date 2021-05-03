@@ -37,21 +37,21 @@ const Category = () => {
         <div className="collection-collapse-block-content">
             <div className="collection-brand-filter">
                 <ul className="category-list">
-                    <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
-                   <li><p className="font-weight-bold">Women Fashion</p></li>
-                    <li><a href={null} onClick={() => updateCategory("Dresses")}>Dresses</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Skirts")}>Skirts</a></li>
+                    <li><a href={null} onClick={() => updateCategory("all")}>Afficher tous</a></li>
+                   <li><p className="font-weight-bold">Mode Femme</p></li>
+                    <li><a href={null} onClick={() => updateCategory("Dresses")}>Robes</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Skirts")}>Jupes</a></li>
                     <li><a href={null} onClick={() => updateCategory("Ftshirts")}>T-shirts</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fjackets")}>Jackets</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fjackets")}>Gilet</a></li>
                     <li><a href={null} onClick={() => updateCategory("Fjeans")}>Jeans </a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fsports")}>Sports wear</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fshoes")}>Shoes</a></li>
-                    <li><p className="font-weight-bold">Women Accessories</p></li>
-                    <li><a href={null} onClick={() => updateCategory("Fnecklaces")}>Necklaces</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fbraceletsrings")}>Bracelets & Rings</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fcapshats")}>Caps & Hats</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fpursesbags")}>Purses & bags</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Ffragrances")}>Frangrances</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fsports")}>Tenue de sport</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fshoes")}>Chaussures</a></li>
+                    <li><p className="font-weight-bold">Accesoires femme</p></li>
+                    <li><a href={null} onClick={() => updateCategory("Fnecklaces")}>Colliers</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fbraceletsrings")}>Accessoires femme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fcapshats")}>Chapeau femme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fpursesbags")}>Sac femme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Ffragrances")}>Parfum de femmme</a></li>
                    
                     
                 </ul>
@@ -68,10 +68,10 @@ const Category = () => {
                 <div className="collection-brand-filter">
                     <ul className="category-list">
                        
-                        <li><p className="font-weight-bold">Self care</p></li>
-                        <li><a href={null} onClick={() => updateCategory("Makeup")}>Make up</a></li>
-                        <li><a href={null} onClick={() => updateCategory("Skincare")}>Skin care</a></li>
-                        <li><a href={null} onClick={() => updateCategory("Haircare")}>Hair care</a></li>
+                        <li><p className="font-weight-bold">Soin</p></li>
+                        <li><a href={null} onClick={() => updateCategory("Makeup")}>Maquillage</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Skincare")}>Soin femme</a></li>
+                        <li><a href={null} onClick={() => updateCategory("Haircare")}>Soin cheveux</a></li>
                         
                         
                     </ul>
@@ -96,21 +96,21 @@ const Category = () => {
         <div className="collection-collapse-block-content">
             <div className="collection-brand-filter">
                 <ul className="category-list">
-                    <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
-                   <li><p className="font-weight-bold">Men Fashion</p></li>
-                    <li><a href={null} onClick={() => updateCategory("Mshirts")}>Shirts</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Msweater")}>Sweater</a></li>
+                    <li><a href={null} onClick={() => updateCategory("all")}>Afficher Tous</a></li>
+                   <li><p className="font-weight-bold">Mode Homme</p></li>
+                    <li><a href={null} onClick={() => updateCategory("Mshirts")}>chemise homme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Msweater")}>Pull homme</a></li>
                     <li><a href={null} onClick={() => updateCategory("Mjeans")}>Jeans</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Mjackets")}>Jackets</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mjackets")}>Gilet </a></li>
                     <li><a href={null} onClick={() => updateCategory("Mblazers")}>Blazers </a></li>
-                    <li><a href={null} onClick={() => updateCategory("Msports")}>Gym wear</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Mshoes")}>Shoes</a></li>
-                    <li><p className="font-weight-bold">Men Accessories</p></li>
-                    <li><a href={null} onClick={() => updateCategory("Mnecklaces")}>Necklaces</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Mbraceletsrings")}>Bracelets & Rings</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Mcapshats")}>Caps & Hats</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Mbags")}>Bags</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Mfragrances")}>Fragrances</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Msports")}>tenue de sport</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mshoes")}>Chaussures</a></li>
+                    <li><p className="font-weight-bold">Accessoires homme</p></li>
+                    <li><a href={null} onClick={() => updateCategory("Mnecklaces")}>colliers homme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mbraceletsrings")}>=Accessoires homme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mcapshats")}>Chapeau homme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mbags")}>Sac homme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mfragrances")}>Parfum homme</a></li>
                     
                 </ul>
             </div>
@@ -126,22 +126,22 @@ const Category = () => {
     <div className="collection-collapse-block-content">
         <div className="collection-brand-filter">
             <ul className="category-list">
-                <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
-               <li><p className="font-weight-bold">Home Furniture</p></li>
-                <li><a href={null} onClick={() => updateCategory("chairs")}>Chairs</a></li>
+                <li><a href={null} onClick={() => updateCategory("all")}>Afficher tous</a></li>
+               <li><p className="font-weight-bold">Furniture</p></li>
+                <li><a href={null} onClick={() => updateCategory("chairs")}>chaises</a></li>
                 <li><a href={null} onClick={() => updateCategory("Tables")}>Tables</a></li>
-                <li><a href={null} onClick={() => updateCategory("beds")}>Beds</a></li>
-                <li><a href={null} onClick={() => updateCategory("desks")}>Desks</a></li>
-                <li><a href={null} onClick={() => updateCategory("dressers")}>Dressers</a></li>
+                <li><a href={null} onClick={() => updateCategory("beds")}>Lits</a></li>
+                <li><a href={null} onClick={() => updateCategory("desks")}>Bureaux</a></li>
+                <li><a href={null} onClick={() => updateCategory("dressers")}>Commodes</a></li>
                 <li><p className="font-weight-bold">Home Entertainment</p></li>
                 <li><a href={null} onClick={() => updateCategory("televisions")}>Televisions</a></li>
-                <li><a href={null} onClick={() => updateCategory("TVreceivers")}>TV receivers</a></li>
-                <li><a href={null} onClick={() => updateCategory("projectors")}>Projectors</a></li>
-                <li><a href={null} onClick={() => updateCategory("Sspeakers")}>Soundbar Speakers</a></li>
+                <li><a href={null} onClick={() => updateCategory("TVreceivers")}>Recepteurs TV</a></li>
+                <li><a href={null} onClick={() => updateCategory("projectors")}>Projecteurs </a></li>
+                <li><a href={null} onClick={() => updateCategory("Sspeakers")}>Haut parleurs</a></li>
                 <li><p className="font-weight-bold">Home Appliances</p></li>
-                <li><a href={null} onClick={() => updateCategory("microwaves")}>Microwave</a></li>
-                <li><a href={null} onClick={() => updateCategory("lights")}>Indoors & outdoors light</a></li>
-                <li><a href={null} onClick={() => updateCategory("frigs")}>Refrigerator & Freezers</a></li>
+                <li><a href={null} onClick={() => updateCategory("microwaves")}>Micro-ondes</a></li>
+                <li><a href={null} onClick={() => updateCategory("lights")}>Lumieres</a></li>
+                <li><a href={null} onClick={() => updateCategory("frigs")}>Refrigerateurs</a></li>
                 
                 
             </ul>
@@ -158,8 +158,8 @@ const Category = () => {
     <div className="collection-collapse-block-content">
         <div className="collection-brand-filter">
             <ul className="category-list">
-                <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
-               <li><p className="font-weight-bold">Cameras & photography</p></li>
+                <li><a href={null} onClick={() => updateCategory("all")}>Afficher Tous</a></li>
+               <li><p className="font-weight-bold">Cameras</p></li>
                 <li><a href={null} onClick={() => updateCategory("digitalcameras")}>Digital cameras</a></li>
                 <li><a href={null} onClick={() => updateCategory("securitycameras")}>Security cameras</a></li>
                 <li><a href={null} onClick={() => updateCategory("Caccessories")}>Camera Accessories</a></li>
@@ -169,9 +169,9 @@ const Category = () => {
                 <li><a href={null} onClick={() => updateCategory("speakers")}>Speakers</a></li>
                 <li><a href={null} onClick={() => updateCategory("radios")}>Radios</a></li>
 
-                <li><p className="font-weight-bold">Computers</p></li>
-                <li><a href={null} onClick={() => updateCategory("desktopC")}>Desktop computers</a></li>
-                <li><a href={null} onClick={() => updateCategory("laptops")}>Laptop computers</a></li>
+                <li><p className="font-weight-bold">Ordinateurs</p></li>
+                <li><a href={null} onClick={() => updateCategory("desktopC")}>Ordinateurs de bureau</a></li>
+                <li><a href={null} onClick={() => updateCategory("laptops")}>Ordinateur portable</a></li>
                 
                 
                 
@@ -196,12 +196,12 @@ const Category = () => {
     <div className="collection-collapse-block-content">
         <div className="collection-brand-filter">
             <ul className="category-list">
-                <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
-               <li><p className="font-weight-bold">Grocery</p></li>
-               <li><a href={null} onClick={() => updateCategory("fruits")}>Fruits</a></li>
-                <li><a href={null} onClick={() => updateCategory("vegetables")}>Vegetables</a></li>
-                <li><a href={null} onClick={() => updateCategory("domesticC")}>Cleaning products</a></li>
-                <li><a href={null} onClick={() => updateCategory("beverages")}>Beverages</a></li>
+                <li><a href={null} onClick={() => updateCategory("all")}>Afficher tous </a></li>
+               <li><p className="font-weight-bold">épicerie</p></li>
+               <li><a href={null} onClick={() => updateCategory("fruits")}>Fruit</a></li>
+                <li><a href={null} onClick={() => updateCategory("vegetables")}>vegetables</a></li>
+                <li><a href={null} onClick={() => updateCategory("domesticC")}>Produit de nettoyage</a></li>
+                <li><a href={null} onClick={() => updateCategory("beverages")}>Boisson</a></li>
                 
                
                 
@@ -221,12 +221,12 @@ const Category = () => {
         <div className="collection-brand-filter">
             <ul className="category-list">
                 <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
-                <li><p className="font-weight-bold">Pet supplies</p></li>
-                <li><a href={null} onClick={() => updateCategory("treats")}>Treats</a></li>
-                <li><a href={null} onClick={() => updateCategory("phealthsupplies")}>Health Supplies</a></li>
-                <li><a href={null} onClick={() => updateCategory("pfurniture")}>Bed & Furniture</a></li>
-                <li><a href={null} onClick={() => updateCategory("ptoys")}>Toys</a></li>
-                <li><a href={null} onClick={() => updateCategory("pgrooming")}>Grooming</a></li>
+                <li><p className="font-weight-bold">Animaux</p></li>
+                 <li><a href={null} onClick={() => updateCategory("treats")}>Friandises</a></li>
+                <li><a href={null} onClick={() => updateCategory("phealthsupplies")}>Suppléments de santé</a></li>
+                <li><a href={null} onClick={() => updateCategory("pfurniture")}>Fournitures</a></li>
+                <li><a href={null} onClick={() => updateCategory("ptoys")}>Jouets</a></li>
+                <li><a href={null} onClick={() => updateCategory("pgrooming")}>Nettoyage</a></li>
                 
                 
 
@@ -247,13 +247,13 @@ const Category = () => {
     <div className="collection-collapse-block-content">
         <div className="collection-brand-filter">
             <ul className="category-list">
-                <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
-                <li><p className="font-weight-bold">Tools</p></li>
-                <li><a href={null} onClick={() => updateCategory("bsupplies")}>Building supplies</a></li>
-                <li><a href={null} onClick={() => updateCategory("electrical")}>Electrical tools</a></li>
-                <li><a href={null} onClick={() => updateCategory("bulbs")}>Light bulbs</a></li>
-                <li><a href={null} onClick={() => updateCategory("wallsupplies")}>Painting tools & wall supplies</a></li>
-                <li><a href={null} onClick={() => updateCategory("plumbing")}>Plumbing</a></li>
+                <li><a href={null} onClick={() => updateCategory("all")}>Afficher tous</a></li>
+                <li><p className="font-weight-bold">Outils</p></li>
+                <li><a href={null} onClick={() => updateCategory("bsupplies")}>Materiaux de construction</a></li>
+                <li><a href={null} onClick={() => updateCategory("electrical")}>Materiel electrique</a></li>
+                <li><a href={null} onClick={() => updateCategory("bulbs")}>Ampoules</a></li>
+                <li><a href={null} onClick={() => updateCategory("wallsupplies")}>Materiel de peinture</a></li>
+                
 
                 
 
@@ -268,17 +268,17 @@ const Category = () => {
 
 ):(( catg === 'proteinbars') || (catg === 'wsupplies')|| (catg === 'multivitamins')|| (catg === 'immunesupport') ) ? 
 ( <div className="collection-collapse-block open">
-<h3 className="collapse-block-title" onClick={toggleCategory}>Category</h3>
+<h3 className="collapse-block-title" onClick={toggleCategory}>Categorie</h3>
 <Collapse isOpen={isCategoryOpen}>
     <div className="collection-collapse-block-content">
         <div className="collection-brand-filter">
             <ul className="category-list">
-                <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
+                <li><a href={null} onClick={() => updateCategory("all")}>Afficher tous</a></li>
                 <li><p className="font-weight-bold">Fitness</p></li>
-                <li><a href={null} onClick={() => updateCategory("proteinbars")}>Protein Bars</a></li>
-                <li><a href={null} onClick={() => updateCategory("wsupplies")}>Workout Supplies</a></li>
+                <li><a href={null} onClick={() => updateCategory("proteinbars")}>barres protéinées</a></li>
+                <li><a href={null} onClick={() => updateCategory("wsupplies")}>Pré & post entraînement</a></li>
                 <li><a href={null} onClick={() => updateCategory("multivitamins")}>Multivitamins</a></li>
-                <li><a href={null} onClick={() => updateCategory("immunesupport")}>Immune support</a></li>
+               
                
 
                 
@@ -296,89 +296,86 @@ const Category = () => {
         <div className="collection-collapse-block-content">
             <div className="collection-brand-filter">
                 <ul className="category-list">
-                <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
-                   <li><p className="font-weight-bold">Women Fashion</p></li>
-                    <li><a href={null} onClick={() => updateCategory("Dresses")}>Dresses</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Skirts")}>Skirts</a></li>
+                <li><p className="font-weight-bold">Mode Femme</p></li>
+                    <li><a href={null} onClick={() => updateCategory("Dresses")}>Robes</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Skirts")}>Jupes</a></li>
                     <li><a href={null} onClick={() => updateCategory("Ftshirts")}>T-shirts</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fjackets")}>Jackets</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fjackets")}>Gilet</a></li>
                     <li><a href={null} onClick={() => updateCategory("Fjeans")}>Jeans </a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fsports")}>Sports wear</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fshoes")}>Shoes</a></li>
-                    <li><p className="font-weight-bold">Women Accessories</p></li>
-                    <li><a href={null} onClick={() => updateCategory("Fnecklaces")}>Necklaces</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fbraceletsrings")}>Bracelets & Rings</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fcapshats")}>Caps & Hats</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Fpursesbags")}>Purses & bags</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Ffragrances")}>Frangrances</a></li>
-                    <li><p className="font-weight-bold">Self care</p></li>
-                    <li><a href={null} onClick={() => updateCategory("Makeup")}>Make up</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Skincare")}>Skin care</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Haircare")}>Hair care</a></li>
-                   <li><p className="font-weight-bold">Men Fashion</p></li>
-                    <li><a href={null} onClick={() => updateCategory("Mshirts")}>Shirts</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Msweater")}>Sweater</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fsports")}>Tenue de sport</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fshoes")}>Chaussures</a></li>
+                    <li><p className="font-weight-bold">Accesoires femme</p></li>
+                    <li><a href={null} onClick={() => updateCategory("Fnecklaces")}>Colliers</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fbraceletsrings")}>Accessoires femme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fcapshats")}>Chapeau femme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Fpursesbags")}>Sac femme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Ffragrances")}>Parfum de femmme</a></li>
+                    <li><p className="font-weight-bold">Soin</p></li>
+                        <li><a href={null} onClick={() => updateCategory("Makeup")}>Maquillage</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Skincare")}>Soin femme</a></li>
+                        <li><a href={null} onClick={() => updateCategory("Haircare")}>Soin cheveux</a></li>
+                        <li><p className="font-weight-bold">Mode Homme</p></li>
+                    <li><a href={null} onClick={() => updateCategory("Mshirts")}>chemise homme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Msweater")}>Pull homme</a></li>
                     <li><a href={null} onClick={() => updateCategory("Mjeans")}>Jeans</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Mjackets")}>Jackets</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mjackets")}>Gilet </a></li>
                     <li><a href={null} onClick={() => updateCategory("Mblazers")}>Blazers </a></li>
-                    <li><a href={null} onClick={() => updateCategory("Msports")}>Gym wear</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Mshoes")}>Shoes</a></li>
-                    <li><p className="font-weight-bold">Men Accessories</p></li>
-                    <li><a href={null} onClick={() => updateCategory("Mnecklaces")}>Necklaces</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Mbraceletsrings")}>Bracelets & Rings</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Mcapshats")}>Caps & Hats</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Mbags")}>Bags</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Mfragrances")}>Fragrances</a></li>
-                     <li><p className="font-weight-bold">Home Furniture</p></li>
-                    <li><a href={null} onClick={() => updateCategory("chairs")}>Chairs</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Msports")}>tenue de sport</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mshoes")}>Chaussures</a></li>
+                    <li><p className="font-weight-bold">Accessoires homme</p></li>
+                    <li><a href={null} onClick={() => updateCategory("Mnecklaces")}>colliers homme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mbraceletsrings")}>=Accessoires homme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mcapshats")}>Chapeau homme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mbags")}>Sac homme</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Mfragrances")}>Parfum homme</a></li>
+                    <li><p className="font-weight-bold">Furniture</p></li>
+                    <li><a href={null} onClick={() => updateCategory("chairs")}>chaises</a></li>
                     <li><a href={null} onClick={() => updateCategory("Tables")}>Tables</a></li>
-                    <li><a href={null} onClick={() => updateCategory("beds")}>Beds</a></li>
-                    <li><a href={null} onClick={() => updateCategory("desks")}>Desks</a></li>
-                    <li><a href={null} onClick={() => updateCategory("mattresses")}>Mattresses</a></li>
-                    <li><a href={null} onClick={() => updateCategory("dressers")}>Dressers</a></li>
-                    <li><p className="font-weight-bold">Home Entertainment</p></li>
+                    <li><a href={null} onClick={() => updateCategory("beds")}>Lits</a></li>
+                    <li><a href={null} onClick={() => updateCategory("desks")}>Bureaux</a></li>
+                    <li><a href={null} onClick={() => updateCategory("dressers")}>Commodes</a></li>
+                    <li><p className="font-weight-bold">Divertissement</p></li>
                     <li><a href={null} onClick={() => updateCategory("televisions")}>Televisions</a></li>
-                    <li><a href={null} onClick={() => updateCategory("TVreceivers")}>TV receivers</a></li>
-                    <li><a href={null} onClick={() => updateCategory("projectors")}>Projectors</a></li>
-                    <li><a href={null} onClick={() => updateCategory("Sspeakers")}>Soundbar Speakers</a></li>
-                    <li><p className="font-weight-bold">Home Appliances</p></li>
-                    <li><a href={null} onClick={() => updateCategory("microwaves")}>Microwave</a></li>
-                    <li><a href={null} onClick={() => updateCategory("lights")}>Indoors & outdoors light</a></li>
-                    <li><a href={null} onClick={() => updateCategory("frigs")}>Refrigerator & Freezers</a></li>
-               <li><p className="font-weight-bold">Cameras & photography</p></li>
-                <li><a href={null} onClick={() => updateCategory("digitalcameras")}>Digital cameras</a></li>
-                <li><a href={null} onClick={() => updateCategory("securitycameras")}>Security cameras</a></li>
-                <li><a href={null} onClick={() => updateCategory("Caccessories")}>Camera Accessories</a></li>
-                
-                <li><p className="font-weight-bold">Audio</p></li>
-                <li><a href={null} onClick={() => updateCategory("Headphonesnearphones")}>Headphones & Earphones</a></li>
-                <li><a href={null} onClick={() => updateCategory("speakers")}>Speakers</a></li>
-                <li><a href={null} onClick={() => updateCategory("radios")}>Radios</a></li>
+                    <li><a href={null} onClick={() => updateCategory("TVreceivers")}>Recepteurs TV</a></li>
+                    <li><a href={null} onClick={() => updateCategory("projectors")}>Projecteurs </a></li>
+                    <li><a href={null} onClick={() => updateCategory("Sspeakers")}>Haut parleurs</a></li>
+                    <li><p className="font-weight-bold">Electromenagérs</p></li>
+                    <li><a href={null} onClick={() => updateCategory("microwaves")}>Micro-ondes</a></li>
+                    <li><a href={null} onClick={() => updateCategory("lights")}>Lumieres</a></li>
+                    <li><a href={null} onClick={() => updateCategory("frigs")}>Refrigerateurs</a></li>
+                    <li><p className="font-weight-bold">Cameras</p></li>
+                    <li><a href={null} onClick={() => updateCategory("digitalcameras")}>Digital cameras</a></li>
+                    <li><a href={null} onClick={() => updateCategory("securitycameras")}>Security cameras</a></li>
+                    <li><a href={null} onClick={() => updateCategory("Caccessories")}>Camera Accessories</a></li>
+                    
+                    <li><p className="font-weight-bold">Audio</p></li>
+                    <li><a href={null} onClick={() => updateCategory("Headphonesnearphones")}>Headphones & Earphones</a></li>
+                    <li><a href={null} onClick={() => updateCategory("speakers")}>Speakers</a></li>
+                    <li><a href={null} onClick={() => updateCategory("radios")}>Radios</a></li>
 
-                <li><p className="font-weight-bold">Computers</p></li>
-                <li><a href={null} onClick={() => updateCategory("desktopC")}>Desktop computers</a></li>
-                <li><a href={null} onClick={() => updateCategory("laptops")}>Laptop computers</a></li>
-               <li><p className="font-weight-bold">Grocery</p></li>
-               <li><a href={null} onClick={() => updateCategory("fruits")}>Fruits</a></li>
-                <li><a href={null} onClick={() => updateCategory("vegetables")}>Vegetables</a></li>
-                <li><a href={null} onClick={() => updateCategory("domesticC")}>Cleaning products</a></li>
-                <li><a href={null} onClick={() => updateCategory("beverages")}>Beverages</a></li>
-                <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
-                <li><a href={null} onClick={() => updateCategory("treats")}>Treats</a></li>
-                <li><a href={null} onClick={() => updateCategory("phealthsupplies")}>Health Supplies</a></li>
-                <li><a href={null} onClick={() => updateCategory("pfurniture")}>Bed & Furniture</a></li>
-                <li><a href={null} onClick={() => updateCategory("ptoys")}>Toys</a></li>
-                <li><a href={null} onClick={() => updateCategory("pgrooming")}>Grooming</a></li>
-                <li><a href={null} onClick={() => updateCategory("bsupplies")}>Building supplies</a></li>
-                <li><a href={null} onClick={() => updateCategory("electrical")}>Electrical tools</a></li>
-                <li><a href={null} onClick={() => updateCategory("bulbs")}>Light bulbs</a></li>
-                <li><a href={null} onClick={() => updateCategory("wallsupplies")}>Painting tools & wall supplies</a></li>
-                <li><a href={null} onClick={() => updateCategory("plumbing")}>Plumbing</a></li>
-                <li><a href={null} onClick={() => updateCategory("proteinbars")}>Protein Bars</a></li>
-                <li><a href={null} onClick={() => updateCategory("wsupplies")}>Workout Supplies</a></li>
+                    <li><p className="font-weight-bold">Ordinateurs</p></li>
+                    <li><a href={null} onClick={() => updateCategory("desktopC")}>Ordinateurs de bureau</a></li>
+                    <li><a href={null} onClick={() => updateCategory("laptops")}>Ordinateur portable</a></li>
+                    <li><p className="font-weight-bold">épicerie</p></li>
+                    <li><a href={null} onClick={() => updateCategory("fruits")}>Fruit</a></li>
+                    <li><a href={null} onClick={() => updateCategory("vegetables")}>vegetables</a></li>
+                    <li><a href={null} onClick={() => updateCategory("domesticC")}>Produit de nettoyage</a></li>
+                    <li><a href={null} onClick={() => updateCategory("beverages")}>Boisson</a></li>
+                    <li><p className="font-weight-bold">Animaux</p></li>
+                 <li><a href={null} onClick={() => updateCategory("treats")}>Friandises</a></li>
+                <li><a href={null} onClick={() => updateCategory("phealthsupplies")}>Suppléments de santé</a></li>
+                <li><a href={null} onClick={() => updateCategory("pfurniture")}>Fournitures</a></li>
+                <li><a href={null} onClick={() => updateCategory("ptoys")}>Jouets</a></li>
+                <li><a href={null} onClick={() => updateCategory("pgrooming")}>Nettoyage</a></li>
+                <li><p className="font-weight-bold">Outils</p></li>
+                <li><a href={null} onClick={() => updateCategory("bsupplies")}>Materiaux de construction</a></li>
+                <li><a href={null} onClick={() => updateCategory("electrical")}>Materiel electrique</a></li>
+                <li><a href={null} onClick={() => updateCategory("bulbs")}>Ampoules</a></li>
+                <li><a href={null} onClick={() => updateCategory("wallsupplies")}>Materiel de peinture</a></li>
+                <li><p className="font-weight-bold">Fitness</p></li>
+                <li><a href={null} onClick={() => updateCategory("proteinbars")}>barres protéinées</a></li>
+                <li><a href={null} onClick={() => updateCategory("wsupplies")}>Pré & post entraînement</a></li>
                 <li><a href={null} onClick={() => updateCategory("multivitamins")}>Multivitamins</a></li>
-                <li><a href={null} onClick={() => updateCategory("immunesupport")}>Immune support</a></li>
-               
 
                 
                     

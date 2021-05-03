@@ -32,7 +32,8 @@ const OrderSuccess = () => {
           initialState.user = decodedToken;
         }
       }
-console.log(initialState.user)
+
+      console.log(data)
     return (
         <CommonLayout parent="home" title="order success">
             <section className="section-b-space light-layout">
@@ -40,9 +41,9 @@ console.log(initialState.user)
                     <Row>
                         <Col md="12">
                             <div className="success-text"><i className="fa fa-check-circle" aria-hidden="true"></i>
-                                <h2>thank you</h2>
-                                <p>Payment is successfully processsed and your order is on the way</p>
-                                <p>Transaction ID: </p>
+                                <h2>Merci !</h2>
+                                <p>Le paiement est traité avec succès et votre commande est en route</p>
+                                <p>Transaction ID: {data.findOrder.id} </p>
                             </div>
                         </Col>
                     </Row>
@@ -56,7 +57,7 @@ console.log(initialState.user)
                     <Row>
                         <Col lg="6">
                             <div className="product-order">
-                                <h3>your order details</h3>
+                                <h3>détails de votre commande</h3>
 
                                 {cartItems.map((item, i) =>
                                     <Row className="product-order-detail" key={i}>
@@ -66,29 +67,25 @@ console.log(initialState.user)
                                         </Col>
                                         <Col xs="3" className="order_detail">
                                             <div>
-                                                <h4>product name</h4>
+                                                <h4>Nom</h4>
                                                 <h5>{item.title}</h5>
                                             </div>
                                         </Col>
                                         <Col xs="3" className="order_detail">
                                             <div>
-                                                <h4>quantity</h4>
+                                                <h4>quantité</h4>
                                                 <h5>{item.qty}</h5>
                                             </div>
                                         </Col>
                                         <Col xs="3" className="order_detail">
                                             <div>
-                                                <h4>price</h4>
+                                                <h4>prix</h4>
                                                 <h5>{symbol}{item.price}</h5>
                                             </div>
                                         </Col>
                                     </Row>
                                 )}
-                                <div className="total-sec">
-                                    <ul>
-                                        <li>subtotal <span>{symbol}{cartTotal}</span></li>
-                                    </ul>
-                                </div>
+                                
                                 <div className="final-total">
                                     <h3>total <span>{symbol}{cartTotal}</span></h3>
                                 </div>

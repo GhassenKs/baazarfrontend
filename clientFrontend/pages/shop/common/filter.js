@@ -17,7 +17,7 @@ const FilterPage = ({sm,sidebarView,closeSidebar}) => {
                     {/* <!-- brand filter start --> */}
                     <div className="collection-mobile-back" onClick={() => closeSidebar()}>
                         <span className="filter-back">
-                            <i className="fa fa-angle-left" aria-hidden="true"></i> back
+                            <i className="fa fa-angle-left" aria-hidden="true"></i> Retour
                         </span>
                     </div>
                     <Category />

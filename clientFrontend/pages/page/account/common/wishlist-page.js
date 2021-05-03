@@ -30,9 +30,9 @@ const WishlistPage = () => {
                                     <thead>
                                         <tr className="table-head">
                                             <th scope="col">image</th>
-                                            <th scope="col">product name</th>
-                                            <th scope="col">price</th>
-                                            <th scope="col">availability</th>
+                                            <th scope="col">produit </th>
+                                            <th scope="col">prix</th>
+                                            <th scope="col">disponibilité</th>
                                             <th scope="col">action</th>
                                         </tr>
                                     </thead>

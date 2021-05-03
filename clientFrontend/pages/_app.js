@@ -24,20 +24,17 @@ import {
   Route,
   Switch,
   useLocation,
-  Link,
-  Redirect,Route
+  Link
 } from "react-router-dom";
 import ForgetPwd from './page/account/forget-pwd';
 
 
 
 export default function MyApp({ Component, pageProps }) {
-  console.log(' %c tracing here for page props ' + String.fromCodePoint(0x1F480), ' color: #000000;font-weight: bold;font-size:15px');
-  console.log(pageProps)
+  
  
   const [isLoading, setIsLoading] = useState(true);
   const [url, setUrl] = useState();
-  const [authorize, setAuthorize] = useState(false)
   const initialState = {
     user: null
   };
@@ -46,7 +43,6 @@ export default function MyApp({ Component, pageProps }) {
     const path = window.location.pathname.split('/');
     const url = path[path.length - 1];
     setUrl(url);
-    document.body.classList.add('dark');
 
     if (localStorage.getItem('jwtToken')) {
       const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));

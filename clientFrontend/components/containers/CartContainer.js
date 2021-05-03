@@ -31,22 +31,22 @@ const CartContainer = ({icon}) => {
                         <div>
                             <li>
                                 <div className="total">
-                                    <h5>subtotal : <span><strong>{total}{symbol}</strong></span></h5>
+                                    <h5>Total : <span><strong>{total}{symbol}</strong></span></h5>
                                 </div>
                             </li>
                             <li>
                                 <div className="buttons view-cart">
                                     <Link href={`/page/account/cart`} >
-                                    <a type="button" className="btn btn-outline-primary cart">View Cart</a>
+                                    <a type="button" className="btn btn-outline-primary cart">Voir panier</a>
                                     </Link>
                                     <Link href={`/page/account/checkout`} >
-                                    <a type="button" className="btn btn-primary checkout">Checkout</a>
+                                    <a type="button" className="btn btn-primary checkout">Verifier</a>
                                     </Link>
                                 </div>
                             </li>
                             </div>
                         :
-                        <li><h5>Your cart is currently empty.</h5></li>}
+                        <li><h5>Votre panier est vide.</h5></li>}
                 </ul>
             </li>
         </Fragment>

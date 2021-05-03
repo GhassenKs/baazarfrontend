@@ -58,8 +58,8 @@ const ProductItem = ({ product, addCart, backImage, des, addWishlist, cartClass,
             
             <div className="img-wrapper">
                 <div className="lable-block">
-                    {(product.new === true) ? <span className="lable3">new</span> : ''}
-                    {(product.sale === true) ? <span className="lable4">on sale</span> : ''}
+                    {(product.new === true) ? <span className="lable3">Nouveau</span> : ''}
+                    {(product.sale === true) ? <span className="lable4">en soldes</span> : ''}
                 </div>
                 <div className="front" onClick={clickProductDetail}>
                     <Media src={`${image ?
@@ -109,13 +109,13 @@ const ProductItem = ({ product, addCart, backImage, des, addWishlist, cartClass,
                                             : product.images[0].src
                                             }`} alt="" className="img-fluid" />
                                         <div className="media-body align-self-center text-center">
-                                            <h5><i className="fa fa-check"></i>Item <span>{product.title}</span>
-                                                <span>successfully added to your Compare list</span>
+                                            <h5><i className="fa fa-check"></i>Element <span>{product.title}</span>
+                                                <span>Ajouté a la liste de comparaison</span>
                                             </h5>
                                             <div className="buttons d-flex justify-content-center">
                                                 <Link href="/page/compare">
                                                     <a href={null} className="btn-sm btn-solid" onClick={addCompare}>
-                                                        View Compare list
+                                                       Voir la liste de comparaison
                                                     </a>
                                                 </Link>
                                             </div>
@@ -212,7 +212,7 @@ const ProductItem = ({ product, addCart, backImage, des, addWishlist, cartClass,
                                             </ul> : ''}
                                     </ul> : ''}
                                 <div className="border-product">
-                                    <h6 className="product-title">product details</h6>
+                                    <h6 className="product-title">Details de produit</h6>
                                     <p>{product.description}</p>
                                 </div>
                                 <div className="product-description border-product">
@@ -224,7 +224,7 @@ const ProductItem = ({ product, addCart, backImage, des, addWishlist, cartClass,
                                                 })}
                                             </ul>
                                         </div> : ''}
-                                    <h6 className="product-title">quantity</h6>
+                                    <h6 className="product-title">quantité</h6>
                                     <div className="qty-box">
                                         <div className="input-group">
                                             <span className="input-group-prepend">
@@ -242,8 +242,8 @@ const ProductItem = ({ product, addCart, backImage, des, addWishlist, cartClass,
                                     </div>
                                 </div>
                                 <div className="product-buttons">
-                                    <button className="btn btn-solid" onClick={() => addCart(product)} >add to cart</button>
-                                    <button className="btn btn-solid" onClick={clickProductDetail} >View detail</button>
+                                    <button className="btn btn-solid" onClick={() => addCart(product)} >Ajouter au panier</button>
+                                    <button className="btn btn-solid" onClick={clickProductDetail} >Voir detail</button>
                                 </div>
                             </div>
                         </Col>

@@ -22,31 +22,7 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
 
     return (
         <footer className={`footer-light ${footerClass}`}>
-            <div className="light-layout upper-footer">
-                <Container fluid={fluid}>
-                    <section className="small-section border-section border-top-0">
-                        <Row>
-                            <Col lg="6">
-                                <div className="subscribe">
-                                    <div>
-                                        <h4>KNOW IT ALL FIRST!</h4>
-                                        <p>Never miss anything from Bazaar by signing up to our Newsletter. </p>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col lg="6">
-                                <Form className="form-inline subscribe-form">
-                                    <FormGroup className="mx-sm-3">
-                                        <Input type="text" className="form-control" id="exampleFormControlInput1"
-                                            placeholder="Enter your email" />
-                                    </FormGroup>
-                                    <Button type="submit" className="btn btn-solid">subscribe</Button>
-                                </Form>
-                            </Col>
-                        </Row>
-                    </section>
-                </Container>
-            </div>
+            
             <section className="section-b-space light-layout">
                 <Container  fluid={fluid}>
                     <Row className="footer-theme partition-f">
@@ -58,12 +34,12 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                                 <div className="footer-logo">
                                     <LogoImage logo={logoName} />
                                 </div>
-                                <p>Say hello to your favorite new online shopping! At <span className="font-weight-bold"> Baazar.tn </span>,it is our main goal to provide our amazing customers with all they need at affordable prices.
+                                <p>Dites bonjour à vos nouveaux achats en ligne préférés! Chez <strong>Baazar.tn</strong>, notre objectif principal est de fournir à nos clients extraordinaires tout ce dont ils ont besoin à des prix abordables
                                       </p>
                                 <div className="footer-social">
                                     <ul>
                                         <li>
-                                            <a href="https://www.facebook.com" target="_blank">  <i className="fa fa-facebook" aria-hidden="true"></i> </a>
+                                            <a href="https://www.facebook.com/1onepack/" target="_blank">  <i className="fa fa-facebook" aria-hidden="true"></i> </a>
                                         </li>
                                         <li>
                                             <a href="https://plus.google.com" target="_blank"> <i className="fa fa-google-plus" aria-hidden="true"></i></a>
@@ -80,7 +56,7 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                         <Col className="offset-xl-1">
                             <div className="sub-title">
                                 <div className="footer-title">
-                                    <h4>my account</h4>
+                                    <h4>Compte</h4>
                                 </div>
                                 <div className="footer-contant">
                                     <ul>
@@ -90,11 +66,11 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href={`/shop/left_sidebar`} ><a>Orders</a></Link>
+                                            <Link href={`/shop/left_sidebar`} ><a>Mes commandes</a></Link>
                                         </li>
                                     
                                         <li>
-                                            <Link href={`/shop/left_sidebar`} ><a>Wishlist</a></Link>
+                                            <Link href={`/shop/left_sidebar`} ><a>Liste de souhaits</a></Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -118,7 +94,7 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                         <Col>
                             <div className="sub-title">
                                 <div className="footer-title">
-                                    <h4>store information</h4>
+                                    <h4>Plus d'information</h4>
                                 </div>
                                 <div className="footer-contant">
                                     <ul className="contact-list">

@@ -58,9 +58,9 @@ const CartPage = () => {
                                     <thead>
                                         <tr className="table-head">
                                             <th scope="col">image</th>
-                                            <th scope="col">product name</th>
-                                            <th scope="col">price</th>
-                                            <th scope="col">quantity</th>
+                                            <th scope="col">produit</th>
+                                            <th scope="col">prix</th>
+                                            <th scope="col">quantité</th>
                                             <th scope="col">action</th>
                                             <th scope="col">total</th>
                                         </tr>
@@ -123,7 +123,7 @@ const CartPage = () => {
                                                                     style={{ borderColor: quantityError && 'red' }}
                                                                 />
                                                             </div>
-                                                        </div>{(item.qty >= item.stock) ? 'out of Stock' : ''}
+                                                        </div>{(item.qty >= item.stock) ? 'En rupture de stock' : ''}
                                                     </td>
                                                     <td>
                                                         
@@ -138,7 +138,7 @@ const CartPage = () => {
                                 <table className="table cart-table table-responsive-md">
                                     <tfoot>
                                         <tr>
-                                            <td>total price :</td>
+                                            <td>Prix total :</td>
                                             <td><h2>{symbol} {total} </h2></td>
                                         </tr>
                                     </tfoot>
@@ -149,12 +149,12 @@ const CartPage = () => {
                             <Col xs="6">
                                 <Link href={`/shop/left_sidebar`} >
                                     <a className="btn btn-solid">
-                                        continue shopping
+                                        continuer vos achats
                                     </a>
                                 </Link>
                             </Col>
                             <Col xs="6">
-                                <Link href={`/page/account/checkout`} ><a className="btn btn-solid">check out</a></Link>
+                                <Link href={`/page/account/checkout`} ><a className="btn btn-solid">verifier</a></Link>
                             </Col>
                         </Row>
                     </Container>
@@ -168,9 +168,9 @@ const CartPage = () => {
                                     <div className="col-sm-12 empty-cart-cls text-center">
                                         <Media src={cart} className="img-fluid mb-4 mx-auto" alt="" />
                                         <h3>
-                                            <strong>Your Cart is Empty</strong>
+                                            <strong>Votre panier est vide</strong>
                                         </h3>
-                                        <h4>Explore more shortlist some items.</h4>
+                                        <h4>Explorez plus de présélection de certains éléments.</h4>
                                     </div>
                                 </div>
                             </Col>

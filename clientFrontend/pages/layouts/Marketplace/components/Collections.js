@@ -19,8 +19,8 @@ const Collections = () => (
                             </div>
                             <div className="contain-banner banner-4">
                                 <div>
-                                    <h4>save 30%</h4>
-                                    <h2>women</h2>
+                                    <h4>30%</h4>
+                                    <h2>Femme</h2>
                                 </div>
                             </div>
                         </div>
@@ -34,8 +34,8 @@ const Collections = () => (
                             </div>
                             <div className="contain-banner banner-4">
                                 <div>
-                                    <h4>save 60%</h4>
-                                    <h2>headsets</h2>
+                                    <h4>60%</h4>
+                                    <h2>Ecouteurs</h2>
                                 </div>
                             </div>
                         </div>
@@ -50,8 +50,8 @@ const Collections = () => (
                             </div>
                             <div className="contain-banner banner-4">
                                 <div>
-                                    <h4>save 60%</h4>
-                                    <h2>Protein bars</h2>
+                                    <h4>60%</h4>
+                                    <h2>Fitness</h2>
                                 </div>
                             </div>
                         </div>
@@ -66,8 +66,8 @@ const Collections = () => (
                             </div>
                             <div className="contain-banner banner-4">
                                 <div>
-                                    <h4>save 60%</h4>
-                                    <h2>Pet supplies</h2>
+                                    <h4>60%</h4>
+                                    <h2>Animaux</h2>
                                 </div>
                             </div>
                         </div>

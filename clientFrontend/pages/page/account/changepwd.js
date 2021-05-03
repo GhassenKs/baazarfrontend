@@ -42,13 +42,13 @@ function changepwd (){
                                 <Form  noValidate className="theme-form" onSubmit={handlesubmit}>
                                     
                                     <div className="form-group">
-                                        <Label for="review"> Old password</Label>
+                                        <Label for="review"> ancien mot de passe</Label>
                                         <Input type="password" className="form-control"  
                                         type="password"
                                         value={pwd}
                                         
                                         onChange={e => setPwd(e.target.value)} 
-                                            placeholder="Enter your password" required="" />
+                                            placeholder="Entrez votre mot de passe" required="" />
                                             <div className="form-group">
                                         <Label for="review">New password</Label>
                                         <Input type="password" className="form-control" 
@@ -56,22 +56,22 @@ function changepwd (){
                                         type="password"
                                         value={newpwd}
                                         onChange={e => setNewpwd(e.target.value)} 
-                                            placeholder="Enter your password" required="" />
+                                            placeholder="entrez votre nouveau mot de passe" required="" />
                                             <p>
                                                 {message}
                                             </p>
                                     </div>
                                     <div className="form-group">
-                                        <Label for="review">confirm new password</Label>
+                                        <Label for="review">Confirmer nouveau mot de passe</Label>
                                         <Input type="password" className="form-control" 
                                         type="password"
                                         value={cnewpwd}
                                         onChange={e => setCnewpwd(e.target.value)} 
-                                            placeholder="Enter your password" required="" />
+                                            placeholder="Confirmez votre mot de passe" required="" />
                                     </div>
                                     
                                     </div>
-                                    <button type="submit" className="btn btn-solid" onClick={changepwd}> Login</button>
+                                    <button type="submit" className="btn btn-solid" onClick={changepwd}> Confirmer</button>
                                     
                                 </Form>
             

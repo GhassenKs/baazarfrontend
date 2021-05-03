@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Form, Input, Label, Col } from 'reactstrap';
 import jwtDecode from 'jwt-decode';
+import Page404 from '../../../404'
 import { Redirect } from 'react-router-dom';
 
 
@@ -31,16 +32,16 @@ const ProfilePage = () => {
                             <Form className="theme-form">
                                 <Row>
                                     <Col md="6">
-                                        <Label for="name">First Name</Label>
+                                        <Label for="name">Prenom</Label>
                                         <Input type="text" className="form-control" id="name" placeholder="Enter Your name"
                                             required="" />
                                     </Col>
                                     <Col md="6">
-                                        <Label for="email">Last Name</Label>
+                                        <Label for="email">Nom</Label>
                                         <Input type="text" className="form-control" id="last-name" placeholder="Email" required="" />
                                     </Col>
                                     <Col md="6">
-                                        <Label for="review">Phone number</Label>
+                                        <Label for="review">Numero de telephone</Label>
                                         <Input type="text" className="form-control" id="review" placeholder="Enter your number"
                                             required="" />
                                     </Col>
@@ -48,11 +49,7 @@ const ProfilePage = () => {
                                         <Label for="email">Email</Label>
                                         <Input type="text" className="form-control" id="email" placeholder="Email" required="" />
                                     </Col>
-                                    <Col md="12">
-                                        <Label for="review">Write Your Message</Label>
-                                        <textarea className="form-control mb-0" placeholder="Write Your Message"
-                                            id="exampleFormControlTextarea1" rows="6"></textarea>
-                                    </Col>
+                                   
                                 </Row>
                             </Form>
                         </Col>
@@ -63,28 +60,28 @@ const ProfilePage = () => {
                 <Container>
                     <Row>
                         <Col sm="12">
-                            <h3>SHIPPING ADDRESS</h3>
+                            <h3>Addresse de livraison</h3>
                             <Form className="theme-form">
                                 <Row>
                                     
                                     <Col md="6">
-                                        <Label for="name">Address *</Label>
+                                        <Label for="name">Addresse *</Label>
                                         <Input type="text" className="form-control" id="address-two" placeholder="Address"
                                             required="" />
                                     </Col>
                                     <Col md="6">
-                                        <Label for="email">Zip Code *</Label>
+                                        <Label for="email">Code postale *</Label>
                                         <Input type="text" className="form-control" id="zip-code" placeholder="zip-code"
                                             required="" />
                                     </Col>
                                     
                                     <Col md="6">
-                                        <Label for="review">City *</Label>
+                                        <Label for="review">Ville *</Label>
                                         <Input type="text" className="form-control" id="city" placeholder="City" required="" />
                                     </Col>
                                     
                                     <div className="col-md-12">
-                                        <button className="btn btn-sm btn-solid" type="submit">Save setting</button>
+                                        <button className="btn btn-sm btn-solid" type="submit">enregistrer</button>
                                     </div>
                                 </Row>
                             </Form>
@@ -95,7 +92,7 @@ const ProfilePage = () => {
             </>
             ) : 
             (
-                <Redirect to="/" />
+                <Page404 />
             )
 
             return(profile)

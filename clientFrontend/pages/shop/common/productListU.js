@@ -218,7 +218,7 @@ const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
                                                
                                                     <li>
                                                         <a href={null} className="filter_tag">
-                                                           price: {selectedPrice.min}- {selectedPrice.max}
+                                                           prix: {selectedPrice.min}- {selectedPrice.max}
                                                         </a>
                                                     </li>
                                             }
@@ -243,7 +243,7 @@ const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
                                     <Col>
                                         <div className="product-filter-content">
                                             <div className="search-count">
-                                                <h5>{data ? `Showing Products 1-${data.products.items.length} of ${data.products.total}` : 'loading'} Result</h5>
+                                                <h5>{data ? `Produits 1-${data.products.items.length} of ${data.products.total}` : 'En cours..'} Resultat</h5>
                                             </div>
                                             <div className="collection-view">
                                                 <ul>
@@ -285,19 +285,19 @@ const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
                                             </div>
                                             <div className="product-page-per-view">
                                                 <select onChange={(e) => setLimit(parseInt(e.target.value))}>
-                                                    <option value="10">10 Products Par Page</option>
-                                                    <option value="15">15 Products Par Page</option>
-                                                    <option value="20">20 Products Par Page</option>
+                                                    <option value="10">10 Produit Par Page</option>
+                                                    <option value="15">15 Produit Par Page</option>
+                                                    <option value="20">20 Produit Par Page</option>
                                                 </select>
                                             </div>
                                             <div className="product-page-filter">
                                                 <select onChange={(e) => setSortBy(e.target.value)}>
-                                                    <option value="AscOrder">Sorting items</option>
-                                                    <option value="HighToLow">High To Low</option>
-                                                    <option value="LowToHigh">Low To High</option>
-                                                    <option value="Newest">Newest</option>
-                                                    <option value="AscOrder">Asc Order</option>
-                                                    <option value="DescOrder">Desc Order</option>
+                                                    <option value="AscOrder">Tri par produit</option>
+                                                    <option value="HighToLow">Haut en bas</option>
+                                                    <option value="LowToHigh">Bas en haut </option>
+                                                    <option value="Newest">Nouveauté</option>
+                                                    <option value="AscOrder">Ordre Asc</option>
+                                                    <option value="DescOrder">Ordre Desc</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -313,8 +313,8 @@ const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
                                                 <div>
                                                     <div className="col-sm-12 empty-cart-cls text-center">
                                                         <img src={`/assets/images/empty-search.jpg`} className="img-fluid mb-4 mx-auto" alt="" />
-                                                        <h3><strong>The item might not exist or is no longer available</strong></h3>
-                                                        <h4>Contact the costumer service for more information.</h4>
+                                                        <h3><strong>L'élément n'est plus disponible ou n'existe pas.</strong></h3>
+                                                        <h4>Contactez le service client pour plus d'informations.</h4>
                                                     </div>
                                                 </div>
                                             </Col>
@@ -355,7 +355,7 @@ const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
                                                 <Button onClick={() => handlePagination()}>
                                                     {isLoading &&
                                                         <Spinner animation="border" variant="light" />}
-                                                    Load More
+                                                    Charger plus
                                                 </Button>}
                                         </Col>
                                     </Row>
