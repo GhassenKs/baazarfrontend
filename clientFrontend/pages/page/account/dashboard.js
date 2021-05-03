@@ -5,14 +5,17 @@ import { useRouter } from 'next/router';
 import {AuthContext} from '../../../context/auth';
 import jwtDecode from 'jwt-decode';
 import Link from 'next/link';
+var test = null
 
 
-
-const Dashboard = () => {
+const Dashboard =async  () => {
     const {user,logout}=useContext(AuthContext);
     const router = useRouter();
     const [accountInfo,setAccountInfo] = useState(false)
-
+   
+    if(!test){
+        await router.back()
+    }
 
         //-----------------------
 

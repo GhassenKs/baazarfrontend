@@ -31,6 +31,7 @@ const produitSchema=new Schema({
                 "nursery",
                 "christmas",
                 "marketplace",
+                "videoslider",
                 "light",
                 "all"]
         },

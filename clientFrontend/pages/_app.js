@@ -17,13 +17,17 @@ import jwtDecode from 'jwt-decode';
 import {
   BrowserRouter as Router,
   Switch,
-  useLocation
+  useLocation,
+  Link,
+  Redirect,Route
 } from "react-router-dom";
 
 
 
 export default function MyApp({ Component, pageProps }) {
-
+  console.log(' %c tracing here for page props ' + String.fromCodePoint(0x1F480), ' color: #000000;font-weight: bold;font-size:15px');
+  console.log(pageProps)
+ 
   const [isLoading, setIsLoading] = useState(true);
   const [url, setUrl] = useState();
   const initialState = {
@@ -53,7 +57,13 @@ export default function MyApp({ Component, pageProps }) {
 
   }, []);
 
- 
+ const NoMatch = ({location}) =>(
+  <div>
+    <h1>we did not find what you wanted </h1>
+
+  </div>
+
+ )
   
 
   
@@ -97,7 +107,10 @@ export default function MyApp({ Component, pageProps }) {
                       <WishlistContextProvider>
                         <MenuContextProvider>
                           <FilterProvider>
-                            <Component {...pageProps} />
+                            <Switch>
+                            < Component  {...pageProps} />
+                            
+                            </Switch>
                           </FilterProvider>
                         </MenuContextProvider>
                       </WishlistContextProvider>

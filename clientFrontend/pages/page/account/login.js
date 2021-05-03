@@ -12,8 +12,8 @@ import { Redirect } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 
 
-function Login (props)  {
- 
+function Login (  )  {
+  
   const context = useContext(AuthContext)
   const router = useRouter()
   const [errors, setErrors] = useState({});
@@ -54,9 +54,14 @@ function Login (props)  {
         initialState.user = decodedToken;
       }
     }
-
+    
     const log = initialState.user ?
-     <Redirect to="/" /> : 
+
+    <Redirect push to="/" />
+ 
+     
+
+    : 
     (
       (
         <CommonLayout parent="home" title="login">
