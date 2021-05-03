@@ -132,6 +132,7 @@ const typeDefs = `
       wsupplies,
       multivitamins,
       immunesupport,
+      videoslider,
       all
       
     }

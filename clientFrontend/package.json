@@ -61,6 +61,7 @@
     "react-messenger-customer-chat": "^0.8.0",
     "react-paypal-express-checkout": "^1.0.5",
     "react-responsive-modal": "^5.0.2",
+    "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-search-box": "^2.0.2",
     "react-slick": "^0.26.1",

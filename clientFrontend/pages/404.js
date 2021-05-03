@@ -2,7 +2,8 @@ import React from 'react';
 import CommonLayout from '../components/shop/common-layout';
 import { Container, Row, Col } from 'reactstrap';
 
-const Page404 = () => {
+const Page404 = (props) => {
+    console.log(props)
     return (
         <CommonLayout parent="home" title="404">
             <section className="p-0">

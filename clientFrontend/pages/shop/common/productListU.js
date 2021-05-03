@@ -13,8 +13,8 @@ import {WishlistContext} from '../../../helpers/wishlist/WishlistContext';
 import { CompareContext } from '../../../helpers/Compare/CompareContext';
  
 const GET_PRODUCTS = gql`
-    query  products($type:_CategoryType!,$indexFrom:Int! ,$limit:Int!,$sortBy:_SortBy!,$priceMax:Int!,$priceMin:Int!,$text:String) {
-        products (type: $type ,indexFrom:$indexFrom ,limit:$limit  ,sortBy:$sortBy ,priceMax:$priceMax,priceMin:$priceMin,text:$text){
+    query  products($indexFrom:Int! ,$limit:Int!,$sortBy:_SortBy!,$priceMax:Int!,$priceMin:Int!,$text:String) {
+        products (indexFrom:$indexFrom ,limit:$limit  ,sortBy:$sortBy ,priceMax:$priceMax,priceMin:$priceMin,text:$text){
             total
             hasMore
             items {
@@ -89,7 +89,8 @@ const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
     }
     var { loading, data, fetchMore } = useQuery(GET_PRODUCTS, {
         variables: {
-            type: "all",
+            
+
             priceMax: 500,
             priceMin: 0,
             sortBy: "HighToLow",
