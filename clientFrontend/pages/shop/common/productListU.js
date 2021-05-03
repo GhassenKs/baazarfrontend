@@ -13,8 +13,8 @@ import {WishlistContext} from '../../../helpers/wishlist/WishlistContext';
 import { CompareContext } from '../../../helpers/Compare/CompareContext';
  
 const GET_PRODUCTS = gql`
-    query  products($indexFrom:Int! ,$limit:Int!,$sortBy:_SortBy!,$priceMax:Int!,$priceMin:Int!,$text:String) {
-        products (indexFrom:$indexFrom ,limit:$limit  ,sortBy:$sortBy ,priceMax:$priceMax,priceMin:$priceMin,text:$text){
+    query  productSearch($indexFrom:Int! ,$limit:Int!,$sortBy:_SortBy!,$priceMax:Int!,$priceMin:Int!,$text:String) {
+        productSearch (indexFrom:$indexFrom ,limit:$limit  ,sortBy:$sortBy ,priceMax:$priceMax,priceMin:$priceMin,text:$text){
             total
             hasMore
             items {
@@ -104,7 +104,7 @@ const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
     if (data){
 
         //console.log(' %c tracing here for productList ' + String.fromCodePoint(0x1F480), ' color: #000000;font-weight: bold;font-size:15px');
-            console.log(data.products.items)
+            console.log(data.productSearch.items)
     }
     
 
@@ -122,17 +122,17 @@ const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
         setTimeout(() =>
             fetchMore({
                 variables: {
-                    indexFrom: data.products.items.length
+                    indexFrom: data.productSearch.items.length
                 },
                 updateQuery: (prev, { fetchMoreResult }) => {
                     if (!fetchMoreResult) return prev;
                     setIsLoading(false)
                     return {
-                        products: {
-                            __typename: prev.products.__typename,
-                            total: prev.products.total,
-                            items: [...prev.products.items, ...fetchMoreResult.products.items],
-                            hasMore: fetchMoreResult.products.hasMore,
+                        productSearch: {
+                            __typename: prev.productSearch.__typename,
+                            total: prev.productSearch.total,
+                            items: [...prev.productSearch.items, ...fetchMoreResult.productSearch.items],
+                            hasMore: fetchMoreResult.productSearch.hasMore,
                         },
                     };
                 }
@@ -243,7 +243,7 @@ const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
                                     <Col>
                                         <div className="product-filter-content">
                                             <div className="search-count">
-                                                <h5>{data ? `Produits 1-${data.products.items.length} of ${data.products.total}` : 'En cours..'} Resultat</h5>
+                                                <h5>{data ? `Produits 1-${data.productSearch.items.length} of ${data.productSearch.total}` : 'En cours..'} Resultat</h5>
                                             </div>
                                             <div className="collection-view">
                                                 <ul>
@@ -307,8 +307,8 @@ const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
                             <div className={`product-wrapper-grid ${layout}`}>
                                 <Row>
                                     {/* Product Box */}
-                                    {(!data || !data.products || !data.products.items || data.products.items.length === 0 || loading) ?
-                                        (data && data.products && data.products.items && data.products.items.length === 0) ?
+                                    {(!data || !data.productSearch || !data.productSearch.items || data.productSearch.items.length === 0 || loading) ?
+                                        (data && data.productSearch && data.productSearch.items && data.productSearch.items.length === 0) ?
                                             <Col xs="12">
                                                 <div>
                                                     <div className="col-sm-12 empty-cart-cls text-center">
@@ -333,7 +333,7 @@ const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
                                              <PostLoader />
                                          </div>
                                      </div>
-                                        : data && data.products.items.map((product, i) =>
+                                        : data && data.productSearch.items.map((product, i) =>
                                             <div className={grid} key={i}>
                                                 <div className="product">
                                                     <div>
@@ -351,7 +351,7 @@ const ProductListU = ({ colClass, layoutList,openSidebar,noSidebar }) => {
                                 <div className="text-center">
                                     <Row>
                                         <Col xl="12" md="12" sm="12">
-                                            {data && data.products && data.products.hasMore &&
+                                            {data && data.productSearch && data.productSearch.hasMore &&
                                                 <Button onClick={() => handlePagination()}>
                                                     {isLoading &&
                                                         <Spinner animation="border" variant="light" />}
