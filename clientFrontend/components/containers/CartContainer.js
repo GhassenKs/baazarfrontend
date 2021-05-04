@@ -37,7 +37,7 @@ const CartContainer = ({icon}) => {
                             <li>
                                 <div className="buttons view-cart">
                                     <Link href={`/page/account/cart`} >
-                                    <a type="button" className="btn btn-outline-primary cart">Voir panier</a>
+                                    <a type="button"className="btn btn-outline-primary cart">Voir panier</a>
                                     </Link>
                                     <Link href={`/page/account/checkout`} >
                                     <a type="button" className="btn btn-primary checkout">Verifier</a>
