@@ -81,6 +81,7 @@ const HeaderOne = ({  headerClass, topClass, noTopBar ,direction }) => {
     const router = useRouter();
 	let history = useHistory();
 
+
 	
 	useEffect(() => {
 		setTimeout(function () {

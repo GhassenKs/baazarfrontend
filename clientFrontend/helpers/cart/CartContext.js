@@ -26,8 +26,9 @@ const CartProvider = (props) => {
   const [cartTotal, setCartTotal] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [stock, setStock] = useState('InStock');
+  const test = localStorage.getItem('cartList');
 
-  
+  console.log(cartItems)
   
   
     const initialState = {
@@ -44,11 +45,15 @@ const CartProvider = (props) => {
     } 
   
   var userID= null;
-  if(initialState.user){userID=initialState.user.id}
+  if(initialState.user)
+  {userID=initialState.user.id}
+  else{userID=null}
 
   
 
   
+
+  console.log(userID)
 
   const { loading,error,  data:orders } =  useQuery(FIND_ORDER, {
     variables: {
@@ -57,8 +62,8 @@ const CartProvider = (props) => {
     }
 });
 
-  if (error) {console.log(error)}
-  const test = localStorage.getItem('cartList');
+ 
+  
   if(test){
     if (JSON.parse(test).length==0) {
       
@@ -78,7 +83,7 @@ const CartProvider = (props) => {
           }
           //
           console.log(cartOrders)
-          localStorage.setItem("cartList",JSON.stringify(cartOrders))
+          localStorage.setItem("cartList",JSON.stringify(cartItems))
 
         }
 
@@ -97,6 +102,8 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
     const Total = cartItems.reduce((a, b) => +a + +b.total, 0)
     setCartTotal(Total);
     localStorage.setItem('cartList', JSON.stringify(cartItems))
+    console.log('here in useeffect')
+
    
   }, [cartItems])
 

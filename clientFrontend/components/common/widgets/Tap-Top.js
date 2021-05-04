@@ -8,7 +8,7 @@ const TapTop = () => {
       // Page Loader
       setTimeout(() => {
         setLoader(false)
-      }, 1500)
+      }, 1000)
   
       // Tap to Top Scroll 
       const handleScroll = () => {
