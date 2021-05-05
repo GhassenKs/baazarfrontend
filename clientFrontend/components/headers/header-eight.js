@@ -35,7 +35,7 @@ const HeaderEight = ({logoName}) => {
             document.getElementById("sticky").classList.remove('fixed');
         }
     }
-
+    
     const openNav = () => {
         var openmyslide = document.getElementById("mySidenav");
         if (openmyslide) {

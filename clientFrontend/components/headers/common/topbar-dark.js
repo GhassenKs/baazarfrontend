@@ -107,47 +107,50 @@ const TopBarDark = ({logoName, topClass, fluid }) => {
                             <ul>
                             
 									<li><LogoImage logo={logoName} /></li>	
-									
-                                
                             </ul>
                         </div>
                     </Col>
-                    <Col lg="10">
+                    <Col lg="7">
                         <div className="header-contact">
                             <ul>
-                                 <li>
-                                <Form className="form_search" role="textbox" >
-                                 
-                                 <Input id="query search-autocomplete" 
-                                     placeholder="Search..."
-                                     className="nav-search nav-search-field" 
-                                     onMouseEnter={() => setShow(true)}
-                                     onChange={(e) => updateSearch(e.target.value)}
-                                     aria-expanded="true" />
-                                 <Button name="nav-submit-button" className="btn-search" onClick={clickProductdetail}>
-                                     <i className="fa fa-search"></i>
-                                     </Button>
-                                     <div className="liste-group" id="liste-group">
-                                     
-                                        { show && selectedSearch && data ?
-                                        data.products.items.map((product,i) => 
-                                     
-                                        <a href="#" className="list-group-item list-group-item-action active" aria-current="true">
-                                            <div className="d-flex w-100 justify-content-between">
-                                            <h5 className="mb-1">{product.title}</h5>
-                                            
-                                            </div>
-                                            <p className="mb-1">{product.price}</p>
-                                            
-                                        </a>
-                                      
-
-                                        ): 'no'
-                                        }
-                                        </div>
-                             </Form> 
-									 
-                                     </li>  
+                            
+                            <li>
+<Form className="form_search" role="textbox" >
+ 
+ <Input id="query search-autocomplete" 
+     placeholder="Search..."
+     className="nav-search nav-search-field" 
+     onMouseEnter={() => setShow(true)}
+     onChange={(e) => updateSearch(e.target.value)}
+     aria-expanded="true" 
+     
+     
+     
+     />
+ <Button name="nav-submit-button" className="btn-search" onClick={clickProductdetail}>
+     <i className="fa fa-search"></i>
+     </Button>
+     <div className="liste-group" id="liste-group">
+        { show && selectedSearch && data ?
+        data.products.items.map((product,i) => 
+        <a href="#" className="list-group-item list-group-item-action active" aria-current="true">
+            <div className="d-flex w-100 justify-content-between">
+            <h5 className="mb-1">{product.title}</h5>
+            </div>
+            <p className="mb-1">{product.price}</p>
+        </a>
+        ): 'no'
+        }
+        </div>
+</Form> 
+     </li>  							                    
+                            </ul>
+                        </div>
+                    </Col>
+                    <Col lg="3">
+                        <div className="header-contact">
+                            <ul>
+                                
 
                                      <li className="mobile-wishlist">
                                 <Link href="/page/account/wishlist">
@@ -155,6 +158,7 @@ const TopBarDark = ({logoName, topClass, fluid }) => {
                                 </Link>
                             </li>
                             {initialState.user ? 
+                            
                                 <li className="onhover-dropdown mobile-account">
                                 
                                 <i className="fa fa-user" aria-hidden="true"></i> {initialState.user.firstName}
