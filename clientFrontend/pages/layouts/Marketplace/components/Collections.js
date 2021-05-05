@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Row, Col, Media } from 'reactstrap';
-import banner5 from '../../../../public/assets/images/pro/25.jpg';
-import banner10 from '../../../../public/assets/images/pro/15.jpg';
-import banner9 from '../../../../public/assets/images/pro/55.jpg';
-import banner8 from '../../../../public/assets/images/pro/56.jpg';
+import banner5 from '../../../../public/assets/images/vegetables/pro/25.jpg';
+import banner10 from '../../../../public/assets/images/vegetables/pro/15.jpg';
+import banner9 from '../../../../public/assets/images/vegetables/pro/55.jpg';
+import banner8 from '../../../../public/assets/images/vegetables/pro/56.jpg';
 
 
 const Collections = () => (
