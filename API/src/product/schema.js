@@ -8,7 +8,7 @@ const typeDefs = `
         brand: String
         collection: [String]
         category: String
-        price: String
+        price: Int
         sale: String
         discount: String
         picture:Int
@@ -114,6 +114,8 @@ const typeDefs = `
       radios,
       desktopC,
       laptops,
+      portfolio,
+      marketplace,
       fruits,
       vegetables,
       domesticC,
@@ -212,7 +214,7 @@ const typeDefs = `
         getProduits(id:Int!):Product
         #allProducts:[Product]
         getOrders:[Order]
-        productSearch(title:String): [Product]
+        productSearch(indexFrom:Int ,text:String,priceMax:Int,priceMin:Int,limit:Int,sortBy:_SortBy): ProductResponse
         findOrder(id:String):Order
 
         
@@ -231,6 +233,7 @@ const typeDefs = `
     type Mutation {
       register(registerInput:RegisterInput):User!
       login(email:String!,password:String!): User!
+      updateUser(firstName:String,lastName:String,email:String,phone:String,address:String,city:String,zip:String):User!
       #createproduit(title:String,price:String):Produit!
       createOrder(orderInput:OrderInput):Order!
       deleteOrder(orderID:ID!):Order

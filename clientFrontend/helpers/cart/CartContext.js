@@ -56,7 +56,7 @@ const CartProvider = (props) => {
         id:userID
     }
 });
-
+//--------------cart initialization
   if (error) {console.log(error)}
   const test = localStorage.getItem('cartList');
   if(test){
@@ -85,6 +85,7 @@ const CartProvider = (props) => {
       }
 
     }}
+    //end 
 
 //----------------------------------------
 

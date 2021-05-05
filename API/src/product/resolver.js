@@ -187,17 +187,24 @@ const resolvers = {
     getProducts: async (root, args, context, info) => {
       const indexFrom = 0;
       const produit = await produits.find();
-      
+      console.log(produit)
       return produit.splice(indexFrom, indexFrom + args.limit);
     },
     getCurrency: () => {
       return loadCurrency;
+
     },
     productSearch: async (root,args,context,info)=>{
-      console.log("searching")
-      console.log(args.title)
 
-      return produits.find({ $text: { $search: args.title } })
+      const recherche = await produits.find({ $text: { $search: args.text } , price:{ $gte: args.priceMin }  })
+      const indexFrom=0
+      console.log( recherche.length)
+      return {
+        items: recherche.slice(args.indexFrom, args.indexFrom + args.limit),
+          total : recherche.length,
+          hasMore: recherche.length > args.indexFrom + args.limit 
+
+      }
     }
 
 

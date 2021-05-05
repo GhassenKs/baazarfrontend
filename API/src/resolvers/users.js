@@ -114,6 +114,32 @@ const newOrder = new Order({
                   token
               }
 
+          },async updateUser(_,args,context,info){
+            const updatedUser = await User.findOneAndUpdate({email:args.email},
+              {firstName:args.firstName ,
+               lastName:args.lastName,
+               email:args.email,
+               phone:args.phone,
+               city:args.city,
+               address:args.address,
+               zip:args.zip
+
+              },
+              {new:true}
+              )
+            console.log(updatedUser)
+              
+            const token = generateToken(updatedUser);
+              
+              return {
+                  ...updatedUser._doc,
+                  id:updatedUser._id,
+                  token
+              }
+            
+
+
           }
+
       }
 }

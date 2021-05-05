@@ -72,7 +72,7 @@ const produitSchema=new Schema({
         brand: String,
         PCollection: [String],
         category: String,
-        price: String,
+        price: Number,
         sale: String,
         discount: String,
         picture:Number,
