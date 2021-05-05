@@ -12,6 +12,7 @@ import SettingProvider from '../helpers/theme-setting/SettingProvider';
 import { CompareContextProvider } from '../helpers/Compare/CompareContext';
 import { CurrencyContextProvider } from '../helpers/Currency/CurrencyContext';
 import {AuthProvider, AuthContext} from '../context/auth';
+import Usercontext from '../helpers/user/userProvider'
 import Helmet from 'react-helmet';
 import jwtDecode from 'jwt-decode';
 import Protectedroutes from '../context/protectedroutes'
@@ -27,6 +28,7 @@ import {
   Link
 } from "react-router-dom";
 import ForgetPwd from './page/account/forget-pwd';
+import UserContext from '../helpers/user/userContext';
 
 
 
@@ -104,9 +106,13 @@ export default function MyApp({ Component, pageProps }) {
                         <MenuContextProvider>
                           <FilterProvider>
                             <Switch>
+
                             < Component  {...pageProps} />
                             
+
                             </Switch>
+                            
+
                           </FilterProvider>
                         </MenuContextProvider>
                       </WishlistContextProvider>

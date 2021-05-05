@@ -90,6 +90,26 @@ const products =[
                     104
                 ]
             },
+            {
+                "image_id": 112,
+                "id": 1.2,
+                "alt": "white",
+                "src": "/assets/images/pro3/52.jpg",
+                "variant_id": [
+                    102,
+                    105
+                ]
+            },
+            {
+                "image_id": 113,
+                "id": 1.3,
+                "alt": "pink",
+                "src": "/assets/images/pro3/52.jpg",
+                "variant_id": [
+                    103,
+                    106
+                ]
+            }
            
         ]
     },
@@ -4738,7 +4758,7 @@ const products =[
     },
     {
         "id": 63,
-        "title": "Home speakers",
+        "title": "Haut parleurs",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
         "type": "Sspeakers",
         "brand": "caprese",
@@ -4792,8 +4812,8 @@ const products =[
     },
     {
         "id": 64,
-        "title": "Microwave 1",
-        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
+        "title": "Micro-onde 1",
+        "description": "Micro-onde",
         "type": "microwaves",
         "brand": "Toshiba",
         "collection": ["new arrival"],
@@ -4919,7 +4939,7 @@ const products =[
                 "image_id": 652,
                 "id": 65.2,
                 "alt": "beige",
-                "src": "/assets/images/pro1/5.jpg",
+                "src": "/assets/images/pro1/16.jpg",
                 "variant_id": [
                     652
                 ]
@@ -4928,7 +4948,7 @@ const products =[
                 "image_id": 653,
                 "id": 65.3,
                 "alt": "crimson",
-                "src": "/assets/images/pro1/17.jpg",
+                "src": "/assets/images/pro1/16.jpg",
                 "variant_id": [
                     653
                 ]
@@ -5138,7 +5158,7 @@ const products =[
                 "image_id": 692,
                 "id": 69.2,
                 "alt": "saddlebrown",
-                "src": "/assets/images/pro1/14.jpg",
+                "src": "/assets/images/pro1/15.jpg",
                 "variant_id": [
                     692
                 ]
@@ -5309,8 +5329,8 @@ const products =[
     },
     {
         "id": 73,
-        "title": "Indoor security camera",
-        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
+        "title": "Camera de surveillance",
+        "description": "Camera de surveillance",
         "type": "securitycameras",
         "brand": "Alexa",
         "collection": ["trending product", "best sellers"],
@@ -5353,7 +5373,7 @@ const products =[
                 "image_id": 732,
                 "id": 73.2,
                 "alt": "crimson",
-                "src": "/assets/images/pro1/15.jpg",
+                "src": "/assets/images/pro1/18.jpg",
                 "variant_id": [
                     732
                 ]
@@ -5667,6 +5687,13 @@ const products =[
                 "sku": "sku79",
                 "color": "silver",
                 "image_id": 791
+            },
+            {
+                "variant_id": 792,
+                "id": 79.1,
+                "sku": "sku79",
+                "color": "silver",
+                "image_id": 792
             }
         ],
         "images": [
@@ -5683,7 +5710,7 @@ const products =[
                 "image_id": 792,
                 "id": 79.2,
                 "alt": "silver",
-                "src": "/assets/images/pro2/1.jpg",
+                "src": "/assets/images/pro2/2.jpg",
                 "variant_id": [
                     792
                 ]
@@ -5692,7 +5719,7 @@ const products =[
     },
     {
         "id": 80,
-        "title": "JBL speakers",
+        "title": "Haut parleurs JBL",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
         "type": "speakers",
         "brand": "JBL",
@@ -5730,7 +5757,7 @@ const products =[
                 "image_id": 801,
                 "id": 80.1,
                 "alt": "sienna",
-                "src": "/assets/images/pro2/3.jpg",
+                "src": "/assets/images/pro2/2.jpg",
                 "variant_id": [
                     801
                 ]
@@ -5748,7 +5775,7 @@ const products =[
     },
     {
         "id": 81,
-        "title": "Panasonic radio",
+        "title": "Radio panasonic",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
         "type": "radios",
         "brand": "panasonic",
@@ -5787,7 +5814,7 @@ const products =[
                 "image_id": 812,
                 "id": 81.1,
                 "alt": "navy",
-                "src": "/assets/images/pro2/7.jpg",
+                "src": "/assets/images/pro2/6.jpg",
                 "variant_id": [
                     812
                 ]
@@ -5844,7 +5871,7 @@ const products =[
     },
     {
         "id": 83,
-        "title": "Acer desktop computer",
+        "title": "Ordinateur bureau acer",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
         "type": "desktopC",
         "brand": "ACER",

@@ -4,9 +4,22 @@ import { SlideUpDown } from "../../services/script"
 import LogoImage from "../headers/common/logo"
 import { Container, Row, Col, Form, FormGroup, Input, Button } from 'reactstrap';
 import CopyRight from './common/copyright';
+import jwtDecode from 'jwt-decode';
 
 const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
-
+    const initialState = {
+        user: null
+      };
+      if (localStorage.getItem('jwtToken')) {
+        const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+      
+        if (decodedToken.exp * 1000 < Date.now()) {
+          localStorage.removeItem('jwtToken');
+        } else {
+          initialState.user = decodedToken;
+        }
+      } 
+    
     useEffect(() => {
         var contentwidth = window.innerWidth;
         if ((contentwidth) < 750) {
@@ -42,11 +55,11 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                                             <a href="https://www.facebook.com/1onepack/" target="_blank">  <i className="fa fa-facebook" aria-hidden="true"></i> </a>
                                         </li>
                                         <li>
-                                            <a href="https://plus.google.com" target="_blank"> <i className="fa fa-google-plus" aria-hidden="true"></i></a>
+                                            <a href="https://www.onepack.tech/" target="_blank"> <i className="fa fa-google-plus" aria-hidden="true"></i></a>
                                         </li>
                                        
                                         <li>
-                                            <a href="https://www.instagram.com" target="_blank"><i className="fa fa-instagram" aria-hidden="true"></i></a>
+                                            <a href="https://www.instagram.com/1one_pack" target="_blank"><i className="fa fa-instagram" aria-hidden="true"></i></a>
                                         </li>
                                        
                                     </ul>
@@ -56,14 +69,28 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                         <Col className="offset-xl-1">
                             <div className="sub-title">
                                 <div className="footer-title">
+                                    <h4></h4>
+                                </div>
+                                <div className="footer-contant">
+                                    
+                                </div>
+                            </div>
+                        </Col>
+                        <Col>
+                            <div className="sub-title">
+                                <div className="footer-title">
                                     <h4>Compte</h4>
                                 </div>
                                 <div className="footer-contant">
-                                    <ul>
-                                        <li>
+                                <ul>
+                                        <li> {initialState.user ?
                                             <Link href={`/page/account/dashboard`} >
                                                 <a>Profile</a>
-                                            </Link>
+                                            </Link> 
+                                            :
+                                            <Link href={`/page/account/login`} >
+                                                <a>Login</a>
+                                            </Link> }
                                         </li>
                                         <li>
                                             <Link href={`/shop/left_sidebar`} ><a>Mes commandes</a></Link>
@@ -73,22 +100,7 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                                             <Link href={`/shop/left_sidebar`} ><a>Liste de souhaits</a></Link>
                                         </li>
                                     </ul>
-                                </div>
                             </div>
-                        </Col>
-                        <Col>
-                            <div className="sub-title">
-                                <div className="footer-title">
-                                    <h4>Our company</h4>
-                                </div>
-                                <div className="footer-contant">
-                                    <ul>
-                                        <li><a href="#">About us</a></li>
-                                        <li><a href="#">Contact us</a></li>
-                                        <li><a href="#">FAQ</a></li>
-                                        
-                                    </ul>
-                                </div>
                             </div>
                         </Col>
                         <Col>
@@ -101,8 +113,8 @@ const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
                                         <li><i className="fa fa-map-marker"></i>Immeuble le montplaisir -
                                          A64, Avenue Kheireddine Pacha, Tunis 1067
                                             </li>
-                                        <li><i className="fa fa-phone"></i>Call: 00 216 52 588 822</li>
-                                        <li><i className="fa fa-envelope-o"></i>Email: <a
+                                        <li><i className="fa fa-phone"></i> 00 216 52 588 822</li>
+                                        <li><i className="fa fa-envelope-o"></i> <a
                                             href="#">contact@onepack.tech</a></li>
                                     </ul>
                                 </div>

@@ -1,8 +1,8 @@
 export const MENUITEMS = [
    {
-      title: 'Clothing & Beauty', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
+      title: 'Mode & Beauté', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
          {
-            title: 'Women fashion', type: 'sub', children: [
+            title: 'Mode Femme', type: 'sub', children: [
                { path: '/shop/left_sidebar?&category=Dresses&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Robes', type: 'link', icon: 'alert' },
                { path: '/shop/left_sidebar?&category=Skirts&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Jupes', type: 'link', icon: 'layout-accordion-merged' },
                { path: '/shop/left_sidebar?&category=Ftshirts&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'T-shirts', type: 'link', icon: 'layers' },
@@ -14,7 +14,7 @@ export const MENUITEMS = [
           
          },
          {
-            title: 'Men fashion ', type: 'sub', children: [
+            title: 'Mode Homme', type: 'sub', children: [
                { path: '/shop/left_sidebar?&category=Msweater&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Pull homme', type: 'link', icon: 'alert' },
                { path: '/shop/left_sidebar?&category=Mshirts&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Chemises homme ', type: 'link', icon: 'layout-accordion-merged' },
                { path: '/shop/left_sidebar?&category=MJeans&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Jeans', type: 'link', icon: 'layers' },
@@ -24,7 +24,7 @@ export const MENUITEMS = [
             ]
          },
          {
-            title: 'Women Accessories', type: 'sub', children: [
+            title: 'Accessoires femme', type: 'sub', children: [
                { path: '/shop/left_sidebar?&category=Fnecklaces&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'colliers femme', type: 'link', icon: 'bar-chart' },
                { path: '/shop/left_sidebar?&category=Fbracelets&rings&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Accessoires femme ', type: 'link', icon: 'thought' },
                { path: '/shop/left_sidebar?&category=Fcaps&hats&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Chapeaux femmme', type: 'link', icon: 'video-camera' },
@@ -33,7 +33,7 @@ export const MENUITEMS = [
             ]
          },
          {
-            title: 'Men Accessories', type: 'sub', children: [
+            title: 'Accessoires homme', type: 'sub', children: [
                { path: '/shop/left_sidebar?&category=Mnecklaces&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'colliers homme', type: 'link', icon: 'bar-chart' },
                { path: '/shop/left_sidebar?&category=Mbracelets&rings&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Accessoires homme', type: 'link', icon: 'thought' },
                { path: '/shop/left_sidebar?&category=Mcaps&hats&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'chapeaux homme', type: 'link', icon: 'video-camera' },
@@ -42,19 +42,12 @@ export const MENUITEMS = [
                
             ]
          },
-         {
-            title: 'Beauty', type: 'sub', children: [
-               { path: '/shop/left_sidebar?&category=Makeup&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Maquillage', type: 'link', icon: 'bar-chart' },
-               { path: '/shop/left_sidebar?&category=Skincare&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Soin femme', type: 'link', icon: 'thought' },
-               { path: '/shop/left_sidebar?&category=Haircare&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Soin cheveux', type: 'link', icon: 'video-camera' },
-              
-            ]
-         },
+        
         
       ]
    },
    {
-      title: 'Home & decor', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
+      title: 'Decoration ', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
          {
             title: 'Home Furniture', type: 'sub', children: [
                { path:'/shop/left_sidebar?&category=chairs&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Chaises', type: 'link', icon: 'alert' },
@@ -92,9 +85,9 @@ export const MENUITEMS = [
       ]
    },
    {
-      title: 'Electronics', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
+      title: 'Electronique', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
          {
-            title: 'Cameras & photography', type: 'sub', children: [
+            title: 'Camera & Photographie', type: 'sub', children: [
                { path: '/shop/left_sidebar?&category=digitalcameras&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Camera Digital', type: 'link', icon: 'alert' },
                { path:'/shop/left_sidebar?&category=securitycameras&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Camera de sécurité', type: 'link', icon: 'layout-accordion-merged' },
                { path: '/shop/left_sidebar?&category=Caccessories&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Accessoires Camera', icon: 'headphone' },
@@ -115,7 +108,7 @@ export const MENUITEMS = [
             ]
          },
          {
-            title: 'Computers', type: 'sub', children: [
+            title: 'Ordinateurs', type: 'sub', children: [
                { path: '/shop/left_sidebar?&category=desktopC&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Ordinateur de bureau', type: 'link', icon: 'alert' },
                { path: '/shop/left_sidebar?&category=laptop&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Ordinateur portable', type: 'link', icon: 'layout-accordion-merged' },
                { path: '/shop/left_sidebar?&category=all&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Tous', icon: 'headphone' },
@@ -132,7 +125,7 @@ export const MENUITEMS = [
       ]
    },
    {
-      title: 'Grocery', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
+      title: 'Epicerie', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
          {
             title: 'Fruits', type: 'sub', children: [
                { path: '/shop/left_sidebar?&category=fruits&minPrice=0&maxPrice=500', title: 'Fraise', type: 'link', icon: 'alert' },
@@ -153,7 +146,7 @@ export const MENUITEMS = [
             ]
          },
          {
-            title: 'Beverages', type: 'sub', children: [
+            title: 'Boisson', type: 'sub', children: [
                { path: '/shop/left_sidebar?&category=beverages&brand=&color=&size=&minPrice=0&maxPrice=500', title: "Bouteille d'eau", type: 'link', icon: 'bar-chart' },
                { path: '/shop/left_sidebar?&category=beverages&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Lait', type: 'link', icon: 'thought' },
                { path: '/shop/left_sidebar?&category=beverages&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Boissons', type: 'link', icon: 'video-camera' },
@@ -169,7 +162,7 @@ export const MENUITEMS = [
       ]
    },
    {
-      title: 'Pet supplies', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
+      title: "Equipement d'animaux", megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
          {
             title: '', type: 'sub', children: [
                { path:  '/shop/left_sidebar?&category=treats&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Friandises', type: 'link', icon: 'alert' },
@@ -190,7 +183,7 @@ export const MENUITEMS = [
       ]
    },
    {
-      title: 'Tools', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
+      title: 'Outils', megaMenu: true, megaMenuType: 'small', type: 'sub', children: [
          {
             title: '', type: 'sub', children: [
                { path:  '/shop/left_sidebar?&category=bsupplies&brand=&color=&size=&minPrice=0&maxPrice=500', title: 'Materiaux de construction', type: 'link', icon: 'alert' },

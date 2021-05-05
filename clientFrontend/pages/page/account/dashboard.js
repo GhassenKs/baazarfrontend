@@ -49,11 +49,11 @@ const Dashboard = () => {
                             </div>
                             <div className="block-content">
                                 <ul>
-                                    <li className="active"><a href="#">Account Info</a></li>
-                                    <li><a href="./myOrders">My Orders</a></li>
-                                    <li><Link href={'/page/account/wishlist'}>My Wishlist</Link></li>
-                                    <li><a href="#">Change Password</a></li>
-                                    <li className="last"><a href="#">Log Out</a></li>
+                                    <li className="active"><a href="#">Information</a></li>
+                                    <li><a href={'/page/account/order'}>Mes commandes</a></li>
+                                    <li><Link href={'/page/account/wishlist'}>Liste de souhaits</Link></li>
+                                    <li><Link href={'/page/account/changepwd'}>Changer mot de passe</Link></li>
+                                    <li className="last"><a href="#" onClick={() => localStorage.removeItem('jwtToken')}>Deconnexion</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -80,7 +80,7 @@ const Dashboard = () => {
                                                     <h3>Contact Information</h3><Link href={'/page/account/profile'}>Edit</Link>
                                                 </div>
                                                 <div className="box-content">
-                                                    <h6>{initialState.user.firstName}{initialState.user.lastNAme}</h6>
+                                                    <h6>{initialState.user.firstName} {initialState.user.firstName}</h6>
                                                     <h6>{initialState.user.email}</h6>
                                                     <h6><a href="#">Change Password</a></h6>
                                                 </div>
@@ -104,14 +104,12 @@ const Dashboard = () => {
                                             </div>
                                             <Row>
                                                 <Col sm="6">
-                                                    <h6>Default Billing Address</h6>
-                                                    <address>You have not set a default billing address.<br /><a href="#">Edit
-                                                    Address</a></address>
+                                                    <h6>Addresse par defaut </h6>
+                                                    <address>{initialState.user.address}<br /></address>
                                                 </Col>
                                                 <Col sm="6">
-                                                    <h6>Default Shipping Address</h6>
-                                                    <address>You have not set a default shipping address.<br /><a
-                                                        href="#">Edit Address</a></address>
+                                                    <h6>Addresse de livraison par default</h6>
+                                                    <address>{initialState.user.address}<br /></address>
                                                 </Col>
                                             </Row>
                                         </div>

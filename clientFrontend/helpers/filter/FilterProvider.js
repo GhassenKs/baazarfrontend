@@ -38,8 +38,7 @@ const FilterProvider = (props) => {
         }
 
     }
-console.log("here is filter provider ")
-    console.log(selectedSearch)
+
 
     const handleSizes = (size, checked) => {
 

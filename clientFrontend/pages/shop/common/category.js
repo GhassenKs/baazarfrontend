@@ -37,7 +37,6 @@ const Category = () => {
         <div className="collection-collapse-block-content">
             <div className="collection-brand-filter">
                 <ul className="category-list">
-                    <li><a href={null} onClick={() => updateCategory("all")}>Afficher tous</a></li>
                    <li><p className="font-weight-bold">Mode Femme</p></li>
                     <li><a href={null} onClick={() => updateCategory("Dresses")}>Robes</a></li>
                     <li><a href={null} onClick={() => updateCategory("Skirts")}>Jupes</a></li>
@@ -96,7 +95,6 @@ const Category = () => {
         <div className="collection-collapse-block-content">
             <div className="collection-brand-filter">
                 <ul className="category-list">
-                    <li><a href={null} onClick={() => updateCategory("all")}>Afficher Tous</a></li>
                    <li><p className="font-weight-bold">Mode Homme</p></li>
                     <li><a href={null} onClick={() => updateCategory("Mshirts")}>chemise homme</a></li>
                     <li><a href={null} onClick={() => updateCategory("Msweater")}>Pull homme</a></li>
@@ -126,7 +124,6 @@ const Category = () => {
     <div className="collection-collapse-block-content">
         <div className="collection-brand-filter">
             <ul className="category-list">
-                <li><a href={null} onClick={() => updateCategory("all")}>Afficher tous</a></li>
                <li><p className="font-weight-bold">Furniture</p></li>
                 <li><a href={null} onClick={() => updateCategory("chairs")}>chaises</a></li>
                 <li><a href={null} onClick={() => updateCategory("Tables")}>Tables</a></li>
@@ -150,7 +147,7 @@ const Category = () => {
 </Collapse>
 </div>
 
-):  (( catg === 'digitalcameras') || (catg === 'securitycameras')|| (catg === 'Caccessories')|| (catg === 'headphonesnearphones ')|| (catg === 'speakers')
+):  (( catg === 'digitalcameras') || (catg === 'securitycameras')|| (catg === 'Caccessories')|| (catg === 'headphonesnearphones')|| (catg === 'speakers')
 || (catg === 'radios')|| (catg === 'desktopC')|| (catg === 'laptops')  ) ? 
 ( <div className="collection-collapse-block open">
 <h3 className="collapse-block-title" onClick={toggleCategory}>Category</h3>
@@ -158,7 +155,7 @@ const Category = () => {
     <div className="collection-collapse-block-content">
         <div className="collection-brand-filter">
             <ul className="category-list">
-                <li><a href={null} onClick={() => updateCategory("all")}>Afficher Tous</a></li>
+                
                <li><p className="font-weight-bold">Cameras</p></li>
                 <li><a href={null} onClick={() => updateCategory("digitalcameras")}>Digital cameras</a></li>
                 <li><a href={null} onClick={() => updateCategory("securitycameras")}>Security cameras</a></li>
@@ -196,7 +193,6 @@ const Category = () => {
     <div className="collection-collapse-block-content">
         <div className="collection-brand-filter">
             <ul className="category-list">
-                <li><a href={null} onClick={() => updateCategory("all")}>Afficher tous </a></li>
                <li><p className="font-weight-bold">épicerie</p></li>
                <li><a href={null} onClick={() => updateCategory("fruits")}>Fruit</a></li>
                 <li><a href={null} onClick={() => updateCategory("vegetables")}>vegetables</a></li>
@@ -220,7 +216,6 @@ const Category = () => {
     <div className="collection-collapse-block-content">
         <div className="collection-brand-filter">
             <ul className="category-list">
-                <li><a href={null} onClick={() => updateCategory("all")}>all products</a></li>
                 <li><p className="font-weight-bold">Animaux</p></li>
                  <li><a href={null} onClick={() => updateCategory("treats")}>Friandises</a></li>
                 <li><a href={null} onClick={() => updateCategory("phealthsupplies")}>Suppléments de santé</a></li>
@@ -247,7 +242,6 @@ const Category = () => {
     <div className="collection-collapse-block-content">
         <div className="collection-brand-filter">
             <ul className="category-list">
-                <li><a href={null} onClick={() => updateCategory("all")}>Afficher tous</a></li>
                 <li><p className="font-weight-bold">Outils</p></li>
                 <li><a href={null} onClick={() => updateCategory("bsupplies")}>Materiaux de construction</a></li>
                 <li><a href={null} onClick={() => updateCategory("electrical")}>Materiel electrique</a></li>
@@ -273,7 +267,6 @@ const Category = () => {
     <div className="collection-collapse-block-content">
         <div className="collection-brand-filter">
             <ul className="category-list">
-                <li><a href={null} onClick={() => updateCategory("all")}>Afficher tous</a></li>
                 <li><p className="font-weight-bold">Fitness</p></li>
                 <li><a href={null} onClick={() => updateCategory("proteinbars")}>barres protéinées</a></li>
                 <li><a href={null} onClick={() => updateCategory("wsupplies")}>Pré & post entraînement</a></li>

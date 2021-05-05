@@ -14,6 +14,7 @@ import { CurrencyContext } from '../../helpers/Currency/CurrencyContext';
 import { useQuery } from '@apollo/react-hooks';
 import jwtDecode from 'jwt-decode';
 import { useHistory } from "react-router-dom";
+import Link from 'next/link';
 
 
 
@@ -58,7 +59,9 @@ const OrderSuccess2 = (props) => {
         <Table style={{padding: "0 30px", marginBottom: "0", backgroundColor: "#fff",  boxShadow: "0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353)", width: "100%"}} borderless className="email-template-table" cellPadding="0" cellSpacing="0">
             <tbody>
                 <tr>
+                    
                     <td>
+                        <Link href='/'>Retour a la page d'accueil</Link>
                         <Table align="left" border="0" cellPadding="0" cellSpacing="0" style={{ textAlign: "left" }} width="100%">
                             <tbody>
                                 <tr>
@@ -120,7 +123,7 @@ const OrderSuccess2 = (props) => {
                                         <h5 style={{ fontSize: "14px", color: "#444", marginTop: "10px" }}>QTY : <span>{item.qty}</span></h5>
                                     </td>
                                     <td valign="top" style={{ paddingLeft: "15px" }}>
-                                        <h5 style={{ fontSize: "14px", color: "#444", marginTop: "15px" }}><b>{item.price}{symbol}</b></h5>
+                                        <h5 style={{ fontSize: "14px", color: "#444", marginTop: "15px" }}><b> {(item.price - (item.price * item.discount / 100)) * item.qty} {symbol}</b></h5>
                                     </td>
                                    
                                
@@ -133,26 +136,19 @@ const OrderSuccess2 = (props) => {
                                         <p style={{ fontSize: "14px" }}>Subtotal : </p>
                                     </td>
                                     <td className="m-t-5" colSpan={2} align="right">
-                                        <b>{symbol}{cartTotal}</b>
+                                        <p>{symbol}{cartTotal}</p>
                                     </td>
                                 </tr>
                                 
                                 <tr className="pad-left-right-space">
                                     <td colSpan={2} align="left">
-                                        <p style={{ fontSize: "14px" }}>SHIPPING Charge :</p>
+                                        <p style={{ fontSize: "14px" }}>Livraison :</p>
                                     </td>
                                     <td colSpan={2} align="right">
-                                        <b>gratuit</b>
+                                        <p>gratuite</p>
                                     </td>
                                 </tr>
-                                <tr className="pad-left-right-space">
-                                    <td colSpan={2} align="left">
-                                        <p style={{ fontSize: "14px" }}>Discount :</p>
-                                    </td>
-                                    <td colSpan={2} align="right">
-                                        <b> {cartItems.discount}</b>
-                                    </td>
-                                </tr>
+                               
                                 <tr className="pad-left-right-space ">
                                     <td className="m-b-5" colSpan={2} align="left">
                                         <p style={{ fontSize: "14px" }}>Total :</p>
@@ -178,21 +174,16 @@ const OrderSuccess2 = (props) => {
                                 <tbody>
                                     <tr style={{ display: "flex", width: "100%", justifyContent: "center" }}>
                                         <td>
-                                            <a href="www.facebook.com/1onepack/"><img src={facebook} alt="" /></a>
+                                            <Link href="www.facebook.com/1onepack/"><img src={facebook} alt="" /></Link>
                                         </td>
-                                        <td>
-                                            <a href="#"><img src={youtube} alt="" /></a>
-                                        </td>
-                                        
+                                                                                
                                         <td>
                                             <a href="#"><img src={gplus} alt="" /></a>
                                         </td>
                                         <td>
-                                            <a href="#"><img src={linkdin} alt="" /></a>
+                                            <Link href="https://www.linkedin.com/company/onepack"><img src={linkdin} alt="" /></Link>
                                         </td>
-                                        <td>
-                                            <a href="#"><img src={pinterest} alt="" /></a>
-                                        </td>
+                                       
                                     </tr>
                                 </tbody>
                             </Table>

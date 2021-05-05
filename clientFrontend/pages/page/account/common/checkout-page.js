@@ -114,7 +114,8 @@ const CheckoutPage = () => {
       } 
     
  
-    return (
+    const checkout = initialState.user ?
+    (
 
         <section className="section-b-space">
             <Container>
@@ -211,9 +212,11 @@ const CheckoutPage = () => {
                 </div>
             </Container>
         </section>
-    )
-    
+    ) :
 
+    <Page404 />
+    
+return(checkout)
 
 }
 
