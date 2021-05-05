@@ -28,7 +28,6 @@ const CartProvider = (props) => {
   const [stock, setStock] = useState('InStock');
   const test = localStorage.getItem('cartList');
 
-  console.log(cartItems)
   
   
     const initialState = {
@@ -45,15 +44,8 @@ const CartProvider = (props) => {
     } 
   
   var userID= null;
-  if(initialState.user)
-  {userID=initialState.user.id}
-  else{userID=null}
-
+  if(initialState.user){userID=initialState.user.id}
   
-
-  
-
-  console.log(userID)
 
   const { loading,error,  data:orders } =  useQuery(FIND_ORDER, {
     variables: {
@@ -61,6 +53,13 @@ const CartProvider = (props) => {
         id:userID
     }
 });
+
+
+  
+
+
+
+  
 
  
   
@@ -78,7 +77,7 @@ const CartProvider = (props) => {
           var orderTest= null
           for(i=0;i<orders.findOrder.items.length;i++){
              orderTest = orders.findOrder.items[i]
-            cartOrders[i]=  { ...orderTest, qty: 1, total: orderTest.price }
+            cartOrders[i]=  { ...orderTest, qty: 1, total: 200 }
             
           }
           //
@@ -103,7 +102,7 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
     setCartTotal(Total);
     localStorage.setItem('cartList', JSON.stringify(cartItems))
     console.log('here in useeffect')
-
+   
    
   }, [cartItems])
 
@@ -115,7 +114,7 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
   const addToCart = (item ,quantity) => {
     
     if (userID){
-      toast.success("added with user !");
+      toast.success("Produit ajouté!");
 
       addItem({
 
@@ -201,6 +200,10 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
     }
   }
 
+   const resetcart = () => {
+     if(localStorage.getItem('cartList').length==0)
+     {console.log('it works')}
+   }
   const { value } = props;
   return (
     <Context.Provider
@@ -211,7 +214,8 @@ const [deleteItem, { data:deleted }] = useMutation(DELETE_ITEM);
         removeFromCart: removeFromCart,
         plusQty: plusQty,
         minusQty:minusQty,
-        updateQty:updateQty
+        updateQty:updateQty,
+        resetcart:resetcart
       }}
     >
       {props.children}

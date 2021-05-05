@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Row, Col, Media } from 'reactstrap';
-import banner5 from '../../../../public/assets/images/fashion/banner/5.jpg';
-import banner10 from '../../../../public/assets/images/fashion/banner/10.jpg';
-import banner9 from '../../../../public/assets/images/fashion/banner/9.jpg';
-import banner8 from '../../../../public/assets/images/fashion/banner/8.jpg';
+import banner5 from '../../../../public/assets/images/pro/25.jpg';
+import banner10 from '../../../../public/assets/images/pro/15.jpg';
+import banner9 from '../../../../public/assets/images/pro/55.jpg';
+import banner8 from '../../../../public/assets/images/pro/56.jpg';
 
 
 const Collections = () => (
@@ -11,7 +11,7 @@ const Collections = () => (
         <Container fluid={true}>
             <Row className="partition4">
                 <Col lg="3" md="6">
-                    <a href="/shop/left_sidebar?&category=Fall&brand=&color=&size=&minPrice=0&maxPrice=500">
+                    <a href="/shop/left_sidebar?&category=Dresses&brand=&color=&size=&minPrice=0&maxPrice=500">
                         <div className="collection-banner p-right text-right">
                             <div className="img-part">
                                 <Media src={banner5}
@@ -42,7 +42,7 @@ const Collections = () => (
                     </a>
                 </Col>
                 <Col lg="3" md="6">
-                    <a href="/shop/left_sidebar?&category=treats&brand=&color=&size=&minPrice=0&maxPrice=500">
+                    <a href="/shop/left_sidebar?&category=desktopC&brand=&color=&size=&minPrice=0&maxPrice=500">
                         <div className="collection-banner p-right">
                             <div className="img-part">
                                 <Media src={banner8}
@@ -51,7 +51,7 @@ const Collections = () => (
                             <div className="contain-banner banner-4">
                                 <div>
                                     <h4>60%</h4>
-                                    <h2>Fitness</h2>
+                                    <h2>Electronics</h2>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@ const Collections = () => (
                             <div className="contain-banner banner-4">
                                 <div>
                                     <h4>60%</h4>
-                                    <h2>Animaux</h2>
+                                    <h2>Camera</h2>
                                 </div>
                             </div>
                         </div>

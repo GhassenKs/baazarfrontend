@@ -6,32 +6,29 @@ import {AuthContext} from '../../../context/auth';
 import jwtDecode from 'jwt-decode';
 import Link from 'next/link';
 import { Redirect } from 'react-router-dom';
+import UserContext from '../../../helpers/user/userContext'
 
-var test = null
 
-const Dashboard = async () => {
+const Dashboard = () => {
     const {user,logout}=useContext(AuthContext);
     const router = useRouter();
     const [accountInfo,setAccountInfo] = useState(false)
-    if(!test){
-        await router.back()
-    } 
+ 
     const initialState = {
         user: null
-        };
-        if (localStorage.getItem('jwtToken')) {
+    }
+    if (localStorage.getItem('jwtToken')) {
         const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
-        
-        if (decodedToken.exp * 1000 < Date.now()) {
-            localStorage.removeItem('jwtToken');
-        } else {
+      
+          if (decodedToken.exp * 1000 < Date.now()) {
+          localStorage.removeItem('jwtToken');
+          } else {
             initialState.user = decodedToken;
-            
-        }
-        }
+      }
+      }
 
 
-    const accountDash = initialState.user ?(
+   return(
         <CommonLayout parent="home" title="dashboard">
         <section className="section-b-space">
             <Container>
@@ -49,7 +46,7 @@ const Dashboard = async () => {
                             <div className="block-content">
                                 <ul>
                                     <li className="active"><a href="#">Information</a></li>
-                                    <li><a href={'/page/account/cart'}>Mes commandes</a></li>
+                                    <li><a href={'/page/account/order'}>Mes commandes</a></li>
                                     <li><Link href={'/page/account/wishlist'}>Liste de souhaits</Link></li>
                                     <li><Link href={'/page/account/changepwd'}>Changer mot de passe</Link></li>
                                     <li className="last"><a href="#" onClick={() => localStorage.removeItem('jwtToken')}>Deconnexion</a></li>
@@ -78,7 +75,7 @@ const Dashboard = async () => {
                                                     <h3>Contacte</h3><Link href={'/page/account/profile'}>Modifier</Link>
                                                 </div>
                                                 <div className="box-content">
-                                                    <h6>{initialState.user.firstName} {initialState.user.lastName}</h6>
+                                                    <h6>{initialState.user.firstName} {initialState.user.firstName}</h6>
                                                     <h6>{initialState.user.email}</h6>
                                                     <h6>{initialState.user.phone}</h6>
                                                     <h6><a href="#">Changer mot de passe</a></h6>
@@ -105,12 +102,12 @@ const Dashboard = async () => {
                                             </div>
                                             <Row>
                                                 <Col sm="6">
-                                                    <h6>Default Billing Address</h6>
+                                                    <h6>Addresse par defaut </h6>
                                                     <address>{initialState.user.address}<br /></address>
                                                 </Col>
                                                 <Col sm="6">
-                                                    <h6>Default Shipping Address</h6>
-                                                    <address>You have not set a default shipping address.<br /></address>
+                                                    <h6>Addresse de livraison par default</h6>
+                                                    <address>{initialState.user.address}<br /></address>
                                                 </Col>
                                             </Row>
                                         </div>
@@ -123,14 +120,9 @@ const Dashboard = async () => {
             </Container>
         </section>
     </CommonLayout>
-    ):
-
-       <Redirect to='/page/account/login'/>
-       
-    
-    return (
-        accountDash
     )
+
+       
    
 }
 

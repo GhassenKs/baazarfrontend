@@ -10,6 +10,7 @@ import {AuthContext} from '../../../context/auth';
 import Link from 'next/link';
 import { Redirect } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
+import Page404 from '../../../helpers/page404'
 
 
 function Login (  )  {
@@ -57,7 +58,7 @@ function Login (  )  {
     
     const log = initialState.user ?
 
-    <Redirect to="/" />
+    <Page404 />
  
      
 

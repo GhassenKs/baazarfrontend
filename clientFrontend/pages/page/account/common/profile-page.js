@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Form, Input, Label, Col } from 'reactstrap';
 import jwtDecode from 'jwt-decode';
-import Page404 from '../../../404'
+import Page404 from '../../../../helpers/page404'
 import { Redirect } from 'react-router-dom';
 
 
@@ -11,6 +11,7 @@ const ProfilePage = () => {
     const initialState = {
         user: null
       };
+      
       if (localStorage.getItem('jwtToken')) {
         const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
       
@@ -20,6 +21,7 @@ const ProfilePage = () => {
           initialState.user = decodedToken;
         }
       }
+
       const profile = initialState.user ? 
     ( 
         <>
