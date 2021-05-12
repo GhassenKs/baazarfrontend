@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react'
 import User_panel from './user-panel';
 import { Link } from 'react-router-dom';
 import { MENUITEMS } from '../../../constants/menu';
-
+import { MENUITEMSEMP } from '../../../constants/menuEmp';
+import { MENUITEMSAD } from '../../../constants/menuAdmin';
 // image import
 import logo from '../../../assets/images/dashboard/multikart-logo.png'
 export class sidebar extends Component {
@@ -11,11 +12,27 @@ export class sidebar extends Component {
     onItemSelection = (arg, e) => {
         this.setState({ selectedPath: arg.path });
     };
-
+    
     componentWillMount() {
-        this.setState({
-            mainmenu: MENUITEMS
-        })
+        const infos=JSON.parse(localStorage.getItem('profile'))
+        
+        if(infos?.result.role=="super"){
+            this.setState({
+                mainmenu: MENUITEMS
+            })
+        }
+        if(infos?.result.role=="admin"){
+            this.setState({
+                mainmenu: MENUITEMSAD
+            })
+        }
+        if(infos?.result.role=="employee"){
+            this.setState({
+                mainmenu: MENUITEMSEMP
+            })
+        }
+
+        
     }
     componentDidMount() {
         var currentUrl = window.location.pathname;
@@ -39,34 +56,97 @@ export class sidebar extends Component {
     }
 
     setNavActive(item) {
-
-        MENUITEMS.filter(menuItem => {
-            if (menuItem != item)
-                menuItem.active = false
-            if (menuItem.children && menuItem.children.includes(item))
-                menuItem.active = true
-            if (menuItem.children) {
-                menuItem.children.filter(submenuItems => {
-                    if (submenuItems != item) {
-                        submenuItems.active = false
-                    }
-                    if (submenuItems.children) {
-                        submenuItems.children.map(childItem => {
-                            childItem.active = false;
-                        })
-                        if (submenuItems.children.includes(item)) {
-                            submenuItems.active = true
-                            menuItem.active = true
+        const infos=JSON.parse(localStorage.getItem('profile'))
+        
+        if(infos.result.role=="super"){
+            MENUITEMS.filter(menuItem => {
+                if (menuItem != item)
+                    menuItem.active = false
+                if (menuItem.children && menuItem.children.includes(item))
+                    menuItem.active = true
+                if (menuItem.children) {
+                    menuItem.children.filter(submenuItems => {
+                        if (submenuItems != item) {
+                            submenuItems.active = false
                         }
-                    }
-                })
-            }
-        })
-        item.active = !item.active
+                        if (submenuItems.children) {
+                            submenuItems.children.map(childItem => {
+                                childItem.active = false;
+                            })
+                            if (submenuItems.children.includes(item)) {
+                                submenuItems.active = true
+                                menuItem.active = true
+                            }
+                        }
+                    })
+                }
+            })
+            item.active = !item.active
+    
+            this.setState({
+                mainmenu: MENUITEMS
+            })
+        }
+        if(infos.result.role=="admin"){
+            MENUITEMSAD.filter(menuItem => {
+                if (menuItem != item)
+                    menuItem.active = false
+                if (menuItem.children && menuItem.children.includes(item))
+                    menuItem.active = true
+                if (menuItem.children) {
+                    menuItem.children.filter(submenuItems => {
+                        if (submenuItems != item) {
+                            submenuItems.active = false
+                        }
+                        if (submenuItems.children) {
+                            submenuItems.children.map(childItem => {
+                                childItem.active = false;
+                            })
+                            if (submenuItems.children.includes(item)) {
+                                submenuItems.active = true
+                                menuItem.active = true
+                            }
+                        }
+                    })
+                }
+            })
+            item.active = !item.active
+    
+            this.setState({
+                mainmenu: MENUITEMSAD
+            })
+        }
+        if(infos.result.role=="employee"){
+            MENUITEMSEMP.filter(menuItem => {
+                if (menuItem != item)
+                    menuItem.active = false
+                if (menuItem.children && menuItem.children.includes(item))
+                    menuItem.active = true
+                if (menuItem.children) {
+                    menuItem.children.filter(submenuItems => {
+                        if (submenuItems != item) {
+                            submenuItems.active = false
+                        }
+                        if (submenuItems.children) {
+                            submenuItems.children.map(childItem => {
+                                childItem.active = false;
+                            })
+                            if (submenuItems.children.includes(item)) {
+                                submenuItems.active = true
+                                menuItem.active = true
+                            }
+                        }
+                    })
+                }
+            })
+            item.active = !item.active
+    
+            this.setState({
+                mainmenu: MENUITEMSEMP
+            })
+        }
 
-        this.setState({
-            mainmenu: MENUITEMS
-        })
+        
 
 
     }

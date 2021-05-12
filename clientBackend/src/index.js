@@ -29,13 +29,10 @@ import thunk from "redux-thunk"
 //Sales
 import Orders from './components/sales/orders';
 import Transactions_sales from './components/sales/transactions-sales';
-//Coupons
-import ListCoupons from './components/coupons/list-coupons';
-import Create_coupons from './components/coupons/create-coupons';
+
 
 //Pages
-import ListPages from './components/pages/list-page';
-import Create_page from './components/pages/create-page';
+
 import Media from './components/media/media';
 import List_menu from './components/menus/list-menu';
 import Create_menu from './components/menus/create-menu';
@@ -68,29 +65,25 @@ class Root extends Component {
                             <Route path={`${process.env.PUBLIC_URL}/dashboard`} component={Dashboard} />
                                 
                             <Route path={`${process.env.PUBLIC_URL}/products/physical/category`} component={Category} />
-                            <Route path={`${process.env.PUBLIC_URL}/products/physical/sub-category`} component={Sub_category} />
+                           
                             <Route path={`${process.env.PUBLIC_URL}/products/physical/product-list`} component={Product_list} />
-                            <Route path={`${process.env.PUBLIC_URL}/products/physical/product-detail`} component={Product_detail} />
                             <Route path={`${process.env.PUBLIC_URL}/products/physical/add-product`} component={Add_product} />
 
                             <Route path={`${process.env.PUBLIC_URL}/products/digital/digital-category`} component={Digital_category} />
-                            <Route path={`${process.env.PUBLIC_URL}/products/digital/digital-sub-category`} component={Digital_sub_category} />
+                           
                             <Route path={`${process.env.PUBLIC_URL}/products/digital/digital-product-list`} component={Digital_pro_list} />
                             <Route path={`${process.env.PUBLIC_URL}/products/digital/digital-add-product`} component={Digital_add_pro} />
 
                             <Route path={`${process.env.PUBLIC_URL}/sales/orders`} component={Orders} />
                             <Route path={`${process.env.PUBLIC_URL}/sales/transactions`} component={Transactions_sales} />
 
-                            <Route path={`${process.env.PUBLIC_URL}/coupons/list-coupons`} component={ListCoupons} />
-                            <Route path={`${process.env.PUBLIC_URL}/coupons/create-coupons`} component={Create_coupons} />
+                        
 
-                            <Route path={`${process.env.PUBLIC_URL}/pages/list-page`} component={ListPages} />
-                            <Route path={`${process.env.PUBLIC_URL}/pages/create-page`} component={Create_page} />
+                            
 
                             <Route path={`${process.env.PUBLIC_URL}/media`} component={Media} />
 
-                            <Route path={`${process.env.PUBLIC_URL}/menus/list-menu`} component={List_menu} />
-                            <Route path={`${process.env.PUBLIC_URL}/menus/create-menu`} component={Create_menu} />
+                           
 
                             <Route path={`${process.env.PUBLIC_URL}/users/list-user`} component={List_user} />
                             <Route path={`${process.env.PUBLIC_URL}/users/create-user`} component={Create_user} />
@@ -98,10 +91,7 @@ class Root extends Component {
                             <Route path={`${process.env.PUBLIC_URL}/vendors/list_vendors`} component={List_vendors} />
                             <Route path={`${process.env.PUBLIC_URL}/vendors/create-vendors`} component={Create_vendors} />
 
-                            <Route path={`${process.env.PUBLIC_URL}/localization/transactions`} component={Translations} />
-                            <Route path={`${process.env.PUBLIC_URL}/localization/currency-rates`} component={Rates} />
-                            <Route path={`${process.env.PUBLIC_URL}/localization/taxes`} component={Taxes} />
-
+                      
                             <Route path={`${process.env.PUBLIC_URL}/reports/report`} component={Reports} />
 
                             <Route path={`${process.env.PUBLIC_URL}/settings/profile`} component={Profile} />

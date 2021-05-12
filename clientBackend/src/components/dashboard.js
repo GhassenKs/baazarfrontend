@@ -25,7 +25,19 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 
 export class Dashboard extends Component {
+    componentWillMount() {
+        
+        const infos=JSON.parse(localStorage.getItem('profile'))
+        
+        if(!infos){
+            const { history } = this.props
+           
+            this.props.history.push(`${process.env.PUBLIC_URL}/`);
+        }
+        
 
+        
+    }
     render() {
 
         const lineData = {

@@ -15,10 +15,14 @@ export class Category extends Component {
     onOpenModal = () => {
         this.setState({ open: true });
     };
-
+    componentDidMount(){
+        console.log("i was mounted")
+        console.log(data)
+    }
     onCloseModal = () => {
         this.setState({ open: false });
     };
+    
 
     render() {
         const { open } = this.state;

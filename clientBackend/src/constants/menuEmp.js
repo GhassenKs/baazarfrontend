@@ -12,7 +12,7 @@ import {
     BarChart,Settings,Archive, LogIn
 } from 'react-feather';
 
-export const MENUITEMS = [
+export const MENUITEMSEMP = [
     {
         path: '/dashboard', title: 'Dashboard', icon: Home, type: 'link', badgeType: 'primary', active: false
     },
@@ -37,12 +37,16 @@ export const MENUITEMS = [
             },
         ]
     },
+    
+    
     {
         title: 'Sales', icon: DollarSign, type: 'sub', active: false, children: [
             { path: '/sales/orders', title: 'Orders', type: 'link' },
             { path: '/sales/transactions', title: 'Transactions', type: 'link' },
         ]
     },
+    
+    
     /**
      * {
         title: 'Coupons', icon: Tag, type: 'sub', active: false, children: [
@@ -60,6 +64,7 @@ export const MENUITEMS = [
     {
         title: 'Media', path: '/media', icon: Camera, type: 'link', active: false
     },
+    
     /**
      * {
         title: 'Menus', icon: AlignLeft, type: 'sub', active: false, children: [
@@ -68,18 +73,7 @@ export const MENUITEMS = [
         ]
     },
      */
-    {
-        title: 'Users', icon: UserPlus, type: 'sub', active: false, children: [
-            { path: '/users/list-user', title: 'User List', type: 'link' },
-            { path: '/users/create-user', title: 'Create User', type: 'link' },
-        ]
-    },
-    {
-        title: 'Employees', icon: Users, type: 'sub', active: false, children: [
-            { path: '/vendors/list_vendors', title: 'List employees', type: 'link' },
-            { path: '/vendors/create-vendors', title: 'Create Employee', type: 'link' },
-        ]
-    },
+    
     /**
      * {
         title: 'Localization', icon: Chrome, type: 'sub', children: [
@@ -89,17 +83,13 @@ export const MENUITEMS = [
         ]
     },
      */
-    {
-        title: 'Reports',path:'/reports/report', icon: BarChart, type: 'link', active: false
-    },
+  
     {
         title: 'Settings', icon: Settings, type: 'sub', children: [
             { path: '/settings/profile', title: 'Profile', type: 'link' },
         ]
     },
-    {
-        title: 'Invoice',path:'/invoice', icon: Archive, type: 'link', active: false
-    },
+   
     {
         title: 'Logout',path:'/auth/login', icon: LogIn, type: 'link', active: false
     }
