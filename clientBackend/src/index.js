@@ -20,6 +20,11 @@ import Digital_category from './components/products/digital/digital-category';
 import Digital_sub_category from './components/products/digital/digital-sub-category';
 import Digital_pro_list from './components/products/digital/digital-pro-list';
 import Digital_add_pro from './components/products/digital/digital-add-pro';
+import authReducer from './reducers/authReducer' 
+import {createStore,applyMiddleware } from "redux"
+import { Provider } from 'react-redux';
+import thunk from "redux-thunk" 
+
 
 //Sales
 import Orders from './components/sales/orders';
@@ -47,6 +52,7 @@ import Invoice from './components/invoice';
 import Datatable from './components/common/datatable'
 import Login from './components/auth/login';
 
+const store = createStore(authReducer, applyMiddleware(thunk));
 
 
 class Root extends Component {
@@ -112,6 +118,6 @@ class Root extends Component {
     }
 }
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><Root /></Provider>, document.getElementById('root'));
 
 

@@ -95,6 +95,6 @@ export const MENUITEMS = [
         title: 'Invoice',path:'/invoice', icon: Archive, type: 'link', active: false
     },
     {
-        title: 'Login',path:'/auth/login', icon: LogIn, type: 'link', active: false
+        title: 'Logout',path:'/auth/login', icon: LogIn, type: 'link', active: false
     }
 ]

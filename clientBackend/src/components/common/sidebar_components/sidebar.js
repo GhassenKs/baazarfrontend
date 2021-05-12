@@ -5,7 +5,6 @@ import { MENUITEMS } from '../../../constants/menu';
 
 // image import
 import logo from '../../../assets/images/dashboard/multikart-logo.png'
-
 export class sidebar extends Component {
 
     state = { selectedPath: "1", mainmenu: [] };
@@ -74,7 +73,7 @@ export class sidebar extends Component {
 
     render() {
         const theme = {
-            selectionColor: "#C51162"
+            selectionColor: "#1785eb"
         };
 
         const mainmenu = this.state.mainmenu.map((menuItem, i) =>

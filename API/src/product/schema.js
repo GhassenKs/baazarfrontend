@@ -165,6 +165,15 @@ const typeDefs = `
       city:String
       token:String!
     }
+    type Admin{
+      id:ID!
+      firstName:String!
+      lastName:String!
+      email:String!
+      password:String!
+      role:String!
+      token:String!
+    }
     ##-----------------adding orders typeDefinitions 
     type Order{
       id:ID!
@@ -194,6 +203,14 @@ const typeDefs = `
       address:String
       zip:String
       city:String
+    }
+    input RegisterAdminInput{
+      firstName:String!
+      lastName:String!
+      email:String!
+      password:String!
+      role:String!
+      
     }
     
      type Query {
@@ -232,6 +249,7 @@ const typeDefs = `
     # }
     type Mutation {
       register(registerInput:RegisterInput):User!
+      registerAdmin(registerAdminInput:RegisterAdminInput):Admin!
       login(email:String!,password:String!): User!
       updateUser(firstName:String,lastName:String,email:String,phone:String,address:String,city:String,zip:String):User!
       #createproduit(title:String,price:String):Produit!

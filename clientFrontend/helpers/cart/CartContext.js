@@ -28,8 +28,8 @@ const CartProvider = (props) => {
   const [stock, setStock] = useState('InStock');
   const test = localStorage.getItem('cartList');
 
-  
-  
+   
+    //
     const initialState = {
       user: null
     };
@@ -55,7 +55,7 @@ const CartProvider = (props) => {
 });
 //--------------cart initialization
   if (error) {console.log(error)}
-  const test = localStorage.getItem('cartList');
+  
   if(test){
     if (JSON.parse(test).length==0) {
       

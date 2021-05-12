@@ -1,5 +1,6 @@
 const User = require('../../models/user')
 const Order = require ('../../models/order')
+const Admin = require ('../../models/admin')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {validateRegisterInput,validateLoginInput}= require('../util/validators')
@@ -139,7 +140,47 @@ const newOrder = new Order({
             
 
 
-          }
+          },
+          async registerAdmin(_,{registerAdminInput:{firstName,lastName,email,password,role}},context,info){
+   
+            const {valid,errors}=validateRegisterInput(firstName,lastName,email,password);
+            if(!valid){
+                throw new UserInputError('Errors',{errors}) ;
+                 
+            }
+  
+            const user = await Admin.findOne({email});
+            if(user){
+              throw new UserInputError('email is taken',{
+                  errors:{
+                      email:"this email is taken"
+                  }
+              })
+            }
+            
+          
+            password = await bcrypt.hash(password,12);
+            const newUser = new Admin({
+                firstName,
+                lastName,
+                email,
+                password,
+                role
+                
+            });
+
+            const res = await newUser.save();
+            console.log("workiiiiing")
+            console.log(newUser)
+            const token = generateToken(res);
+            
+            return {
+                ...res._doc,
+                id:res._id,
+                token
+            }
+
+        }
 
       }
 }

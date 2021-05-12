@@ -29,7 +29,7 @@ export class Login extends Component {
                                         <Slider className="single-item" {...settings}>
                                             <div>
                                                 <div>
-                                                    <h3>Welcome to Multikart</h3>
+                                                    <h3>Welcome to Baazar</h3>
                                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
                                                 </div>
                                             </div>

@@ -2,6 +2,10 @@ const typeDefs = require('./src/product/schema');
 const resolvers = require('./src/resolvers');
 const {ApolloServer,gql} = require('apollo-server-express');
 const {  PubSub } = require('apollo-server');
+
+
+const usersRoute = require('./src/controllers/admin')
+const productsRoute = require('./src/controllers/products')
 //------------------------------------------------------------------------------------------
 
 
@@ -23,6 +27,15 @@ const bodyParser = require("body-parser");
 const pubsub = new PubSub();
 
 const app = express();
+app.use(bodyParser.json({ limit: '30mb', extended: true }))
+app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
+app.use(cors());
+app.use('/admin',usersRoute)
+app.use('/products',productsRoute)
+app.get("/",(req,res)=>{
+  res.send("welcome to my server ..")
+})
+
 const startServer = async () =>{
 
   
@@ -35,6 +48,7 @@ const startServer = async () =>{
   })
   
   server.applyMiddleware({app});
+
   await mongoose.connect('mongodb+srv://ghassen:ghassen@cluster0.csfj6.mongodb.net/BAZAAR?retryWrites=true&w=majority', 
   {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{console.log(String.fromCodePoint(0x1F480) +' DATABASE CONNECTED  ');});
   app.listen({ port: 4000 }, () =>

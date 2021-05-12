@@ -3,7 +3,7 @@ import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+ 
 
 export class Datatable extends Component {
     constructor(props) {
@@ -13,6 +13,7 @@ export class Datatable extends Component {
             myData: this.props.myData
         }
     }
+    
 
     selectRow = (e, i) => {
         if (!e.target.checked) {
@@ -30,12 +31,14 @@ export class Datatable extends Component {
     handleRemoveRow = () => {
         const selectedValues = this.state.checkedValues;
         const updatedData = this.state.myData.filter(function (el) {
+            
             return selectedValues.indexOf(el.id) < 0;
         });
         this.setState({
             myData: updatedData
         })
-        toast.success("Successfully Deleted !")
+        toast.success("Successfully Deleted ")
+        
     };
 
     renderEditable = (cellInfo) => {
@@ -138,7 +141,8 @@ export class Datatable extends Component {
                                     data.splice(row.index, 1);
                                     this.setState({ myData: data });
                                 }
-                                toast.success("Successfully Deleted !")
+                                toast.success("Successfully Deleted ")
+                                console.log(myData)
 
                             }}>
                                 <i className="fa fa-trash" style={{ width: 35, fontSize: 20, padding: 11, color: '#e4566e' }}
