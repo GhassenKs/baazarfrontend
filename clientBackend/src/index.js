@@ -98,7 +98,7 @@ class Root extends Component {
 
                             <Route path={`${process.env.PUBLIC_URL}/invoice`} component={Invoice} />
 
-                            <Route path={`${process.env.PUBLIC_URL}/data-table`} component={Datatable} />
+                            
 
                         </App>
                     </Switch>

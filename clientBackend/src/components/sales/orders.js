@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import Breadcrumb from '../common/breadcrumb';
 import data from '../../assets/data/orders';
-import Datatable from '../common/datatable'
-
+import DatatableOrders from '../common/datatableOrders'
+ 
 export class Orders extends Component {
 
     render() {
@@ -18,7 +18,7 @@ export class Orders extends Component {
                                     <h5>Manage Order</h5>
                                 </div>
                                 <div className="card-body order-datatable">
-                                <Datatable
+                                <DatatableOrders
                                             multiSelectOption={false}
                                             myData={data}
                                             pageSize={10}

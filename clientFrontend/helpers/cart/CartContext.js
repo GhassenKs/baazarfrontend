@@ -68,8 +68,8 @@ const CartProvider = (props) => {
           var i = 0
           var cartOrders= []
           var orderTest= null
-          for(i=0;i<orders.findOrder.items.length;i++){
-             orderTest = orders.findOrder.items[i]
+          for(i=0;i<orders.findOrder?.items.length;i++){
+             orderTest = orders.findOrder?.items[i]
             cartOrders[i]=  { ...orderTest, qty: 1, total: 200 }
             
           }

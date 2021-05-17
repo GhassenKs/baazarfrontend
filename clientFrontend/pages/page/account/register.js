@@ -11,7 +11,6 @@ import { useRouter } from 'next/router';
 import {AuthContext} from '../../../context/auth';
 import { Redirect } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
-import Page404 from '../../../helpers/page404'
 //-------------------------------
 
 function Register() {
@@ -70,8 +69,7 @@ function Register() {
 
     const reg = initialState.user ? (
     
-     <Page404 />
-
+     <Redirect to="/" />
     ) : (
     <CommonLayout parent="home" title="register">
     <section className="register-page section-b-space">
@@ -159,7 +157,6 @@ function Register() {
                                           placeholder="Entrez votre code postal" required="" />
                                         
                                 <button type="submit" className="btn btn-solid" >Créez un compte</button>
-                              
 
                                 </Col>
                             </Row>
@@ -173,7 +170,6 @@ function Register() {
 )
 return(reg)
 }
-export default Register;
 const REGISTER_USER = gql`
   mutation register(
     $firstName: String!
@@ -181,9 +177,7 @@ const REGISTER_USER = gql`
     $email: String!
     $password: String!
     $phone:String
-    $city:String
-    $address:String
-    $zip:String
+   
     
   ) {
     register(
@@ -195,5 +189,21 @@ const REGISTER_USER = gql`
         phone: $phone
       }
     )
+    
+      {
+      id
+      email
+      firstName
+      lastName
+      password
+      token
+      phone
+      city
+      address
+      zip
     }
-    `
+    
+    }
+    ` 
+    
+export default withApollo(Register);

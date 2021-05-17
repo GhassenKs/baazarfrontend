@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Breadcrumb from '../common/breadcrumb';
 import data from '../../assets/data/listVendor';
-import Datatable from '../common/datatable'
+import DatatableAdmins from '../common/datatableAdmins'
 
 export class List_vendors extends Component {
     render() {
@@ -11,11 +11,11 @@ export class List_vendors extends Component {
                 <div className="container-fluid">
                     <div className="card">
                         <div className="card-header">
-                            <h5>Vendor Details</h5>
+                            <h5>Employees Details</h5>
                         </div>
                         <div className="card-body vendor-table coupon-list-delete">
-                            <Datatable
-                                multiSelectOption={true}
+                            <DatatableAdmins
+                                multiSelectOption={false}
                                 myData={data}
                                 pageSize={10}
                                 pagination={true}

@@ -55,7 +55,7 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
 
     var { loading, data } =  useQuery(GET_PRODUCTS, {
         variables: {
-            type: type,
+            type: "electronics",
             indexFrom: 0,
             limit: 10
         }
@@ -77,6 +77,7 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
     }, [delayProduct])
     return (
         <>
+     
             <section className={designClass}  >
                 {noSlider ?
                     <Container>

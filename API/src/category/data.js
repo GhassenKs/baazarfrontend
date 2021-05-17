@@ -4,7 +4,7 @@ const categoryData =  [
         img: 'product/10.jpg',
         title: "Fashion",
     },
-    {
+    { 
         id: 2,
         img: 'product/12.jpg',
         title: "Watches",

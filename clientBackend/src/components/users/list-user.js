@@ -2,11 +2,43 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom'
 import Breadcrumb from '../common/breadcrumb';
 import data from '../../assets/data/listUser';
-import Datatable from '../common/datatable'
+import DatatableUsers from '../common/datatableUsers';
+import axios from 'axios';
 
-
+  
 export class List_user extends Component {
+    state={
+        users:[]
+        
+    }
+    
+    componentDidUpdate= ()=>{
+         this.getAllAdmins()
+        
+    }
+    
+    getAllAdmins = ()=>{
+        axios.get('http://localhost:4000/admin/admins').then((response)=>{
+            console.log("data was retrieved successfully ")
+            const data = response.data.result;
+            const myData = [...data]
+            
+             this.setState({users:myData})
+            console.log(this.state.users)
+
+          
+            
+           
+
+        }).catch((Error)=>{
+            console.log(Error)
+            console.log("error fetching data ")
+            
+        })
+    }
     render() {
+        
+        console.log(this.state.users)
         return (
             <Fragment>
                 <Breadcrumb title="User List" parent="Users" />
@@ -21,8 +53,8 @@ export class List_user extends Component {
                             </div>
                             <div className="clearfix"></div>
                             <div id="batchDelete" className="category-table user-list order-table coupon-list-delete">
-                                <Datatable
-                                    multiSelectOption={true}
+                                <DatatableUsers
+                                    multiSelectOption={false}
                                     myData={data}
                                     pageSize={10}
                                     pagination={true}

@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
-export class Datatable extends Component {
+export class DatatableProducts extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -18,7 +18,7 @@ export class Datatable extends Component {
         console.log(this.props.myData)
     }
     getAllAdmins = ()=>{
-        axios.get('http://localhost:4000/admin/admins').then((response)=>{
+        axios.get('http://localhost:4000/products/products').then((response)=>{
             console.log("data was retrieved successfully ")
             const data = response.data.result;
             const myData = [...data]
@@ -67,6 +67,7 @@ export class Datatable extends Component {
     };
 
     renderEditable = (cellInfo) => {
+        
         return (
             <div
                 style={{ backgroundColor: "#fafafa" }}
@@ -76,6 +77,7 @@ export class Datatable extends Component {
                     const data = [...this.state.myData];
                     data[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
                     this.setState({ myData: data });
+                    
                 }}
                 dangerouslySetInnerHTML={{
                     __html: this.state.myData[cellInfo.index][cellInfo.column.id]
@@ -160,11 +162,11 @@ export class Datatable extends Component {
                     accessor: str => "delete",
                     Cell: (row) => (
                         <div>
-                            <span onClick={() => {
+                            <span onClick={ async() => {
                                 if (window.confirm('Are you sure you wish to delete this item?')) {
                                     let data = myData;
                                     data.splice(row.index, 1);
-                                    this.setState({ myData: data });
+                                   await this.setState({ myData: data });
                                     //handeling request
 
                                     console.log(row.original.id)
@@ -210,4 +212,4 @@ export class Datatable extends Component {
     }
 }
 
-export default Datatable
+export default DatatableProducts

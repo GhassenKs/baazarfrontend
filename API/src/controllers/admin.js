@@ -45,7 +45,7 @@ router.get( "/users", async(req,res)=>{
 })
 
 //end of READ all users API
-
+ 
 
 //start READ one user
 
@@ -59,15 +59,32 @@ router.get( "/user", async(req,res)=>{
 
 
 
+    } catch (Error) {
+        res.status(500).json({message:"something went wrong"})
+        console.log(Error)
+    }
+})
+//end
+//start delete User
+router.put( "/userDelete", async(req,res)=>{
+    const {email}= req.body;
+    try {
+        
+        const users = await User.findOneAndDelete({email});
+        console.log("i am deleting the admin " + req.body.email)
+        if(!users)return res.status(404).json({message:"there is no existing user"})
+        res.status(200).json({result:users});
+
+
+
     } catch (error) {
         res.status(500).json({message:"something went wrong"})
     }
 })
-//end
 
 //start CREATE  user admin
 router.post( "/user", async(req,res)=>{
-    const {firstName,lastName,email,pass,role}= req.body;
+    const {firstName,lastName,email,pass,role,id}= req.body;
     try {
         console.log(req.body)
          
@@ -83,7 +100,8 @@ router.post( "/user", async(req,res)=>{
                 lastName,
                 email,
                 password,
-                role
+                role,
+                id
                 
             });
 
@@ -132,12 +150,12 @@ router.put( "/user", async(req,res)=>{
 //end
 //start DELETE admin 
 
-router.put( "/userdelete", async(req,res)=>{
+router.put( "/adminDelete", async(req,res)=>{
     const {email}= req.body;
     try {
         
         const users = await Admin.findOneAndDelete({email});
-
+        console.log("i am deleting the admin " + req.body.email)
         if(!users)return res.status(404).json({message:"there is no existing user"})
         res.status(200).json({result:users});
 
@@ -150,8 +168,21 @@ router.put( "/userdelete", async(req,res)=>{
 
 
 //end
+//Read all admins 
+router.get( "/admins", async(req,res)=>{
+    
+    try {
+        await console.log("trying to get all users")
+        const users = await Admin.find({},{firstName:1,lastName:1,role:1});
+        if(!users)return res.status(404).json({message:"there is no existing user"})
+        res.status(200).json({result:users});
 
 
+
+    } catch (error) {
+        res.status(500).json({message:"something went wrong"})
+    }
+})
 
 
 module.exports = router

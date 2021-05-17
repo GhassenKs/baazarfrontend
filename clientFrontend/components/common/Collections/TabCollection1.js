@@ -57,7 +57,7 @@ const SpecialProducts = ({ type, fluid, designClass, cartClass, heading, noTitle
 
     var { loading, data } = useQuery(GET_PRODUCTS, {
         variables: {
-            type: activeTab,
+            type: "electronics", 
             indexFrom: 0,
             limit: 8
         }

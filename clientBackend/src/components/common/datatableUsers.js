@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
-export class Datatable extends Component {
+export class DatatableUsers extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -18,18 +18,13 @@ export class Datatable extends Component {
         console.log(this.props.myData)
     }
     getAllAdmins = ()=>{
-        axios.get('http://localhost:4000/admin/admins').then((response)=>{
+        axios.get('http://localhost:4000/admin/users').then((response)=>{
             console.log("data was retrieved successfully ")
             const data = response.data.result;
             const myData = [...data]
-            
             this.setState({myData:myData})
-   
-
-          
-            
            
-
+            
         }).catch((Error)=>{
             console.log(Error)
             console.log("error fetching data ")
@@ -167,8 +162,8 @@ export class Datatable extends Component {
                                     this.setState({ myData: data });
                                     //handeling request
 
-                                    console.log(row.original.id)
-                                    axios.put('http://localhost:4000/products/productDelete', { id: row.original.id }).then((response)=>{
+                                    console.log(row.original.email)
+                                    axios.put('http://localhost:4000/admin/userDelete', { email: row.original.email }).then((response)=>{
                                         console.log("data was retrieved  ")
                                     }).catch((Error)=>{
                                         console.log(Error)
@@ -210,4 +205,4 @@ export class Datatable extends Component {
     }
 }
 
-export default Datatable
+export default DatatableUsers

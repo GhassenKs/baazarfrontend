@@ -3,7 +3,8 @@ import Breadcrumb from '../../common/breadcrumb';
 import Modal from 'react-responsive-modal';
 import 'react-toastify/dist/ReactToastify.css';
 import data from '../../../assets/data/category';
-import Datatable from '../../common/datatable';
+import DatatableProducts from '../../common/datatableProducts';
+
 
 export class Category extends Component {
     constructor(props) {
@@ -65,7 +66,7 @@ export class Category extends Component {
                                     </div>
                                     <div className="clearfix"></div>
                                     <div id="basicScenario" className="product-physical">
-                                        <Datatable
+                                        <DatatableProducts
                                             multiSelectOption={false}
                                             myData={data} 
                                             pageSize={10} 

@@ -8,7 +8,7 @@ import user from '../images/dashboard/user.png'
 
 export const data = [
     {
-        id: "1",
+        id:"1",
         avtar: <img src={user5} style={{ width: 50, height: 50 }} />,
         f_name: "Rowan",
         l_name: "Torres",

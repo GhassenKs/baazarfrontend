@@ -1,5 +1,6 @@
 const express = require('express')
 const Product = require('../../models/produit')
+const Order = require('../../models/order')
 const router = express.Router();
 //START products CRUD system
 
@@ -26,31 +27,34 @@ router.get('/products',async (req,res)=>{
 //start of READ only one document per ID
 
 router.get('/product',async(req,res)=>{
-    console.log("i have been launched ")
-    const {id}=req.body
+  
+    
+    console.log("i am searching for a product " + req.query.id)
+    console.log(typeof req.query.id)
     try {
-        const produit= await Product.findOne({id:id});
+        const produit= await Product.findOne({id:req.query.id});
         if(!produit){
             return res.status(404).json({message:"there is no product with such id"})
         }
         res.status(200).json({result:produit})
+        
+        
     } catch (error) {
         console.log(error)
         return res.status(500).json({message:"Bad request"})
     }
 
-
 })
 //end
 
 //start of DELETE product
-router.put( "/orderDelete", async(req,res)=>{
-    const {id}= req.body;
+router.put( "/productDelete", async(req,res)=>{
+    
     try {
         
-        const produit = await Product.findOneAndDelete({id});
-
-        if(!produit)return res.status(404).json({message:"there is no existing user"})
+        const produit = await Product.findOneAndDelete({id:req.body.id});
+        console.log("i am deleting the product " + req.body.id)
+        if(!produit)return res.status(404).json({message:"there is no existing product"})
         res.status(200).json({result:produit});
 
 
@@ -60,6 +64,29 @@ router.put( "/orderDelete", async(req,res)=>{
     }
 })
 
+
+//end
+
+//start of READ all data orders  
+
+router.get('/orders',async (req,res)=>{
+    const {id} = req.body
+     
+    try {
+        const produits =  await Order.find().populate("items").populate("placedItems").populate("user").exec()
+        if(!produits){
+            return res.status(404).json({message:"there is no existing orders"})
+        }
+        res.status(200).json({result:produits});
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({message:"Bad request"})
+    }
+
+
+
+});
+//end
 
 
 

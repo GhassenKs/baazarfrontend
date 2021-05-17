@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
-export class Datatable extends Component {
+export class DatatableOrders extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -18,7 +18,7 @@ export class Datatable extends Component {
         console.log(this.props.myData)
     }
     getAllAdmins = ()=>{
-        axios.get('http://localhost:4000/admin/admins').then((response)=>{
+        axios.get('http://localhost:4000/products/orders').then((response)=>{
             console.log("data was retrieved successfully ")
             const data = response.data.result;
             const myData = [...data]
@@ -210,4 +210,4 @@ export class Datatable extends Component {
     }
 }
 
-export default Datatable
+export default DatatableOrders

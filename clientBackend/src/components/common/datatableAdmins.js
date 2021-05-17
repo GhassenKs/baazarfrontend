@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
-export class Datatable extends Component {
+export class DatatableAdmins extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -167,8 +167,8 @@ export class Datatable extends Component {
                                     this.setState({ myData: data });
                                     //handeling request
 
-                                    console.log(row.original.id)
-                                    axios.put('http://localhost:4000/products/productDelete', { id: row.original.id }).then((response)=>{
+                                    console.log(row.original.email)
+                                    axios.put('http://localhost:4000/admin/adminDelete', { email: row.original.email }).then((response)=>{
                                         console.log("data was retrieved  ")
                                     }).catch((Error)=>{
                                         console.log(Error)
@@ -184,7 +184,14 @@ export class Datatable extends Component {
                                 ></i>
                             </span>
 
-                        <span><i className="fa fa-pencil" style={{ width: 35, fontSize: 20, padding: 11,color:'rgb(40, 167, 69)' }}></i></span>
+                        <span><i className="fa fa-pencil"
+                         style={{ width: 35, fontSize: 20, padding: 11,color:'rgb(40, 167, 69)' }}
+                         onClick={()=>{
+                             console.log("i have been clicked")
+                             console.log(row.original.firstName)
+                         }}
+                         >
+                             </i></span>
                     </div>
                 ),
                 style: {
@@ -210,4 +217,4 @@ export class Datatable extends Component {
     }
 }
 
-export default Datatable
+export default DatatableAdmins

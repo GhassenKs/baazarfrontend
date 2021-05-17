@@ -15,7 +15,7 @@ const adminSchema = new Schema({
         type:String,
         required:true
     },
-    id:{type:String},
+    id:{type:Number},
     role:{type:String}
     
     });
