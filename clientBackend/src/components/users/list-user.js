@@ -12,30 +12,6 @@ export class List_user extends Component {
         
     }
     
-    componentDidUpdate= ()=>{
-         this.getAllAdmins()
-        
-    }
-    
-    getAllAdmins = ()=>{
-        axios.get('http://localhost:4000/admin/admins').then((response)=>{
-            console.log("data was retrieved successfully ")
-            const data = response.data.result;
-            const myData = [...data]
-            
-             this.setState({users:myData})
-            console.log(this.state.users)
-
-          
-            
-           
-
-        }).catch((Error)=>{
-            console.log(Error)
-            console.log("error fetching data ")
-            
-        })
-    }
     render() {
         
         console.log(this.state.users)

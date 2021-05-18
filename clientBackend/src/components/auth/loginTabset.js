@@ -14,9 +14,7 @@ const LoginTabset = () => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    useEffect(() => {
-        console.log("i was mounted ");
-    }, [])
+    
     const clickActive = (event) => {
         document.querySelector(".nav-link").classList.remove('show');
         event.target.classList.add('show');
@@ -27,10 +25,8 @@ const LoginTabset = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-
         dispatch(signin(formData,history))
-
-        console.log(formData)
+        console.log("successfully registered ")
     };
     return (
         <div>
@@ -56,7 +52,7 @@ const LoginTabset = () => {
                                         <label className="d-block">
                                                     <input className="checkbox_animated" id="chk-ani2" type="checkbox" />
                                                         Remember Me <span className="pull-right"> <a href="#" className="btn btn-default forgot-pass p-0">lost your password</a></span>
-                                                </label>
+                                                    </label>
                                     </div>
                                 </div>
                                 <div className="form-button">

@@ -22,7 +22,7 @@ export class DatatableOrders extends Component {
             console.log("data was retrieved successfully ")
             const data = response.data.result;
             const myData = [...data]
-            
+            console.log(data)
             this.setState({myData:myData})
    
 

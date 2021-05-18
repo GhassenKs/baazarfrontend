@@ -179,7 +179,24 @@ export class DatatableUsers extends Component {
                                 ></i>
                             </span>
 
-                        <span><i className="fa fa-pencil" style={{ width: 35, fontSize: 20, padding: 11,color:'rgb(40, 167, 69)' }}></i></span>
+                        <span><i className="fa fa-pencil" style={{ width: 35, fontSize: 20, padding: 11,color:'rgb(40, 167, 69)' }}
+                        
+                        onClick={()=>{
+                            //started Update User
+                            console.log("i have been clicked")
+                            console.log(row.original.email)
+
+                            //put request 
+                            axios.put('http://localhost:4000/admin/userUpdate', { email: row.original.email,firstName:row.original.firstName,lastName:row.original.lastName,phone:row.original.phone }).then((response)=>{
+                                       console.log("User was updated  ")
+                                   }).catch((Error)=>{
+                                       console.log(Error)
+                                       console.log("error fetching data ")
+           
+                                   })
+                        }}
+                        >
+                            </i></span>
                     </div>
                 ),
                 style: {

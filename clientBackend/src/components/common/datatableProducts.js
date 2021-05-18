@@ -186,7 +186,37 @@ export class DatatableProducts extends Component {
                                 ></i>
                             </span>
 
-                        <span><i className="fa fa-pencil" style={{ width: 35, fontSize: 20, padding: 11,color:'rgb(40, 167, 69)' }}></i></span>
+                        <span><i className="fa fa-pencil" style={{ width: 35, fontSize: 20, padding: 11,color:'rgb(40, 167, 69)' }}
+                        onClick={()=>{
+                            //started Update User
+                            console.log("i have been clicked")
+                            console.log(row.original._id)
+
+                            //put request 
+                            axios.put('http://localhost:4000/products/productUpdate',
+                             {  _id:row.original._id,
+                                 id:row.original.id,
+                                title:row.original.title,
+                                description:row.original.description,
+                                type:row.original.type,
+                                collection:row.original.collection,
+                                category:row.original.category,
+                                price:row.original.price,
+                                sale:row.original.sale,
+                                stock:row.original.stock, 
+                                discount:row.original.discount,
+                                new:row.original.new
+                            
+                            }).then((response)=>{
+                                       console.log("product was updated  ")
+                                   }).catch((Error)=>{
+                                       console.log(Error)
+                                       console.log("error fetching data ")
+           
+                                   })
+                        }}
+                        
+                        ></i></span>
                     </div>
                 ),
                 style: {

@@ -17,7 +17,7 @@ export class List_vendors extends Component {
                             <DatatableAdmins
                                 multiSelectOption={false}
                                 myData={data}
-                                pageSize={10}
+                                pageSize={5}
                                 pagination={true}
                                 class="-striped -highlight"
                             />

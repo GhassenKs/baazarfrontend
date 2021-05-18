@@ -1,5 +1,5 @@
 import React, { Component,Fragment } from 'react';
-import Tabset_user from '../users/tabset-user';
+import Tabset_admin from '../users/tabset-admin';
 import Breadcrumb from '../common/breadcrumb';
 
 export class Create_vendors extends Component {
@@ -15,7 +15,7 @@ export class Create_vendors extends Component {
                                 <h5> Add Vendor</h5>
                             </div>
                             <div className="card-body">
-                                <Tabset_user />
+                                <Tabset_admin />
                             </div>
                         </div>
                     </div>

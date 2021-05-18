@@ -4,8 +4,8 @@ import { useContext, useState, useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-const initialState = {email:'',password:'',firstName:'',lastName:'',phone:''}
-const Tabset_user=()=>{
+const initialState = {email:'',password:'',firstName:'',lastName:'',role:''}
+const Tabset_admin=()=>{
     const [formData,setFormData] = useState(initialState)
     useEffect(() => {
         console.log("i was mounted ");
@@ -22,11 +22,11 @@ const Tabset_user=()=>{
     };
 
    const  addAdmin = ()=>{
-        axios.post('http://localhost:4000/admin/addUser',{
+        axios.post('http://localhost:4000/admin/addAdmin',{
              email: formData.email,
              firstName:formData.firstName,
              lastName:formData.lastName,
-             phone:formData.phone,
+             role:formData.role,
              pass:formData.password
             
             }).then((response)=>{
@@ -76,8 +76,8 @@ const Tabset_user=()=>{
                             <input className="form-control col-xl-8 col-md-7" id="validationCustom3" onChange={handleChange} name="password" type="password" required="" />
                         </div>
                         <div className="form-group row">
-                            <label className="col-xl-3 col-md-4"><span>*</span> phone </label>
-                            <input className="form-control col-xl-8 col-md-7" id="validationCustom4" onChange={handleChange} name="phone" type="text" required="" />
+                            <label className="col-xl-3 col-md-4"><span>*</span> Role </label>
+                            <input className="form-control col-xl-8 col-md-7" id="validationCustom4" onChange={handleChange} name="role" type="text" required="" />
                         </div>
                         <div className="pull-right">
                           <button type="button" type="submit"  className="btn btn-primary">Save</button>
@@ -97,4 +97,4 @@ const Tabset_user=()=>{
 
 
 
-export default Tabset_user
+export default Tabset_admin

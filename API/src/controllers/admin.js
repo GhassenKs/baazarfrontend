@@ -5,6 +5,7 @@ const Admin = require('../../models/admin')
 const User = require('../../models/user')
 const router = express.Router();
 const {validateRegisterInput,validateLoginInput}= require('../util/validators')
+const mongoose = require('mongoose')
 //authentication API 
 
 router.post( "/signin", async(req,res)=>{
@@ -27,13 +28,50 @@ router.post( "/signin", async(req,res)=>{
     }
 })
 //end of auth router 
+//-----------------------------------------------------------------------------------------USERS CRUD
 
+//start CREATE  user 
+router.post( "/addUser", async(req,res)=>{
+    const {firstName,lastName,email,pass,phone}= req.body;
+    try {
+        console.log(req.body)
+         
+            const user = await User.findOne({email});
+            if(user){
+                return res.status(404).json({message:"this email is taken"})
+            }
+               
+            password = await bcrypt.hash(pass,12);
+            const newUser = new User({
+                firstName,
+                lastName,
+                email,
+                password,
+                phone
+                
+                
+            });
+
+            const registered = await newUser.save();
+            const token = jwt.sign({email:registered.email,id:registered._id},'test',{expiresIn : "8h"})
+            res.status(200).json({result:registered,token});
+           
+            
+ 
+        
+
+    } catch (error) {
+        res.status(500).json({message:"something went wrong"})
+        console.log(error)
+    }
+}) 
+//end
 //all users READ request
 router.get( "/users", async(req,res)=>{
     
     try {
         await console.log("trying to get all users")
-        const users = await User.find();
+        const users = await User.find({},{firstName:1,lastName:1,phone:1,email:1});
         if(!users)return res.status(404).json({message:"there is no existing user"})
         res.status(200).json({result:users});
 
@@ -65,6 +103,38 @@ router.get( "/user", async(req,res)=>{
     }
 })
 //end
+
+//start update user 
+router.put( "/userUpdate", async(req,res)=>{
+    const {firstName,lastName,email,phone}= req.body;
+    try {
+        mongoose.set('useFindAndModify', false);
+        const updatedUser = await User.findOneAndUpdate(
+            { email: email },
+            {
+              $set: {
+                firstName: firstName,
+                lastName:lastName,
+                phone:phone
+              }
+            },
+            {
+                returnOriginal: false
+            }
+          )
+            res.status(200).json({result:updatedUser});
+           
+            
+ 
+        
+
+    } catch (error) {
+        res.status(500).json({message:"something went wrong"})
+        console.log(error)
+    }
+}) 
+//end
+
 //start delete User
 router.put( "/userDelete", async(req,res)=>{
     const {email}= req.body;
@@ -83,8 +153,8 @@ router.put( "/userDelete", async(req,res)=>{
 })
 
 //start CREATE  user admin
-router.post( "/user", async(req,res)=>{
-    const {firstName,lastName,email,pass,role,id}= req.body;
+router.post( "/addAdmin", async(req,res)=>{
+    const {firstName,lastName,email,pass,role}= req.body;
     try {
         console.log(req.body)
          
@@ -92,8 +162,7 @@ router.post( "/user", async(req,res)=>{
             if(user){
                 return res.status(404).json({message:"this email is taken"})
             }
-            
-      
+            const id=await Math.floor(Math.random() * 1000)      
             password = await bcrypt.hash(pass,12);
             const newUser = new Admin({
                 firstName,
@@ -119,10 +188,28 @@ router.post( "/user", async(req,res)=>{
     }
 }) 
 //end
+
+//Read all admins 
+router.get( "/admins", async(req,res)=>{
+    
+    try {
+        await console.log("trying to get all users")
+        const users = await Admin.find({},{firstName:1,lastName:1,role:1,email:1});
+        if(!users)return res.status(404).json({message:"there is no existing user"})
+        res.status(200).json({result:users});
+
+
+
+    } catch (error) {
+        res.status(500).json({message:"something went wrong"})
+    }
+})
+//end
 //start update user admin
-router.put( "/user", async(req,res)=>{
+router.put( "/adminUpdate", async(req,res)=>{
     const {firstName,lastName,email,role}= req.body;
     try {
+        mongoose.set('useFindAndModify', false);
         const updatedAdmin = await Admin.findOneAndUpdate(
             { email: email },
             {
@@ -168,21 +255,6 @@ router.put( "/adminDelete", async(req,res)=>{
 
 
 //end
-//Read all admins 
-router.get( "/admins", async(req,res)=>{
-    
-    try {
-        await console.log("trying to get all users")
-        const users = await Admin.find({},{firstName:1,lastName:1,role:1});
-        if(!users)return res.status(404).json({message:"there is no existing user"})
-        res.status(200).json({result:users});
-
-
-
-    } catch (error) {
-        res.status(500).json({message:"something went wrong"})
-    }
-})
 
 
 module.exports = router

@@ -187,8 +187,18 @@ export class DatatableAdmins extends Component {
                         <span><i className="fa fa-pencil"
                          style={{ width: 35, fontSize: 20, padding: 11,color:'rgb(40, 167, 69)' }}
                          onClick={()=>{
+                             //started Update Admin
                              console.log("i have been clicked")
-                             console.log(row.original.firstName)
+                             console.log(row.original.email)
+
+                             //put request 
+                             axios.put('http://localhost:4000/admin/adminUpdate', { email: row.original.email,firstName:row.original.firstName,lastName:row.original.lastName,role:row.original.role }).then((response)=>{
+                                        console.log("admin was updated  ")
+                                    }).catch((Error)=>{
+                                        console.log(Error)
+                                        console.log("error fetching data ")
+            
+                                    })
                          }}
                          >
                              </i></span>
