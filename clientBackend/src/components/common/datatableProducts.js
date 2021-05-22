@@ -169,8 +169,8 @@ export class DatatableProducts extends Component {
                                    await this.setState({ myData: data });
                                     //handeling request
 
-                                    console.log(row.original.id)
-                                    axios.put('http://localhost:4000/products/productDelete', { id: row.original.id }).then((response)=>{
+                                    console.log(row.original._id)
+                                    axios.put('http://localhost:4000/products/productDelete', { _id: row.original._id }).then((response)=>{
                                         console.log("data was retrieved  ")
                                     }).catch((Error)=>{
                                         console.log(Error)

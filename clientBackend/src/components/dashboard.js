@@ -26,7 +26,7 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export class Dashboard extends Component {
     componentWillMount() {
-        
+        console.log(process.env.PUBLIC_URL)
         const infos=JSON.parse(localStorage.getItem('profile'))
         
         if(!infos){

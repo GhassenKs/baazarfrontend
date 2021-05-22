@@ -1,75 +1,65 @@
 import React, { Component,Fragment } from 'react';
 import Breadcrumb from '../../common/breadcrumb';
-import CKEditors from "react-ckeditor-component";
-import { AvField, AvForm } from 'availity-reactstrap-validation';
 import one from '../../../assets/images/pro3/1.jpg'
-import user from '../../../assets/images/user.png';
+import axios from 'axios';
+import { useContext, useState, useEffect } from "react";
+const initialState = {title:'',description:'',type:'',brand:'',collection:'',category:'',price:'',sale:'',discount:'',stock:'',new:'',tags:''}
+const Add_product=()=>{ 
+    const [formData,setFormData] = useState(initialState)
+    useEffect(() => {
+        console.log("create product component was mounted ");
+    }, [])
+    const handleChange = (e) =>{
+        setFormData({ ...formData,[e.target.name]:e.target.value})
+    };
+    const handleSubmit = (e) =>{
+        e.preventDefault()
 
-export class Add_product extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            quantity: 1,
-            file: '',
-            dummyimgs: [
-                { img: user },
-                { img: user },
-                { img: user },
-                { img: user },
-                { img: user },
-                { img: user },
-            ]
-        }
+        
+        console.log(formData.title)
+        addProduct()
+    };
+    const  addProduct = ()=>{
+        axios.post('http://localhost:4000/products/newProduct',{
+             
+             title:formData.title,
+             description:formData.description,
+             type:formData.type,
+             brand:formData.brand,
+             collection:formData.collection,
+             category:formData.category,
+             price:formData.price,
+             sale:formData.sale,
+             discount:formData.discount,
+             stock:formData.stock,
+             new:formData.new,
+             tags:formData.tags
+            
+            }).then((response)=>{
+            console.log("data was sent successfully ")
+            
+            
+   
+
+          
+            
+           
+
+        }).catch((Error)=>{
+            console.log(Error)
+            console.log("error sending data ")
+           
+            
+        })
     }
-    IncrementItem = () => {
-        this.setState(prevState => {
-            if (prevState.quantity < 9) {
-                return {
-                    quantity: prevState.quantity + 1
-                }
-            } else {
-                return null;
-            }
-        });
-    }
-    DecreaseItem = () => {
-        this.setState(prevState => {
-            if (prevState.quantity > 0) {
-                return {
-                    quantity: prevState.quantity - 1
-                }
-            } else {
-                return null;
-            }
-        });
-    }
-    handleChange = (event) => {
-        this.setState({ quantity: event.target.value });
-    }
+    
+    
+    
 
     //image upload
-    _handleSubmit(e) {
-        e.preventDefault();
-    }
-
-    _handleImgChange(e, i) {
-        e.preventDefault();
-
-        let reader = new FileReader();
-        let file = e.target.files[0];
-        const { dummyimgs } = this.state;
-
-        reader.onloadend = () => {
-            dummyimgs[i].img = reader.result;
-            this.setState({
-                file: file,
-                dummyimgs,
-            });
-        }
-        reader.readAsDataURL(file)
-    }
-
-    render() {
+ 
+   
+    
         return (
             <Fragment>
                 <Breadcrumb title="Add Product" parent="Physical" />
@@ -91,105 +81,100 @@ export class Add_product extends Component {
                                                     </div>
                                                     <div className="col-xl-3 xl-50 col-sm-6 col-3">
                                                         <ul className="file-upload-product">
-                                                            {
-                                                                this.state.dummyimgs.map((res, i) => {
-                                                                    return (
-                                                                        <li key={i}>
-                                                                            <div className="box-input-file">
-                                                                                <input className="upload" type="file" onChange={(e) => this._handleImgChange(e, i)} />
-                                                                                <img src={res.img} style={{ width: 50, height: 50 }} />
-                                                                                <a id="result1" onClick={(e) => this._handleSubmit(e.target.id)}></a>
-                                                                            </div>
-                                                                        </li>
-                                                                    )
-                                                                })
-                                                            }
-                                                        </ul>
+                                                            
+                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                         </div>
                                         <div className="col-xl-7">
-                                            <AvForm className="needs-validation add-product-form" onValidSubmit={this.handleValidSubmit} onInvalidSubmit={this.handleInvalidSubmit}>
-                                                <div className="form form-label-center">
+                                        <form className="needs-validation " noValidate="" onSubmit={handleSubmit}>
+                                            
+                                                <div className="form form-label-center"  >
                                                     <div className="form-group mb-3 row">
-                                                        <label className="col-xl-3 col-sm-4 mb-0">Product Name :</label>
+                                                        <label className="col-xl-3 col-sm-4 mb-0">Title:</label>
                                                         <div className="col-xl-8 col-sm-7">
-                                                            <AvField className="form-control" name="product_name" id="validationCustom01" type="text" required />
+                                                            <input className="form-control col-xl-8 col-md-7" name="title" onChange={handleChange} id="validationCustom01" type="text"   />
                                                         </div>
-                                                        <div className="valid-feedback">Looks good!</div>
-                                                    </div>
-                                                    <div className="form-group mb-3 row">
-                                                        <label className="col-xl-3 col-sm-4 mb-0">Price :</label>
-                                                        <div className="col-xl-8 col-sm-7">
-                                                            <AvField className="form-control mb-0" name="price" id="validationCustom02" type="number" required />
-                                                        </div>
-                                                        <div className="valid-feedback">Looks good!</div>
                                                     </div>
                                                     <div className="form-group mb-3 row">
-                                                        <label className="col-xl-3 col-sm-4 mb-0">Product Code :</label>
+                                                        <label className="col-xl-3 col-sm-4 mb-0">Description:</label>
                                                         <div className="col-xl-8 col-sm-7">
-                                                            <AvField className="form-control " name="product_code" id="validationCustomUsername" type="number" required />
+                                                            <textarea className="form-control col-xl-8 col-md-7" name="description"  onChange={handleChange}  id="validationCustom01" type="text"   />
                                                         </div>
-                                                        <div className="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
                                                     </div>
-                                                </div>
-                                                <div className="form">
-                                                    <div className="form-group row">
-                                                        <label className="col-xl-3 col-sm-4 mb-0" >Select Size :</label>
+                                                    <div className="form-group mb-3 row">
+                                                        <label className="col-xl-3 col-sm-4 mb-0">type:</label>
                                                         <div className="col-xl-8 col-sm-7">
-                                                            <select className="form-control digits" id="exampleFormControlSelect1">
-                                                                <option>Small</option>
-                                                                <option>Medium</option>
-                                                                <option>Large</option>
-                                                                <option>Extra Large</option>
-                                                            </select>
+                                                            <input className="form-control col-xl-8 col-md-7" name="type"  onChange={handleChange}   id="validationCustom01" type="text"   />
                                                         </div>
                                                     </div>
-                                                    <div className="form-group row">
-                                                        <label className="col-xl-3 col-sm-4 mb-0">Total Products :</label>
-                                                        <fieldset className="qty-box ml-0">
-                                                            <div className="input-group bootstrap-touchspin">
-                                                                <div className="input-group-prepend">
-                                                                    <button className="btn btn-primary btn-square bootstrap-touchspin-down" type="button" onClick={this.DecreaseItem} >
-                                                                        <i className="fa fa-minus"></i>
-                                                                    </button>
-                                                                </div>
-                                                                <div className="input-group-prepend">
-                                                                    <span className="input-group-text bootstrap-touchspin-prefix" ></span>
-                                                                </div>
-                                                                <input className="touchspin form-control" type="text" value={this.state.quantity} onChange={this.handleChange} />
-                                                                <div className="input-group-append">
-                                                                    <span className="input-group-text bootstrap-touchspin-postfix"></span>
-                                                                </div>
-                                                                <div className="input-group-append ml-0">
-                                                                    <button className="btn btn-primary btn-square bootstrap-touchspin-up" type="button" onClick={this.IncrementItem}>
-                                                                        <i className="fa fa-plus"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </fieldset>
-                                                    </div>
-                                                    <div className="form-group row">
-                                                        <label className="col-xl-3 col-sm-4">Add Description :</label>
-                                                        <div className="col-xl-8 col-sm-7 description-sm">
-                                                            <CKEditors
-                                                                activeclassName="p10"
-                                                                content={this.state.content}
-                                                                events={{
-                                                                    "blur": this.onBlur,
-                                                                    "afterPaste": this.afterPaste,
-                                                                    "change": this.onChange
-                                                                }}
-                                                            />
+                                                    <div className="form-group mb-3 row">
+                                                        <label className="col-xl-3 col-sm-4 mb-0">brand:</label>
+                                                        <div className="col-xl-8 col-sm-7">
+                                                            <input className="form-control col-xl-8 col-md-7" name="brand"  onChange={handleChange}  id="validationCustom01" type="text"   />
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div className="offset-xl-3 offset-sm-4">
+                                                    <div className="form-group mb-3 row">
+                                                        <label className="col-xl-3 col-sm-4 mb-0">collection:</label>
+                                                        <div className="col-xl-8 col-sm-7">
+                                                            <input className="form-control col-xl-8 col-md-7" name="collection"  onChange={handleChange}  id="validationCustom01" type="text"   />
+                                                        </div>
+                                                    </div>
+                                                    <div className="form-group mb-3 row">
+                                                        <label className="col-xl-3 col-sm-4 mb-0">category:</label>
+                                                        <div className="col-xl-8 col-sm-7">
+                                                            <input className="form-control col-xl-8 col-md-7" name="category"  onChange={handleChange}  id="validationCustom01" type="text"   />
+                                                        </div>
+                                                    </div>
+                                                    <div className="form-group mb-3 row">
+                                                        <label className="col-xl-3 col-sm-4 mb-0">price:</label>
+                                                        <div className="col-xl-8 col-sm-7">
+                                                            <input className="form-control col-xl-8 col-md-7" name="price"  onChange={handleChange}  id="validationCustom01" type="text"   />
+                                                        </div>
+                                                    </div>
+                                                    <div className="form-group mb-3 row">
+                                                        <label className="col-xl-3 col-sm-4 mb-0">sale:</label>
+                                                        <div className="col-xl-8 col-sm-7">
+                                                            <input className="form-control col-xl-8 col-md-7" name="sale"  onChange={handleChange}  id="validationCustom01" type="text"   />
+                                                        </div>
+                                                    </div>
+                                                    <div className="form-group mb-3 row">
+                                                        <label className="col-xl-3 col-sm-4 mb-0">discount:</label>
+                                                        <div className="col-xl-8 col-sm-7">
+                                                            <input className="form-control col-xl-8 col-md-7" name="discount"  onChange={handleChange}  id="validationCustom01" type="text"   />
+                                                        </div>
+                                                    </div>
+                                                    <div className="form-group mb-3 row">
+                                                        <label className="col-xl-3 col-sm-4 mb-0">stock:</label>
+                                                        <div className="col-xl-8 col-sm-7">
+                                                            <input className="form-control col-xl-8 col-md-7" name="stock"  onChange={handleChange}  id="validationCustom01" type="text"   />
+                                                        </div>
+                                                    </div>
+                                                    <div className="form-group mb-3 row">
+                                                        <label className="col-xl-3 col-sm-4 mb-0">new:</label>
+                                                        <div className="col-xl-8 col-sm-7">
+                                                            <input className="form-control col-xl-8 col-md-7" name="new"  onChange={handleChange}  id="validationCustom01" type="text"   />
+                                                        </div>
+                                                    </div>
+                                                    <div className="form-group mb-3 row">
+                                                        <label className="col-xl-3 col-sm-4 mb-0">tags:</label>
+                                                        <div className="col-xl-8 col-sm-7">
+                                                            <input className="form-control col-xl-8 col-md-7" name="tags"  onChange={handleChange}  id="validationCustom01" type="text"   />
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    
+                                                    <div className="offset-xl-3 offset-sm-4">
                                                     <button type="submit" className="btn btn-primary">Add</button>
                                                     <button type="button" className="btn btn-light">Discard</button>
                                                 </div>
-                                            </AvForm>
+                                                </div>
+                                               
+                                                
+                                            
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -199,7 +184,7 @@ export class Add_product extends Component {
                 </div>
             </Fragment>
         )
-    }
+    
 }
 
 export default Add_product

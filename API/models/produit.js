@@ -67,17 +67,19 @@ const produitSchema=new Schema({
                 "marketplace",
                 "videoslider",
                 "light",
+                "vegetables",
                 "all"]
         },
         brand: String,
         PCollection: [String],
+        
         category: String,
         price: Number,
-        sale: String,
+        sale: Boolean,
         discount: String,
         picture:Number,
         stock: Number,
-        new: String,
+        new: Boolean,
         tags: [String],
         variants:[ {
             variant_id:String,

@@ -20,7 +20,7 @@ export class DatatableOrders extends Component {
     getAllAdmins = ()=>{
         axios.get('http://localhost:4000/products/orders').then((response)=>{
             console.log("data was retrieved successfully ")
-            const data = response.data.result;
+            const data = response.data.result; 
             var result = data.toString().split(',');
             const myData = [...data]
             console.log(myData[0].user.email)
@@ -35,13 +35,14 @@ export class DatatableOrders extends Component {
                 var file = myData[i];   
                 for(var j in myData[i].items){
                     employees.accounting.push({ 
-                        "id":file?.items[j]?._id,
+                        "id":file?._id,
                         "product" : file?.items[j]?.title,
                         
                         "price" : file?.items[j]?.price,
                         "user":file?.user?.firstName,
                         "phone":file?.user?.phone,
                         "city":file?.user?.city,
+                        "date":file?.date
                         
                     });
                 }
@@ -196,7 +197,7 @@ export class DatatableOrders extends Component {
                                     //handeling request
 
                                     console.log(row.original.id)
-                                    axios.put('http://localhost:4000/products/productDelete', { id: row.original.id }).then((response)=>{
+                                    axios.put('http://localhost:4000/products/orderDelete', { _id: row.original.id }).then((response)=>{
                                         console.log("data was retrieved  ")
                                     }).catch((Error)=>{
                                         console.log(Error)

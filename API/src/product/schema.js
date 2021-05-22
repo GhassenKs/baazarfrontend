@@ -9,11 +9,11 @@ const typeDefs = `
         collection: [String]
         category: String
         price: Int
-        sale: String
+        sale: Boolean
         discount: String
         picture:Int
         stock: Int
-        new: String
+        new: Boolean
         tags: [String]
         variants: [Variants]
         images:[Images]
