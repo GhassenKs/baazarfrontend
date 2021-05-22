@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Tabs, TabList, TabPanel, Tab } from 'react-tabs';
 import {User,Settings} from 'react-feather'
 
-export class Tabset_profile extends Component {
+export class Tabset_profile extends Component { 
+    
     render() {
         return (
             <div>

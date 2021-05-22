@@ -1,5 +1,5 @@
  const Order = require ('../../models/order')
-
+ const List = require('../../models/list')
 
 module.exports={
     Order: { 
@@ -15,7 +15,7 @@ module.exports={
         async getOrders()
         {
             try{
-                const orders = await Order.find().populate("items").populate("user").exec()
+                const orders = await Order.find({}).populate("items").populate("user").exec()
                return orders  
             }
             catch (err) {
@@ -107,6 +107,64 @@ module.exports={
                   const savedorder = await order.save();
                   
                   return savedorder;
+              
+                  
+              }
+              catch (err) {
+                  throw new Error(err); 
+              } 
+              },
+              placeList: async (root, args, context, info) => {
+                try{
+                  const order = await Order.findOne({user:args.id}).populate("items").populate("placedItems").populate("user").exec()
+                  if(order){
+                    var o =  new Date() 
+    var json = JSON.stringify(o);
+    console.log(json)
+    
+                     const newList = await new List({
+                      
+                      user:args.id,
+                      status:"checkout",
+                      date:json
+                  });
+                  const res = await newList.save();
+                  listId=res._id
+                  console.log(listId);
+                     
+                  
+                  const checkList= await List.findOne({_id:listId}).populate("items").populate("user").exec()
+                  console.log(checkList)
+
+ 
+                  x=order.items.length
+                  var id=null
+                  var ids=[]
+                  for(i=0;i<x;i++){
+                    id=order.items[i]._id
+                    await checkList.items.push(id);
+                    ids[i]=id
+                    
+                  }
+                  console.log(checkList.items)
+                  for(i=0;i<x;i++){
+                    id=ids[i]
+                    await order.items.pull(id);
+                    
+                    
+                    
+                    
+
+                  }
+                  const savedList=checkList.save();
+                   order.save();
+                  return savedList
+                  }
+                  
+                  
+
+                  
+                  
               
                   
               }

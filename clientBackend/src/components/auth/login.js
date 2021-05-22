@@ -8,6 +8,19 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export class Login extends Component {
+    componentWillMount() {
+        
+        const infos=JSON.parse(localStorage.getItem('profile'))
+        
+        if(infos){
+            const { history } = this.props
+           
+            this.props.history.push(`${process.env.PUBLIC_URL}/dashboard`);
+        }
+        
+
+        
+    }
     render() {
         var settings = {
             dots: true,

@@ -187,7 +187,7 @@ export class DatatableUsers extends Component {
                             console.log(row.original.email)
 
                             //put request 
-                            axios.put('http://localhost:4000/admin/userUpdate', { email: row.original.email,firstName:row.original.firstName,lastName:row.original.lastName,phone:row.original.phone }).then((response)=>{
+                            axios.put('http://localhost:4000/admin/userUpdate', { email: row.original.email,firstName:row.original.firstName,lastName:row.original.lastName,phone:row.original.phone,city:row.original.city }).then((response)=>{
                                        console.log("User was updated  ")
                                    }).catch((Error)=>{
                                        console.log(Error)

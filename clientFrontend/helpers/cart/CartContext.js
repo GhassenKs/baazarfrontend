@@ -74,8 +74,9 @@ const CartProvider = (props) => {
             
           }
           //
-          console.log(cartOrders)
-          localStorage.setItem("cartList",JSON.stringify(cartItems))
+          localStorage.removeItem("cartList")
+          localStorage.setItem("cartList",JSON.stringify(cartOrders))
+          console.log("i updated the dcart")
 
         }
 

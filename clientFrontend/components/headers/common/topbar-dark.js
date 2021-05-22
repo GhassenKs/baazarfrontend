@@ -80,8 +80,7 @@ const TopBarDark = ({logoName, topClass, fluid }) => {
         }
     });
 
-    console.log(selectedSearch)
-    console.log(data)
+    
 
     const updateSearch = (search) => {
         setSelectedSearch(search)

@@ -13,18 +13,30 @@ export class DatatableAdmins extends Component {
             myData: []
         }
     }
+
+    
     componentDidMount(){
         this.getAllAdmins()
-        console.log(this.props.myData)
+        
     }
-    getAllAdmins = ()=>{
-        axios.get('http://localhost:4000/admin/admins').then((response)=>{
+    getAllAdmins = async ()=>{
+
+        const infos=await JSON.parse(localStorage.getItem('profile'))
+        console.log(infos.result.role)
+        var roles=''
+        if(infos.result.role=="admin"){
+            roles="admin"
+        }else{
+            roles="super"
+        }
+        axios.get('http://localhost:4000/admin/admins',{ params: { role: roles } }).then((response)=>{
+            
             console.log("data was retrieved successfully ")
             const data = response.data.result;
             const myData = [...data]
             
             this.setState({myData:myData})
-   
+
 
           
             

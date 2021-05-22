@@ -177,6 +177,9 @@ const REGISTER_USER = gql`
     $email: String!
     $password: String!
     $phone:String
+    $city:String
+    $address:String
+    $zip:String
    
     
   ) {
@@ -187,8 +190,11 @@ const REGISTER_USER = gql`
         email: $email
         password: $password
         phone: $phone
-      }
-    )
+        city:$city
+        address:$address
+        zip:$zip
+      } 
+    ) 
     
       {
       id

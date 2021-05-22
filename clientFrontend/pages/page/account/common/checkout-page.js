@@ -9,12 +9,12 @@ import { CurrencyContext } from '../../../../helpers/Currency/CurrencyContext';
 import jwtDecode from 'jwt-decode';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
-
+ 
 
 const PLACE_ORDER = gql`
-  mutation placeOrder($id:String) {
+  mutation placeList($id:String) {
 
-    placeOrder(id:$id){id}
+    placeList(id:$id){id}
 }
   
 `;
@@ -47,7 +47,7 @@ const CheckoutPage = () => {
     var userID= null;
     if(initialState.user){userID=initialState.user.id}
 
-    const [placeOrder, { data:orderPlaced }] = useMutation(PLACE_ORDER);
+    const [placeList, { data:orderPlaced }] = useMutation(PLACE_ORDER);
   
       //end of this
     const checkhandle = (value) => {
@@ -67,7 +67,7 @@ const CheckoutPage = () => {
         if (data !== '') {
             var list = []
             
-            placeOrder({
+            placeList({
 
                 variables: {
                    id:userID
@@ -78,7 +78,7 @@ const CheckoutPage = () => {
             
             router.push({
                 pathname: '/portfolio/order-success-2',
-                state: { items: cartItems, orderTotal: cartTotal, symbol: symbol }
+                
             })
        
     };  

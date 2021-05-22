@@ -194,6 +194,31 @@ const typeDefs = `
 
 
     ##------------------end of edits
+
+    ##---------- List 
+
+    type List{
+      id:ID!
+      number: Int 
+      price:String
+      items:[Product]
+      user:User
+      status:String
+      date:String
+
+    }
+    input ListInput{
+      number: Int 
+      items: [ID]
+      price:String
+      user:String!
+      status:String
+    }
+
+
+
+
+    ##--------end
     input RegisterInput{
       firstName:String!
       lastName:String!
@@ -229,35 +254,37 @@ const typeDefs = `
         getUsers: [User]
         produits:[Product] ! 
         getProduits(id:Int!):Product
-        #allProducts:[Product]
+      
         getOrders:[Order]
         productSearch(indexFrom:Int ,text:String,priceMax:Int,priceMin:Int,limit:Int,sortBy:_SortBy): ProductResponse
         findOrder(id:String):Order
+
+        getList:[List]
+        findList(id:String):List
 
         
         
       }
   
-    # type Mutation {
-    #     createUser(name: String, email: String, password: String): User
-    #     createRecipe(
-    #       userId: Int
-    #       title: String
-    #       ingredients: String
-    #       direction: String
-    #     ): Recipe
-    # }
+   
     type Mutation {
       register(registerInput:RegisterInput):User!
       registerAdmin(registerAdminInput:RegisterAdminInput):Admin!
       login(email:String!,password:String!): User!
       updateUser(firstName:String,lastName:String,email:String,phone:String,address:String,city:String,zip:String):User!
-      #createproduit(title:String,price:String):Produit!
+      
       createOrder(orderInput:OrderInput):Order!
       deleteOrder(orderID:ID!):Order
       createItem(productId: String, orderId: String): Order
       deleteItem(productId: String, orderId: String): Order
+
+      
       placeOrder(id:String):Order
+      placeList(id:String):List
+
+      createList(ListInput:ListInput):List
+      createListItem(productId: String, listId: String): List
+      deleteListItem(productId: String, listId: String): List
       
     }
 `;

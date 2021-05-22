@@ -1,16 +1,42 @@
 import React, { Component,Fragment } from 'react'
 import Breadcrumb from '../../common/breadcrumb';
 import data from '../../../assets/data/physical_list';
+import image from '../../../assets/images/fashion/pro/06.jpg'
 import { Edit, Trash2 } from 'react-feather'
+import axios from 'axios';
 
 
 export class Product_list extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data
+            data:[]
         }
     }
+    componentDidMount(){
+        this.getAllProducts()
+        console.log(typeof this.state.data)
+    }
+    getAllProducts = ()=>{
+        axios.get('http://localhost:4000/products/productsv2').then((response)=>{
+            console.log("data was retrieved successfully ")
+            const data = response.data.result;
+            const myData = [...data]
+            
+            this.setState({data:myData})
+            console.log(myData)
+   
+
+          
+            
+           
+
+        }).catch((Error)=>{
+            console.log(Error)
+            console.log("error fetching data ")
+            
+        })
+    } 
     render() {
         return (
             <Fragment>
@@ -19,6 +45,7 @@ export class Product_list extends Component {
                     <div className="row products-admin ratio_asos">
                         {
                             this.state.data.map((myData, i) => {
+                               
                                 return (
                                     <div className="col-xl-3 col-sm-6" key={i}>
                                         <div className="card">
@@ -30,14 +57,10 @@ export class Product_list extends Component {
                                                             {(myData.discount === 'on sale' )?<span className="lable4">{myData.discount}</span> : '' }
                                                             </div>
                                                         <div className="front">
-                                                            <a className="bg-size"><img className="img-fluid blur-up bg-img lazyloaded" src={myData.image} /></a>
+                                                            <a className="bg-size"><img className="img-fluid blur-up bg-img lazyloaded" src={image} /></a>
                                                             <div className="product-hover">
                                                                 <ul>
-                                                                    <li>
-                                                                        <button className="btn" type="button">
-                                                                            <Edit className="editBtn" />
-                                                                        </button>
-                                                                    </li>
+                                                                    
                                                                     <li>
                                                                         <button className="btn" type="button">
                                                                             <Trash2 className="deleteBtn" />

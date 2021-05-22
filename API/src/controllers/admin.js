@@ -71,7 +71,7 @@ router.get( "/users", async(req,res)=>{
     
     try {
         await console.log("trying to get all users")
-        const users = await User.find({},{firstName:1,lastName:1,phone:1,email:1});
+        const users = await User.find({},{firstName:1,lastName:1,phone:1,email:1,city:1});
         if(!users)return res.status(404).json({message:"there is no existing user"})
         res.status(200).json({result:users});
 
@@ -106,7 +106,7 @@ router.get( "/user", async(req,res)=>{
 
 //start update user 
 router.put( "/userUpdate", async(req,res)=>{
-    const {firstName,lastName,email,phone}= req.body;
+    const {firstName,lastName,email,phone,city}= req.body;
     try {
         mongoose.set('useFindAndModify', false);
         const updatedUser = await User.findOneAndUpdate(
@@ -115,7 +115,8 @@ router.put( "/userUpdate", async(req,res)=>{
               $set: {
                 firstName: firstName,
                 lastName:lastName,
-                phone:phone
+                phone:phone,
+                city:city
               }
             },
             {
@@ -152,6 +153,8 @@ router.put( "/userDelete", async(req,res)=>{
     }
 })
 
+//-----------------------------------------------------------------------------------------ADMINS CRUD
+
 //start CREATE  user admin
 router.post( "/addAdmin", async(req,res)=>{
     const {firstName,lastName,email,pass,role}= req.body;
@@ -170,7 +173,7 @@ router.post( "/addAdmin", async(req,res)=>{
                 email,
                 password,
                 role,
-                id
+                id  
                 
             });
 
@@ -191,10 +194,18 @@ router.post( "/addAdmin", async(req,res)=>{
 
 //Read all admins 
 router.get( "/admins", async(req,res)=>{
-    
+    let auth = req.query.role;
+    console.log(req.query.role)
     try {
         await console.log("trying to get all users")
-        const users = await Admin.find({},{firstName:1,lastName:1,role:1,email:1});
+        var users;
+        if(auth=="admin"){
+             users = await Admin.find({role:"employee"},{firstName:1,lastName:1,role:1,email:1});
+        }
+        else{
+             users = await Admin.find({},{firstName:1,lastName:1,role:1,email:1});
+        }
+        
         if(!users)return res.status(404).json({message:"there is no existing user"})
         res.status(200).json({result:users});
 

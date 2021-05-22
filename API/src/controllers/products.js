@@ -12,7 +12,7 @@ router.get('/products',async (req,res)=>{
     const {id} = req.body
     
     try {
-        const produits = await Product.find({},{_id:1,id:1,title:1,description:1,type:1,collection:1,category:1,price:1,sale:1,stock:1,discount:1,new:1});
+        const produits = await Product.find({},{_id:1,title:1,description:1,type:1,collection:1,category:1,price:1,sale:1,stock:1,discount:1,new:1});
         if(!produits){
             return res.status(404).json({message:"there is no existing products"})
         }
@@ -26,6 +26,29 @@ router.get('/products',async (req,res)=>{
 
 });
 //end
+
+//start of READ all data products --VERSION2 
+
+router.get('/productsv2',async (req,res)=>{
+    const {id} = req.body
+    
+    try {
+        const produits = await Product.find({},{_id:1,id:1,title:1,description:1,type:1,collection:1,category:1,price:1,sale:1,stock:1,discount:1,new:1,images:1});
+        if(!produits){
+            return res.status(404).json({message:"there is no existing products"})
+        }
+        res.status(200).json({result:produits});
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({message:"Bad request"})
+    }
+
+
+
+});
+//end
+
+
 //start of READ only one document per ID
 
 router.get('/product',async(req,res)=>{
@@ -125,7 +148,7 @@ router.get('/orders',async (req,res)=>{
     const {id} = req.body
      console.log("tested")
     try {
-        const produits =  await Order.find().populate("items",`id`).populate("placedItems").populate("user").exec()
+        const produits =  await Order.find({},{_id:1}).populate("items").populate("placedItems").populate("user").exec()
         if(!produits){
             return res.status(404).json({message:"there is no existing orders"})
         }
