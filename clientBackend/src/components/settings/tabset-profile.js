@@ -3,6 +3,27 @@ import { Tabs, TabList, TabPanel, Tab } from 'react-tabs';
 import {User,Settings} from 'react-feather'
 
 export class Tabset_profile extends Component { 
+    constructor(props) {
+        super(props)
+        this.state = {
+            firstname:"",
+            lastname:"",
+            email:"",
+            role:"",
+        }
+    }
+    componentDidMount(){
+        
+        const userInfo =JSON.parse(localStorage.getItem("profile"))
+        console.log(userInfo.result)
+        this.setState({email:userInfo.result.email})
+        this.setState({firstname:userInfo.result.firstName})
+        this.setState({lastname:userInfo.result.lastName})
+        this.setState({role:userInfo.result.role})
+
+    }
+        
+    
     
     render() {
         return (
@@ -10,7 +31,7 @@ export class Tabset_profile extends Component {
                 <Tabs>
                     <TabList className="nav nav-tabs tab-coupon" >
                         <Tab className="nav-link"><User className="mr-2" />Profile</Tab>
-                        <Tab className="nav-link"><Settings className="mr-2" />Contact</Tab>
+                        <Tab className="nav-link"><Settings className="mr-2" />Edit profile</Tab>
                     </TabList>
 
                     <TabPanel>
@@ -21,31 +42,25 @@ export class Tabset_profile extends Component {
                                     <tbody>
                                         <tr>
                                             <td>First Name:</td>
-                                            <td>John</td>
+                                            <td>{this.state.firstname}</td>
                                         </tr>
                                         <tr>
                                             <td>Last Name:</td>
-                                            <td>Deo</td>
+                                            <td>{this.state.lastname}</td>
                                         </tr>
                                         <tr>
                                             <td>Email:</td>
-                                            <td>johndeo@gmail.com</td>
+                                            <td>{this.state.email}</td>
                                         </tr>
                                         <tr>
-                                            <td>Gender:</td>
-                                            <td>Male</td>
+                                            <td>Role:</td>
+                                            <td>{this.state.role}</td>
                                         </tr>
-                                        <tr>
-                                            <td>Mobile Number:</td>
-                                            <td>2124821463</td>
-                                        </tr>
-                                        <tr>
-                                            <td>DOB:</td>
-                                            <td>Dec, 15 1993</td>
-                                        </tr>
+                                        
+                                        
                                         <tr>
                                             <td>Location:</td>
-                                            <td>USA</td>
+                                            <td>Tunisia</td>
                                         </tr>
                                     </tbody>
                                 </table>

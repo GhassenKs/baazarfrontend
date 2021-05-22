@@ -203,7 +203,7 @@ router.get('/orders',async (req,res)=>{
     const {id} = req.body
      console.log("tested")
     try {
-        const produits =  await List.find({},{_id:1,date:1}).populate("items").populate("user").exec()
+        const produits =  await List.find({},{_id:1,date:1,status:1}).populate("items").populate("user").exec()
         if(!produits){
             return res.status(404).json({message:"there is no existing orders"})
         }

@@ -32,12 +32,12 @@ export class DatatableOrders extends Component {
             
             for(var i in myData) {    
                 
-                var file = myData[i];   
+                var file = myData[i];    
                 for(var j in myData[i].items){
                     employees.accounting.push({ 
                         "id":file?._id,
                         "product" : file?.items[j]?.title,
-                        
+                        "status":file?.status,
                         "price" : file?.items[j]?.price,
                         "user":file?.user?.firstName,
                         "phone":file?.user?.phone,

@@ -27,14 +27,7 @@ export const MENUITEMS = [
                     { path: '/products/physical/add-product', title: 'Add Product', type: 'link' },
                 ]
             },
-            {
-                title: 'digital', type: 'sub', active: false, children: [
-                    { path: '/products/digital/digital-category', title: 'Category', type: 'link' },
-                    
-                    { path: '/products/digital/digital-product-list', title: 'Product List', type: 'link' },
-                    { path: '/products/digital/digital-add-product', title: 'Add Product', type: 'link' },
-                ]
-            },
+            
         ]
     },
     {
@@ -57,9 +50,11 @@ export const MENUITEMS = [
             { path: '/pages/create-page', title: 'Create Page', type: 'link' },
         ]
     },*/
-    {
+    /**
+     * {
         title: 'Media', path: '/media', icon: Camera, type: 'link', active: false
     },
+     */
     /**
      * {
         title: 'Menus', icon: AlignLeft, type: 'sub', active: false, children: [

@@ -5,6 +5,25 @@ import Tabset_profile from './tabset-profile';
 import Breadcrumb from '../common/breadcrumb';
 
 export class Profile extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            firstname:"",
+            lastname:"",
+            email:"",
+            
+        }
+    }
+    componentDidMount(){
+        
+        const userInfo =JSON.parse(localStorage.getItem("profile"))
+        console.log(userInfo.result)
+        this.setState({email:userInfo.result.email})
+        this.setState({firstname:userInfo.result.firstName})
+        this.setState({lastname:userInfo.result.lastName})
+     this.setState({role:userInfo.result.role})
+
+    }
     render() {
         return (
             <Fragment>
@@ -16,8 +35,8 @@ export class Profile extends Component {
                             <div className="card-body">
                                 <div className="profile-details text-center">
                                     <img src={designer} alt="" className="img-fluid img-90 rounded-circle blur-up lazyloaded" />
-                                    <h5 className="f-w-600 f-16 mb-0">John deo</h5>
-                                    <span>johndeo@gmail.com</span>
+                                    <h5 className="f-w-600 f-16 mb-0">{this.state.firstname}</h5>
+                                    <span>{this.state.email}</span>
                                     <div className="social">
                                         <div className="form-group btn-showcase">
                                             <button className="btn social-btn btn-fb d-inline-block"> <i className="fa fa-facebook"></i></button>

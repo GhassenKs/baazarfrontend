@@ -61,21 +61,14 @@ export const MENUITEMSAD = [
             { path: '/pages/create-page', title: 'Create Page', type: 'link' },
         ]
     },*/
-    {
-        title: 'Media', path: '/media', icon: Camera, type: 'link', active: false
-    },
+   
     {
         title: 'Users', icon: UserPlus, type: 'sub', active: false, children: [
             { path: '/users/list-user', title: 'User List', type: 'link' },
             { path: '/users/create-user', title: 'Create User', type: 'link' },
         ]
     },
-    {
-        title: 'Employees', icon: Users, type: 'sub', active: false, children: [
-            { path: '/vendors/list_vendors', title: 'List employees', type: 'link' },
-            { path: '/vendors/create-vendors', title: 'Create Employee', type: 'link' },
-        ]
-    },
+    
     
     /**
      * {

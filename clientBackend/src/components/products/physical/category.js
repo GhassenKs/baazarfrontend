@@ -14,7 +14,7 @@ export class Category extends Component {
         };
     }
     onOpenModal = () => {
-        this.setState({ open: true });
+        this.props.history.push('/multikart-admin/products/physical/add-product')
     };
     componentDidMount(){
         console.log("i was mounted")
@@ -41,7 +41,7 @@ export class Category extends Component {
                                 <div className="card-body">
                                     <div className="btn-popup pull-right">
 
-                                        <button type="button" className="btn btn-primary" onClick={this.onOpenModal} data-toggle="modal" data-original-title="test" data-target="#exampleModal">Add Category</button>
+                                        <button type="button" className="btn btn-primary" onClick={this.onOpenModal} data-toggle="modal" data-original-title="test" data-target="#exampleModal">Add Product</button>
                                         <Modal open={open} onClose={this.onCloseModal} >
                                             <div className="modal-header">
                                                 <h5 className="modal-title f-w-600" id="exampleModalLabel2">Add Physical Product</h5>

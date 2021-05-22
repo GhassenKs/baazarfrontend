@@ -4,6 +4,20 @@ import data from '../../assets/data/listVendor';
 import DatatableAdmins from '../common/datatableAdmins'
 
 export class List_vendors extends Component {
+
+    componentDidMount(){
+        
+        const userInfo =JSON.parse(localStorage.getItem("profile"))
+        console.log(userInfo.result)
+        
+        
+        if(userInfo.result.role!="super"){
+            
+            this.props.history.push(`${process.env.PUBLIC_URL}/dashboard`);
+        }
+
+    }
+
     render() {
         return (
             <Fragment>

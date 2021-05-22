@@ -195,7 +195,7 @@ export class DatatableProducts extends Component {
                             //put request 
                             axios.put('http://localhost:4000/products/productUpdate',
                              {  _id:row.original._id,
-                                 id:row.original.id,
+                                 
                                 title:row.original.title,
                                 description:row.original.description,
                                 type:row.original.type,

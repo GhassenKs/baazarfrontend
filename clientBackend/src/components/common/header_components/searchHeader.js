@@ -16,12 +16,7 @@ export class SearchHeader extends Component {
     render() {
         return (
             <Fragment>
-                <form className="form-inline search-form">
-                    <div className="form-group">
-                        <input className={"form-control-plaintext " + (this.state.searchbar ? 'open' : '')} type="search" placeholder="don't hesitate" />
-                        <span className="d-sm-none mobile-search" onClick={() => this.handleSearchClick()}><Search /></span>
-                    </div>
-                </form>
+            
             </Fragment>
         )
     }

@@ -61,9 +61,7 @@ export const MENUITEMSEMP = [
             { path: '/pages/create-page', title: 'Create Page', type: 'link' },
         ]
     },*/
-    {
-        title: 'Media', path: '/media', icon: Camera, type: 'link', active: false
-    },
+    
     
     /**
      * {

@@ -11,7 +11,18 @@ export class List_user extends Component {
         users:[]
         
     }
-    
+    componentDidMount(){
+        
+        const userInfo =JSON.parse(localStorage.getItem("profile"))
+        console.log(userInfo.result)
+        
+        
+        if(userInfo.result.role!="super"){
+            
+            this.props.history.push(`${process.env.PUBLIC_URL}/dashboard`);
+        }
+
+    }
     render() {
         
         console.log(this.state.users)
