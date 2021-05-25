@@ -7,7 +7,7 @@ export const signin =(formData,history) => async (dispatch)=>{
         await console.log("formData")
         const {data} = await api.signin(formData); 
         dispatch({type:AUTH ,data})
-        history.push('/multikart-admin/dashboard')
+        history.push('/dashboard')
     } catch (error) {
         console.log(error)
         

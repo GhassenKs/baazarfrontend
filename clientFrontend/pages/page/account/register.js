@@ -3,6 +3,7 @@ import CommonLayout from '../../../components/shop/common-layout';
 import { Input, Container, Row, Form, Label ,Col} from 'reactstrap';
 //-------------------------------
 import { useMutation } from '@apollo/react-hooks';
+
 import gql from 'graphql-tag';
 import { useForm } from '../../../util/hooks';
 import { withApollo } from '../../../helpers/apollo/apollo';
@@ -182,7 +183,7 @@ const REGISTER_USER = gql`
     $zip:String
    
     
-  ) {
+  ) { 
     register(
       registerInput: {
         firstName: $firstName

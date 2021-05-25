@@ -14,7 +14,7 @@ export class Category extends Component {
         };
     }
     onOpenModal = () => {
-        this.props.history.push('/multikart-admin/products/physical/add-product')
+        this.props.history.push('/products/physical/add-product')
     };
     componentDidMount(){
         console.log("i was mounted")

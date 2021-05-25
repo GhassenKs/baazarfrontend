@@ -23,6 +23,7 @@
     "apollo-link-http": "^1.5.17",
     "axios": "^0.21.1",
     "bootstrap-scss": "^4.5.0",
+    "build": "^0.1.4",
     "firebase": "^7.15.5",
     "graphql": "^15.5.0",
     "graphql-react": "^11.0.1",

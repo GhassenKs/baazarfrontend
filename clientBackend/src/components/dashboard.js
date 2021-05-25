@@ -46,8 +46,8 @@ export class Dashboard extends Component {
                 {
                     lagend: 'none',
                     data: [2.5, 3, 3, 0.9, 1.3, 1.8, 3.8, 1.5],
-                    borderColor: "#ff8084",
-                    backgroundColor: "#ff8084",
+                    borderColor: "#00a8ff",
+                    backgroundColor: "#00a8ff",
                     borderWidth: 2
                 },
                 {
@@ -74,7 +74,7 @@ export class Dashboard extends Component {
             },
             {
                 backgroundColor: "transparent",
-                borderColor: "#ff8084",
+                borderColor: "#00a8ff",
                 data: [0, 30, 40, 10, 86, 40],
             }]
         }
@@ -83,7 +83,7 @@ export class Dashboard extends Component {
             title: "",
             pieHole: 0.35,
             pieSliceBorderColor: "none",
-            colors: ['#ff8084', '#13c9ca', '#a5a5a5'],
+            colors: ['#00a8ff', '#13c9ca', '#a5a5a5'],
             legend: {
                 position: "none"
             },
@@ -104,7 +104,7 @@ export class Dashboard extends Component {
             pieHole: 1,
             slices: [
                 {
-                    color: "#ff8084"
+                    color: "#00a8ff"
                 },
                 {
                     color: "#13c9ca"
@@ -128,7 +128,7 @@ export class Dashboard extends Component {
                 textPosition: 'none', baselineColor: 'transparent',
                 gridlineColor: 'transparent',
             },
-            colors: ['#ff8084'],
+            colors: ['#00a8ff'],
             legend: 'none',
         }
         const LineOptions1 = {

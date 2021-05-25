@@ -7,7 +7,7 @@ import { AlignLeft, Maximize2, Bell, MessageSquare, MoreHorizontal } from 'react
 
 //images
 import logo from '../../../assets/images/dashboard/multikart-logo.png'
-
+ 
 export class Header extends Component {
     constructor(props) {
         super(props);

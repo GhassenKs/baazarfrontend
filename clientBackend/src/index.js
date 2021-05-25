@@ -29,7 +29,7 @@ import thunk from "redux-thunk"
 //Sales
 import Orders from './components/sales/orders';
 import Transactions_sales from './components/sales/transactions-sales';
-
+import *  as serviceWorker from './serviceWorker'
 
 //Pages
 
@@ -109,5 +109,7 @@ class Root extends Component {
 }
 
 ReactDOM.render(<Provider store={store}><Root /></Provider>, document.getElementById('root'));
+
+serviceWorker.register();
 
 
