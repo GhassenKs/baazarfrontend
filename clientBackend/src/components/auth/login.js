@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import LoginTabset from './loginTabset';
 import { ArrowLeft, Sliders } from 'react-feather';
-import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import stats from '../../assets/images/dashboard/stats.png';
 import "slick-carousel/slick/slick.css";
