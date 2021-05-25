@@ -1,8 +1,9 @@
 {
   "name": "multikart-backend",
   "version": "0.1.0",
+  "homepage": "",
   "private": true,
-  "homepage": "./",
+  
   "dependencies": {
     "availity-reactstrap-validation": "^2.7.1",
     "axios": "^0.21.1",
