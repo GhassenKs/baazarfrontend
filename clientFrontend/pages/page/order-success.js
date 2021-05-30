@@ -9,9 +9,6 @@ import jwtDecode from 'jwt-decode';
 
 
 
-const FIND_ORDER = gql`
-    query findOrder($id:String){findOrder(id:$id){id,user{firstName}}}
-`;
 
 const OrderSuccess = () => {
     const cartContext = useContext(CartContext);
