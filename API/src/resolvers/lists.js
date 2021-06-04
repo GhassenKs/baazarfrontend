@@ -7,7 +7,7 @@ module.exports={
         
         async getList()
         {
-            console.log("working")
+            console.log("retrieving lists here")
             try{
                 const lists= await List.find().populate("items").populate("user").exec()
                return lists  
@@ -39,7 +39,7 @@ module.exports={
      
     Mutation:{
             async createList(_,{ListInput:{number,price,items,user,status}},context,info){
-                console.log("workings")
+                console.log("the list was created")
 
                 const newList = new List({
                     number,
@@ -56,6 +56,7 @@ module.exports={
             },
             createListItem: async (_, { productId, listId }) => {
                 try{
+                  console.log("the item was created")
                 console.log(listId)
                   const list = await List.findOne({_id:listId}).populate("items").populate("user").exec();
                   console.log(list)

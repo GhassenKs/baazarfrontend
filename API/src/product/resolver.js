@@ -12,7 +12,7 @@ const resolvers = {
     products: async (root, args, context, info) => {
       var produit =await produits.find({});
       console.log( produits)
-      console.log("working yet")
+    
       const fuse = new Fuse(produit, {
         threshold: 0.6,
         minMatchCharLength: 2,

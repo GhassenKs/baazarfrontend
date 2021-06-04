@@ -219,6 +219,8 @@ router.get( "/admins", async(req,res)=>{
 //start update user admin
 router.put( "/adminUpdate", async(req,res)=>{
     const {firstName,lastName,email,role}= req.body;
+    console.log("i am updated")
+    console.log(req.body)
     try {
         mongoose.set('useFindAndModify', false);
         const updatedAdmin = await Admin.findOneAndUpdate(
