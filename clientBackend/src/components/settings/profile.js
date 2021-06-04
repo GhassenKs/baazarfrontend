@@ -17,7 +17,7 @@ export class Profile extends Component {
     componentDidMount(){
         
         const userInfo =JSON.parse(localStorage.getItem("profile"))
-        console.log(userInfo.result)
+        
         this.setState({email:userInfo.result.email})
         this.setState({firstname:userInfo.result.firstName})
         this.setState({lastname:userInfo.result.lastName})

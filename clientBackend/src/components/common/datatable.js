@@ -3,38 +3,23 @@ import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
-
+import { Pie, Doughnut, Bar, Line } from 'react-chartjs-2';
+import { 
+    pieOptions,  
+    doughnutOption, 
+    lineOptions, 
+    buyOption, 
+    employeeData, 
+    employeeOptions 
+} from '../../constants/chartData'
 export class Datatable extends Component {
     constructor(props) {
         super(props)
         this.state = {
             checkedValues: [],
-            myData: []
+            myData: this.props.myData,
+            payloaded:"done"
         }
-    }
-    componentDidMount(){
-        this.getAllAdmins()
-        console.log(this.props.myData)
-    }
-    getAllAdmins = ()=>{
-        axios.get('http://localhost:4000/admin/admins').then((response)=>{
-            console.log("data was retrieved successfully ")
-            const data = response.data.result;
-            const myData = [...data]
-            
-            this.setState({myData:myData})
-   
-
-          
-            
-           
-
-        }).catch((Error)=>{
-            console.log(Error)
-            console.log("error fetching data ")
-            
-        })
     }
 
     selectRow = (e, i) => {
@@ -47,23 +32,18 @@ export class Datatable extends Component {
             this.setState({
                 checkedValues: this.state.checkedValues
             })
-            console.log(i)
         }
     }
 
     handleRemoveRow = () => {
         const selectedValues = this.state.checkedValues;
         const updatedData = this.state.myData.filter(function (el) {
-            
             return selectedValues.indexOf(el.id) < 0;
         });
         this.setState({
             myData: updatedData
         })
-        console.log("abay")
-        toast.success("Successfully Deleted . ") 
-        
-        
+        toast.success("Successfully Deleted !")
     };
 
     renderEditable = (cellInfo) => {
@@ -89,6 +69,26 @@ export class Datatable extends Component {
     }
 
     render() {
+        const lineData = {
+            labels: ['100', '200', '300', '400', '500', '600', '700', '800'],
+            datasets: [
+                {
+                    lagend: 'none',
+                    data: [2.5, 3, 3, 0.9, 1.3, 1.8, 3.8, 1.5],
+                    borderColor: "#00a8ff",
+                    backgroundColor: "#00a8ff",
+                    borderWidth: 2
+                },
+                {
+                    lagend: 'none',
+                    data: [3.8, 1.8, 4.3, 2.3, 3.6, 2.8, 2.8, 2.8],
+                    borderColor: "#a5a5a5",
+                    backgroundColor: "#a5a5a5",
+                    borderWidth: 2
+                }
+            ]
+        };
+
         const { pageSize, myClass, multiSelectOption, pagination } = this.props;
         const { myData } = this.state
 
@@ -163,21 +163,12 @@ export class Datatable extends Component {
                             <span onClick={() => {
                                 if (window.confirm('Are you sure you wish to delete this item?')) {
                                     let data = myData;
+                                   
                                     data.splice(row.index, 1);
+                                    this.setState({payloaded:row.original})
                                     this.setState({ myData: data });
-                                    //handeling request
-
-                                    console.log(row.original.id)
-                                    axios.put('http://localhost:4000/products/productDelete', { id: row.original.id }).then((response)=>{
-                                        console.log("data was retrieved  ")
-                                    }).catch((Error)=>{
-                                        console.log(Error)
-                                        console.log("error fetching data ")
-            
-                                    })
                                 }
-                                toast.success("Successfully Deleted .. ")
-                               
+                                toast.success("Successfully Deleted !")
 
                             }}>
                                 <i className="fa fa-trash" style={{ width: 35, fontSize: 20, padding: 11, color: '#e4566e' }}
@@ -205,6 +196,8 @@ export class Datatable extends Component {
                     showPagination={pagination}
                 />
                 <ToastContainer />
+                <div><h5></h5></div>
+               
             </Fragment>
         )
     }

@@ -6,13 +6,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
 export class DatatableOrders extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            checkedValues: [],
-            myData: []
+        constructor(props) {
+            super(props)
+            this.state = {
+                checkedValues: [],
+                myData: []
+            }
         }
-    }
     componentDidMount(){
         this.getAllAdmins()
         console.log(this.props.myData)
@@ -48,12 +48,10 @@ export class DatatableOrders extends Component {
                 }
                 
             }
-            console.log(employees.accounting)
-            console.log(myData)
-            let responseInfo = JSON.stringify(employees)
- 
+            
+            
             this.setState({myData:employees.accounting  })
-   
+    
 
           
             

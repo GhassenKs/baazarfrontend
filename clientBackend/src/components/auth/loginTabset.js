@@ -24,10 +24,10 @@ const LoginTabset = () => {
     };
 
     const handleSubmit = (e) =>{
-     // e.preventDefault()
-     //  dispatch(signin(formData,history))
-       //console.log("successfully registered ")
-     localStorage.setItem('profile',`{"result":{"_id":"60ad573fb186ff28d843eb66","firstName":"Ghassen","lastName":"ksouri","email":"admin@admin.com","password":"$2a$12$tnYba.mxEorXQZTyFfYXWuzqqVxC4eKKhNnFnLd.UxuE85kMAik8e","role":"super","id":295,"__v":0},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjoiNjBhZDU3M2ZiMTg2ZmYyOGQ4NDNlYjY2IiwiaWF0IjoxNjIxOTczMTc2LCJleHAiOjE2MjIwMDE5NzZ9.aCy_uYdqZBF_EAsV5AE45lGy7jhjev0p6XmFPnIle3U"}`);
+      e.preventDefault()
+       dispatch(signin(formData,history))
+       console.log("successfully registered ")
+    // localStorage.setItem('profile',`{"result":{"_id":"60ad573fb186ff28d843eb66","firstName":"Ghassen","lastName":"ksouri","email":"admin@admin.com","password":"$2a$12$tnYba.mxEorXQZTyFfYXWuzqqVxC4eKKhNnFnLd.UxuE85kMAik8e","role":"super","id":295,"__v":0},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlkIjoiNjBhZDU3M2ZiMTg2ZmYyOGQ4NDNlYjY2IiwiaWF0IjoxNjIxOTczMTc2LCJleHAiOjE2MjIwMDE5NzZ9.aCy_uYdqZBF_EAsV5AE45lGy7jhjev0p6XmFPnIle3U"}`);
 
     };
     return (

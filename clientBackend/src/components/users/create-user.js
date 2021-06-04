@@ -15,7 +15,7 @@ export class Create_user extends Component {
                                     <h5> Add User</h5>
                                 </div>
                                 <div className="card-body">
-                                    <Tabset_user />
+                                    <Tabset_user /> 
                                 </div>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Breadcrumb from '../components/common/breadcrumb';
 import data from '../assets/data/invoice';
-import Datatable from '../components/common/datatable';
+import Datatable from '../components/common/datatable'; 
 
 export class Invoice extends Component {
     render() {

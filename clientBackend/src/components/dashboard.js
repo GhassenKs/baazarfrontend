@@ -4,10 +4,11 @@ import { Navigation, Box, MessageSquare, Users, Briefcase, CreditCard, ShoppingC
 import CountUp from 'react-countup';
 import { Chart } from "react-google-charts";
 import CanvasJSReact from '../assets/canvas/canvasjs.react';
-
+import axios from 'axios';
+import { Link } from 'react-router-dom'
 import { Pie, Doughnut, Bar, Line } from 'react-chartjs-2';
 import { 
-    pieOptions, 
+    pieOptions,  
     doughnutOption, 
     lineOptions, 
     buyOption, 
@@ -24,7 +25,18 @@ var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 
-export class Dashboard extends Component {
+export class Dashboard extends Component { 
+    constructor(props) {
+        super(props)
+        this.state = {
+            
+            usersN:0,
+            productsN:0,
+            ordersN:0,
+            ordersTotal:0,
+            myData: []
+        }
+    }
     componentWillMount() {
         console.log(process.env.PUBLIC_URL)
         const infos=JSON.parse(localStorage.getItem('profile'))
@@ -33,10 +45,95 @@ export class Dashboard extends Component {
             const { history } = this.props
            
             this.props.history.push(`${process.env.PUBLIC_URL}/`);
-        }
-        
+        }   
+    }
 
+    componentDidMount(){
+        this.getAllUsers()
+        this.getAllProducts()
+        this.getAllOrders()
+       
+    }
+
+    getAllUsers = ()=>{
+        axios.get('http://localhost:4000/admin/users').then((response)=>{
+            
+            const data = response.data.result;
+            const myData = [...data]
+            this.setState({usersN:myData.length})
+            console.log(this.state.usersN)
+            
+        }).catch((Error)=>{
+            console.log(Error)
+            console.log("error fetching data ")
+            
+        })
+    }
+    getAllProducts = ()=>{
+        axios.get('http://localhost:4000/products/products').then((response)=>{
+            
+            const data = response.data.result;
+            const myData = [...data]
+            this.setState({productsN:myData.length})
+          
+
+        }).catch((Error)=>{
+            console.log(Error)
+            console.log("error fetching data ")
+            
+        })
+    }
+    getAllOrders = ()=>{
+        axios.get('http://localhost:4000/products/orders').then((response)=>{
+          
+            const data = response.data.result; 
+            var result = data.toString().split(',');
+            const myData = [...data]
+            
         
+            //lezz go 
+            var employees = {
+                accounting: []
+            };
+            var sum=0 
+            for(var i in myData) {    
+                
+                var file = myData[i];   
+                
+                for(var j in myData[i].items){
+
+                    employees.accounting.push({ 
+                        "id":file?._id,
+                        "product" : file?.items[j]?.title,
+                        "status":file?.status,
+                        "price" : file?.items[j]?.price,
+                        "user":file?.user?.firstName,
+                        "phone":file?.user?.phone,
+                        "city":file?.user?.city,
+                        "date":file?.date
+                        
+                    });
+                    sum+=file?.items[j]?.price
+                    
+                }
+                
+            }
+            
+            this.setState({ordersTotal:sum  })
+            this.setState({ordersN:employees.accounting.length  })
+            this.setState({myData:employees.accounting  })
+            console.log(this.state.myData[0])
+   
+
+          
+            
+           
+
+        }).catch((Error)=>{
+            console.log(Error)
+            console.log("error fetching data ")
+            
+        })
     }
     render() {
 
@@ -183,8 +280,8 @@ export class Dashboard extends Component {
                                         <div className="icons-widgets col-4">
                                             <div className="align-self-center text-center"><Navigation className="font-warning" /></div>
                                         </div>
-                                        <div className="media-body col-8"><span className="m-0">Earnings</span>
-                                            <h3 className="mb-0">$ <CountUp className="counter" end={6659} /><small> This Month</small></h3>
+                                        <div className="media-body col-8"><span className="m-0">Website Users</span>
+                                            <h3 className="mb-0"> <CountUp className="counter" end={this.state.usersN} /><small> total</small></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -198,7 +295,7 @@ export class Dashboard extends Component {
                                             <div className="align-self-center text-center"><Box className="font-secondary" /></div>
                                         </div>
                                         <div className="media-body col-8"><span className="m-0">Products</span>
-                                            <h3 className="mb-0">$ <CountUp className="counter" end={9856} /><small> This Month</small></h3>
+                                            <h3 className="mb-0">$ <CountUp className="counter" end={this.state.productsN} /><small> This Month</small></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -211,8 +308,8 @@ export class Dashboard extends Component {
                                         <div className="icons-widgets col-4">
                                             <div className="align-self-center text-center"><MessageSquare className="font-primary" /></div>
                                         </div>
-                                        <div className="media-body col-8"><span className="m-0">Messages</span>
-                                            <h3 className="mb-0">$ <CountUp className="counter" end={893} /><small> This Month</small></h3>
+                                        <div className="media-body col-8"><span className="m-0">Orders</span>
+                                            <h3 className="mb-0"><CountUp className="counter" end={this.state.ordersN} /><small> This Month</small></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -225,8 +322,8 @@ export class Dashboard extends Component {
                                         <div className="icons-widgets col-4">
                                             <div className="align-self-center text-center"><Users className="font-danger" /></div>
                                         </div>
-                                        <div className="media-body col-8"><span className="m-0">New Vendors</span>
-                                            <h3 className="mb-0">$ <CountUp className="counter" end={45631} /><small> This Month</small></h3>
+                                        <div className="media-body col-8"><span className="m-0">Orders benefits</span>
+                                            <h3 className="mb-0">$ <CountUp className="counter" end={this.state.ordersTotal} /><small> This Month</small></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -256,44 +353,44 @@ export class Dashboard extends Component {
                                                 <tr>
                                                     <th scope="col">Order ID</th>
                                                     <th scope="col">Order Total</th>
-                                                    <th scope="col">Payment Method</th>
-                                                    <th scope="col">Status</th>
+                                                    <th scope="col">status</th>
+                                                    <th scope="col">Order date</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td className="digits">$120.00</td>
-                                                    <td className="font-danger">Bank Transfers</td>
-                                                    <td className="digits">On Way</td>
+                                                    <td>{this.state.myData[0]?.id}</td>
+                                                    <td className="digits">${this.state.myData[0]?.price}</td>
+                                                    <td className="font-primary">{this.state.myData[0]?.status}</td>
+                                                    <td className="digits">{this.state.myData[0]?.date}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>2</td>
-                                                    <td className="digits">$90.00</td>
-                                                    <td className="font-secondary">Ewallets</td>
-                                                    <td className="digits">Delivered</td>
+                                                    <td>{this.state.myData[1]?.id}</td>
+                                                    <td className="digits">${this.state.myData[1]?.price}</td>
+                                                    <td className="font-primary">{this.state.myData[1]?.status}</td>
+                                                    <td className="digits">{this.state.myData[1]?.date}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>3</td>
-                                                    <td className="digits">$240.00</td>
-                                                    <td className="font-warning">Cash</td>
-                                                    <td className="digits">Delivered</td>
+                                                    <td>{this.state.myData[2]?.id}</td>
+                                                    <td className="digits">${this.state.myData[2]?.price}</td>
+                                                    <td className="font-primary">{this.state.myData[2]?.status}</td>
+                                                    <td className="digits">{this.state.myData[2]?.date}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>4</td>
-                                                    <td className="digits">$120.00</td>
-                                                    <td className="font-primary">Direct Deposit</td>
-                                                    <td className="digits">$6523</td>
+                                                    <td>{this.state.myData[3]?.id}</td>
+                                                    <td className="digits">${this.state.myData[3]?.price}</td>
+                                                    <td className="font-primary">{this.state.myData[3]?.status}</td>
+                                                    <td className="digits">{this.state.myData[3]?.date}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>5</td>
-                                                    <td className="digits">$50.00</td>
-                                                    <td className="font-primary">Bank Transfers</td>
-                                                    <td className="digits">Delivered</td>
+                                                    <td>{this.state.myData[4]?.id}</td>
+                                                    <td className="digits">${this.state.myData[4]?.price}</td>
+                                                    <td className="font-primary">{this.state.myData[4]?.status}</td>
+                                                    <td className="digits">{this.state.myData[4]?.date}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <a href="javascript:void(0)" className="btn btn-primary">View All Orders</a>
+                                        <Link to="/sales/orders" className="btn btn-primary">View All Orders</Link>
                                     </div>
                                 </div>
                             </div>

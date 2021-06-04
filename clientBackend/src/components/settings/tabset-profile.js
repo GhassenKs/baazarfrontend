@@ -1,31 +1,67 @@
-import React, { Component } from 'react';
+import React, { Component,Fragment } from 'react';
+import { useContext, useState, useEffect } from "react";
 import { Tabs, TabList, TabPanel, Tab } from 'react-tabs';
-import {User,Settings} from 'react-feather'
+import {User,Settings} from 'react-feather';
+import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
+const initialState = {emailU:'',roleU:'',firstNameU:'',lastNameU:''}
+const  Tabset_profile =()=> { 
+    const [firstName,setFirstName] = useState("")
+    const [lastName,setlastName] = useState("")
+    const [email,setemail] = useState("")
+    const [role,setRole] = useState("")
+    const [formData,setFormData] = useState(initialState)
+   
 
-export class Tabset_profile extends Component { 
-    constructor(props) {
-        super(props)
-        this.state = {
-            firstname:"",
-            lastname:"",
-            email:"",
-            role:"",
-        }
-    }
-    componentDidMount(){
-        
+    useEffect(() => {
         const userInfo =JSON.parse(localStorage.getItem("profile"))
-        console.log(userInfo.result)
-        this.setState({email:userInfo.result.email})
-        this.setState({firstname:userInfo.result.firstName})
-        this.setState({lastname:userInfo.result.lastName})
-        this.setState({role:userInfo.result.role})
+        setFirstName( userInfo.result.firstName);
+        setlastName( userInfo.result.lastName );
+        setemail(userInfo.result.email);
+        setRole(userInfo.result.role)
+       
+    }, [])
 
-    }
+    const handleChange = (e) =>{
+        setFormData({ ...formData,[e.target.name]:e.target.value})
         
+    };
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+
+        
+        
+        updateAdmin()
+    };
+    const  updateAdmin = ()=>{
+        const userInfo =JSON.parse(localStorage.getItem("profile"))
+        axios.put('http://localhost:4000/admin/adminUpdate',{
+             email: userInfo.result.email,
+             firstName:formData.firstNameU,
+             lastName:formData.lastNameU,
+             role:"super",
+             
+            
+            }).then((response)=>{
+            console.log("data was sent successfully ")
+            toast.success("successfully added employee");
+            console.log(formData)
+            
+   
+
+          
+            
+           
+
+        }).catch((Error)=>{
+            console.log(Error)
+            console.log("error sending data ")
+            toast.error("bad server request");
+            
+        })
+    }
     
-    
-    render() {
+
         return (
             <div>
                 <Tabs>
@@ -42,19 +78,19 @@ export class Tabset_profile extends Component {
                                     <tbody>
                                         <tr>
                                             <td>First Name:</td>
-                                            <td>{this.state.firstname}</td>
+                                            <td>{firstName}</td>
                                         </tr>
                                         <tr>
                                             <td>Last Name:</td>
-                                            <td>{this.state.lastname}</td>
+                                            <td>{lastName}</td>
                                         </tr>
                                         <tr>
                                             <td>Email:</td>
-                                            <td>{this.state.email}</td>
+                                            <td> {email} </td>
                                         </tr>
                                         <tr>
                                             <td>Role:</td>
-                                            <td>{this.state.role}</td>
+                                            <td>{role} </td>
                                         </tr>
                                         
                                         
@@ -68,77 +104,44 @@ export class Tabset_profile extends Component {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        {/* <div className="tab-pane fade"> */}
-                            <div className="account-setting">
-                                
-                                <h5 className="f-w-600 f-16">Notifications</h5>
-                                <div className="row">
-                                    <div className="col">
-                                        <label className="d-block" >
-                                            <input className="checkbox_animated" id="chk-ani" type="checkbox" defaultChecked />
-                                            Allow Desktop Notifications
-                                                    </label>
-                                        <label className="d-block">
-                                            <input className="checkbox_animated" id="chk-ani1" type="checkbox" />
-                                            Enable Notifications
-                                                    </label>
-                                        <label className="d-block">
-                                            <input className="checkbox_animated" id="chk-ani2" type="checkbox" />
-                                            Get notification for my own activity
-                                                    </label>
-                                        <label className="d-block mb-0" >
-                                            <input className="checkbox_animated" id="chk-ani3" type="checkbox" defaultChecked />
-                                            DND
-                                                    </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="account-setting deactivate-account">
-                                <h5 className="f-w-600 f-16">Deactivate Account</h5>
-                                <div className="row">
-                                    <div className="col">
-                                        <label className="d-block" >
-                                            <input className="radio_animated" id="edo-ani" type="radio" name="rdo-ani" defaultChecked />
-                                            I have a privacy concern
-                                                    </label>
-                                        <label className="d-block" >
-                                            <input className="radio_animated" id="edo-ani1" type="radio" name="rdo-ani" />
-                                            This is temporary
-                                                    </label>
-                                        <label className="d-block mb-0" >
-                                            <input className="radio_animated" id="edo-ani2" type="radio" name="rdo-ani" defaultChecked />
-                                            Other
-                                                    </label>
-                                    </div>
-                                </div>
-                                <button type="button" className="btn btn-primary">Deactivate Account</button>
-                            </div>
-                            <div className="account-setting deactivate-account">
-                                <h5 className="f-w-600 f-16">Delete Account</h5>
-                                <div className="row">
-                                    <div className="col">
-                                        <label className="d-block" >
-                                            <input className="radio_animated" id="edo-ani3" type="radio" name="rdo-ani1" defaultChecked />
-                                            No longer usable
-                                                    </label>
-                                        <label className="d-block">
-                                            <input className="radio_animated" id="edo-ani4" type="radio" name="rdo-ani1" />
-                                            Want to switch on other account
-                                                    </label>
-                                        <label className="d-block mb-0">
-                                            <input className="radio_animated" id="edo-ani5" type="radio" name="rdo-ani1" defaultChecked />
-                                            Other
-                                                    </label>
-                                    </div>
-                                </div>
-                                <button type="button" className="btn btn-primary">Delete Account</button>
-                            </div>
-                        {/* </div> */}
+                    <Fragment>
+            <ToastContainer />
+            <Tabs>
+                <TabList className="nav nav-tabs tab-coupon" >
+                    <Tab className="nav-link">Account</Tab>
+                   
+                </TabList>
+                <TabPanel>
+                    <form className="needs-validation user-add" noValidate="" onSubmit={handleSubmit}>
+                        <h4>Account Details</h4>
+                        <div className="form-group row">
+                            <label className="col-xl-3 col-md-4"><span>*</span> First Name</label>
+                            <input className="form-control col-xl-8 col-md-7" id="validationCustom0"  name="firstNameU" onChange={handleChange} type="text" required="" />
+                        </div>
+                        <div className="form-group row">
+                            <label className="col-xl-3 col-md-4"><span>*</span> Last Name</label>
+                            <input className="form-control col-xl-8 col-md-7" id="validationCustom1" name="lastNameU" onChange={handleChange} type="text" required="" />
+                        </div>
+                        <div className="form-group row">
+                            <label className="col-xl-3 col-md-4"><span>*</span> Email</label>
+                            <input className="form-control col-xl-8 col-md-7" id="validationCustom2" name="emailU" onChange={handleChange} type="text" required="" />
+                        </div>
+                        
+                        
+                        <div className="pull-right">
+                          <button type="button" type="submit"  className="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </TabPanel> 
+               
+            </Tabs>
+            
+        </Fragment>
                     </TabPanel>
                 </Tabs>
             </div>
         )
-    }
-}
+    
+};
 
 export default Tabset_profile
